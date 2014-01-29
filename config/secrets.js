@@ -1,5 +1,5 @@
 module.exports = {
-  db: 'localhost',
+  db: 'mongodb://localhost:27017/dev',
 
   sendgrid: {
     user: 'Your SendGrid Username',
@@ -16,8 +16,8 @@ module.exports = {
   },
 
   facebook: {
-    clientID: 'Your App ID',
-    clientSecret: 'Your App Secret',
+    clientID: '180753358802391',
+    clientSecret: '4af2e11d5044f8857bbc6e289dd3d79d',
     callbackURL: '/auth/facebook/callback',
     passReqToCallback: true
   },

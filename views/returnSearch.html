@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+	{% block appScripts %}
+	{% endblock %}
+
+	{% block center %}
+	<ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		{% for track in trackSet %}
+		{# {{track.seq}}, {{track.permachunk}}, {{track.permalink}}, {{track.trackTitle}}, {{track.albumArtURI}}, {{track.username}}, {{track.playCount}}, {{track.published}} #}
+		<li class="track" style="display:none">
+			<a id type="audio/mp3" href="{{track.permachunk}}">
+				<div class="leftPanel"></div>
+				<div class="centerPanel">
+					<img src="{{track.albumArtURI}}" width="100" height="100" class="art img-thumbnail">
+					<div class="trackTitleNUsername">
+						<p class="h3 trackTitle">{{track.trackTitle}}</p>
+						<p class="h4 username">{{track.username}}</p>
+					</div>
+				</div>
+				<div class="rightPanel">
+					<div class="meta">
+						<p class="h5 date">{{track.published}} ago</p>
+						<p class="h5 playCount">{{track.playCount}}</p>
+					</div>
+				</div>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endblock %}	
+
+	{% block clientSideScripts %}
+	{% include 'snippets/jquery.html' %}
+	{% include 'snippets/SM2Scripts.html' %}
+	{% include 'snippets/miscDOMScripts.html' %} {# SoundCloud API queries; keybindings #}
+	<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  {% endblock %}

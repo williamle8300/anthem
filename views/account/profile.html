@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block center %}
+  {% if error.length %}
+  <div class="alert alert-danger animated fadeIn">
+    <button class="close" data-dismiss="alert">×</button>
+    {{error}}
+	</div>
+	{% endif %}
+  {% if success.length %}
+  <div class="alert alert-success animated fadeInUp">
+    <button class="close" data-dismiss="alert">×</button>
+    <i class="fa fa-check"></i>
+    {{success}}
+	</div>
+	{% endif %}
+
+  <div class="page-header">
+    <h3>Profile Information</h3>
+	</div>
+	
+  <form class="form-horizontal" action="/account/profile" method="POST">
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="email">Email</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="email" name="email" id="email" value="{{user.email}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="name">Name</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="name" id="name" value="{{user.profile.name}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="name">Gender</label>
+      <div class="col-xs-4">
+        <label class="radio">
+          <input type="radio" checked="{{'male' if user.profile.gender else undefined}}" name="gender" value="male" data-toggle="radio">
+          Male
+				</label>
+        <label class="radio">
+          <input type="radio" checked="{{'female' if user.profile.gender else undefined}}" name="gender" value="female" data-toggle="radio">
+          Female
+				</label>
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="location">Location</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="location" id="location" value="{{user.profile.location}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="website">Website</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="website" id="website" value="{{user.profile.website}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-4">
+        <button class="btn btn btn-primary" type="submit">Update Profile</button>
+			</div>
+		</div>
+	</form>
+
+  <div class="page-header">
+    <h3>Change Password</h3>
+	</div>
+	
+  <form class="form-horizontal" action="/account/password" method="POST">
+    <div class="form-group">
+      <label class="col-xs-3 control-label" for="password">New Password</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="password" name="password" id="password">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-3 control-label" for="confirmPassword">Confirm Password</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="password" name="confirmPassword" id="confirmPassword">
+			</div>
+		</div>
+    <div class="form-group">
+      <div class="col-xs-offset-3 col-xs-4">
+        <button class="btn btn btn-primary" type="submit">Change Password</button>
+			</div>
+		</div>
+	</form>
+
+  <div class="page-header">
+    <h3>Delete Account</h3>
+	</div>
+	
+  <p>You can delete your account, but keep in mind this action is irreversible.</p>
+  <form action="/account/delete" method="POST">
+    <button class="btn btn-danger" type="submit">Delete my account</button>
+	</form>
+	
+  <div class="page-header">
+    <h3>Linked Accounts</h3>
+	</div>
+	
+  {% if user.google %}
+    <p><a class="text-danger" href="/account/unlink/google">Unlink your Google account</a></p>
+  {% else %}
+    <p><a href="/auth/google">Link your Google account</a></p>
+	{% endif %}
+
+  {% if user.facebook %}
+    <p><a class="text-danger" href="/account/unlink/facebook">Unlink your Facebook account</a></p>
+  {% else %}
+    <p><a href="/auth/facebook">Link your Facebook account</a></p>
+	{% endif %}
+
+  {% if user.twitter %}
+    <p><a class="text-danger" href="/account/unlink/twitter">Unlink your Twitter account</a></p>
+  {% else %}
+    <p><a href="/auth/twitter">Link your Twitter account</a></p>
+	{% endif %}
+
+  {% if user.github %}
+    <p><a class="text-danger" href="/account/unlink/github">Unlink your GitHub account</a></p>
+  {% else %}
+    <p><a href="/auth/github">Link your GitHub account</a></p>
+	{% endif %}
+		
+{% endblock %}

@@ -3,19 +3,20 @@
  */
 
 var express = require('express');
-var fs = require('fs');
 var flash = require('connect-flash');
 var less = require('less-middleware');
 var path = require('path');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
+var nunjucks = require('nunjucks');
 
+var bL = require('bL');
 
 /**
  * Load controllers.
  */
-
+var testController = require('./controllers/test');
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
@@ -34,7 +35,7 @@ var passportConf = require('./config/passport');
 
 mongoose.connect(secrets.db);
 mongoose.connection.on('error', function() {
-  console.log('← MongoDB Connection Error →');
+  console.log('-MongoDB Connection Error-');
 });
 
 var app = express();
@@ -43,9 +44,10 @@ var app = express();
  * Express configuration.
  */
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
+nunjucks.configure('views', {autoescape: true, express: app});
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.cookieParser());
@@ -56,23 +58,21 @@ app.use(express.methodOverride());
 app.use(express.session({ secret: 'your secret code' }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(function(req, res, next) {
-  res.locals.user = req.user;
-  next();
-});
+app.use(function(req, res, next) { res.locals.user = req.user; next(); });
 app.use(flash());
 app.use(less({ src: __dirname + '/public', compress: true }));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res) {
-  res.status(404);
-  res.render('404');
-});
+app.use(function(req, res) { res.status(404); res.render('404'); });
 app.use(express.errorHandler());
 
 /**
  * Application routes.
  */
+
+app.get('/test', testController.index);
+app.post('/runSearch', testController.runSearch);
+app.get('/search/:query', testController.returnSearch(bL.scrape));
 
 app.get('/', homeController.index);
 app.get('/login', userController.getLogin);

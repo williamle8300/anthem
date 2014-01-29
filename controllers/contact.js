@@ -7,7 +7,7 @@ var sendgrid  = require('sendgrid')(secrets.sendgrid.user, secrets.sendgrid.pass
  */
 
 exports.getContact = function(req, res) {
-  res.render('contact', {
+  res.render('contact.html', {
     title: 'Contact',
     success: req.flash('success'),
     errors: req.flash('errors')

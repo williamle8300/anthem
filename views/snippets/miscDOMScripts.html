@@ -1,0 +1,77 @@
+
+<script type="text/javascript" charset="utf-8"> //keybindings to control SoundManager. deps: jQ
+window.keyCodeInfo = function(e) {
+	var info = {}, target = $(e.target) || $(e.srcElement);
+	if (!e) {
+		e = window.event;
+	}
+	info.code = e.keyCode ? e.keyCode : e.which;
+	info.shortcut = e.ctrlKey || e.altKey || e.metaKey;
+	info.shiftKey = !! e.shiftKey;
+	info.textarea = target.is('input') || target.is('textarea');
+	return info;
+};
+$(window).bind('keyup', function(e) {
+	var keyInfo = keyCodeInfo(e);
+	if (!keyInfo.shortcut && !keyInfo.textarea) {
+		if (keyInfo.code == 191 && keyInfo.shiftKey) {
+			//toggleShowKeyboardShortcuts();
+			return false;
+		}
+		if (keyInfo.code == 39) {//next track
+			pagePlayer.playNext();
+			return false;
+		}
+		if (keyInfo.code == 37) {//previous
+			pagePlayer.playPrevious();
+			return false;
+		}
+		if (keyInfo.code == 16) {//toggle the play state; whether there is a queued track or playing first track
+			var qed = $('li.sm2_playing a, li.sm2_paused a').attr('id');
+			if(qed){soundManager.togglePause(qed);}
+			else{
+				var firstTrack = $('ul.playlist li:first a')[0];
+				pagePlayer.handleClick({target:firstTrack});
+			}
+			return false;
+		}
+		if (keyInfo.code == 51 && keyInfo.shiftKey) {//'?' shows shortcuts
+			//focus $('#query')
+			return false;
+		}
+	}
+});
+</script>
+
+<script type="text/javascript" charset="utf-8"> //communicate with SoundCloud API
+var tracks = document.querySelectorAll('li.track'),
+	trackHREFs = document.querySelectorAll('li.track a'),
+	trackSet = tracks.length,
+	permachunks = [];
+
+for(var i = 0; i<trackSet; i++){
+	permachunks[i] = trackHREFs.item(i).getAttribute('href');
+	SCResolve(permachunks, i);
+}
+
+function SCResolve(permachunks, i) {
+	var xhr = new XMLHttpRequest(),
+		permalink = 'http://soundcloud.com' +permachunks[i],
+		CLIENT_ID = '212b7a5080f5d7f8e831583446771a02',
+		URI = 'http://api.soundcloud.com/resolve.json?url=' +permalink+ '&client_id=' +CLIENT_ID;
+
+	xhr.onreadystatechange = function() {        
+	  if (this.readyState == 4) {											
+			var track = JSON.parse(this.responseText);
+			console.log(track);
+			if (track.streamable){
+				trackHREFs.item(i).id = 'track' +track.id; //serialize each with `track.id`
+				trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
+				tracks.item(i).style.display = 'block'; //then, reveal to user
+			}
+	  }
+	};
+	xhr.open("GET", URI);
+	xhr.send();
+}
+</script>

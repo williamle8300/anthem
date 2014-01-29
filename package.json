@@ -15,6 +15,7 @@
     "less-middleware": "~0.1.15",
     "mongoose": "~3.8.5",
     "node-foursquare": "~0.2.0",
+    "nunjucks": "*",
     "passport": "~0.2.0",
     "passport-facebook": "~1.0.2",
     "passport-github": "~0.1.5",
@@ -24,6 +25,7 @@
     "passport-twitter": "~1.0.2",
     "request": "~2.33.0",
     "sendgrid": "~0.4.6",
+    "spooky": "*",
     "tumblr.js": "~0.0.4",
     "twit": "~1.1.12",
     "underscore": "~1.5.2"

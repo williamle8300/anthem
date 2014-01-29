@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+
+  <title>{{ title }}</title>
+	
+	{% block appScripts %}
+	{% endblock %}
+	
+	<link rel="stylesheet" href="/css/lib/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/css/lib/animate.css"/>
+	<link rel="stylesheet" href="/css/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible", content="IE=edge">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	</head>
+  
+	<body>
+
+		{% block nav %}
+	  <div class="navigation container">
+			<div class="row">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+	        <h1 class="logo"><a href="/">{{title}}</a></h1>
+				</div><!-- / -->
+				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				  <form id="search" class="jumbo-search" role="form" name="search" method="post" action="/runSearch">
+						<div class="form-group">
+							<input id="query" class="form-control" type="text" placeholder="{% if query %}'{{query}}'{% else %}Search{% endif %}" name="query" />
+						</div>
+					  <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
+				  </form>
+				</div>
+			</div><!-- /.row -->
+	  </div>
+		{% endblock %}
+
+	  <div class="main container">
+
+			<!-- Login/CreateAccount/Profile-->
+      <ul class="nav navbar-nav navbar-right">
+        {% if user %}
+        <li class="dropdown {{'active' if title == 'Account Management' else undefined}}">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            {% if user.profile.picture %}
+            <img src="{{user.profile.picture | user.id}}"/>
+						{% endif %}
+            {{user.profile.name}}&nbsp;
+            <i class="caret"></i>
+					</a>
+          <ul class="dropdown-menu">
+            <li>
+            	<a href="/account">My Account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+            	<a href="/logout">Logout</a>
+            </li>
+				</li>
+        {% else %}
+        <li class="{{'active' if title == 'Login' else undefined}}">
+          <a href="/login">Login</a>
+				</li>
+        <li class="{{"active" if title == "Create Account" else undefined}}">
+          <a href="/signup">Create Account</a>
+				</li>
+				{% endif %}
+			</ul><!-- Login/CreateAccount/Profile-->
+			                                                                                                                                   {#w00t#}
+			{% block center %}                                                                                                                 {#w00t#}
+	  	{% endblock %}                                                                                                                     {#w00t#}
+
+		</div>
+
+	  {% block clientSideScripts %}
+		{% include 'snippets/jquery.html' %}
+		<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
+	  {% endblock %}
+  
+</body>
+</html>
