@@ -5,6 +5,6 @@
 
 exports.index = function(req, res) {
   res.render('home.html', {
-    title: 'Home'
+    title: 'On Repeat'
   });
 };

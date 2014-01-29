@@ -36,12 +36,12 @@
       <label class="col-xs-2 control-label" for="name">Gender</label>
       <div class="col-xs-4">
         <label class="radio">
-          <input type="radio" checked="{{'male' if user.profile.gender else undefined}}" name="gender" value="male" data-toggle="radio">
-          Male
+          <input type="radio" {{"checked" if user.profile.gender == "female" else undefined}} name="gender" value="female" data-toggle="radio">
+          Female
 				</label>
         <label class="radio">
-          <input type="radio" checked="{{'female' if user.profile.gender else undefined}}" name="gender" value="female" data-toggle="radio">
-          Female
+          <input type="radio" {{"checked" if user.profile.gender == "male" else undefined}} name="gender" value="male" data-toggle="radio">
+          Male
 				</label>
 			</div>
 		</div>

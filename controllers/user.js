@@ -11,7 +11,7 @@ var User = require('../models/User');
 exports.getLogin = function(req, res) {
   if (req.user) return res.redirect('/');
   res.render('account/login.html', {
-    title: 'Login',
+    title: 'On Repeat',
     errors: req.flash('errors')
   });
 };
@@ -24,7 +24,7 @@ exports.getLogin = function(req, res) {
 exports.getSignup = function(req, res) {
   if (req.user) return res.redirect('/');
   res.render('account/signup.html', {
-    title: 'Create Account',
+    title: 'On Repeat',
     errors: req.flash('errors')
   });
 };
@@ -36,7 +36,7 @@ exports.getSignup = function(req, res) {
 
 exports.getAccount = function(req, res) {
   res.render('account/profile.html', {
-    title: 'Account Management',
+    title: 'On Repeat',
     success: req.flash('success'),
     error: req.flash('error')
   });

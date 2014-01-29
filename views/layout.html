@@ -2,7 +2,7 @@
 <html>
   <head>
 
-  <title>{{ title }}</title>
+  <title>{{title}}</title>
 	
 	{% block appScripts %}
 	{% endblock %}
@@ -46,9 +46,9 @@
         <li class="dropdown {{'active' if title == 'Account Management' else undefined}}">
           <a class="dropdown-toggle" href="#" data-toggle="dropdown">
             {% if user.profile.picture %}
-            <img src="{{user.profile.picture | user.id}}"/>
+            <img src="{{user.profile.picture}}"/>
 						{% endif %}
-            {{user.profile.name}}&nbsp;
+            {{user.profile.name if user.profile.name else user.id}}&nbsp;
             <i class="caret"></i>
 					</a>
           <ul class="dropdown-menu">
@@ -69,10 +69,10 @@
 				</li>
 				{% endif %}
 			</ul><!-- Login/CreateAccount/Profile-->
-			                                                                                                                                   {#w00t#}
-			{% block center %}                                                                                                                 {#w00t#}
-	  	{% endblock %}                                                                                                                     {#w00t#}
-
+			                                                                                                                                   
+			{% block center %}                                        {#everything goes in 'center'#}                                                                         
+	  	{% endblock %}                                            {#everything goes in 'center'#}                                                                         
+                                                                {#everything goes in 'center'#}
 		</div>
 
 	  {% block clientSideScripts %}

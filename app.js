@@ -1,3 +1,16 @@
+/*
+
+mongod
+
+cd ~/Desktop/onRepeat2/public/css/lib/bootstrap
+grunt watch
+
+cd ~/Desktop/onRepeat2/
+nodemon app.js
+
+*/
+
+
 /**
  * Module dependencies.
  */
@@ -16,7 +29,7 @@ var bL = require('bL');
 /**
  * Load controllers.
  */
-var testController = require('./controllers/test');
+var search_ingController = require('./controllers/search_ing');
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
@@ -46,7 +59,6 @@ var app = express();
 
 app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
 nunjucks.configure('views', {autoescape: true, express: app});
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -70,33 +82,21 @@ app.use(express.errorHandler());
  * Application routes.
  */
 
-app.get('/test', testController.index);
-app.post('/runSearch', testController.runSearch);
-app.get('/search/:query', testController.returnSearch(bL.scrape));
-
+//Home
 app.get('/', homeController.index);
+
+//search_ing
+app.post('/runSearch', search_ingController.runSearch);                             //searching.js
+app.get('/search/:query', search_ingController.returnSearch(bL.scrape));            //searching.js
+
+//LoginandSignUps
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);
 app.get('/signup', userController.getSignup);
 app.post('/signup', userController.postSignup);
-app.get('/contact', contactController.getContact);
-app.post('/contact', contactController.postContact);
-app.get('/account', passportConf.isAuthenticated, userController.getAccount);
-app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
-app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
-app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
-app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
-app.get('/api', apiController.getApi);
-app.get('/api/foursquare', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getFoursquare);
-app.get('/api/tumblr', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTumblr);
-app.get('/api/facebook', passportConf.isAuthenticated, apiController.getFacebook);
-app.get('/api/scraping', apiController.getScraping);
-app.get('/api/github', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getGithub);
-app.get('/api/lastfm', apiController.getLastfm);
-app.get('/api/nyt', apiController.getNewYorkTimes);
-app.get('/api/twitter', passportConf.isAuthenticated, apiController.getTwitter);
-app.get('/api/aviary', apiController.getAviary);
+
+//LoginViaOAuth2
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/github', passport.authenticate('github'));
@@ -109,6 +109,29 @@ app.get('/auth/foursquare', passport.authorize('foursquare'));
 app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/foursquare'); });
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
+
+//AuthdUser
+app.get('/account', passportConf.isAuthenticated, userController.getAccount);
+app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
+app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
+app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
+app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
+
+//ContactUsPage
+app.get('/contact', contactController.getContact);
+app.post('/contact', contactController.postContact);
+
+//API
+app.get('/api', apiController.getApi);
+app.get('/api/foursquare', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getFoursquare);
+app.get('/api/tumblr', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTumblr);
+app.get('/api/facebook', passportConf.isAuthenticated, apiController.getFacebook);
+app.get('/api/scraping', apiController.getScraping);
+app.get('/api/github', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getGithub);
+app.get('/api/lastfm', apiController.getLastfm);
+app.get('/api/nyt', apiController.getNewYorkTimes);
+app.get('/api/twitter', passportConf.isAuthenticated, apiController.getTwitter);
+app.get('/api/aviary', apiController.getAviary);
 
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));

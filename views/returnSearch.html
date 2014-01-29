@@ -32,6 +32,7 @@
 	{% block clientSideScripts %}
 	{% include 'snippets/jquery.html' %}
 	{% include 'snippets/SM2Scripts.html' %}
-	{% include 'snippets/miscDOMScripts.html' %} {# SoundCloud API queries; keybindings #}
-	<script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+	{% include 'snippets/miscDOMScripts.html' %} {# SoundCloud API queries; keyboard shortcuts #}
+	<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
   {% endblock %}
