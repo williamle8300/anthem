@@ -1,0 +1,74 @@
+/* iCheck plugin Square skin, blue
+----------------------------------- */
+.icheckbox_square-blue,
+.iradio_square-blue {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(blue@2x.png) no-repeat;
+    -webkit-background-size: 240px 24px;
+    background-size: 240px 24px;
+    border: none;
+    cursor: pointer;
+		/*http://www.useragentman.com/IETransformsTranslator/ [zoom1.5; 22px by 22px]*/
+		 -moz-transform:    scale(1.5);
+		 -o-transform:      scale(1.5);
+		 -webkit-transform: scale(1.5);
+		 transform:         scale(1.5);
+		 /* IE8+ - must be on one line, unfortunately */ 
+	   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.5, M12=0, M21=0, M22=1.5, SizingMethod='auto expand')";
+	   /* IE6 and 7 */ 
+	   filter: progid:DXImageTransform.Microsoft.Matrix(
+	     M11=1.5,
+	     M12=0,
+	     M21=0,
+	     M22=1.5,
+	     SizingMethod='auto expand');
+	   margin-left: -9px; 
+	   margin-top: -9px;
+}
+
+.iradio_square-blue {
+    background-position: 0 0;
+}
+    .iradio_square-blue.hover {
+        background-position: -24px 0;
+    }
+    .iradio_square-blue.checked {
+        background-position: -48px 0;
+    }
+    .iradio_square-blue.disabled {
+        background-position: -72px 0;
+        cursor: default;
+    }
+    .iradio_square-blue.checked.disabled {
+        background-position: -96px 0;
+    }
+
+.icheckbox_square-blue {
+    background-position: -120px 0;
+}
+    .icheckbox_square-blue.hover {
+        background-position: -144px 0;
+    }
+    .icheckbox_square-blue.checked {
+        background-position: -168px 0;
+    }
+    .icheckbox_square-blue.disabled {
+        background-position: -192px 0;
+        cursor: default;
+    }
+    .icheckbox_square-blue.checked.disabled {
+        background-position: -216px 0;
+    }
+
+/* Retina support */
+
+    .icheckbox_square-blue,
+    .iradio_square-blue {
+        background-image: url(blue@2x.png);
+    }

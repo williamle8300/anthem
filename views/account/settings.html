@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block mid1 %}
+<form id="search" class="jumbo-search" role="form" name="search" method="post" action="/runSearch">
+	<div class="form-group">
+		<input disabled style="border:none;-webkit-box-shadow: none;box-shadow: none;cursor:auto;" id="query" class="form-control" type="text" placeholder="{{ query if query else title }}" name="query" />
+	</div>
+  <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
+</form>
+{% endblock %}
+
+
+{% block center %}
+  {% if error.length %}
+  <div class="alert alert-danger animated fadeIn">
+    <button class="close" data-dismiss="alert">×</button>
+    {{error}}
+	</div>
+	{% endif %}
+  {% if success.length %}
+  <div class="alert alert-success animated fadeInUp">
+    <button class="close" data-dismiss="alert">×</button>
+    <i class="fa fa-check"></i>
+    {{success}}
+	</div>
+	{% endif %}
+
+  <div class="page-header">
+    <h3>Profile Information</h3>
+	</div>
+	
+  <form class="form-horizontal" action="/settings/profile" method="POST">
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="email">Email</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="email" name="email" id="email" value="{{user.email}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="name">Name</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="name" id="name" value="{{user.profile.name}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="name">Gender</label>
+      <div class="col-xs-4">
+        <label class="radio">
+          <input type="radio" {{"checked" if user.profile.gender == "female" else undefined}} name="gender" value="female" data-toggle="radio">
+          Female
+				</label>
+        <label class="radio">
+          <input type="radio" {{"checked" if user.profile.gender == "male" else undefined}} name="gender" value="male" data-toggle="radio">
+          Male
+				</label>
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="location">Location</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="location" id="location" value="{{user.profile.location}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="website">Website</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="website" id="website" value="{{user.profile.website}}">
+			</div>
+		</div>
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-4">
+        <button class="btn btn btn-primary" type="submit">Update Profile</button>
+			</div>
+		</div>
+	</form>
+
+  <div class="page-header">
+    <h3>Change Password</h3>
+	</div>
+	
+  <form class="form-horizontal" action="/settings/password" method="POST">
+    <div class="form-group">
+      <label class="col-xs-3 control-label" for="password">New Password</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="password" name="password" id="password">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-xs-3 control-label" for="confirmPassword">Confirm Password</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="password" name="confirmPassword" id="confirmPassword">
+			</div>
+		</div>
+    <div class="form-group">
+      <div class="col-xs-offset-3 col-xs-4">
+        <button class="btn btn btn-primary" type="submit">Change Password</button>
+			</div>
+		</div>
+	</form>
+
+  <div class="page-header">
+    <h3>Delete Account</h3>
+	</div>
+	
+  <p>You can delete your account, but keep in mind this action is irreversible.</p>
+  <form action="/settings/delete" method="POST">
+    <button class="btn btn-danger" type="submit">Delete my account</button>
+	</form>
+	
+  <div class="page-header">
+    <h3>Linked Accounts</h3>
+	</div>
+	
+  {% if user.google %}
+    <p><a class="text-danger" href="/settings/unlink/google">Unlink your Google account</a></p>
+  {% else %}
+    <p><a href="/auth/google">Link your Google account</a></p>
+	{% endif %}
+
+  {% if user.facebook %}
+    <p><a class="text-danger" href="/settings/unlink/facebook">Unlink your Facebook account</a></p>
+  {% else %}
+    <p><a href="/auth/facebook">Link your Facebook account</a></p>
+	{% endif %}
+
+  {% if user.twitter %}
+    <p><a class="text-danger" href="/settings/unlink/twitter">Unlink your Twitter account</a></p>
+  {% else %}
+    <p><a href="/auth/twitter">Link your Twitter account</a></p>
+	{% endif %}
+
+  {% if user.github %}
+    <p><a class="text-danger" href="/settings/unlink/github">Unlink your GitHub account</a></p>
+  {% else %}
+    <p><a href="/auth/github">Link your GitHub account</a></p>
+	{% endif %}
+		
+{% endblock %}
