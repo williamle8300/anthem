@@ -3,6 +3,10 @@
  * GET home page.
  */
 
+exports.search = function(req, res){
+	res.render('search.html', {app: 'On Repeat', title: 'Search', view: 'Search'});
+}
+
 //POST <form/> origin
 exports.runSearch = function(req, res){
 	var query = encodeURIComponent(req.body.query); //`query` is `name` attr of <input/>
@@ -18,11 +22,11 @@ exports.returnSearch = function(scrape) {
 		scrape(query, function(results){
 			if(results.trackSet == 0){
 				console.log('\n Didn\'t find any tracks.\n');
-				res.render('404.html', {title: 'On Repeat', query: query})
+				res.render('404.html', {app: 'On Repeat', title: '404', query: query})
 			}
 			else{
 				console.log('\n Found [' +results.trackSet.length+ '] tracks.\n');
-				res.render('returnSearch.html', {title: 'On Repeat', query: query, trackSet: results.trackSet});
+				res.render('returnSearch.html', {app: 'On Repeat', title: 'Results for "' +query+ '"', query: query, trackSet: results.trackSet});
 			}
 		});
 	};

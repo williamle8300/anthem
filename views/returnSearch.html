@@ -8,7 +8,7 @@
 		{% for track in trackSet %}
 		{# {{track.seq}}, {{track.permachunk}}, {{track.permalink}}, {{track.trackTitle}}, {{track.albumArtURI}}, {{track.username}}, {{track.playCount}}, {{track.published}} #}
 		<li class="track" style="display:none">
-			<a id type="audio/mp3" href="{{track.permachunk}}">
+			<a id type="audio/mp3" href="http://soundcloud.com{{track.permachunk}}">
 				<div class="leftPanel"></div>
 				<div class="centerPanel">
 					<img src="{{track.albumArtURI}}" width="100" height="100" class="art img-thumbnail">
@@ -18,11 +18,16 @@
 					</div>
 				</div>
 				<div class="rightPanel">
+					<form>
+						<input type="checkbox" name="iCheck" data-ID="" data-encodedObjHTML="" class="exclude">
+					</form>
+					<!--
 					<div class="meta">
 						<p class="h5 date">{{track.published}} ago</p>
 						<p class="h5 playCount">{{track.playCount}}</p>
 					</div>
-				</div>
+					--> 
+				</div><!-- /.rightPanel -->
 			</a>
 		</li>
 		{% endfor %}
@@ -31,8 +36,11 @@
 
 	{% block clientSideScripts %}
 	{% include 'snippets/jquery.html' %}
+	{% include 'snippets/icheck.html' %}
 	{% include 'snippets/SM2Scripts.html' %}
 	{% include 'snippets/miscDOMScripts.html' %} {# SoundCloud API queries; keyboard shortcuts #}
 	<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
   {% endblock %}
+	
+	

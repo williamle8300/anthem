@@ -552,12 +552,15 @@ function PagePlayer() {
   this.handleClick = function(e) {
 
     // a sound (or something) was clicked - determine what and handle appropriately
-
-    if (e.button === 2) {
+		console.log(e);//debug
+    if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
+      return true;//allowing elements with .exclude
+    }
+    if (e.button === 2) { //right-clicks?
       if (!pl.config.allowRightClick) {
-        pl.stopEvent(e);
+        pl.stopEvent(e); //disallow
       }
-      return pl.config.allowRightClick; // ignore right-clicks
+      return pl.config.allowRightClick; //allow
     }
     var o = self.getTheDamnTarget(e),
 	    sURL,

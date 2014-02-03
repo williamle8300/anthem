@@ -46,32 +46,43 @@ $(window).bind('keyup', function(e) {
 <script type="text/javascript" charset="utf-8"> //communicate with SoundCloud API
 var tracks = document.querySelectorAll('li.track'),
 	trackHREFs = document.querySelectorAll('li.track a'),
+	inputs = document.querySelectorAll('li.track input[type="checkbox"]'),
 	trackSet = tracks.length,
-	permachunks = [];
+	permalinks = [];
 
 for(var i = 0; i<trackSet; i++){
-	permachunks[i] = trackHREFs.item(i).getAttribute('href');
-	SCResolve(permachunks, i);
+	permalinks[i] = trackHREFs.item(i).getAttribute('href');
+	SCResolve(permalinks, i, escapeHtml);
 }
 
-function SCResolve(permachunks, i) {
-	var xhr = new XMLHttpRequest(),
-		permalink = 'http://soundcloud.com' +permachunks[i],
+function SCResolve(permalinks, i, escapeHtml) {
+	var permalink = permalinks[i],
 		CLIENT_ID = '212b7a5080f5d7f8e831583446771a02',
-		URI = 'http://api.soundcloud.com/resolve.json?url=' +permalink+ '&client_id=' +CLIENT_ID;
+		URI = 'http://api.soundcloud.com/resolve.json?callback=?&url=' +permalink+ '&client_id=' +CLIENT_ID; //callback param enables CROSS-DOMAIN (specif. for Safari)
 
-	xhr.onreadystatechange = function() {        
-	  if (this.readyState == 4) {											
-			var track = JSON.parse(this.responseText);
-			console.log(track);
-			if (track.streamable){
-				trackHREFs.item(i).id = 'track' +track.id; //serialize each with `track.id`
-				trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
-				tracks.item(i).style.display = 'block'; //then, reveal to user
-			}
-	  }
-	};
-	xhr.open("GET", URI);
-	xhr.send();
+	$.getJSON(URI, function(track) {
+		if (track.streamable){
+			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
+			tracks.item(i).style.display = 'block'; //reveal to user
+			trackHREFs.item(i).id = 'track' +track.id; //serialize each with `track.id`
+			inputs.item(i).id = track.id;//also serialize each input for db interaction
+			inputs.item(i).dataset.id = track.id;
+			inputs.item(i).dataset.encodedobjhtml = escapeHtml(tracks.item(i).outerHTML);
+		}
+		else {
+			tracks.item(i).parentNode.removeChild(tracks.item(i));
+		}
+	});
 }
+
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/\//g, "&frasl;")
+				 .replace(/\?/g, "&63;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+ }
 </script>

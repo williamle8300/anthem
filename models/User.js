@@ -17,8 +17,11 @@ var userSchema = new mongoose.Schema({
     gender: { type: String, default: '' },
     location: { type: String, default: '' },
     website: { type: String, default: '' },
-    picture: { type: String, default: '' }
-  }
+    picture: { type: String, default: '' },
+		playlists: {
+			playlist1: [mongoose.Schema.Types.Mixed]
+		}
+	}
 });
 
 userSchema.pre('save', function(next) {

@@ -24,51 +24,57 @@
 	  <div class="navigation container">
 			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-	        <h1 class="logo"><a href="/">{{title}}</a></h1>
+	        <h1 class="logo"><a href="/">{{app}}</a></h1>
 				</div><!-- / -->
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-				  <form id="search" class="jumbo-search" role="form" name="search" method="post" action="/runSearch">
+				  {% block mid1 %}
+					<form id="search" class="jumbo-search" role="form" name="search" method="post" action="/runSearch">
 						<div class="form-group">
-							<input id="query" class="form-control" type="text" placeholder="{% if query %}'{{query}}'{% else %}Search{% endif %}" name="query" />
+							<input id="query" class="form-control" type="text" placeholder="{{ query if query else title }}" name="query" />
 						</div>
 					  <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
 				  </form>
+					{% endblock %}
+				</div>
+				<!-- Login/CreateAccount/Profile-->
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+		      <ul class="nav navbar-nav navbar-right">
+		        {% if user %}
+		        <li class="dropdown {{'active' if title == 'Account Management' else undefined}}">
+		          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+		            {% if user.profile.picture %}
+		            <img src="{{user.profile.picture}}"/>
+								{% endif %}
+		            {{user.profile.name if user.profile.name else user.id}}&nbsp;
+		            <i class="caret"></i>
+							</a>
+		          <ul class="dropdown-menu">
+		            <li>
+		            	<a href="/profile">Profile</a>
+		            </li>
+		            <li>
+		            	<a href="/settings">Settings</a>
+		            </li>
+		            <li class="divider"></li>
+		            <li>
+		            	<a href="/logout">Logout</a>
+		            </li>
+						</li>
+		        {% else %}
+		        <li class="{{'active' if title == 'Login' else undefined}}">
+		          <a href="/login">Login</a>
+						</li>
+		        <li class="{{"active" if title == "Sign Up" else undefined}}">
+		          <a href="/signup">Sign Up</a>
+						</li>
+						{% endif %}
+					</ul><!-- Login/CreateAccount/Profile-->
 				</div>
 			</div><!-- /.row -->
 	  </div>
 		{% endblock %}
 
 	  <div class="main container">
-
-			<!-- Login/CreateAccount/Profile-->
-      <ul class="nav navbar-nav navbar-right">
-        {% if user %}
-        <li class="dropdown {{'active' if title == 'Account Management' else undefined}}">
-          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-            {% if user.profile.picture %}
-            <img src="{{user.profile.picture}}"/>
-						{% endif %}
-            {{user.profile.name if user.profile.name else user.id}}&nbsp;
-            <i class="caret"></i>
-					</a>
-          <ul class="dropdown-menu">
-            <li>
-            	<a href="/account">My Account</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-            	<a href="/logout">Logout</a>
-            </li>
-				</li>
-        {% else %}
-        <li class="{{'active' if title == 'Login' else undefined}}">
-          <a href="/login">Login</a>
-				</li>
-        <li class="{{"active" if title == "Create Account" else undefined}}">
-          <a href="/signup">Create Account</a>
-				</li>
-				{% endif %}
-			</ul><!-- Login/CreateAccount/Profile-->
 			                                                                                                                                   
 			{% block center %}                                        {#everything goes in 'center'#}                                                                         
 	  	{% endblock %}                                            {#everything goes in 'center'#}                                                                         

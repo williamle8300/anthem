@@ -11,7 +11,8 @@ var User = require('../models/User');
 exports.getLogin = function(req, res) {
   if (req.user) return res.redirect('/');
   res.render('account/login.html', {
-    title: 'On Repeat',
+    app: 'On Repeat',
+    title: 'Login',
     errors: req.flash('errors')
   });
 };
@@ -24,19 +25,35 @@ exports.getLogin = function(req, res) {
 exports.getSignup = function(req, res) {
   if (req.user) return res.redirect('/');
   res.render('account/signup.html', {
-    title: 'On Repeat',
+    app: 'On Repeat',
+    title: 'Sign Up',
     errors: req.flash('errors')
   });
 };
 
 /**
- * GET /account
+ * GET /profile
  * Profile page.
  */
 
-exports.getAccount = function(req, res) {
+exports.getProfile = function(req, res) {
   res.render('account/profile.html', {
-    title: 'On Repeat',
+    app: 'On Repeat',
+    title: 'Profile',
+    success: req.flash('success'),
+    error: req.flash('error')
+  });
+};
+
+/**
+ * GET /settings
+ * User settings.
+ */
+
+exports.getSettings = function(req, res) {
+  res.render('account/settings.html', {
+    app: 'On Repeat',
+    title: 'Settings',
     success: req.flash('success'),
     error: req.flash('error')
   });
@@ -71,7 +88,7 @@ exports.postLogin = function(req, res, next) {
 
     req.logIn(user, function(err) {
       if (err) return next(err);
-      return res.redirect('/');
+      return res.redirect('/profile');
     });
   })(req, res, next);
 };
@@ -118,7 +135,7 @@ exports.postSignup = function(req, res, next) {
 
 
 /**
- * POST /account/profile
+ * POST /settings/profile
  * Update profile information.
  */
 exports.postUpdateProfile = function(req, res, next) {
@@ -126,7 +143,7 @@ exports.postUpdateProfile = function(req, res, next) {
     if (err) return next(err);
 
     user.profile.name = req.body.name || '';
-    user.profile.email = req.body.email || '';
+    user.email = req.body.email || '';
     user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
@@ -134,13 +151,13 @@ exports.postUpdateProfile = function(req, res, next) {
     user.save(function(err) {
       if (err) return next(err);
       req.flash('success', 'Profile information updated.');
-      res.redirect('/account');
+      res.redirect('/settings');
     });
   });
 };
 
 /**
- * POST /account/password
+ * POST /settings/password
  * Update current password.
  * @param {string} password
  */
@@ -148,12 +165,12 @@ exports.postUpdateProfile = function(req, res, next) {
 exports.postUpdatePassword = function(req, res, next) {
   if (!req.body.password) {
     req.flash('error', 'Password cannot be blank.');
-    return res.redirect('/account');
+    return res.redirect('/settings');
   }
 
   if (req.body.password !== req.body.confirmPassword) {
     req.flash('error', 'Passwords do not match.');
-    return res.redirect('/account');
+    return res.redirect('/settings');
   }
 
   User.findById(req.user.id, function(err, user) {
@@ -164,13 +181,13 @@ exports.postUpdatePassword = function(req, res, next) {
     user.save(function(err) {
       if (err) return next(err);
       req.flash('success', 'Password has been changed.');
-      res.redirect('/account');
+      res.redirect('/settings');
     });
   });
 };
 
 /**
- * POST /account/delete
+ * POST /settings/delete
  * Delete user account.
  * @param {string} id
  */
@@ -184,7 +201,7 @@ exports.postDeleteAccount = function(req, res, next) {
 };
 
 /**
- * GET /account/unlink/:provider
+ * GET /settings/unlink/:provider
  * Unlink OAuth2 provider from the current user.
  * @param {string} provider
  * @param {string} id
@@ -200,7 +217,7 @@ exports.getOauthUnlink = function(req, res, next) {
 
     user.save(function(err) {
       if (err) return next(err);
-      res.redirect('/account');
+      res.redirect('/settings');
     });
   });
 };
@@ -214,3 +231,32 @@ exports.logout = function(req, res) {
   req.logout();
   res.redirect('/');
 };
+
+/**
+ * POST /save/:resourceID
+ * save the permalink
+ */
+exports.saveResource = function(req, res){
+	var resourceID = req.params.resourceID;
+	var encodedObjHTML = req.params.encodedObjHTML;
+	console.log(resourceID);
+	console.log(encodedObjHTML);
+	
+  User.findById(req.user.id, function(err, user) {
+    if (err) return next(err);
+
+//    user.profile.playlist.push(resourceID);
+		user.profile.playlists.playlist1.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});
+
+    user.save(function(err) {
+      if (err) return next(err);
+    });
+	});
+}
+/**
+ * POST /remove/:resourceID
+ * remove the permalink
+ */
+exports.removeResource = function(req, res) {
+	//
+}

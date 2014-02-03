@@ -57,7 +57,7 @@ var app = express();
  * Express configuration.
  */
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 nunjucks.configure('views', {autoescape: true, express: app});
 app.use(express.favicon());
@@ -75,7 +75,7 @@ app.use(flash());
 app.use(less({ src: __dirname + '/public', compress: true }));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res) { res.status(404); res.render('404'); });
+app.use(function(req, res) {res.status(404).render('404.html', { status: 404 }); });
 app.use(express.errorHandler());
 
 /**
@@ -83,11 +83,13 @@ app.use(express.errorHandler());
  */
 
 //Home
-app.get('/', homeController.index);
+//app.get('/', homeController.index);
+app.get('/', search_ingController.search)
 
 //search_ing
-app.post('/runSearch', search_ingController.runSearch);                             //searching.js
-app.get('/search/:query', search_ingController.returnSearch(bL.scrape));            //searching.js
+app.get('/search', search_ingController.search)
+app.post('/runSearch', search_ingController.runSearch);
+app.get('/search/:query', search_ingController.returnSearch(bL.scrape));
 
 //LoginandSignUps
 app.get('/login', userController.getLogin);
@@ -98,7 +100,7 @@ app.post('/signup', userController.postSignup);
 
 //LoginViaOAuth2
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/profile', failureRedirect: '/login' }));
 app.get('/auth/github', passport.authenticate('github'));
 app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/', failureRedirect: '/login' }));
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
@@ -110,12 +112,19 @@ app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureR
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
 
-//AuthdUser
-app.get('/account', passportConf.isAuthenticated, userController.getAccount);
-app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
-app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
-app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
-app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
+//Profile
+app.get('/profile', passportConf.isAuthenticated, userController.getProfile);
+
+//Profile Actions
+app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource)
+app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource)
+
+//UserSettings
+app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
+app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
+app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
+app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
+app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
 //ContactUsPage
 app.get('/contact', contactController.getContact);

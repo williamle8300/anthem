@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res) {
-  res.render('home.html', {
+  res.render('search.html', {
     title: 'On Repeat'
   });
 };
