@@ -8,3 +8,43 @@
   <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
 </form>
 {% endblock %}
+
+{% block center %}
+<ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	{% for track in user.profile.playlists.playlist1 %}
+		{{track.encodedObjHTML | safe}}
+	{% endfor %}
+</ul>
+{% endblock %}	
+
+{% block clientSideScripts %}
+<script type="text/javascript" charset="utf-8">
+
+{% for track in user.profile.playlists.playlist1 %}
+	console.log(unescapeHtml("{{track.encodedObjHTML}}"));
+{% endfor %}
+
+
+function unescapeHtml(unsafe) {
+	return unsafe
+		.replace(/&amp;/g, "&")
+		.replace(/&frasl;/g, "/")
+		.replace(/&63;/g, "?")
+		.replace(/&lt;/g, "<")
+		.replace(/&gt;/g, ">")
+		.replace(/&quot;/g, "\"")
+		.replace(/&#39;/g, "'");
+}
+
+</script>
+{% include 'snippets/jquery.html' %}
+
+<script src="/plugins/iCheck/icheck-1.0.1.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="/plugins/iCheck/skins/square/blue.css" type="text/css" charset="utf-8">
+
+{% include 'snippets/SM2Scripts.html' %}
+{% include 'snippets/keybindings.html' %}
+<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+

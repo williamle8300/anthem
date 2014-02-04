@@ -20,9 +20,13 @@ $('input[type="checkbox"]').on('ifChecked', function(event){
 	$.ajax({
 	  type: "POST",
 	  url: "/save/" +resourceID+ "/" +encodedObjHTML,
-	}).done(function( msg ) {
-		//use icheck to manually check it.
-  });
+		success: function(data) {
+		  console.log('¶ Track saved');
+	  }
+	})
+	//.done(function( msg ) {
+	//	//use icheck to manually check it.
+  //});
 	
 	//saving...
 	////run $.ajax to interact db; push 'permalink' to 'user.playlist.playlist1.tracks' array

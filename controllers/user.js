@@ -250,6 +250,7 @@ exports.saveResource = function(req, res){
 
     user.save(function(err) {
       if (err) return next(err);
+			res.send(200);
     });
 	});
 }

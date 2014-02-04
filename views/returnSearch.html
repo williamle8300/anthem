@@ -19,7 +19,7 @@
 				</div>
 				<div class="rightPanel">
 					<form>
-						<input type="checkbox" name="iCheck" data-ID="" data-encodedObjHTML="" class="exclude">
+						<input type="checkbox" name="iCheck" data-id="" data-encodedobjhtml="" class="exclude">
 					</form>
 					<!--
 					<div class="meta">
@@ -38,7 +38,8 @@
 	{% include 'snippets/jquery.html' %}
 	{% include 'snippets/icheck.html' %}
 	{% include 'snippets/SM2Scripts.html' %}
-	{% include 'snippets/miscDOMScripts.html' %} {# SoundCloud API queries; keyboard shortcuts #}
+	{% include 'snippets/keybindings.html' %}
+	{% include 'snippets/SoundCloudAPI.html' %} {# SoundCloud API queries; keyboard shortcuts #}
 	<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
   {% endblock %}
