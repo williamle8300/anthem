@@ -19,7 +19,7 @@ $('input[type="checkbox"]').on('ifChecked', function(event){
 	  type: "POST",
 	  url: "/save/" +resourceID+ "/" +encodedObjHTML,
 		success: function(data) {
-		  console.log('¶ Track saved: ' +resourceID);
+		  console.log('♫ Track saved: ' +resourceID);
   }});
 });
 
@@ -31,7 +31,7 @@ $('input[type="checkbox"]').on('ifUnchecked', function(event){
 	  type: "POST",
 	  url: "/remove/" +resourceID,
 		success: function(data) {
-			console.log('¶ Track removed: ' +resourceID);
+			console.log('♫ Track removed: ' +resourceID);
   }});
 });
 </script>

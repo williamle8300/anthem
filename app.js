@@ -10,9 +10,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
 var nunjucks = require('nunjucks');
-var sentinelSoundCloud = require('phantomFunctions').sentinelSoundCloud;
-//var sentinelRedditRMusic = require('phantomFunctions').sentinelRedditRMusic;
-//var sentinelYouTube = require('phantomFunctions').sentinelYouTube;
+var phantomSoundCloud = require('phantomFunctions').phantomSoundCloud;
+//var phantomRedditRMusic = require('phantomFunctions').phantomRedditRMusic;
+//var phantomYouTube = require('phantomFunctions').phantomYouTube;
 
 /**
  * Load controllers.
@@ -66,11 +66,10 @@ app.use(express.errorHandler());
  * Application routes.
  */
 //Home
-app.get('/', homeController.search)
-app.get('/search', homeController.search)
+app.get('/', homeController.search);      //same
+app.get('/search', homeController.search);//same
 app.post('/postSearch', homeController.postSearch); //handles 'query' in searchbox
-//app.get('/search/:query', passportConf.isAuthenticated, homeController.getSearchResults(sentinelSoundCloud));
-app.get('/search/:query', homeController.getSearchResults(sentinelSoundCloud));
+app.get('/search/:query', homeController.getSearchResults(phantomSoundCloud));
 
 //Profile
 app.get('/profile', passportConf.isAuthenticated, userController.getProfile);

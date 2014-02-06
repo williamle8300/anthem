@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			<div class="rightPanel">
-				<form>
+				<form style="display:none">
 					<input id="" data-id="" data-encodedobjhtml="" type="checkbox" name="iCheck" class="exclude">
 				</form>
 				<!-- <div class="meta"><p class="h5 date">{{track.published}} ago</p><p class="h5 playCount">{{track.playCount}}</p> </div> --> 
@@ -29,12 +29,11 @@
 </ul>
 {% endblock %}	
 
-{% block clientSideScripts %}
+{% block clientSideScripts %}{# order of snippets: important #}
 {% include 'snippets/jquery.html' %}
 {% include 'snippets/SM2Scripts.html' %}
 {% include 'snippets/keybindings.html' %}
-{% include 'snippets/SoundCloudAPI.html' %}
+{% include 'snippets/renderingSearchResults.html' %}
 {% include 'snippets/icheck.html' %}
 <script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}

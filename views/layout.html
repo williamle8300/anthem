@@ -76,15 +76,14 @@
 
 	  <div class="main container">
 			                                                                                                                                   
-			{% block center %}                                        {#everything goes in 'center'#}                                                                         
-	  	{% endblock %}                                            {#everything goes in 'center'#}                                                                         
-                                                                {#everything goes in 'center'#}
+			{% block center %}                                        {# all .main.containter stuff goes in 'center'! #}                                                                         
+	  	{% endblock %}                                            {# all .main.containter stuff goes in 'center'! #}                                                                         
+                                                                {# all .main.containter stuff goes in 'center'! #}
 		</div>
 
 	  {% block clientSideScripts %}
 		{% include 'snippets/jquery.html' %}
 		<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
 	  {% endblock %}
   
 </body>

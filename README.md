@@ -1,11 +1,19 @@
-finding,
-enjoying = saving + downloading
-sharing,
-discovering.
+# Ideas
+"Usefulness is Job #1"
+functional, social, emotional value
+
+searching for tracks,
+enjoying = play + saving tracks
+WEB 
+sharing tracks,
+MACAPP
+recommending tracks (3-5)
+~
+downloading
+voting for next track?
 
 IE probz
 - HTMLElement.dataset method (solution: use HTML5 shim)
-
 
 #running the app
 - mongod
@@ -15,8 +23,6 @@ IE probz
 
 - cd ~/Desktop/onRepeat2/
 - nodemon app.js
-
-
 
 
 ![Alt](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)

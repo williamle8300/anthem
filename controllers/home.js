@@ -9,32 +9,32 @@ exports.search = function(req, res){
 
 /**
  * POST
- * Gets value of searchbox
+ * Gets value from searchbox
  * @param {string} query
  */
 exports.postSearch = function(req, res){
 	var query = encodeURIComponent(req.body.query); //`query` is `name` attr of <input/>
-	console.log('\n ...Searching "' +encodeURIComponent(req.body.query)+ '"\n ');
+	console.log('\n ...Searching "' +query+ '"\n ');
 	res.location('search/' +query);
 	res.redirect('search/' +query)
 };
 
 /**
  * GET /search/{query}
- * Runs phantomFunctions and displays search results
- * @param {function} sentinelSoundCloud
+ * Runs phantomFunctions and displays search results to user
+ * @param {function} phantomSoundCloud
  * @param {string} query
  */
-exports.getSearchResults = function(sentinelSoundCloud) {
+exports.getSearchResults = function(phantomSoundCloud) {
 	return function(req, res){
 		var query = req.params.query;//from url: "/search/{query}"
-		sentinelSoundCloud(query, function(phantomResults){
+		phantomSoundCloud(query, function handlePhantomResults(phantomResults){
 			if(phantomResults.trackSet == 0){
-				console.log('\n Found [' +phantomResults.trackSet.length+ '] tracks.\n');
+				console.log('\n Found [0] tracks\n');
 				res.render('404.html', {app: 'On Repeat', title: '404', query: query});
 			}
 			else{
-				console.log('\n Found [' +phantomResults.trackSet.length+ '] tracks.\n');
+				console.log('\n Found [' +phantomResults.trackSet.length+ '] tracks\n');
 				res.render('returnSearch.html', {app: 'On Repeat', title: 'Results for "' +query+ '"', query: query, trackSet: phantomResults.trackSet});
 			}
 		});

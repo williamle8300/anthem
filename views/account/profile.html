@@ -17,28 +17,11 @@
 </ul>
 {% endblock %}	
 
-{% block clientSideScripts %}{# DOESNT INCLUDE SOUNDCOULDAPI.HTML #}
+{% block clientSideScripts %}{# order of snippets: important #}
 {% include 'snippets/jquery.html' %}
 {% include 'snippets/SM2Scripts.html' %}
 {% include 'snippets/keybindings.html' %}
 {% include 'snippets/icheck.html' %}
-<script type="text/javascript" charset="utf-8">
-var tracks = document.querySelectorAll('li.track'),
-	tracksLen = tracks.length,
-	inputs = document.querySelectorAll('li.track input[type="checkbox"]');
-
-for (var i = 0; i < tracksLen; i++) {
-	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString()); 
-}
-
-$('input.exclude').iCheck({
-  checkboxClass: 'icheckbox_square-blue',
-  increaseArea: '300%', // optional
-	aria: false
-});
-$('div.icheckbox_square-blue').addClass('checked');
-$('div.icheckbox_square-blue input').prop('checked', true);;
-</script>
+{% include 'snippets/renderingProfileResults.html' %}
 <script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
