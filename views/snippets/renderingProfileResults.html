@@ -1,0 +1,17 @@
+
+<script type="text/javascript" charset="utf-8">
+var tracks = document.querySelectorAll('li.track');
+var tracksLen = tracks.length;
+var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
+
+for (var i = 0; i < tracksLen; i++) {
+	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString()); 
+}
+$('input.exclude').iCheck({
+  checkboxClass: 'icheckbox_square-blue',
+  increaseArea: '300%', // optional
+	aria: false
+});
+$('div.icheckbox_square-blue').addClass('checked');
+$('div.icheckbox_square-blue input').prop('checked', true);;
+</script>
