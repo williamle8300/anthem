@@ -17,34 +17,28 @@
 </ul>
 {% endblock %}	
 
-{% block clientSideScripts %}
-<script type="text/javascript" charset="utf-8">
-
-{% for track in user.profile.playlists.playlist1 %}
-	console.log(unescapeHtml("{{track.encodedObjHTML}}"));
-{% endfor %}
-
-
-function unescapeHtml(unsafe) {
-	return unsafe
-		.replace(/&amp;/g, "&")
-		.replace(/&frasl;/g, "/")
-		.replace(/&63;/g, "?")
-		.replace(/&lt;/g, "<")
-		.replace(/&gt;/g, ">")
-		.replace(/&quot;/g, "\"")
-		.replace(/&#39;/g, "'");
-}
-
-</script>
+{% block clientSideScripts %}{# DOESNT INCLUDE SOUNDCOULDAPI.HTML #}
 {% include 'snippets/jquery.html' %}
-
-<script src="/plugins/iCheck/icheck-1.0.1.min.js" type="text/javascript" charset="utf-8"></script>
-<link rel="stylesheet" href="/plugins/iCheck/skins/square/blue.css" type="text/css" charset="utf-8">
-
 {% include 'snippets/SM2Scripts.html' %}
 {% include 'snippets/keybindings.html' %}
+{% include 'snippets/icheck.html' %}
+<script type="text/javascript" charset="utf-8">
+var tracks = document.querySelectorAll('li.track'),
+	tracksLen = tracks.length,
+	inputs = document.querySelectorAll('li.track input[type="checkbox"]');
+
+for (var i = 0; i < tracksLen; i++) {
+	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString()); 
+}
+
+$('input.exclude').iCheck({
+  checkboxClass: 'icheckbox_square-blue',
+  increaseArea: '300%', // optional
+	aria: false
+});
+$('div.icheckbox_square-blue').addClass('checked');
+$('div.icheckbox_square-blue input').prop('checked', true);;
+</script>
 <script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
-

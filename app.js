@@ -1,20 +1,7 @@
-/*
-
-mongod
-
-cd ~/Desktop/onRepeat2/public/css/lib/bootstrap
-grunt watch
-
-cd ~/Desktop/onRepeat2/
-nodemon app.js
-
-*/
-
 
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var flash = require('connect-flash');
 var less = require('less-middleware');
@@ -23,13 +10,13 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
 var nunjucks = require('nunjucks');
-
-var bL = require('bL');
+var sentinelSoundCloud = require('phantomFunctions').sentinelSoundCloud;
+//var sentinelRedditRMusic = require('phantomFunctions').sentinelRedditRMusic;
+//var sentinelYouTube = require('phantomFunctions').sentinelYouTube;
 
 /**
  * Load controllers.
  */
-var search_ingController = require('./controllers/search_ing');
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
@@ -38,14 +25,12 @@ var contactController = require('./controllers/contact');
 /**
  * API keys + Passport configuration.
  */
-
 var secrets = require('./config/secrets');
 var passportConf = require('./config/passport');
 
 /**
  * Mongoose configuration.
  */
-
 mongoose.connect(secrets.db);
 mongoose.connection.on('error', function() {
   console.log('-MongoDB Connection Error-');
@@ -56,7 +41,6 @@ var app = express();
 /**
  * Express configuration.
  */
-
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 nunjucks.configure('views', {autoescape: true, express: app});
@@ -81,15 +65,24 @@ app.use(express.errorHandler());
 /**
  * Application routes.
  */
-
 //Home
-//app.get('/', homeController.index);
-app.get('/', search_ingController.search)
+app.get('/', homeController.search)
+app.get('/search', homeController.search)
+app.post('/postSearch', homeController.postSearch); //handles 'query' in searchbox
+//app.get('/search/:query', passportConf.isAuthenticated, homeController.getSearchResults(sentinelSoundCloud));
+app.get('/search/:query', homeController.getSearchResults(sentinelSoundCloud));
 
-//search_ing
-app.get('/search', search_ingController.search)
-app.post('/runSearch', search_ingController.runSearch);
-app.get('/search/:query', search_ingController.returnSearch(bL.scrape));
+//Profile
+app.get('/profile', passportConf.isAuthenticated, userController.getProfile);
+app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource)
+app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource)
+
+//UserSettings
+app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
+app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
+app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
+app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
+app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
 //LoginandSignUps
 app.get('/login', userController.getLogin);
@@ -112,20 +105,6 @@ app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureR
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
 
-//Profile
-app.get('/profile', passportConf.isAuthenticated, userController.getProfile);
-
-//Profile Actions
-app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource)
-app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource)
-
-//UserSettings
-app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
-app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
-app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
-app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
-app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
-
 //ContactUsPage
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
@@ -142,6 +121,7 @@ app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/twitter', passportConf.isAuthenticated, apiController.getTwitter);
 app.get('/api/aviary', apiController.getAviary);
 
+//Start-up the app!
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });

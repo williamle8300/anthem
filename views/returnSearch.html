@@ -1,47 +1,40 @@
 {% extends "layout.html" %}
 
-	{% block appScripts %}
-	{% endblock %}
+{% block appScripts %}
+{% endblock %}
 
-	{% block center %}
-	<ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		{% for track in trackSet %}
-		{# {{track.seq}}, {{track.permachunk}}, {{track.permalink}}, {{track.trackTitle}}, {{track.albumArtURI}}, {{track.username}}, {{track.playCount}}, {{track.published}} #}
-		<li class="track" style="display:none">
-			<a id type="audio/mp3" href="http://soundcloud.com{{track.permachunk}}">
-				<div class="leftPanel"></div>
-				<div class="centerPanel">
-					<img src="{{track.albumArtURI}}" width="100" height="100" class="art img-thumbnail">
-					<div class="trackTitleNUsername">
-						<p class="h3 trackTitle">{{track.trackTitle}}</p>
-						<p class="h4 username">{{track.username}}</p>
-					</div>
+{% block center %}
+<ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	{% for track in trackSet %}
+	{# {{track.seq}}, {{track.permachunk}}, {{track.permalink}}, {{track.trackTitle}}, {{track.albumArtURI}}, {{track.username}}, {{track.playCount}}, {{track.published}} #}
+	<li class="track" style="display:none">
+		<a id type="audio/mp3" href="http://soundcloud.com{{track.permachunk}}">
+			<div class="leftPanel"></div>
+			<div class="centerPanel">
+				<img src="{{track.albumArtURI}}" width="100" height="100" class="art img-thumbnail">
+				<div class="trackTitleNUsername">
+					<p class="h3 trackTitle">{{track.trackTitle}}</p>
+					<p class="h4 username">{{track.username}}</p>
 				</div>
-				<div class="rightPanel">
-					<form>
-						<input type="checkbox" name="iCheck" data-id="" data-encodedobjhtml="" class="exclude">
-					</form>
-					<!--
-					<div class="meta">
-						<p class="h5 date">{{track.published}} ago</p>
-						<p class="h5 playCount">{{track.playCount}}</p>
-					</div>
-					--> 
-				</div><!-- /.rightPanel -->
-			</a>
-		</li>
-		{% endfor %}
-	</ul>
-	{% endblock %}	
+			</div>
+			<div class="rightPanel">
+				<form>
+					<input id="" data-id="" data-encodedobjhtml="" type="checkbox" name="iCheck" class="exclude">
+				</form>
+				<!-- <div class="meta"><p class="h5 date">{{track.published}} ago</p><p class="h5 playCount">{{track.playCount}}</p> </div> --> 
+			</div><!-- /.rightPanel -->
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}	
 
-	{% block clientSideScripts %}
-	{% include 'snippets/jquery.html' %}
-	{% include 'snippets/icheck.html' %}
-	{% include 'snippets/SM2Scripts.html' %}
-	{% include 'snippets/keybindings.html' %}
-	{% include 'snippets/SoundCloudAPI.html' %} {# SoundCloud API queries; keyboard shortcuts #}
-	<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
-  {% endblock %}
-	
-	
+{% block clientSideScripts %}
+{% include 'snippets/jquery.html' %}
+{% include 'snippets/SM2Scripts.html' %}
+{% include 'snippets/keybindings.html' %}
+{% include 'snippets/SoundCloudAPI.html' %}
+{% include 'snippets/icheck.html' %}
+<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/main.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}

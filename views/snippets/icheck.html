@@ -2,41 +2,36 @@
 <link rel="stylesheet" href="/plugins/iCheck/skins/square/blue.css" type="text/css" charset="utf-8">
 <script>
 $(document).ready(function(){
-  $('input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_square-blue',
-    increaseArea: '300%', // optional
-		aria: false
-  });
+ //$('input').iCheck({
+ //  checkboxClass: 'icheckbox_square-blue',
+ //  radioClass: 'iradio_square-blue',
+ //  increaseArea: '300%', // optional
+ //	aria: false
+ //});
 });
+
+// Listeners for 'check'
 $('input[type="checkbox"]').on('ifChecked', function(event){
-	//show loading.gif
 	var clicked = $(this); //get data-permalink value ('permalink')
 	var resourceID = clicked.data('id');
 	var encodedObjHTML = clicked.data('encodedobjhtml');
-
-	console.log('Checked: ' +resourceID);
-	console.log('Checked: ' +encodedObjHTML);
 	$.ajax({
 	  type: "POST",
 	  url: "/save/" +resourceID+ "/" +encodedObjHTML,
 		success: function(data) {
-		  console.log('¶ Track saved');
-	  }
-	})
-	//.done(function( msg ) {
-	//	//use icheck to manually check it.
-  //});
-	
-	//saving...
-	////run $.ajax to interact db; push 'permalink' to 'user.playlist.playlist1.tracks' array
-	//hide loading.gif
-	//make icheck .active!! boop
-});
-$('input[type="checkbox"]').on('ifUnchecked', function(event){
-	console.log('unchecked');
-	//
+		  console.log('¶ Track saved: ' +resourceID);
+  }});
 });
 
-//handler for save button				 
+// Listeners for 'uncheck'
+$('input[type="checkbox"]').on('ifUnchecked', function(event){
+	var clicked = $(this); //get data-permalink value ('permalink')
+	var resourceID = clicked.data('id');
+	$.ajax({
+	  type: "POST",
+	  url: "/remove/" +resourceID,
+		success: function(data) {
+			console.log('¶ Track removed: ' +resourceID);
+  }});
+});
 </script>

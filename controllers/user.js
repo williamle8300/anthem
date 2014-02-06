@@ -233,31 +233,44 @@ exports.logout = function(req, res) {
 };
 
 /**
- * POST /save/:resourceID
+ * POST /save/:resourceID/:encodedObjHTML
  * save the permalink
  */
 exports.saveResource = function(req, res){
 	var resourceID = req.params.resourceID;
-	var encodedObjHTML = req.params.encodedObjHTML;
-	console.log(resourceID);
-	console.log(encodedObjHTML);
-	
+	var encodedObjHTML = req.params.encodedObjHTML;	
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
-
-//    user.profile.playlist.push(resourceID);
+		//currently user only has one playlist: 'playlist1'
 		user.profile.playlists.playlist1.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});
-
     user.save(function(err) {
       if (err) return next(err);
 			res.send(200);
     });
 	});
-}
+};
+
 /**
  * POST /remove/:resourceID
  * remove the permalink
  */
 exports.removeResource = function(req, res) {
-	//
-}
+	var removeResourceID = req.params.resourceID;
+  User.findById(req.user.id, function(err, user) {                                                             
+    if (err) return next(err);          
+		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
+			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
+				var matchIndex = i;
+			};
+		};
+		if (matchIndex > -1) {//if exists in playlist1, splice it out
+      user.profile.playlists.playlist1.splice(matchIndex, 1);
+	    user.save(function(err) {
+	      if (err) return next(err);
+				res.send(200);
+	    });
+	  } else {//else, no match, send 404. 
+	  	res.send(404);
+	  }
+	});
+};
