@@ -10,7 +10,7 @@ var User = require('../models/User');
 
 exports.getLogin = function(req, res) {
   if (req.user) return res.redirect('/');
-  res.render('account/login.html', {
+  res.render('login.html', {
     app: 'Anthem',
     title: 'Login',
     errors: req.flash('errors')
@@ -24,7 +24,7 @@ exports.getLogin = function(req, res) {
 
 exports.getSignup = function(req, res) {
   if (req.user) return res.redirect('/');
-  res.render('account/signup.html', {
+  res.render('signup.html', {
     app: 'Anthem',
     title: 'Sign Up',
     errors: req.flash('errors')
@@ -62,7 +62,7 @@ exports.getProfile = function(req, res, next) {
  */
 
 exports.getSettings = function(req, res) {
-  res.render('account/settings.html', {
+  res.render('settings.html', {
     app: 'Anthem',
     title: 'Settings',
     success: req.flash('success'),
@@ -140,7 +140,7 @@ exports.postSignup = function(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) return next(err);
-      res.redirect('/');
+      res.redirect('/' +user.username);
     });
   });
 };
