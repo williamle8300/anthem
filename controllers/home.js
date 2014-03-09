@@ -4,7 +4,7 @@
  * for routes: '/', '/search'
  */
 exports.search = function(req, res){
-	res.render('searchForm.html', {app: 'Anthem', title: 'Search', view: 'Search'});
+	res.render('searchPage.html', {app: 'Anthem', title: 'Search', view: 'Search'});
 }
 
 /**
