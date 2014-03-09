@@ -46,7 +46,7 @@ exports.getProfile = function(req, res, next) {
       _trackSet: profileUser._trackSet,
 			profile: profileUser.profile//temp only!
     };
-	  res.render('returnProfile.html', {
+	  res.render('profile/index.html', {
 	    app: 'Anthem',
 	    title: 'Songs',
 	    success: req.flash('success'),

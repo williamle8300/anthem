@@ -4,7 +4,7 @@
  * for routes: '/', '/search'
  */
 exports.search = function(req, res){
-	res.render('search.html', {app: 'Anthem', title: 'Search', view: 'Search'});
+	res.render('searchForm.html', {app: 'Anthem', title: 'Search', view: 'Search'});
 }
 
 /**
@@ -35,7 +35,7 @@ exports.getSearchResults = function(phantomSoundCloud) {
 			}
 			else{
 				console.log('\n Found [' +phantomResults.trackSet.length+ '] tracks\n');
-				res.render('returnSearch.html', {app: 'Anthem', title: 'Results for "' +query+ '"', query: query, trackSet: phantomResults.trackSet});
+				res.render('search/index.html', {app: 'Anthem', title: 'Results for "' +query+ '"', query: query, trackSet: phantomResults.trackSet});
 			}
 		});
 	};
