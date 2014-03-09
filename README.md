@@ -8,24 +8,27 @@ functional, social, emotional value
  /Stage 1: Alpha [1]
  add • delete • organize tracksets
  
- • realize username paths, with working permalinks
+ • add basic versions of the Menu Buttons; http://matthaeuskrenn.com/springto/facebookhome/
+	 • "save track(s)"
+	 • "unsave track(s)"
+
+ • realize trackSet paths, with working permalinks
 	 • "/williamle8300/settings"
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"
 
- • add basic versions of the Menu Buttons; http://matthaeuskrenn.com/springto/facebookhome/
-	 • "save track(s)"
-	 • "unsave track(s)"
-	 • "Create a new trackset"
-		 • "/williamle8300?trackset=canadian-indierock"
-		 • "/williamle8300?trackset=burial-fourtet"
-		 • "/williamle8300?trackset=progressive-house"
-		 • "/williamle8300?trackset=motor-city-remixes"
-	 • "Remove track(s) from trackset"
-	 • "Add to a trackset..."
-	 • [Rename trackset]
-	 • [¡Delete trackset!]
- 
+ • "Create a new trackset"
+	 • "/williamle8300?trackset=canadian-indierock"
+	 • "/williamle8300?trackset=burial-fourtet"
+	 • "/williamle8300?trackset=progressive-house"
+	 • "/williamle8300?trackset=motor-city-remixes"
+ • "Remove track(s) from trackset"
+ • "Add to a trackset..."
+ • [¡Delete trackset!]
+ • filter by 'labeled' and 'unlabeled' tracks
+ • sort tracks by 'labeled', 'unlabeled', 'trackSets'
+ • navbar with trackSets
+  
  • realize user schema (how to do sorting of tracks?)
 	 • http://mongoosejs.com/docs/queries.html
 	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
@@ -34,7 +37,7 @@ functional, social, emotional value
 	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
 	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
- • create app schema to store every API resolve call
+ • create app-wide/global model to store every API resolve call
 
  • spiff-up Menu Buttons
  
@@ -45,9 +48,10 @@ functional, social, emotional value
  non-proxy before post-proxy
  
  • autocomplete searching by artist. display results. user can org to trackset at that point (e.g. "remi|x...")
+ • nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
  
  • social aspects
-	 • messaging - similar tracks
+	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
  
  • upload to github
  • deploy Anthem online
