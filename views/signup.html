@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block mid1 %}
+<form id="search" class="jumbo-search" role="form" name="search" method="post" action="/runSearch">
+	<div class="form-group">
+		<input disabled style="border:none;-webkit-box-shadow: none;box-shadow: none;cursor:auto;" id="query" class="form-control" type="text" placeholder="{{ query if query else title }}" name="query" />
+	</div>
+  <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
+</form>
+{% endblock %}
+
+{% block center %}
+  {% if errors.length %}
+    <div class=" alert alert-danger animated fadeIn">
+      {% for error in errors %}
+        <div>{{error.msg}}</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+	
+  <form class="form-horizontal" id="signup-form" method="POST">
+    <!-- <legend>Signup</legend> -->
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="email">Email</label>
+      <div class="col-sm-7">
+        <input class="form-control" type="email" name="email" id="email" placeholder="Email" autofocus="true">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="username">Username</label>
+      <div class="col-sm-7">
+        <input class="form-control" type="username" name="username" id="username" placeholder="Username" autofocus="true">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="username">Password</label>
+      <div class="col-sm-7">
+        <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+			</div>
+		</div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="username">Confirm Password</label>
+      <div class="col-sm-7">
+        <input class="form-control" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+			</div>
+		</div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-7">
+        <button class="btn btn-success" type="submit">
+          <i class="fa fa-check"></i>Signup
+				</button>
+			</div>
+		</div>
+	</form>
+{% endblock %}
