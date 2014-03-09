@@ -10,9 +10,17 @@
 {% endblock %}
 
 {% block center %}
+{% if profileUser %}  
+<!--
+<div class="alert alert-success animated fadeInUp">
+  <i class="fa fa-check"></i>
+  <strong>You are logged in</strong>
+</div>
+-->
+{% endif %}
 <ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	{% for track in user.profile.playlists.playlist1 %}
-		{{track.encodedObjHTML | safe}}
+	{% for profileUserTrack in profileUser.profile.playlists.playlist1 %}
+		{{profileUserTrack.encodedObjHTML | safe}}
 	{% endfor %}
 </ul>
 {% endblock %}	
@@ -20,8 +28,8 @@
 {% block clientSideScripts %}{# order of snippets: important #}
 {% include 'snippets/jquery.html' %}
 {% include 'snippets/SM2Scripts.html' %}
-{% include 'snippets/keybindings.html' %}
-{% include 'snippets/icheck.html' %}
+{% include 'snippets/listeners_KeyBindings.html' %}
+{% include 'snippets/listeners_iCheck.html' %}
 {% include 'snippets/renderingProfileResults.html' %}
 <script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}

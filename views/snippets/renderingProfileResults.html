@@ -1,5 +1,15 @@
 
 <script type="text/javascript" charset="utf-8">
+
+/**
+ * This block of code
+ * serves an idiosyncratic purpose
+ * 
+ * It grabs all track nodes
+ * and stores their markup in
+ * input[data-encodedobjhtml] and
+ * inits iCheck; adding checked attr and class to each
+**/
 var tracks = document.querySelectorAll('li.track');
 var tracksLen = tracks.length;
 var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
@@ -7,7 +17,7 @@ var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
 for (var i = 0; i < tracksLen; i++) {
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString()); 
 }
-$('input.exclude').iCheck({
+$(inputs).iCheck({
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%', // optional
 	aria: false

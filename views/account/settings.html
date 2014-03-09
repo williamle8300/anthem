@@ -25,11 +25,18 @@
 	</div>
 	{% endif %}
 
-  <div class="page-header">
-    <h3>Profile Information</h3>
+  <div class="page-header row">
+		<div class="col-xs-2"></div>
+    <h3 class="col-xs-4">Profile Information</h3>
 	</div>
 	
   <form class="form-horizontal" action="/settings/profile" method="POST">
+    <div class="form-group">
+      <label class="col-xs-2 control-label" for="username">Username</label>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" name="username" id="username" value="{{user.username}}">
+			</div>
+		</div>
     <div class="form-group">
       <label class="col-xs-2 control-label" for="email">Email</label>
       <div class="col-xs-4">
@@ -42,7 +49,7 @@
         <input class="form-control" type="text" name="name" id="name" value="{{user.profile.name}}">
 			</div>
 		</div>
-    <div class="form-group">
+		<div class="form-group">
       <label class="col-xs-2 control-label" for="name">Gender</label>
       <div class="col-xs-4">
         <label class="radio">
@@ -53,12 +60,6 @@
           <input type="radio" {{"checked" if user.profile.gender == "male" else undefined}} name="gender" value="male" data-toggle="radio">
           Male
 				</label>
-			</div>
-		</div>
-    <div class="form-group">
-      <label class="col-xs-2 control-label" for="location">Location</label>
-      <div class="col-xs-4">
-        <input class="form-control" type="text" name="location" id="location" value="{{user.profile.location}}">
 			</div>
 		</div>
     <div class="form-group">
@@ -74,43 +75,46 @@
 		</div>
 	</form>
 
-  <div class="page-header">
-    <h3>Change Password</h3>
+  <div class="page-header row">
+		<div class="col-xs-2"></div>
+    <h3 class="col-xs-4">Change Password</h3>
 	</div>
 	
   <form class="form-horizontal" action="/settings/password" method="POST">
     <div class="form-group">
-      <label class="col-xs-3 control-label" for="password">New Password</label>
+      <label class="col-xs-2 control-label" for="password">New Password</label>
       <div class="col-xs-4">
         <input class="form-control" type="password" name="password" id="password">
 			</div>
 		</div>
     <div class="form-group">
-      <label class="col-xs-3 control-label" for="confirmPassword">Confirm Password</label>
+      <label class="col-xs-2 control-label" for="confirmPassword">Confirm Password</label>
       <div class="col-xs-4">
         <input class="form-control" type="password" name="confirmPassword" id="confirmPassword">
 			</div>
 		</div>
     <div class="form-group">
-      <div class="col-xs-offset-3 col-xs-4">
+      <div class="col-xs-offset-2 col-xs-4">
         <button class="btn btn btn-primary" type="submit">Change Password</button>
 			</div>
 		</div>
 	</form>
 
-  <div class="page-header">
-    <h3>Delete Account</h3>
+  <div class="page-header row">
+		<div class="col-xs-2"></div>
+    <h3 class="col-xs-4">Delete Account</h3>
 	</div>
 	
-  <p>You can delete your account, but keep in mind this action is irreversible.</p>
+  <p class="col-xs-offset-2 col-xs-4">You can delete your account, but keep in mind this action is irreversible.</p>
   <form action="/settings/delete" method="POST">
     <button class="btn btn-danger" type="submit">Delete my account</button>
 	</form>
 	
-  <div class="page-header">
-    <h3>Linked Accounts</h3>
+  <div class="page-header row">
+		<div class="col-xs-2"></div>
+    <h3 class="col-xs-4">Linked Accounts</h3>
 	</div>
-	
+	<div class="col-xs-offset-2 col-xs-4">
   {% if user.google %}
     <p><a class="text-danger" href="/settings/unlink/google">Unlink your Google account</a></p>
   {% else %}
@@ -134,5 +138,5 @@
   {% else %}
     <p><a href="/auth/github">Link your GitHub account</a></p>
 	{% endif %}
-		
+	</div>	
 {% endblock %}

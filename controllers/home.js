@@ -4,7 +4,7 @@
  * for routes: '/', '/search'
  */
 exports.search = function(req, res){
-	res.render('search.html', {app: 'On Repeat', title: 'Search', view: 'Search'});
+	res.render('search.html', {app: 'Anthem', title: 'Search', view: 'Search'});
 }
 
 /**
@@ -31,11 +31,11 @@ exports.getSearchResults = function(phantomSoundCloud) {
 		phantomSoundCloud(query, function handlePhantomResults(phantomResults){
 			if(phantomResults.trackSet == 0){
 				console.log('\n Found [0] tracks\n');
-				res.render('404.html', {app: 'On Repeat', title: '404', query: query});
+				res.render('404.html', {app: 'Anthem', title: '404', query: query});
 			}
 			else{
 				console.log('\n Found [' +phantomResults.trackSet.length+ '] tracks\n');
-				res.render('returnSearch.html', {app: 'On Repeat', title: 'Results for "' +query+ '"', query: query, trackSet: phantomResults.trackSet});
+				res.render('returnSearch.html', {app: 'Anthem', title: 'Results for "' +query+ '"', query: query, trackSet: phantomResults.trackSet});
 			}
 		});
 	};

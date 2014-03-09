@@ -6008,6 +6008,9 @@ li.track .sm2_paused:hover
   src: url("../../fonts/Lato-Bold.ttf") format("truetype");
   font-weight: bold;
 }
+.page-header {
+  border-bottom: 0px;
+}
 /*needed for fixed nav*/
 body {
   padding-top: 81px;

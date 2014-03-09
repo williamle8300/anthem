@@ -25,7 +25,7 @@ $(window).bind('keyup', function(e) {
 			pagePlayer.playPrevious();
 			return false;
 		}
-		if (keyInfo.code == 16) {//toggle the play state; whether there is a queued track or playing first track
+		if (keyInfo.code == 32) {//toggle the play state; whether there is a queued track or playing first track
 			var qed = $('li.sm2_playing a, li.sm2_paused a').attr('id');
 			if(qed){soundManager.togglePause(qed);}
 			else{
@@ -36,6 +36,15 @@ $(window).bind('keyup', function(e) {
 		}
 		if (keyInfo.code == 51 && keyInfo.shiftKey) {//'?' shows shortcuts
 			//focus $('#query')
+			return false;
+		}
+	}
+});
+$(window).bind('keydown', function(e) {
+	var keyInfo = keyCodeInfo(e);
+	if (!keyInfo.shortcut && !keyInfo.textarea) {
+		if (keyInfo.code == 32) {//prevents 'spacebar' scrolls
+			e.preventDefault();
 			return false;
 		}
 	}

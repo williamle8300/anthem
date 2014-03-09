@@ -11,7 +11,7 @@ var User = require('../models/User');
 exports.getLogin = function(req, res) {
   if (req.user) return res.redirect('/');
   res.render('account/login.html', {
-    app: 'On Repeat',
+    app: 'Anthem',
     title: 'Login',
     errors: req.flash('errors')
   });
@@ -25,7 +25,7 @@ exports.getLogin = function(req, res) {
 exports.getSignup = function(req, res) {
   if (req.user) return res.redirect('/');
   res.render('account/signup.html', {
-    app: 'On Repeat',
+    app: 'Anthem',
     title: 'Sign Up',
     errors: req.flash('errors')
   });
@@ -36,13 +36,24 @@ exports.getSignup = function(req, res) {
  * Profile page.
  */
 
-exports.getProfile = function(req, res) {
-  res.render('account/profile.html', {
-    app: 'On Repeat',
-    title: 'Profile',
-    success: req.flash('success'),
-    error: req.flash('error')
-  });
+exports.getProfile = function(req, res, next) {
+	var username = req.params.username;
+  User.findOne({username: username}, function(err, profileUser) {     
+    if (!profileUser) return next(err);
+    var profileUser = {
+      username: profileUser.username,
+      _track: profileUser._track,
+      _trackSet: profileUser._trackSet,
+			profile: profileUser.profile//temp only!
+    };
+	  res.render('returnProfile.html', {
+	    app: 'Anthem',
+	    title: 'Songs',
+	    success: req.flash('success'),
+	    error: req.flash('error'),
+			profileUser: profileUser
+	  });
+	});
 };
 
 /**
@@ -52,7 +63,7 @@ exports.getProfile = function(req, res) {
 
 exports.getSettings = function(req, res) {
   res.render('account/settings.html', {
-    app: 'On Repeat',
+    app: 'Anthem',
     title: 'Settings',
     success: req.flash('success'),
     error: req.flash('error')
@@ -88,7 +99,7 @@ exports.postLogin = function(req, res, next) {
 
     req.logIn(user, function(err) {
       if (err) return next(err);
-      return res.redirect('/profile');
+      return res.redirect('/' +user.username);
     });
   })(req, res, next);
 };
@@ -115,6 +126,7 @@ exports.postSignup = function(req, res, next) {
   }
 
   var user = new User({
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password
   });
@@ -142,10 +154,10 @@ exports.postUpdateProfile = function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
 
-    user.profile.name = req.body.name || '';
     user.email = req.body.email || '';
+    user.username = req.body.username || '';
+    user.profile.name = req.body.name || '';
     user.profile.gender = req.body.gender || '';
-    user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
 
     user.save(function(err) {
@@ -239,13 +251,19 @@ exports.logout = function(req, res) {
 exports.saveResource = function(req, res){
 	var resourceID = req.params.resourceID;
 	var encodedObjHTML = req.params.encodedObjHTML;	
+	// var Person = mongoose.model('Person', yourSchema);
+  // 
+	// // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
+	// Person.findOne({ 'name.last': 'Ghost' }, 'name occupation', function (err, person) {
+	//   if (err) return handleError(err);
+	//   console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
+	// })
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
-		//currently user only has one playlist: 'playlist1'
-		user.profile.playlists.playlist1.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});
+		user.profile.playlists.playlist1.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});//currently user only has one playlist: 'playlist1'
     user.save(function(err) {
       if (err) return next(err);
-			res.send(200);
+			res.send(200);//saved.
     });
 	});
 };
@@ -267,9 +285,9 @@ exports.removeResource = function(req, res) {
       user.profile.playlists.playlist1.splice(matchIndex, 1);
 	    user.save(function(err) {
 	      if (err) return next(err);
-				res.send(200);
+				res.send(200);//removed.
 	    });
-	  } else {//else, no match, send 404. 
+	  } else {//else, no match, send 404
 	  	res.send(404);
 	  }
 	});

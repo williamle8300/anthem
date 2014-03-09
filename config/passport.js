@@ -15,7 +15,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function (err, user) {
+  User.findById(id, function(err, user) {
     done(err, user);
   });
 });
@@ -33,7 +33,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
   });
 }));
 
-passport.use(new FacebookStrategy(secrets.facebook, function (req, accessToken, refreshToken, profile, done) {
+passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, refreshToken, profile, done) {
   if (req.user) {
     User.findById(req.user.id, function(err, user) {
       user.facebook = profile.id;
@@ -160,7 +160,7 @@ passport.use('tumblr', new OAuthStrategy({
     callbackURL: secrets.tumblr.callbackURL,
     passReqToCallback: true
   },
-  function (req, token, tokenSecret, profile, done) {
+  function(req, token, tokenSecret, profile, done) {
     User.findById(req.user._id, function(err, user) {
       user.tokens.push({ kind: 'tumblr', accessToken: token, tokenSecret: tokenSecret });
       user.save(function(err) {
@@ -178,7 +178,7 @@ passport.use('foursquare', new OAuth2Strategy({
     callbackURL: secrets.foursquare.redirectUrl,
     passReqToCallback: true
   },
-  function (req, accessToken, refreshToken, profile, done) {
+  function(req, accessToken, refreshToken, profile, done) {
     User.findById(req.user._id, function(err, user) {
       user.tokens.push({ kind: 'foursquare', accessToken: accessToken });
       user.save(function(err) {

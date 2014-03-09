@@ -45,12 +45,12 @@
 		            {% if user.profile.picture %}
 		            <img src="{{user.profile.picture}}"/>
 								{% endif %}
-		            {{user.profile.name if user.profile.name else user.id}}&nbsp;
+		            {{user.username if user.username else user.id}}&nbsp;
 		            <i class="caret"></i>
 							</a>
 		          <ul class="dropdown-menu">
 		            <li>
-		            	<a href="/profile">Profile</a>
+		            	<a href="/{{user.username}}">Profile</a>
 		            </li>
 		            <li>
 		            	<a href="/settings">Settings</a>
