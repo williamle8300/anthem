@@ -6,9 +6,9 @@
  * serves an idiosyncratic purpose
  * 
  * It grabs all track nodes
- * and stores their markup in
- * input[data-encodedobjhtml] and
- * inits iCheck; adding checked attr and class to each
+ * and stores their markup into
+ * input[data-encodedobjhtml], then 
+ * synchronously checks each iCheck
 **/
 var tracks = document.querySelectorAll('li.track');
 var tracksLen = tracks.length;

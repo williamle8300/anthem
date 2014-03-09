@@ -1,8 +1,5 @@
 {% extends "layout.html" %}
 
-{% block appScripts %}
-{% endblock %}
-
 {% block center %}
 <ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	{% for track in trackSet %}
@@ -30,10 +27,8 @@
 {% endblock %}	
 
 {% block clientSideScripts %}{# order of snippets: important #}
-{% include 'snippets/jquery.html' %}
-{% include 'snippets/SM2Scripts.html' %}
+{% include 'snippets/plugins.html' %}
 {% include 'snippets/listeners_KeyBindings.html' %}
 {% include 'snippets/listeners_iCheck.html' %}
 {% include 'snippets/renderingSearchResults.html' %}
-<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}

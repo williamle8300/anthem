@@ -1,25 +1,18 @@
 <!doctype html>
 <html>
   <head>
-
-  <title>{{title}}</title>
-	
-	{% block appScripts %}
-	{% endblock %}
-	
-	<link rel="stylesheet" href="/css/lib/font-awesome.min.css"/>
-	<link rel="stylesheet" href="/css/lib/animate.css"/>
-	<link rel="stylesheet" href="/css/lib/bootstrap/dist/css/bootstrap.min.css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible", content="IE=edge">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
+	  <title>{{title}}</title>
+		<link rel="stylesheet" href="/css/lib/font-awesome.min.css"/>
+		<link rel="stylesheet" href="/css/lib/animate.css"/>
+		<link rel="stylesheet" href="/css/lib/bootstrap/dist/css/bootstrap.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible", content="IE=edge">
+	  <meta name="description" content="">
+	  <meta name="author" content="">
 	</head>
   
 	<body>
-
 		{% block nav %}
 	  <div class="navigation container">
 			<div class="row">
@@ -75,14 +68,12 @@
 		{% endblock %}
 
 	  <div class="main container">
-			                                                                                                                                   
-			{% block center %}                                        {# all .main.containter stuff goes in 'center'! #}                                                                         
-	  	{% endblock %}                                            {# all .main.containter stuff goes in 'center'! #}                                                                         
-                                                                {# all .main.containter stuff goes in 'center'! #}
+			{% block center %}
+			{% endblock %}
 		</div>
 
 	  {% block clientSideScripts %}
-		{% include 'snippets/jquery.html' %}
+		{% include 'snippets/plugins.html' %}
 		<script src="/css/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	  {% endblock %}
   
