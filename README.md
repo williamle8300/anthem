@@ -4,20 +4,69 @@ _sharing_recommendations_
 functional, social, emotional value
 "Can I give you my money?"
 
+_track {
+	list: [
+		{
+			ID,
+			PROVIDER,
+			PLAYCOUNT,
+			ENCODEDHTMLOBJ,
+			TRACKSETS: [
+				{
+					ID,
+					SEQU
+				}
+			]
+		}
+	]
+}
+
+_trackSets	
 
  /Stage 1: Alpha [1]
  add • delete • organize tracksets
  
- • add basic versions of the Menu Buttons; http://matthaeuskrenn.com/springto/facebookhome/
-	 • "save track(s)"
-	 • "unsave track(s)"
+ 
+ 
+ click, drag, select
+ http://threedubmedia.com/code/event/drop/demo/selection
+ http://api.jquery.com/index/
+ PRO: simple code
+ CON: doesn't have click listeners, doesn't show array of 'dropped'
+ 
+ $('.drop').click(function(){
+ 			$( this ).toggleClass("dropped");
+ })
+ 
+ $( ".ui-selected", this ).each(function() {
+   var index = $( "#selectable li" ).index( this );
+   result.append( " #" + ( index + 1 ) );
+ });
+ 
+ 
+ http://touchpunch.furf.com/
+		$(function() {
+		  $( "#selectable" ).selectable({
+		    stop: function() {
+		      var result = $( "#select-result" ).empty();
+		      $( ".ui-selected", this ).each(function() {
+		        var index = $( "#selectable li" ).index( this );
+		        result.append( " #" + ( index + 1 ) );
+		      });
+		    }
+		  });
+		});
+        
+ 
+ 
+ • add basic versions of the Menu Buttons
+	 • selection creates, and increments an array (e.g., currTrackSelection[])
+	 • menu buttons access array and "save track(s)" to user._track.list (http://matthaeuskrenn.com/springto/facebookhome/) 
+	 		wid propa modol mon!
+	 • profile/index.html now reads from profileUser._track.list (instead of profileUser.profile.playlists.playlist1)
+	 • reduplicate this feature to "unsave track(s)"
 
- • realize trackSet paths, with working permalinks
-	 • "/williamle8300/settings"
-	 • "/williamle8300?trackset=canadian-indierock"
-	 • "/williamle8300?trackset=burial-fourtet"
-
- • "Create a new trackset"
+ • Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"
 	 • "/williamle8300?trackset=progressive-house"
@@ -26,8 +75,8 @@ functional, social, emotional value
  • "Add to a trackset..."
  • [¡Delete trackset!]
  • filter by 'labeled' and 'unlabeled' tracks
- • sort tracks by 'labeled', 'unlabeled', 'trackSets'
- • navbar with trackSets
+ • filter tracks by 'labeled', 'unlabeled', 'trackSets'
+ • navbar with trackSets ordered by last modified/played
   
  • realize user schema (how to do sorting of tracks?)
 	 • http://mongoosejs.com/docs/queries.html
@@ -41,7 +90,7 @@ functional, social, emotional value
 
  • spiff-up Menu Buttons
  
- • keybindings for selection: select all, deselect, ...
+ • new keybindings: shift for menu buttons, for select all, deselect, invert selection
 
 
  /Stage 2: Alpha [3]
@@ -76,6 +125,9 @@ functional, social, emotional value
 
  /Stage 4: Beta [15]
  • make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
+ • for "touch" events
+ 		- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
+		- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
  • offer something awesome-hilarious-very-unnecessary
  • create and offer the paid plans
  (• scale hosting service/refactor/document/re-architect?)
