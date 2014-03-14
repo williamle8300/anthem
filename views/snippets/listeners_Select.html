@@ -1,0 +1,65 @@
+<script type="text/javascript">
+$('.leftPanel')
+  .click(function (ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    $(this).parent().toggleClass("selected");
+  });
+  //.hover(function () {
+  //  $(this).parent().addClass("hover");
+  //}, function () {
+  //  $(this).parent().removeClass("hover");
+  //});
+$('.leftPanel')
+  .drag("start", function (ev, dd) {
+    return $('<div class="selection" />')
+      .css('opacity', .65)
+      .appendTo(document.body);
+  })
+  .drag(function (ev, dd) {
+    $(dd.proxy).css({
+      top: Math.min(ev.pageY, dd.startY),
+      left: Math.min(ev.pageX, dd.startX),
+      height: Math.abs(ev.pageY - dd.startY),
+      width: Math.abs(ev.pageX - dd.startX)
+    });
+  })
+  .drag("end", function (ev, dd) {
+    $(dd.proxy).remove();
+  });
+$('.leftPanel')
+  //.drop("start", function () {
+  //  $(this).parent().addClass("hover");
+  //})
+  .drop(function (ev, dd) {
+    $(this).parent().toggleClass("selected");
+  });
+  //.drop("end", function () {
+  //  $(this).parent().removeClass("hover");
+  //});
+$.drop({
+  multi: true
+});
+</script>
+<style type="text/css">
+.selection {
+	position: absolute;
+	border: 1px solid #89B;
+	background: #BCE;
+	background-color: #BEC;
+	border-color: #8B9;
+	z-index:10000;
+	}
+.selected {
+	background-color: #EBC;
+	border-color: #B89;
+}	
+/*.leftPanel.selected.hover {  
+	background-color: #EBC;
+	border-color: #B89;
+}
+.leftPanel.hover {  
+	background-color: #CEB;
+	border-color: #9B8;
+}*/
+</style>

@@ -4,15 +4,17 @@
 //===========================//
 //===========TRACKS==========//
 //===========================//
-tracks: [
-	{
-		resourceID: 'SC_384859'
-		encodedObjHTML: '#%##%##%##%##%##%##%##%##%#',
-		playCount: 3949,
-		tracksetMemberOf: [324, 2341901, 4451, 85810]
-	},
-	•••
-]
+_track: {
+	list: [
+		{
+			resourceID: '384859',
+			provider: 'soundcloud_com'
+			encodedObjHTML: '#%##%##%##%##%##%##%##%##%#',
+			playCount: 3949,
+			tracksetMemberOf: [324, 2341901, 4451, 85810]
+		} ,•••
+	]
+}
 
 //===========================//
 //===========TRACKSETS=======//

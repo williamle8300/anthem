@@ -22,6 +22,12 @@
 	{% for profileUserTrack in profileUser.profile.playlists.playlist1 %}
 		{{profileUserTrack.encodedObjHTML | safe}}
 	{% endfor %}
+	<div id="omniWrapper">
+		<div id="aob0" class="aob"></div>
+		<div id="aob1" class="aob"></div>
+		<div id="aob2" class="aob"></div>
+		<div id="omniButton" class="ui-draggable"></div>
+	</div>
 </ul>
 {% endblock %}	
 
@@ -29,5 +35,6 @@
 {% include 'snippets/allJavascriptPlugins.html' %}
 {% include 'snippets/listeners_KeyBindings.html' %}
 {% include 'snippets/listeners_iCheck.html' %}
+{% include 'snippets/listeners_Select.html' %}
 {% include 'profile/postProcess.html' %}
 {% endblock %}

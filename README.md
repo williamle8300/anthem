@@ -1,3 +1,4 @@
+
 # Ideas
 SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
@@ -23,41 +24,10 @@ _track {
 
 _trackSets	
 
+
  /Stage 1: Alpha [1]
  add • delete • organize tracksets
- 
- 
- 
- click, drag, select
- http://threedubmedia.com/code/event/drop/demo/selection
- http://api.jquery.com/index/
- PRO: simple code
- CON: doesn't have click listeners, doesn't show array of 'dropped'
- 
- $('.drop').click(function(){
- 			$( this ).toggleClass("dropped");
- })
- 
- $( ".ui-selected", this ).each(function() {
-   var index = $( "#selectable li" ).index( this );
-   result.append( " #" + ( index + 1 ) );
- });
- 
- 
- http://touchpunch.furf.com/
-		$(function() {
-		  $( "#selectable" ).selectable({
-		    stop: function() {
-		      var result = $( "#select-result" ).empty();
-		      $( ".ui-selected", this ).each(function() {
-		        var index = $( "#selectable li" ).index( this );
-		        result.append( " #" + ( index + 1 ) );
-		      });
-		    }
-		  });
-		});
-        
- 
+
  
  • add basic versions of the Menu Buttons
 	 • selection creates, and increments an array (e.g., currTrackSelection[])
@@ -65,6 +35,8 @@ _trackSets
 	 		wid propa modol mon!
 	 • profile/index.html now reads from profileUser._track.list (instead of profileUser.profile.playlists.playlist1)
 	 • reduplicate this feature to "unsave track(s)"
+
+-
 
  • Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
@@ -207,19 +179,21 @@ http://getbootstrap.com
 - nodemon app.js
 
 # Target Market
-- self-employed/freelancerse/work-from-home: rogie king, 
+- self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
 - or people who work at computers all day (by themselves); remote working;
 - musicians; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/
 - major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
-# Sample Track Sets (see: Pandora Radio)
+# Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
+- The Grind: Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
 - Woodstock 1969, Joe Cocker, Jimi Hendrix, CCR
 - 90s: The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
-- HYPEM (for weekly top indie tracks)
+- [The 27 Club](https://en.wikipedia.org/wiki/27_Club), Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
+- HYPEM (weekly tracks)
 - Bob Dylan
-- The Grind: Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
+- Soundtrack from The Drive
 - HIP-HOP: Wu Tang Clan, Tribe Called Quest, Mos Def, Notorious B.I.G., Tupac
-- Progressive House: ...
+- Progressive House / EDM: SBTRKT
 
 
 ![Alt](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)
