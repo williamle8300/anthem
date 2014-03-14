@@ -1,6 +1,10 @@
-
+<script type="text/javascript" charset="utf-8">
 //omniButton's coords
 var omniButton = {top:0, left:0};
+//selector for where omniButton can show up.
+var hotArea = 'ul.playlist';
+//current selection
+var currSelection = false;
 //halved widths for accurate placement of elements
 var omniButtonWidthHalved = 60/2;
 var aobWidthHalved = 50/2;
@@ -11,39 +15,51 @@ var mouseInitialLeft = 0;
 var mouseTerminusTop = 0;
 var mouseTerminusLeft = 0;
 //a fixed button distance
-var bDist = 150;
+var bDist = 130;
+var distThreshold = 70;
 //index of 'pulled' aob in [aobs Array]
 var idx_of_selected_aob = false;
 //default value
 var controlsShown = false;
 
 $(function () {
-	$(document).bind("contextmenu", function (e) {//disable contextmenu
+	$('#omniButton').bind('contextmenu', function (e) {//disable contextmenu
     return false;
 	});
-	$(document).on('mousedown', function(e) {//toggle #omniButton
+  $(hotArea).on('mousedown', function (e) {//show aobs (anOmniButton)
 		switch (e.which) {
 			case 3://right-click mousecode
-				$("#omniButton").css({ top : e.pageY - omniButtonWidthHalved, left: e.pageX - omniButtonWidthHalved });
-				$('#omniButton').fadeTo('fast' , 0.7);
-				$('#omniButton').simulate("drag", {dragStart: {y: e.pageY, x: e.pageX}});
+				$('#omniButton, .aob').css({ top : e.pageY - omniButtonWidthHalved, left: e.pageX - omniButtonWidthHalved });
+				$('#omniButton').simulate('drag', {dragStart: {y: e.pageY, x: e.pageX}});
+				$('#omniButton').fadeTo('fast' , 0.65);
 				e.preventDefault();
+				mouseInitialTop = e.pageY;
+				mouseInitialLeft = e.pageX;
+		    showControls(mouseInitialTop, mouseInitialLeft);
+		    e.preventDefault();
 		}
-	});
-  $('#omniButton').on('mousedown', function (e) {//show aobs (anOmniButton)
-		mouseInitialTop = e.pageY;
-		mouseInitialLeft = e.pageX;
-    showControls(mouseInitialTop, mouseInitialLeft);
-    e.preventDefault();
   });
-  $(document).on('mouseup', function (e) {//hide aobs
-		mouseTerminusTop = e.pageY;
-		mouseTerminusLeft = e.pageX;
-		$('#omniButton').fadeTo('fast' , 0);
-    hideControls(mouseTerminusTop, mouseTerminusLeft);//everything moves there
-    e.preventDefault();
+  $('#omniButton').on('mouseup', function (e) {//hide aobs
+		switch (e.which) {
+			case 3://right-click mousecode
+				mouseTerminusTop = e.pageY;
+				mouseTerminusLeft = e.pageX;
+		    hideControls(mouseTerminusTop, mouseTerminusLeft);//everything moves there
+				$('#omniButton').fadeTo('fast' , 0);
+				if(currSelection){
+					console.log(currSelection+ '!!!');
+					/*
+					*
+					* get 'pulled' value
+					* then, execute function(s) here
+					*
+					*/
+					currSelection = false;//reset value
+				}
+		    e.preventDefault();
+		}
   });
-  $('#omniButton').draggable({//fires whenever #omniButton is dragged to calc distance between it and all .aobs (< 100px threshold)
+  $('#omniButton').draggable({//fires whenever #omniButton is dragged to calc distance between it and all .aobs (< distThreshold)
     drag: function (e, ui) {
       checkProximity(e, ui);
     }
@@ -55,7 +71,7 @@ function showControls(mouseInitialTop, mouseInitialLeft) {
   $('.aob').addClass('active');
 	//How-to-use springTo: elementSpringTo(ELEMENT, TARGETX, TARGETY, [STIFFNESS, MASS, FRICTION],)
   elementSpringTo('#aob0', mouseInitialLeft-bDist-aobWidthHalved, mouseInitialTop-aobWidthHalved, [140, 8, 3]);//look at me!
-  elementSpringTo('#aob1', mouseInitialLeft-aobWidthHalved, mouseInitialTop-bDist-aobWidthHalved, [140, 8, 3]);//look at me!
+  //elementSpringTo('#aob1', mouseInitialLeft-aobWidthHalved, mouseInitialTop-bDist-aobWidthHalved, [140, 8, 3]);//look at me!
   elementSpringTo('#aob2', mouseInitialLeft+bDist-aobWidthHalved, mouseInitialTop-aobWidthHalved, [140, 8, 3]);//look at me!
 }
 function hideControls(mouseTerminusTop, mouseTerminusLeft) {
@@ -66,7 +82,7 @@ function hideControls(mouseTerminusTop, mouseTerminusLeft) {
 		//How-to-use springTo: elementSpringTo(ELEMENT, TARGETX, TARGETY, [STIFFNESS, MASS, FRICTION],)
 		elementSpringTo('#omniButton', mouseTerminusLeft-omniButtonWidthHalved, mouseTerminusTop-omniButtonWidthHalved, [100, 9, 4]);//#omniButton goes to mouseup coords;
     elementSpringTo('#aob0', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
-    elementSpringTo('#aob1', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
+    //elementSpringTo('#aob1', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
     elementSpringTo('#aob2', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
   }
 }
@@ -77,24 +93,25 @@ function checkProximity(e, ui) {
     name: '#aob0',
     oX: mouseInitialLeft-aobWidthHalved-bDist,
     oY: mouseInitialTop-aobWidthHalved
-  }, {
-    name: '#aob1',
-    oX: mouseInitialLeft-aobWidthHalved,
-    oY: mouseInitialTop-aobWidthHalved-bDist
-  }, {
+  }, // {
+//     name: '#aob1',
+//     oX: mouseInitialLeft-aobWidthHalved,
+//     oY: mouseInitialTop-aobWidthHalved-bDist
+//   },
+	{
     name: '#aob2',
     oX: mouseInitialLeft-aobWidthHalved + bDist,
     oY: mouseInitialTop-aobWidthHalved
   }];
   if (idx_of_selected_aob !== false) {
-    if (calculateDistanceBetween(omniButton, {left: aobs[idx_of_selected_aob].oX, top: aobs[idx_of_selected_aob].oY}) < 100) {
+    if (calculateDistanceBetween(omniButton, {left: aobs[idx_of_selected_aob].oX, top: aobs[idx_of_selected_aob].oY}) < distThreshold) {
       elementSpringTo(aobs[idx_of_selected_aob].name, omniButton.left + 5, omniButton.top + 5, [180, 8, 3]);
       // $(aobs[idx_of_selected_aob].name).css('top', omniButton.top + 5).css('left', omniButton.left + 5);
       return 0;
     } else {
       // $(aobs[idx_of_selected_aob].name).removeClass('hidden');
       elementSpringTo(aobs[idx_of_selected_aob].name, aobs[idx_of_selected_aob].oX, aobs[idx_of_selected_aob].oY, [140, 8, 3]);
-      idx_of_selected_aob = false;
+      idx_of_selected_aob = currSelection = false;
       console.clear();
 			console.log('[reset] No aobs pulled');
       return 0;
@@ -102,10 +119,11 @@ function checkProximity(e, ui) {
   } else {
 		//console.clear(); console.log('> omniButton: ' +omniButton.top+ ', ' +omniButton.left);
     for (i in aobs) {//calcs distance of each [aobs Array] for every pixel dragged. crazy maths happening here.
-      if (calculateDistanceBetween(omniButton, {left: aobs[i].oX, top: aobs[i].oY}) < 100) {
+      if (calculateDistanceBetween(omniButton, {left: aobs[i].oX, top: aobs[i].oY}) < distThreshold) {
         idx_of_selected_aob = i;//idx of 'pulled' aob
 				console.clear();
-        console.log('pulled', aobs[i].name)
+				currSelection = aobs[i].name;
+        console.log('pulled', aobs[i].name);
         elementSpringTo(aobs[i].name, omniButton.left + 5, omniButton.top + 5, [180, 8, 3]);
         //$(aobs[i].name).addClass('hidden');
         return 0;
@@ -120,3 +138,49 @@ function calculateDistanceBetween(a, b) {
 	//console.log(a, b);console.log('distance is', dX, dY, distance);
   return distance;
 }
+</script>
+<style type="text/css" media="screen">
+/*#prototype{display:block;position:relative;top:0px;left:0px;width:100%;height:500px;}
+#protContainer{display:inline-block;position:relative;top:0px;left:0px;width:500px;height:300px;padding:0px 0 0 0;}*/
+#omniWrapper{margin: 0 auto;}
+#omniButton {
+	z-index:10000;
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	background: blue;
+	border-radius: 50px;
+	opacity:0;
+	cursor: pointer;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+}
+#aob0, #aob1, #aob2 {
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+}
+.aob {
+	display:none;
+	z-index:10000;
+	top: 1px;/*hack*/
+	left: 1px;/*hack*/
+	width: 50px;
+	height: 50px;
+	background: #808080;
+	box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
+	opacity: 0;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: 200ms;
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-delay: 0;
+}
+.aob.active {
+	opacity: 0.85;
+}
+.aob.hidden.active {
+	visibility: hidden;
+}
+</style>
