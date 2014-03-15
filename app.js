@@ -111,8 +111,7 @@ app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/twitter', passportConf.isAuthenticated, apiController.getTwitter);
 app.get('/api/aviary', apiController.getAviary);
 //Profile (must be listed last)
-//app.get('/:username', passportConf.isAuthenticated, userController.getProfile);
-app.get('/:username', userController.getProfile);
+app.get('/:username', passportConf.isAuthenticated, userController.getProfile);
 app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource)
 app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource)
 

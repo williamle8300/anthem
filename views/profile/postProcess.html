@@ -13,15 +13,37 @@
 var tracks = document.querySelectorAll('li.track');
 var tracksLen = tracks.length;
 var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
+var onPageIDs = [];for (var i = 0; i < inputs.length; i++) { onPageIDs.push(parseInt(inputs[i].id)); }//all ids attrs of VARinputs on the loaded page
+var tempUserTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
+{% if user %}//if logged in?, we'll do this check                                                                 //!REFACTOR
+	{% for userTrack in user.profile.playlists.playlist1 %}//use Nunjucks to push user 'saves'                      //!REFACTOR
+	tempUserTrackResourceIDs.push({{userTrack.resourceID}});//go thru results, and push 'saves' into this temp Array//!REFACTOR
+	{% endfor %}                                                                                                    //!REFACTOR
+{% endif %}                                                                                                       //!REFACTOR
 
 for (var i = 0; i < tracksLen; i++) {
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString()); 
 }
-$(inputs).iCheck({
+$(inputs).iCheck({//instantiate iChecks (does not mean "check" iChecks)
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%', // optional
 	aria: false
 });
-$('div.icheckbox_square-blue').addClass('checked');
-$('div.icheckbox_square-blue input').prop('checked', true);;
+//if  = user.username
+if ('{{profileUser.username}}' == '{{user.username}}') {
+	$('div.icheckbox_square-blue').addClass('checked');
+	$('div.icheckbox_square-blue input').prop('checked', true);
+} 
+else {
+	for (var i = 0; i < onPageIDs.length; i++) {
+		if(tempUserTrackResourceIDs.indexOf(onPageIDs[i]) !== -1) {
+			var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
+			var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
+			$(tempDiv[i]).addClass('checked');                      //!REFACTOR
+			$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
+		}
+	};
+}
+//if any tracks onpage match tracks with user..
+//check-it!
 </script>

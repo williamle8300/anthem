@@ -150,8 +150,10 @@ _trackSets
  • ";" to re-sort all tracks *after* the q'd track
  
  
-IE probz
-- HTMLElement.dataset method (solution: use HTML5 shim)
+Shims!
+- escapeHTML
+- [Array].indexOf
+- HTMLElement.dataset
 
 
 Visual Identity
@@ -186,6 +188,7 @@ http://getbootstrap.com
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 - The Grind: Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
+- Deliberate, non-deliberate: Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 - Woodstock 1969, Joe Cocker, Jimi Hendrix, CCR
 - 90s: The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
 - [The 27 Club](https://en.wikipedia.org/wiki/27_Club), Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
