@@ -10,7 +10,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var expressValidator = require('express-validator');
 var nunjucks = require('nunjucks');
-var phantomSoundCloud = require('phantomFunctions').phantomSoundCloud;
+var phantomSoundCloud = require('./lib/phantomFunctions').phantomSoundCloud;
 //var phantomRedditRMusic = require('phantomFunctions').phantomRedditRMusic;
 //var phantomYouTube = require('phantomFunctions').phantomYouTube;
 
