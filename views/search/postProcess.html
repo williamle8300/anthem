@@ -4,21 +4,21 @@
 var tracks = document.querySelectorAll('li.track');                                          //
 var trackHREFs = document.querySelectorAll('li.track a');                                    //
 var inputs = document.querySelectorAll('li.track input[type="checkbox"]');                   //get info from DOM for processing; primarily hidden nodes
-var trackSet = tracks.length;                                                                //
-var tempUserTrackResourceIDs = [];                                                                    
+var trackSetLen = tracks.length;                                                             //
+var userTrackResourceIDs = [];                                                                    
 var permalinks = [];                                                                         
 
-//check if user has some tracks saved; push into temporary Array (tempUserTrackResourceIDs)
+//check if user has some tracks saved; push into temporary Array (userTrackResourceIDs)
 {% if user %}//if logged in?, we'll do this check
 	{% for userTrack in user.profile.playlists.playlist1 %}//use Nunjucks to push user 'saves'
-	tempUserTrackResourceIDs.push({{userTrack.resourceID | safe}});//go thru results, and push 'saves' into this temp Array
+	userTrackResourceIDs.push({{userTrack.resourceID | safe}});//go thru results, and push 'saves' into this temp Array
 	{% endfor %}
 	$(".rightPanel form").css("display", "table-cell");
 {% endif %}
 
-for(var i = 0; i<trackSet; i++){//call soundCloudResolveTrack on each track
+for(var i = 0; i<trackSetLen; i++){//call soundCloudResolveTrack on each track
 	permalinks[i] = trackHREFs.item(i).getAttribute('href');
-	soundCloudResolveTrack(permalinks, i, tempUserTrackResourceIDs);
+	soundCloudResolveTrack(permalinks, i, userTrackResourceIDs);
 }
 
 /**
@@ -32,9 +32,9 @@ for(var i = 0; i<trackSet; i++){//call soundCloudResolveTrack on each track
  * 
  * @param {array} permalinks
  * @param {number} i
- * @param {array} tempUserTrackResourceIDs
+ * @param {array} userTrackResourceIDs
 **/
-function soundCloudResolveTrack(permalinks, i, tempUserTrackResourceIDs) {
+function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 	var permalink = permalinks[i];//qed permalink
 	var CLIENT_ID = '212b7a5080f5d7f8e831583446771a02';//SoundCloud API ID
 	var URI = 'http://api.soundcloud.com/resolve.json?callback=?&url=' +permalink+ '&client_id=' +CLIENT_ID;//construct request url; 'callback' param specif. for Safari
@@ -52,7 +52,7 @@ function soundCloudResolveTrack(permalinks, i, tempUserTrackResourceIDs) {
 		    increaseArea: '300%', // optional
 				aria: false
 		  });
-			if ($.inArray(track.id, tempUserTrackResourceIDs) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
+			if (userTrackResourceIDs.indexOf(track.id) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
 				$('a#track' +track.id+ ' div.icheckbox_square-blue').addClass('checked');
 				$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);;
 			}				

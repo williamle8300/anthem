@@ -9,15 +9,18 @@
  * and stores their markup into
  * input[data-encodedobjhtml], then 
  * synchronously checks each iCheck
+ *
+ * Also goes through, sees if profileUser == user
+ * then does the appropriate iChecks
 **/
 var tracks = document.querySelectorAll('li.track');
 var tracksLen = tracks.length;
 var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
 var onPageIDs = [];for (var i = 0; i < inputs.length; i++) { onPageIDs.push(parseInt(inputs[i].id)); }//all ids attrs of VARinputs on the loaded page
-var tempUserTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
+var userTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
 {% if user %}//if logged in?, we'll do this check                                                                 //!REFACTOR
 	{% for userTrack in user.profile.playlists.playlist1 %}//use Nunjucks to push user 'saves'                      //!REFACTOR
-	tempUserTrackResourceIDs.push({{userTrack.resourceID}});//go thru results, and push 'saves' into this temp Array//!REFACTOR
+	userTrackResourceIDs.push({{userTrack.resourceID}});//go thru results, and push 'saves' into this temp Array//!REFACTOR
 	{% endfor %}                                                                                                    //!REFACTOR
 {% endif %}                                                                                                       //!REFACTOR
 
@@ -29,14 +32,14 @@ $(inputs).iCheck({//instantiate iChecks (does not mean "check" iChecks)
   increaseArea: '300%', // optional
 	aria: false
 });
-//if  = user.username
-if ('{{profileUser.username}}' == '{{user.username}}') {
-	$('div.icheckbox_square-blue').addClass('checked');
+
+if ('{{profileUser.username}}' == '{{user.username}}') {//if profile belongs to the user... 
+	$('div.icheckbox_square-blue').addClass('checked');//check EVYERHING!
 	$('div.icheckbox_square-blue input').prop('checked', true);
 } 
 else {
 	for (var i = 0; i < onPageIDs.length; i++) {
-		if(tempUserTrackResourceIDs.indexOf(onPageIDs[i]) !== -1) {
+		if(userTrackResourceIDs.indexOf(onPageIDs[i]) !== -1) {//if any onPageIDs match any of the user's, check it!
 			var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
 			var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
 			$(tempDiv[i]).addClass('checked');                      //!REFACTOR
@@ -44,6 +47,4 @@ else {
 		}
 	};
 }
-//if any tracks onpage match tracks with user..
-//check-it!
 </script>

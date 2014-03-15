@@ -10,14 +10,6 @@
 {% endblock %}
 
 {% block center %}
-{% if profileUser %}  
-<!--
-<div class="alert alert-success animated fadeInUp">
-  <i class="fa fa-check"></i>
-  <strong>You are logged in</strong>
-</div>
--->
-{% endif %}
 <ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	{% for profileUserTrack in profileUser.profile.playlists.playlist1 %}
 		{{profileUserTrack.encodedObjHTML | safe}}
