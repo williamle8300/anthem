@@ -54,7 +54,7 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 		  });
 			if (userTrackResourceIDs.indexOf(track.id) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
 				$('a#track' +track.id+ ' div.icheckbox_square-blue').addClass('checked');
-				$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);;
+				$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);
 			}				
 		}
 		else {//all unstreamable nodes are removed from DOM

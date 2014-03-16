@@ -248,7 +248,7 @@ exports.logout = function(req, res) {
  * POST /save/:resourceID/:encodedObjHTML
  * save the permalink
  */
-exports.saveResource = function(req, res){
+exports.saveResource = function(req, res, next){
 	var resourceID = req.params.resourceID;
 	var encodedObjHTML = req.params.encodedObjHTML;	
 	// var Person = mongoose.model('Person', yourSchema);
@@ -272,7 +272,7 @@ exports.saveResource = function(req, res){
  * POST /remove/:resourceID
  * remove the permalink
  */
-exports.removeResource = function(req, res) {
+exports.removeResource = function(req, res, next) {
 	var removeResourceID = req.params.resourceID;
   User.findById(req.user.id, function(err, user) {                                                             
     if (err) return next(err);          
@@ -288,7 +288,7 @@ exports.removeResource = function(req, res) {
 				res.send(200);//removed.
 	    });
 	  } else {//else, no match, send 404
-	  	res.send(404);
+	  	res.send(removeResourceID+ 'removed!');
 	  }
 	});
 };

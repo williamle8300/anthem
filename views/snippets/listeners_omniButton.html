@@ -52,46 +52,24 @@
 					if(currSelection){
 						console.log('> User selected: ' +currSelection);
 						if(currSelection == '#aob2'){//add tracks
-							//gets all .selected's {resourceID, encodedHTMLObj}, stores in variable 'selectedTracksObjs'
 							selectedTracks = $('.selected');
 							var i = selectedTracks.length;//backwards loop
 							while(i--){                   //backwards loop
-								selectedTracksObjs[i] = {};
-								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
-								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');
+								selectedTracksObjs[i] = {};//gets all .selected's {resourceID, encodedHTMLObj}, stores in variable 'selectedTracksObjs'
+								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));//...resourceID
+								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');//...encodedobjhtml
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
 								//if user has it saved, slice it out, and re-add it.
 								if (userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID) !== -1) {
-									$.ajax({
-									  type: "POST",
-										async: false,
-									  url: "/remove/" +selectedTracksObjs[i].resourceID,
-										success: function(data) {
-											$.ajax({
-											  type: "POST",
-												async: false,
-											  url: "/save/" +selectedTracksObjs[i].resourceID+ "/" +selectedTracksObjs[i].encodedObjHTML,
-												success: function(data) {
-												  console.log('♫ Track saved: ' +selectedTracksObjs[i].resourceID);
-										  }});
-											console.log('♫ Track removed: ' +selectedTracksObjs[i].resourceID);
-								  }});
+									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('uncheck');
+									userTrackResourceIDs.splice(userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID), 1);
+									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('check');
 								}
 								//else, just add it.
 								else {
-									$.ajax({
-									  type: "POST",
-										async: false,
-									  url: "/save/" +selectedTracksObjs[i].resourceID+ "/" +selectedTracksObjs[i].encodedObjHTML,
-										success: function(data) {
-										  console.log('♫ Track saved: ' +selectedTracksObjs[i].resourceID);
-								  }});
+									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('uncheck').iCheck('check');
 								}
 							}
-							console.log();
-							//checks if in user._track.list[i].resourceID; if so, removes from user._track.list[i]
-							//then unshifts all .selected to user._track.list
-							//log user._track.list
 						}
 						else {//user selected #aob0
 							//delete function
@@ -102,13 +80,8 @@
 								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
 								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[0]).data('encodedobjhtml');
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
-								$.ajax({
-								  type: "POST",
-									async: false,
-								  url: "/remove/" +selectedTracksObjs[i].resourceID,
-									success: function(data) {
-										console.log('♫ Track removed: ' +selectedTracksObjs[i].resourceID);
-							  }});								
+								userTrackResourceIDs.splice(userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID), 1);
+								$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue').iCheck('uncheck');
 							}
 						}
 						currSelection = false;//reset value
