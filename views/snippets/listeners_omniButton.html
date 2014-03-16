@@ -58,7 +58,7 @@
 							while(i--){                   //backwards loop
 								selectedTracksObjs[i] = {};
 								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
-								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[0]).data('encodedobjhtml');
+								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
 								//if user has it saved, slice it out, and re-add it.
 								if (userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID) !== -1) {
