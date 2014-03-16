@@ -53,8 +53,7 @@
 						console.log('> User selected: ' +currSelection);
 						if(currSelection == '#aob2'){//add tracks
 							selectedTracks = $('.selected');
-							var i = selectedTracks.length;//backwards loop
-							while(i--){                   //backwards loop
+							var i = selectedTracks.length; while(i--){//backwards loop to stack in songs to collection
 								selectedTracksObjs[i] = {};//gets all .selected's {resourceID, encodedHTMLObj}, stores in variable 'selectedTracksObjs'
 								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));//...resourceID
 								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');//...encodedobjhtml
@@ -64,10 +63,11 @@
 									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('uncheck');
 									userTrackResourceIDs.splice(userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID), 1);
 									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('check');
+									userTrackResourceIDs.unshift(selectedTracksObjs[i].resourceID);
 								}
 								//else, just add it.
 								else {
-									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('uncheck').iCheck('check');
+									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('check');
 								}
 							}
 						}
