@@ -1,4 +1,3 @@
-
 # Ideas
 SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
@@ -181,12 +180,14 @@ http://heroku.com
 http://getbootstrap.com
 
 # running the app
+- (install phantomjs, casperjs, mongodb, run 'sudo npm install -g nodemon && npm install')
+
 - mongod
 
-- cd ~/Desktop/onRepeat2/public/css/lib/bootstrap
+- cd ~/Desktop/anthem/public/css/lib/bootstrap
 - grunt watch
 
-- cd ~/Desktop/onRepeat2/
+- cd ~/Desktop/anthem/
 - nodemon app.js
 
 # Target Market
