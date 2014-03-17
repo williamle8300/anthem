@@ -276,23 +276,20 @@ exports.removeResource = function(req, res, next) {
 	var removeResourceID = req.params.resourceID;
   User.findById(req.user.id, function(err, user) {                                                             
     if (err) return next(err);      
-		user.profile.playlists.playlist1.findOne({resourceID: removeResourceID}, function(err, docs){//remove all instances of it
-			docs.remove();
-		});
-//		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
-//			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
-//				var matchIndex = i;
-//			};
-//		};
+		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
+			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
+	      user.profile.playlists.playlist1.splice(i, 1);
+		    user.save(function(err) {
+		      if (err) return next(err);
+					res.send(200);//removed.
+		    });
+			}
+			else {//else, no match, send 200
+	    	res.send(200);
+	    }
+		};
 //		if (matchIndex > -1) {//if exists in playlist1, splice it out
-//      user.profile.playlists.playlist1.splice(matchIndex, 1);
-//	    user.save(function(err) {
-//	      if (err) return next(err);
-//				res.send(200);//removed.
-//	    });
+//      
 //	  }
-//		else {//else, no match, send 404
-//    	res.send(404);
-//    }
 	});
 };

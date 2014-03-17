@@ -52,26 +52,21 @@
 					if(currSelection){
 						console.log('> User selected: ' +currSelection);
 						if(currSelection == '#aob2'){//user selected #aob2 (add tracks!!)
-							selectedTracks = $('.selected');//gets all .selected's {resourceID, encodedHTMLObj}, stores in variable 'selectedTracksObjs'
-							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown 'for'. this stores array backwards to 'stack' in tracks to collection
-								selectedTracksObjs[i] = {};
-								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
-								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');
-								console.log(selectedTracksObjs[i].resourceID);//selected ids!
-								//if user has it saved, slice it out, and re-add it.
-								$('input#' +selectedTracksObjs[i].resourceID).iCheck('uncheck', function(){
-									$('input#' +selectedTracksObjs[i].resourceID).iCheck('check');
+							selectedTracks = $('.selected');
+							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown for-loop
+								selectedTracksObjs[i] = parseInt($('input', selectedTracks[i]).attr('id'));
+								console.log(selectedTracksObjs[i]);//selected ids!
+								$('input#' +selectedTracksObjs[i]).iCheck('uncheck', function(){
+									$('input#' +selectedTracksObjs[i]).iCheck('check');
 								});
 							}
 						}
 						else {//user selected #aob0 (delete tracks!!)
 							selectedTracks = $('.selected');
 							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown 'for'. this removes tracks backward-ly
-								selectedTracksObjs[i] = {};
-								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
-								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[0]).data('encodedobjhtml');
-								console.log(selectedTracksObjs[i].resourceID);//selected ids!
-								$('input#' +selectedTracksObjs[i].resourceID).iCheck('uncheck'); 
+								selectedTracksObjs[i] = parseInt($('input', selectedTracks[i]).attr('id'));
+								console.log(selectedTracksObjs[i]);//selected ids!
+								$('input#' +selectedTracksObjs[i]).iCheck('uncheck'); 
 							}
 						}
 						currSelection = false;//reset value
