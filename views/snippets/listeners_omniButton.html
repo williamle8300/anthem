@@ -58,17 +58,10 @@
 								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));//...resourceID
 								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');//...encodedobjhtml
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
-								//if user has it saved, slice it out, and re-add it.
-								if (userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID) !== -1) {
 									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('uncheck');
 									userTrackResourceIDs.splice(userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID), 1);
 									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('check');
 									userTrackResourceIDs.unshift(selectedTracksObjs[i].resourceID);
-								}
-								//else, just add it.
-								else {
-									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('check');
-								}
 							}
 						}
 						else {//user selected #aob0
