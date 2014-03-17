@@ -59,9 +59,9 @@
 								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
 								//if user has it saved, slice it out, and re-add it.
-								if (userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID) !== -1) {
-										$('input#' +selectedTracksObjs[i].resourceID).iCheck('check');
-								}
+								$('input#' +selectedTracksObjs[i].resourceID).iCheck('uncheck', function(){
+									$('input#' +selectedTracksObjs[i].resourceID).iCheck('check');
+								});
 							}
 						}
 						else {//user selected #aob0 (delete tracks!!)
