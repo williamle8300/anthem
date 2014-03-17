@@ -51,35 +51,32 @@
 					$('#omniButton').fadeTo('fast' , 0);
 					if(currSelection){
 						console.log('> User selected: ' +currSelection);
-						if(currSelection == '#aob2'){//add tracks
-							selectedTracks = $('.selected');
-							var i = selectedTracks.length; while(i--){//backwards loop to stack in songs to collection
-								selectedTracksObjs[i] = {};//gets all .selected's {resourceID, encodedHTMLObj}, stores in variable 'selectedTracksObjs'
-								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));//...resourceID
-								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');//...encodedobjhtml
+						if(currSelection == '#aob2'){//user selected #aob2 (add tracks!!)
+							selectedTracks = $('.selected');//gets all .selected's {resourceID, encodedHTMLObj}, stores in variable 'selectedTracksObjs'
+							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown 'for'. this stores array backwards to 'stack' in tracks to collection
+								selectedTracksObjs[i] = {};
+								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
+								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[i]).data('encodedobjhtml');
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
-									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('uncheck');
-									userTrackResourceIDs.splice(userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID), 1);
-									$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue input').iCheck('check');
-									userTrackResourceIDs.unshift(selectedTracksObjs[i].resourceID);
+								//if user has it saved, slice it out, and re-add it.
+								if (userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID) !== -1) {
+										$('input#' +selectedTracksObjs[i].resourceID).iCheck('check');
+								}
 							}
 						}
-						else {//user selected #aob0
-							//delete function
+						else {//user selected #aob0 (delete tracks!!)
 							selectedTracks = $('.selected');
-							var i = selectedTracks.length;//backwards loop
-							while(i--){                   //backwards loop
+							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown 'for'. this removes tracks backward-ly
 								selectedTracksObjs[i] = {};
 								selectedTracksObjs[i].resourceID = parseInt($('input', selectedTracks[i]).attr('id'));
 								selectedTracksObjs[i].encodedObjHTML = $('input', selectedTracks[0]).data('encodedobjhtml');
 								console.log(selectedTracksObjs[i].resourceID);//selected ids!
-								userTrackResourceIDs.splice(userTrackResourceIDs.indexOf(selectedTracksObjs[i].resourceID), 1);
-								$('a#track' +selectedTracksObjs[i].resourceID+ ' div.icheckbox_square-blue').iCheck('uncheck');
+								$('input#' +selectedTracksObjs[i].resourceID).iCheck('uncheck'); 
 							}
 						}
 						currSelection = false;//reset value
 					}
-			    e.preventDefault();
+			    e.preventDefault(); 
 			}
 	  });
 	  $('#omniButton').draggable({//fires whenever #omniButton is dragged to calc distance between it and all .aobs (< distThreshold)

@@ -287,7 +287,8 @@ exports.removeResource = function(req, res, next) {
 	      if (err) return next(err);
 				res.send(200);//removed.
 	    });
-	  } else {//else, no match, send 404
+	  }
+		else {//else, no match, send 404
 	  	res.send(removeResourceID+ 'removed!');
 	  }
 	});

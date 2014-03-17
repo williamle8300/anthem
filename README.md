@@ -35,11 +35,11 @@ _trackSets
 
  
  • add basic versions of the Menu Buttons
-	 • selection creates, and increments an array (e.g., currTrackSelection[])
+	 • reduplicate this feature to "unsave track(s)"
 	 • menu buttons access array and "save track(s)" to user._track.list (http://matthaeuskrenn.com/springto/facebookhome/) 
 	 		wid propa modol mon!
 	 • profile/index.html now reads from profileUser._track.list (instead of profileUser.profile.playlists.playlist1)
-	 • reduplicate this feature to "unsave track(s)"
+	 • style da aobs, add '.selected' count to omniButton
 
 -
 
