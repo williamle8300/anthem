@@ -273,35 +273,46 @@ exports.saveResource = function(req, res, next){
  * remove the permalink
  */
 exports.removeResource = function(req, res, next) {
-	var removeResourceID = req.params.resourceID;
+	var removeResourceID = req.params.resourceID;//resourceID
   User.findById(req.user.id, function(err, user) {                                                             
-    if (err) return next(err);      
-		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
-			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
-	      user.profile.playlists.playlist1.splice(i, 1);
+    if (err) return next(err);
+		var isMatch = false;
+		for (var matchIdx = 0; matchIdx < user.profile.playlists.playlist1.length; matchIdx++) {//loop over, find, splice it out
+			if (user.profile.playlists.playlist1[matchIdx].resourceID == removeResourceID) {
+				isMatch = true;
+	      user.profile.playlists.playlist1.splice(matchIdx, 1);
 		    user.save(function(err) {
 		      if (err) return next(err);
 					res.send(200);//removed.
 		    });
 			}
-			else {//else, no match, send 200
-	    	res.send(404);
-	    }
 		};
+		if(isMatch == false){//no match found
+			console.log(removeResourceID+ ' isn\'t saved by user.')
+			res.send(404);
+		}
 	});
 };
 
 exports.omniAdd = function(req, res, next) {
-	var removeResourceID = req.params.resourceID;
+	var resourceIDArray = req.params.resourceIDArray;
   User.findById(req.user.id, function(err, user) {                                                             
     if (err) return next(err);      
 		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
 			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
+				
+				//remove the match
+				//unshift to playlist1
+				//
+				
 	      user.profile.playlists.playlist1.splice(i, 1);
 		    user.save(function(err) {
 		      if (err) return next(err);
 					res.send(200);//removed.
 		    });
+				
+				
+				
 			}
 			else {//else, no match, send 200
 	    	res.send(404);
@@ -320,11 +331,12 @@ exports.omniRemove = function(req, res, next) {
 		    user.save(function(err) {
 		      if (err) return next(err);
 					res.send(200);//removed.
+					return;
 		    });
 			}
-			else {//else, no match, send 200
-	    	res.send(404);
-	    }
+			else {
+				res.send(404);
+			}
 		};
 	});
 };

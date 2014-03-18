@@ -55,6 +55,8 @@ _trackSets
  • filter tracks by 'labeled', 'unlabeled', 'trackSets'
  • navbar with trackSets ordered by last modified/played
   
+- 
+
  • realize user schema (how to do sorting of tracks?)
 	 • http://mongoosejs.com/docs/queries.html
 	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
