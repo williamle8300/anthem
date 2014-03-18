@@ -285,11 +285,46 @@ exports.removeResource = function(req, res, next) {
 		    });
 			}
 			else {//else, no match, send 200
-	    	res.send(200);
+	    	res.send(404);
 	    }
 		};
-//		if (matchIndex > -1) {//if exists in playlist1, splice it out
-//      
-//	  }
+	});
+};
+
+exports.omniAdd = function(req, res, next) {
+	var removeResourceID = req.params.resourceID;
+  User.findById(req.user.id, function(err, user) {                                                             
+    if (err) return next(err);      
+		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
+			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
+	      user.profile.playlists.playlist1.splice(i, 1);
+		    user.save(function(err) {
+		      if (err) return next(err);
+					res.send(200);//removed.
+		    });
+			}
+			else {//else, no match, send 200
+	    	res.send(404);
+	    }
+		};
+	});
+};
+
+exports.omniRemove = function(req, res, next) {
+	var removeResourceID = req.params.resourceID;
+  User.findById(req.user.id, function(err, user) {                                                             
+    if (err) return next(err);      
+		for (var i = 0; i < user.profile.playlists.playlist1.length; i++) {
+			if (user.profile.playlists.playlist1[i].resourceID == removeResourceID) {
+	      user.profile.playlists.playlist1.splice(i, 1);
+		    user.save(function(err) {
+		      if (err) return next(err);
+					res.send(200);//removed.
+		    });
+			}
+			else {//else, no match, send 200
+	    	res.send(404);
+	    }
+		};
 	});
 };

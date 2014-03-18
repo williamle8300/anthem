@@ -52,22 +52,12 @@
 					if(currSelection){
 						console.log('> User selected: ' +currSelection);
 						if(currSelection == '#aob2'){//user selected #aob2 (add tracks!!)
-							selectedTracks = $('.selected');
-							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown for-loop
-								selectedTracksObjs[i] = parseInt($('input', selectedTracks[i]).attr('id'));
-								console.log(selectedTracksObjs[i]);//selected ids!
-								$('input#' +selectedTracksObjs[i]).iCheck('uncheck', function(){
-									$('input#' +selectedTracksObjs[i]).iCheck('check');
-								});
-							}
+							//pass array of selects to omniSave()
+							console.log($('.selected'));
 						}
-						else {//user selected #aob0 (delete tracks!!)
-							selectedTracks = $('.selected');
-							for (var i = selectedTracks.length -1; i > -1; i--) {//countdown 'for'. this removes tracks backward-ly
-								selectedTracksObjs[i] = parseInt($('input', selectedTracks[i]).attr('id'));
-								console.log(selectedTracksObjs[i]);//selected ids!
-								$('input#' +selectedTracksObjs[i]).iCheck('uncheck'); 
-							}
+						else if(currSelection == '#aob0') {//user selected #aob0 (delete tracks!!)
+							//pass array of selecs to omniRemove()
+							console.log($('.selected'));
 						}
 						currSelection = false;//reset value
 					}
@@ -108,7 +98,8 @@
 	    name: '#aob0',
 	    oX: mouseInitialLeft-aobWidthHalved-bDist,
 	    oY: mouseInitialTop-aobWidthHalved
-	  }, // {
+	  }, 
+	// {
 	//     name: '#aob1',
 	//     oX: mouseInitialLeft-aobWidthHalved,
 	//     oY: mouseInitialTop-aobWidthHalved-bDist
