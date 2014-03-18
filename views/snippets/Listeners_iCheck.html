@@ -8,6 +8,7 @@ $('input[type="checkbox"]').on('ifChecked', function(event){
 	$.ajax({
 	  type: "POST",
 	  url: "/save/" +resourceID+ "/" +encodedObjHTML,
+		async: false,
 		success: function(data) {
 		  console.log('♫ Track saved: ' +resourceID);
   }});
@@ -20,6 +21,7 @@ $('input[type="checkbox"]').on('ifUnchecked', function(event){
 	$.ajax({
 	  type: "POST",
 	  url: "/remove/" +resourceID,
+		async: false,
 		success: function(data) {
 			console.log('♫ Track removed: ' +resourceID);
   }});

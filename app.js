@@ -114,8 +114,6 @@ app.get('/api/aviary', apiController.getAviary);
 app.get('/:username', passportConf.isAuthenticated, userController.getProfile);
 app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource);
 app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource);
-app.post('/omniAdd/:array', passportConf.isAuthenticated);
-app.post('/omniRemove/:array', passportConf.isAuthenticated);
 
 //Start-up the app!
 app.listen(app.get('port'), function() {
