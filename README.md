@@ -35,11 +35,15 @@ _trackSets
 
  
  • add basic versions of the Menu Buttons
-	 • reduplicate this feature to "unsave track(s)"
-	 • menu buttons access array and "save track(s)" to user._track.list (http://matthaeuskrenn.com/springto/facebookhome/) 
-	 		wid propa modol mon!
+	 • bug: omniButton should flash on load()
+ 	 • establish the working models for _track and _trackSet
+	 • menu buttons access array and "save track(s)" to user._track.list
+	 		wid propa modol mon
 	 • profile/index.html now reads from profileUser._track.list (instead of profileUser.profile.playlists.playlist1)
 	 • style da aobs, add '.selected' count to omniButton
+	 • more user feedback when saving/removing?
+	 • keybindings: invert selection; select/deselect all
+	 • login with username instead of email
 
 -
 
@@ -66,10 +70,6 @@ _trackSets
 	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
  • create app-wide/global model to store every API resolve call
-
- • spiff-up Menu Buttons
- 
- • new keybindings: shift for menu buttons, for select all, deselect, invert selection
 
 
  /Stage 2: Alpha [3]
