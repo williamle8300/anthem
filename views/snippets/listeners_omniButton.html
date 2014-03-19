@@ -1,6 +1,6 @@
 <script type="text/javascript" charset="utf-8">
 //omniButton's coords
-var omniButton = {top:0, left:0};
+var omniButton = {top:-1000, left:0};
 //selector for where omniButton can show up.
 var hotArea = 'ul.playlist';
 //the current omniButton selection
@@ -32,6 +32,7 @@ $(function () {
   $(hotArea).on('mousedown', function (e) {//show aobs (anOmniButton)
 		switch (e.which) {
 			case 3://right-click mousecode
+				$('#omniWrapper').show();
 				$('#omniButton, .aob').css({ top : e.pageY - omniButtonWidthHalved, left: e.pageX - omniButtonWidthHalved });
 				$('#omniButton').simulate('drag', {dragStart: {y: e.pageY, x: e.pageX}});
 				$('#omniButton').fadeTo('fast' , 0.65);
@@ -157,12 +158,13 @@ function calculateDistanceBetween(a, b) {
 <style type="text/css" media="screen">
 	/*#prototype{display:block;position:relative;top:0px;left:0px;width:100%;height:500px;}
 	#protContainer{display:inline-block;position:relative;top:0px;left:0px;width:500px;height:300px;padding:0px 0 0 0;}*/
-	#omniWrapper{margin: 0 auto;}
+	#omniWrapper{display:none;margin: 0 auto;}
 	#omniButton {
 		z-index:10000;
 		display: block;
 		position: absolute;
 		width: 60px;
+		top:-1000px;
 		height: 60px;
 		background: #428bca; 
 		border-radius: 50px;
@@ -184,7 +186,8 @@ function calculateDistanceBetween(a, b) {
 		left: 1px;/*hack*/
 		width: 50px;
 		height: 50px;
-		background: #808080;
+		content: "\f055";
+		background: transparent;
 		box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
 		opacity: 0;
 		-webkit-transition-property: opacity;

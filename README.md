@@ -28,15 +28,14 @@ _trackSets
  /Stage 1: Alpha [1]
  add • delete • organize tracksets
 
- 
  • add basic versions of the Menu Buttons
-	 • bug: omniButton shouldn't flash on load()
+	 • style da aobs (use only svgs)
+	 • add '.selected' count to omniButton
  	 • establish the working models for _track and _trackSet
-	 • menu buttons access array and "save track(s)" to user._track.list
-	 		wid propa modol mon
-	 • profile/index.html now reads from profileUser._track.list (instead of profileUser.profile.playlists.playlist1)
-	 • style da aobs, add '.selected' count to omniButton
-	 • more user feedback when saving/removing?
+	 • "save track(s)" to user._track.list
+	 		wid da propa modol mon
+			/profile uses new model
+	 • more visual feedback when saving/removing?
 	 • keybindings: invert selection; select/deselect all
 	 • login with username instead of email
 
@@ -195,7 +194,9 @@ http://getbootstrap.com
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 - The Grind: Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
-- Deliberate, non-deliberate: Fatboy Slim, "Praise You"; The Killers, "Day & Age";
+- Fatboy Slim, "Praise You"; The Killers, "Day & Age";
+- Canadian Indierock: Feist, Broken Social Scene, Arcade Fire
+- Burial-Fourtet Sessions
 - Woodstock 1969, Joe Cocker, Jimi Hendrix, CCR
 - 90s: The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
 - [The 27 Club](https://en.wikipedia.org/wiki/27_Club), Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
