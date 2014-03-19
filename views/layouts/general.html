@@ -15,9 +15,9 @@
 	<body>
 		{% block nav %}
 		<div id="omniWrapper">
-			<div id="aob0" class="aob"><i class="fa fa-minus fa-inverse fa-2x"></i></div>
+			<div id="aob0" class="aob"><i class="fa fa-check-circle-o fa-inverse fa-3x" style="margin:5px 7px 7px"></i></div>
 			<!-- <div id="aob1" class="aob"></div> -->
-			<div id="aob2" class="aob "><i class="fa fa-plus fa-inverse fa-2x"></i></div>
+			<div id="aob2" class="aob "><i class="fa fa-check fa-inverse fa-2x" style="margin:13px 13px 13px 11px"></i></div>
 			<div id="omniButton" class="ui-draggable"></div>
 		</div>
 	  <div class="navigation container">
@@ -78,9 +78,14 @@
 			{% endblock %}
 		</div>
 
-	  {% block clientSideScripts %}
+		{% block clientSideScripts %}{# order of snippets: important #}
 		{% include 'snippets/allJavascriptPlugins.html' %}
-	  {% endblock %}
-  
+		{% include 'snippets/listeners_KeyBindings.html' %}
+		{% include 'snippets/listeners_iCheck.html' %}
+		{% include 'snippets/listeners_Select.html' %}
+		{% include 'snippets/listeners_omniButton.html' %}
+		{% include 'profile/postProcess.html' %}
+		{% endblock %}
+		  
 </body>
 </html>

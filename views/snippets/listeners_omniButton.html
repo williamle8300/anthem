@@ -32,7 +32,7 @@ $(function () {
   $(hotArea).on('mousedown', function (e) {//show aobs (anOmniButton)
 		switch (e.which) {
 			case 3://right-click mousecode
-				$('#omniWrapper').show();
+				$('#omniWrapper').show();//hidden until first right-click
 				$('#omniButton, .aob').css({ top : e.pageY - omniButtonWidthHalved, left: e.pageX - omniButtonWidthHalved });
 				$('#omniButton').simulate('drag', {dragStart: {y: e.pageY, x: e.pageX}});
 				$('#omniButton').fadeTo('fast' , 0.65);

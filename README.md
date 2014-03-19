@@ -29,7 +29,6 @@ _trackSets
  add • delete • organize tracksets
 
  • add basic versions of the Menu Buttons
-	 • style da aobs (use only svgs)
 	 • add '.selected' count to omniButton
  	 • establish the working models for _track and _trackSet
 	 • "save track(s)" to user._track.list
