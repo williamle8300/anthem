@@ -42,7 +42,7 @@ $(function () {
 		    e.preventDefault();
 		}
   });
-  $('#omniButton').on('mouseup', function (e) {//hide aobs
+  $('#omniButton').on('mouseup', function (e) {//hide aobs; check for currSelection; trigger relevant script
 		switch (e.which) {
 			case 3://right-click mousecode
 				mouseTerminusTop = e.pageY;
@@ -108,11 +108,11 @@ function checkProximity(e, ui) {
     oX: mouseInitialLeft-aobWidthHalved-bDist,
     oY: mouseInitialTop-aobWidthHalved
   }, 
-// {
-//     name: '#aob1',
-//     oX: mouseInitialLeft-aobWidthHalved,
-//     oY: mouseInitialTop-aobWidthHalved-bDist
-//   },
+  //{
+  //    name: '#aob1',
+  //    oX: mouseInitialLeft-aobWidthHalved,
+  //    oY: mouseInitialTop-aobWidthHalved-bDist
+  //  },
 	{
     name: '#aob2',
     oX: mouseInitialLeft-aobWidthHalved + bDist,

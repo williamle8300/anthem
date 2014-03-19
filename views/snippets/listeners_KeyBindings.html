@@ -17,15 +17,15 @@ $(window).bind('keyup', function(e) {
 			//toggleShowKeyboardShortcuts();
 			return false;
 		}
-		if (keyInfo.code == 39) {//next track
+		if (keyInfo.code == 39) {//'right arrow' ==/> next track
 			pagePlayer.playNext();
 			return false;
 		}
-		if (keyInfo.code == 37) {//previous
+		if (keyInfo.code == 37) {//'left arrow' </== previous track
 			pagePlayer.playPrevious();
 			return false;
 		}
-		if (keyInfo.code == 32) {//toggle the play state; whether there is a queued track or playing first track
+		if (keyInfo.code == 32) {//'space bar' toggle play-pause
 			var qed = $('li.sm2_playing a, li.sm2_paused a').attr('id');
 			if(qed){soundManager.togglePause(qed);}
 			else{

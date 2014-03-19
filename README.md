@@ -5,11 +5,6 @@ functional, social, emotional value
 "Can I give you my money?"
 
 
-!
-SHIMS
-REFACTOR
-
-
 _track {
 	list: [
 		{
@@ -35,7 +30,7 @@ _trackSets
 
  
  • add basic versions of the Menu Buttons
-	 • bug: omniButton should flash on load()
+	 • bug: omniButton shouldn't flash on load()
  	 • establish the working models for _track and _trackSet
 	 • menu buttons access array and "save track(s)" to user._track.list
 	 		wid propa modol mon
