@@ -38,6 +38,8 @@ _trackSets
 	 • keybindings: invert selection; select/deselect all
 	 • login with username instead of email
 
+ • reformat project
+
 -
 
  • Create tracksets
