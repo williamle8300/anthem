@@ -168,7 +168,16 @@ function calculateDistanceBetween(a, b) {
 		height: 60px;
 		background: #428bca; 
 		border-radius: 50px;
-		opacity:0;
+	  /* IE 8 */
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	  /* IE 5-7 */
+	  filter: alpha(opacity=0);
+	  /* Netscape */
+	  -moz-opacity: 0;
+	  /* Safari 1.x */
+	  -khtml-opacity: 0;
+	  /* Good browsers */
+	  opacity: 0;
 		cursor: pointer;
 		box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
 	}
@@ -186,17 +195,37 @@ function calculateDistanceBetween(a, b) {
 		left: 1px;/*hack*/
 		width: 50px;
 		height: 50px;
-		content: "\f055";
-		background: transparent;
+		background:  #428bca;
 		box-shadow: 0px 2px 3px rgba(0,0,0,0.5);
-		opacity: 0;
+	  /* IE 8 */
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	  /* IE 5-7 */
+	  filter: alpha(opacity=0);
+	  /* Netscape */
+	  -moz-opacity: 0;
+	  /* Safari 1.x */
+	  -khtml-opacity: 0;
+	  /* Good browsers */
+	  opacity: 0;
 		-webkit-transition-property: opacity;
 		-webkit-transition-duration: 200ms;
 		-webkit-transition-timing-function: ease-out;
 		-webkit-transition-delay: 0;
 	}
+	.aob .fa {
+		margin:13px;
+	}
 	.aob.active {
-		opacity: 0.85;
+	  /* IE 8 */
+	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	  /* IE 5-7 */
+	  filter: alpha(opacity=85);
+	  /* Netscape */
+	  -moz-opacity: 0.85;
+	  /* Safari 1.x */
+	  -khtml-opacity: 0.85;
+	  /* Good browsers */
+	  opacity: 0.85;
 	}
 	.aob.hidden.active {
 		visibility: hidden;

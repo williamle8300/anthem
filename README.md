@@ -157,7 +157,18 @@ _trackSets
 - [Array].indexOf
 - HTMLElement.dataset
 (unsolved)
-- css opacity
+- css opacity: 
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  /* IE 5-7 */
+  filter: alpha(opacity=0);
+  /* Netscape */
+  -moz-opacity: 0;
+  /* Safari 1.x */
+  -khtml-opacity: 0;
+  /* Good browsers */
+  opacity: 0;
+	
 
 
 Visual Identity
