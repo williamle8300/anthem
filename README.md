@@ -201,18 +201,19 @@ http://getbootstrap.com
 - major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
-- The Grind: Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
-- Fatboy Slim, "Praise You"; The Killers, "Day & Age";
-- Canadian Indierock: Feist, Broken Social Scene, Arcade Fire
-- Burial-Fourtet Sessions
-- Woodstock 1969, Joe Cocker, Jimi Hendrix, CCR
-- 90s: The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
-- [The 27 Club](https://en.wikipedia.org/wiki/27_Club), Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
-- HYPEM (weekly tracks)
-- Bob Dylan
-- Soundtrack from The Drive
-- HIP-HOP: Wu Tang Clan, Tribe Called Quest, Mos Def, Notorious B.I.G., Tupac
-- Progressive House / EDM: SBTRKT
+- "The Grind," Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
+- "SO MUCH SMILE," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
+- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
+- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share,
+- "Burial-Fourtet Sessions"
+- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
+- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
+- "The 27 Club," Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
+- "hypem weekly," (weekly tracks)
+- "Bob Dylan"
+- "Drive OST"
+- "It Was All a Dream," Wu Tang Clan, Tribe Called Quest, Mos Def, Notorious B.I.G., Tupac
+- "Progressive House": SBTRKT
 
 #investigate memory leak
 $	POST /postSearch 302 4ms - 92b

@@ -24,7 +24,7 @@
 			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 	        <h1 class="logo"><a href="/">{{app}}</a></h1>
-				</div><!-- / -->
+				</div><!-- /LOGODIV -->
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 				  {% block mid1 %}
 					<form id="search" class="jumbo-search" role="form" name="search" method="post" action="/postSearch">
@@ -34,7 +34,7 @@
 					  <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
 				  </form>
 					{% endblock %}
-				</div>
+				</div><!-- /SEARCHDIV -->
 				<!-- Login/CreateAccount/Profile-->
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 		      <ul class="nav navbar-nav navbar-right">
@@ -68,23 +68,22 @@
 						</li>
 						{% endif %}
 					</ul><!-- Login/CreateAccount/Profile-->
-				</div>
+				</div><!-- /NAV_RIGHTPANEL -->
 			</div><!-- /.row -->
 	  </div><!-- /.navigation -->
 		{% endblock %}
 
-	  <div class="main container">{#  #}
+	  <div class="main container">{# Where the content goes... y'know the stuff that people look at #}
 			{% block center %}
 			{% endblock %}
 		</div>
 
-		{% block clientSideScripts %}{# the order is importanté #}
+		{% block clientSideScripts %} {# the order is importanté #}
 		{% include 'snippets/allJavascriptPlugins.html' %}
 		{% include 'snippets/listeners_KeyBindings.html' %}
 		{% include 'snippets/listeners_iCheck.html' %}
 		{% include 'snippets/listeners_Select.html' %}
 		{% include 'snippets/listeners_omniButton.html' %}
-		{% include 'profile/postProcess.html' %}
 		{% endblock %}
 
 </body>
