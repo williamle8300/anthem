@@ -35,7 +35,7 @@ mongoose.connect(secrets.db);
 mongoose.connection.on('error', function() {
   console.log('-MongoDB Connection Error-');
 });
- 
+
 var app = express();
 
 /**

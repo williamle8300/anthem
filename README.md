@@ -28,12 +28,10 @@ _trackSets
  /Stage 1: Alpha [1]
  add • delete • organize tracksets
 
- • keybindings: invert selection; select/deselect all
- • login with username instead of email
-
--
-
  • reformat project
+ • "From the hit 90s stylinz of criss-cross!"
+ • login with username instead of email
+ • learn Atom!
 
 -
 

@@ -5,7 +5,7 @@
 	<div class="form-group">
 		<input disabled style="border:none;-webkit-box-shadow: none;box-shadow: none;cursor:auto;" id="query" class="form-control" type="text" placeholder="{{ query if query else title }}" name="query" />
 	</div>
-  <button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
+	<button id="btnSubmit" class="btn btn-default" type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;">Submit</button>
 </form>
 {% endblock %}
 
@@ -15,7 +15,7 @@
 		{{profileUserTrack.encodedObjHTML | safe}}
 	{% endfor %}
 </ul>
-{% endblock %}	
+{% endblock %}
 
 {% block clientSideScripts %}{# order of snippets: important #}
 {% include 'snippets/allJavascriptPlugins.html' %}
