@@ -1,10 +1,19 @@
 <script type="text/javascript" charset="utf-8"> //keybindings to control SoundManager. deps: jQ
-$(document).bind('keydown', 'alt', function(){
-  var tracks = $('li.track a');
-	$.each(tracks, function (i, track) {
-	  $(track).toggleClass('selected');
-	})}
-);
+$(document)
+	.bind('keyup', 'alt+a', function(){
+	  var tracks = $('li.track a');
+		$.each(tracks, function (i, track) {
+		  $(track).addClass('selected');
+		});
+		return false;
+	})
+	.bind('keyup', 'alt', function(){
+		var tracks = $('li.track a');
+		$.each(tracks, function (i, track) {
+			$(track).toggleClass('selected');
+		});
+		return false;
+	})
 window.keyCodeInfo = function(e) {
 	var info = {}, target = $(e.target) || $(e.srcElement);
 	if (!e) {
