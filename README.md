@@ -25,33 +25,33 @@ _track {
 _trackSets
 
 
- /Stage 1: Alpha [1]
- add • delete • organize tracksets
+Stage 1: Alpha [1]
+add • delete • organize tracksets
 
- • reformat project
- • "From the hit 90s stylinz of criss-cross!"
- • login with username instead of email
- • learn Atom!
+  reformat project
+  "From the hit 90s stylinz of criss-cross!"
+  login with username instead of email
+  learn Atom!
 
 -
 
- • "save track(s)" to user._track.list
+  "save track(s)" to user._track.list
  		wid da propa modol mon
- • Create tracksets
+  Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"
 	 • "/williamle8300?trackset=progressive-house"
 	 • "/williamle8300?trackset=motor-city-remixes"
- • "Remove track(s) from trackset"
- • "Add to a trackset..."
- • [¡Delete trackset!]
- • filter by 'labeled' and 'unlabeled' tracks
- • filter tracks by 'labeled', 'unlabeled', 'trackSets'
- • navbar with trackSets ordered by last modified/played
+  "Remove track(s) from trackset"
+  "Add to a trackset..."
+  [¡Delete trackset!]
+  filter by 'labeled' and 'unlabeled' tracks
+  filter tracks by 'labeled', 'unlabeled', 'trackSets'
+  navbar with trackSets ordered by last modified/played
 
 -
 
- • realize user schema (how to do sorting of tracks?)
+  realize user schema (how to do sorting of tracks?)
 	 • http://mongoosejs.com/docs/queries.html
 	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
 	 • https://stackoverflow.com/questions/19093469/mongoose-find-vs-find-where
@@ -59,92 +59,92 @@ _trackSets
 	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
 	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
- • create app-wide/global model to store every API resolve call
+  create app-wide/global model to store every API resolve call
 
 
- /Stage 2: Alpha [3]
- non-proxy before post-proxy
+Stage 2: Alpha [3]
+on-proxy before post-proxy
 
- • autocomplete searching by artist. display results. user can org to trackset at that point (e.g. "remi|x...")
- • nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
+  autocomplete searching by artist. display results. user can org to trackset at that point (e.g. "remi|x...")
+  nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
 
- • social aspects
+  social aspects
 	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
 
- • upload to github
- • deploy Anthem online
- • start public beta!
+  upload to github
+  deploy Anthem online
+  start public beta!
 
- • homepage
+  homepage
 	 • notify when 'branched' tracklist is modified, offer update-merge option, plus 1!
 	 • user's listening history; most played;
- • proper scrolling
- • remedy cross-browser probz
+  proper scrolling
+  remedy cross-browser probz
 
- • DESKTOP-READY!
- • make Mac App or Chrome and Safari Extension
- • re-do Show HN
-
-
- /Stage 3: Alpha [5]					!!!magic number
- proxit
-
- • feature: proxy thUser's trackset
+  DESKTOP-READY!
+  make Mac App or Chrome and Safari Extension
+  re-do Show HN
 
 
- /Stage 4: Beta [15]
- • make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
- • for "touch" events
+Stage 3: Alpha [5]					!!!magic number
+roxit
+
+  feature: proxy thUser's trackset
+
+
+Stage 4: Beta [15]
+  make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
+  for "touch" events
  		- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
 		- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
- • offer something awesome-hilarious-very-unnecessary
- • create and offer the paid plans
- (• scale hosting service/refactor/document/re-architect?)
- # Start-December 2014, Financial Model
- ## $30/year
- - Can opt-in to be perpetually listed at "Supporters Page" as beta patron
- - 100 playlists
- - 30000 playbacks/month
- - 50% goes to _EFF_TOR_
- # Donations
- - half goes to our partners (SoundCloud, hosting service, musicians)
- - half goes to _EFF_TOR_
- - donors can opt for listing in "Supporters Page" as "commercial sponsor" (based on descending order of donation amount)
+  offer something awesome-hilarious-very-unnecessary
+  create and offer the paid plans
+• scale hosting service/refactor/document/re-architect?)
+  Start-December 2014, Financial Model
+# $30/year
+  Can opt-in to be perpetually listed at "Supporters Page" as beta patron
+  100 playlists
+  30000 playbacks/month
+  50% goes to _EFF_TOR_
+  Donations
+  half goes to our partners (SoundCloud, hosting service, musicians)
+  half goes to _EFF_TOR_
+  donors can opt for listing in "Supporters Page" as "commercial sponsor" (based on descending order of donation amount)
 
 
- /Stage 5: Open to Public [80]
+Stage 5: Open to Public [80]
 
- • how to create recommendation graph? ex: "those that have been "shared to" by 3+ people have their 'labels' tabulated"
+  how to create recommendation graph? ex: "those that have been "shared to" by 3+ people have their 'labels' tabulated"
 	 • SIMILAR TRACKS (3): (for each track: get 3 other tracks at the top of 3 different playlists; 5 tracks for premium users)
 	 • RECOMMENDED TRACKS: on homepage; based on listening history (culled from similar tracks)
 
 
- /Stage 6: "Let's Fail!" []
+Stage 6: "Let's Fail!" []
 
- • offer member plan
- # December 2014-onward, Financial Model
- ## $20/year
- - get up to 5 recommendations per track
- - 100 playlists
- - 30000 playbacks/month
- - 50% goes to _EFF_TOR_
+  offer member plan
+  December 2014-onward, Financial Model
+# $20/year
+  get up to 5 recommendations per track
+  100 playlists
+  30000 playbacks/month
+  50% goes to _EFF_TOR_
 
 
- /Stage: Future!
- • FEATURE LIST
- • richer searching experience; seamless searching and playback of music
- • submit mp3 URIs
- • sort tracks
- • download profile data (as CSV)
- • downloading
- • voting for next track?
- • "rooms." all users tracksets are merged together, and vote for the next played song.
- • security measures to detect abuse (e.g., automate or deluge of user activity); bogus accounts/activity
- • offer media hosting
- • 'followed' most popular tracksets; 'followed' recent modified tracksets; 'followed' user's listening history
- • "/" to blend >2
+Stage: Future!
+  FEATURE LIST
+  richer searching experience; seamless searching and playback of music
+  submit mp3 URIs
+  sort tracks
+  download profile data (as CSV)
+  downloading
+  voting for next track?
+  "rooms." all users tracksets are merged together, and vote for the next played song.
+  security measures to detect abuse (e.g., automate or deluge of user activity); bogus accounts/activity
+  offer media hosting
+  'followed' most popular tracksets; 'followed' recent modified tracksets; 'followed' user's listening history
+  "/" to blend >2
 	 • "./williamle8300?trackset=fleetwood-mac-rumors,the-beatles-white-album"
- • ";" to re-sort all tracks *after* the q'd track
+  ";" to re-sort all tracks *after* the q'd track
 
 
 !SHIMS
