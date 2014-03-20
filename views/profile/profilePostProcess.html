@@ -1,0 +1,50 @@
+
+<script type="text/javascript" charset="utf-8">
+
+/**
+ * This block of code
+ * serves an idiosyncratic purpose
+ *
+ * It grabs all track nodes
+ * and stores their markup into
+ * input[data-encodedobjhtml], then
+ * synchronously checks each iCheck
+ *
+ * Also goes through, sees if profileUser == user
+ * then does the appropriate iChecks
+**/
+var tracks = document.querySelectorAll('li.track');
+var tracksLen = tracks.length;
+var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
+var onPageIDs = [];for (var i = 0; i < inputs.length; i++) { onPageIDs.push(parseInt(inputs[i].id)); }//all ids attrs of VARinputs on the loaded page
+var userTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
+{% if user %}//if logged in?, we'll do this check                                                             //!REFACTOR
+	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'                  //!REFACTOR
+	userTrackResourceIDs.push({{userTrack.resourceID}});//go thru results, and push 'saves' into this temp Array//!REFACTOR
+	{% endfor %}                                                                                                //!REFACTOR
+{% endif %}                                                                                                   //!REFACTOR
+
+for (var i = 0; i < tracksLen; i++) {
+	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());
+}
+$(inputs).iCheck({//instantiate iChecks (does not mean to actually "check" the iChecks)
+  checkboxClass: 'icheckbox_square-blue',
+  increaseArea: '300%', // optional
+	aria: false
+});
+
+if ('{{profileUser.username}}' == '{{user.username}}') {//if profile belongs to the user...
+	$('div.icheckbox_square-blue').addClass('checked');//check EVYERHING!
+	$('div.icheckbox_square-blue input').prop('checked', true);
+}
+else {//user !== profileUser ergo manually check for 'shared saves'
+	for (var i = 0; i < onPageIDs.length; i++) {
+		if(userTrackResourceIDs.indexOf(onPageIDs[i]) !== -1) {//if any onPageIDs match any of the user's, check it!
+			var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
+			var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
+			$(tempDiv[i]).addClass('checked');                      //!REFACTOR
+			$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
+		}
+	};
+}
+</script>

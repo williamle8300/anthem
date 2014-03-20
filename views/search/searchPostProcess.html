@@ -1,0 +1,65 @@
+
+<script type="text/javascript" charset="utf-8">
+
+var tracks = document.querySelectorAll('li.track');                                          //
+var trackHREFs = document.querySelectorAll('li.track a');                                    //
+var inputs = document.querySelectorAll('li.track input[type="checkbox"]');                   //get info from DOM for processing; primarily hidden nodes
+var trackSetLen = tracks.length;                                                             //
+var userTrackResourceIDs = [];                                                                    
+var permalinks = [];                                                                         
+
+//check if user has some tracks saved; push into temporary Array (userTrackResourceIDs)
+{% if user %}//if logged in?, we'll do this check
+	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'
+	userTrackResourceIDs.push({{userTrack.resourceID | safe}});//go thru results, and push 'saves' into this temp Array
+	{% endfor %}
+	$(".rightPanel form").css("display", "table-cell");
+{% endif %}
+
+for(var i = 0; i<trackSetLen; i++){//call soundCloudResolveTrack on each track
+	permalinks[i] = trackHREFs.item(i).getAttribute('href');
+	soundCloudResolveTrack(permalinks, i, userTrackResourceIDs);
+}
+
+/**
+ * Communicates with SoundCloud API to
+ * get pertinent track data ('/resolve' endpoint)
+ * 
+ * Populates track with that data
+ * 
+ * If user is logged, display <form/>
+ * and if user has saved it, set 'checked' attr to iCheck
+ * 
+ * @param {array} permalinks
+ * @param {number} i
+ * @param {array} userTrackResourceIDs
+**/
+function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
+	var permalink = permalinks[i];//qed permalink
+	var CLIENT_ID = '212b7a5080f5d7f8e831583446771a02';//SoundCloud API ID
+	var URI = 'http://api.soundcloud.com/resolve.json?callback=?&url=' +permalink+ '&client_id=' +CLIENT_ID;//construct request url; 'callback' param specif. for Safari
+
+	$.getJSON(URI, function(track) {
+		if (track.streamable){//if the track's streamable, we'll show it!
+			trackHREFs.item(i).id = 'track' +track.id;//serialize stuff
+			inputs.item(i).id = track.id;             //serialize stuff
+			inputs.item(i).dataset.id = track.id;     //serialize stuff
+			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
+			tracks.item(i).style.display = 'block'; //reveal to user
+			inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//convert, and store track node to 'data-encodedobjhtml'
+		  $('input#' +track.id).iCheck({//manually init each iCheck ele
+		    checkboxClass: 'icheckbox_square-blue',
+		    increaseArea: '300%', // optional
+				aria: false
+		  });
+			if (userTrackResourceIDs.indexOf(track.id) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
+				$('a#track' +track.id+ ' div.icheckbox_square-blue').addClass('checked');
+				$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);
+			}				
+		}
+		else {//all unstreamable nodes are removed from DOM
+			tracks.item(i).parentNode.removeChild(tracks.item(i));
+		}
+	});
+}
+</script>
