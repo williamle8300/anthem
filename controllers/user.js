@@ -260,7 +260,7 @@ exports.saveResource = function(req, res, next){
 	// })
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
-		user.profile.playlists.playlist1.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});//currently user only has one playlist: 'playlist1'
+		user._track.list.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});//currently user only has one playlist: 'playlist1'
     user.save(function(err) {
       if (err) return next(err);
 			res.send(200);//saved.
@@ -277,10 +277,10 @@ exports.removeResource = function(req, res, next) {
   User.findById(req.user.id, function(err, user) {                                                             
     if (err) return next(err);
 		var isMatch = false;
-		for (var matchIdx = 0; matchIdx < user.profile.playlists.playlist1.length; matchIdx++) {//loop over, find, splice it out
-			if (user.profile.playlists.playlist1[matchIdx].resourceID == removeResourceID) {
+		for (var matchIdx = 0; matchIdx < user._track.list.length; matchIdx++) {//loop over, find, splice it out
+			if (user._track.list[matchIdx].resourceID == removeResourceID) {
 				isMatch = true;
-	      user.profile.playlists.playlist1.splice(matchIdx, 1);
+	      user._track.list.splice(matchIdx, 1);
 		    user.save(function(err) {
 		      if (err) return next(err);
 					res.send(200);//removed.

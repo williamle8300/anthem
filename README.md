@@ -28,20 +28,17 @@ _trackSets
  /Stage 1: Alpha [1]
  add • delete • organize tracksets
 
- • add basic versions of the Menu Buttons
-	 • add '.selected' count to omniButton
- 	 • establish the working models for _track and _trackSet
-	 • "save track(s)" to user._track.list
-	 		wid da propa modol mon
-			/profile uses new model
-	 • more visual feedback when saving/removing?
-	 • keybindings: invert selection; select/deselect all
-	 • login with username instead of email
+ • keybindings: invert selection; select/deselect all
+ • login with username instead of email
+
+-
 
  • reformat project
 
 -
 
+ • "save track(s)" to user._track.list
+ 		wid da propa modol mon
  • Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"

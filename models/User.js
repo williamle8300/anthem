@@ -23,10 +23,7 @@ var userSchema = new mongoose.Schema({
     name: { type: String, default: '' },
     gender: { type: String, default: '' },
     website: { type: String, default: '' },
-    picture: { type: String, default: '' },
-		playlists: {
-			playlist1: [mongoose.Schema.Types.Mixed]
-		}
+    picture: { type: String, default: '' }
 	}
 });
 

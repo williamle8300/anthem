@@ -19,7 +19,7 @@ var inputs = document.querySelectorAll('li.track input[type="checkbox"]');
 var onPageIDs = [];for (var i = 0; i < inputs.length; i++) { onPageIDs.push(parseInt(inputs[i].id)); }//all ids attrs of VARinputs on the loaded page
 var userTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
 {% if user %}//if logged in?, we'll do this check                                                             //!REFACTOR
-	{% for userTrack in user.profile.playlists.playlist1 %}//use Nunjucks to push user 'saves'                  //!REFACTOR
+	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'                  //!REFACTOR
 	userTrackResourceIDs.push({{userTrack.resourceID}});//go thru results, and push 'saves' into this temp Array//!REFACTOR
 	{% endfor %}                                                                                                //!REFACTOR
 {% endif %}                                                                                                   //!REFACTOR

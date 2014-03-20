@@ -11,7 +11,7 @@
 
 {% block center %}
 <ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	{% for profileUserTrack in profileUser.profile.playlists.playlist1 %}
+	{% for profileUserTrack in profileUser._track.list %}
 		{{profileUserTrack.encodedObjHTML | safe}}
 	{% endfor %}
 </ul>
