@@ -22,7 +22,7 @@ _track {
 	]
 }
 
-_trackSets	
+_trackSets
 
 
  /Stage 1: Alpha [1]
@@ -50,8 +50,8 @@ _trackSets
  • filter by 'labeled' and 'unlabeled' tracks
  • filter tracks by 'labeled', 'unlabeled', 'trackSets'
  • navbar with trackSets ordered by last modified/played
-  
-- 
+
+-
 
  • realize user schema (how to do sorting of tracks?)
 	 • http://mongoosejs.com/docs/queries.html
@@ -66,17 +66,17 @@ _trackSets
 
  /Stage 2: Alpha [3]
  non-proxy before post-proxy
- 
+
  • autocomplete searching by artist. display results. user can org to trackset at that point (e.g. "remi|x...")
  • nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
- 
+
  • social aspects
 	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
- 
+
  • upload to github
  • deploy Anthem online
  • start public beta!
- 
+
  • homepage
 	 • notify when 'branched' tracklist is modified, offer update-merge option, plus 1!
 	 • user's listening history; most played;
@@ -86,7 +86,7 @@ _trackSets
  • DESKTOP-READY!
  • make Mac App or Chrome and Safari Extension
  • re-do Show HN
- 
+
 
  /Stage 3: Alpha [5]					!!!magic number
  proxit
@@ -112,14 +112,14 @@ _trackSets
  - half goes to our partners (SoundCloud, hosting service, musicians)
  - half goes to _EFF_TOR_
  - donors can opt for listing in "Supporters Page" as "commercial sponsor" (based on descending order of donation amount)
- 
+
 
  /Stage 5: Open to Public [80]
 
  • how to create recommendation graph? ex: "those that have been "shared to" by 3+ people have their 'labels' tabulated"
 	 • SIMILAR TRACKS (3): (for each track: get 3 other tracks at the top of 3 different playlists; 5 tracks for premium users)
 	 • RECOMMENDED TRACKS: on homepage; based on listening history (culled from similar tracks)
-	  
+
 
  /Stage 6: "Let's Fail!" []
 
@@ -130,7 +130,7 @@ _trackSets
  - 100 playlists
  - 30000 playbacks/month
  - 50% goes to _EFF_TOR_
- 
+
 
  /Stage: Future!
  • FEATURE LIST
@@ -147,15 +147,15 @@ _trackSets
  • "/" to blend >2
 	 • "./williamle8300?trackset=fleetwood-mac-rumors,the-beatles-white-album"
  • ";" to re-sort all tracks *after* the q'd track
- 
- 
+
+
 !SHIMS
 (solved)
 - escapeHTML
 - [Array].indexOf
 - HTMLElement.dataset
 (unsolved)
-- css opacity: 
+- css opacity:
   /* IE 8 */
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   /* IE 5-7 */
@@ -166,7 +166,7 @@ _trackSets
   -khtml-opacity: 0;
   /* Good browsers */
   opacity: 0;
-	
+
 
 
 Visual Identity

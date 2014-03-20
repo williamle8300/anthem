@@ -1,4 +1,10 @@
 <script type="text/javascript" charset="utf-8"> //keybindings to control SoundManager. deps: jQ
+$(document).bind('keydown', 'alt', function(){
+  var tracks = $('li.track a');
+	$.each(tracks, function (i, track) {
+	  $(track).toggleClass('selected');
+	})}
+);
 window.keyCodeInfo = function(e) {
 	var info = {}, target = $(e.target) || $(e.srcElement);
 	if (!e) {
@@ -34,6 +40,7 @@ $(window).bind('keyup', function(e) {
 			}
 			return false;
 		}
+
 		if (keyInfo.code == 51 && keyInfo.shiftKey) {//'?' shows shortcuts
 			//focus $('#query')
 			return false;

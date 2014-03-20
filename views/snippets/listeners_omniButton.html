@@ -63,7 +63,7 @@ $(function () {
 					}
 					//else if(currSelection == '#aob1') {//aob1: create trackset
 					//	for (var i = 0; i < resourceIDsArray.length; i++) {
-					//		$('.selected input#' +resourceIDsArray[i]).iCheck('check').iCheck('uncheck'); 
+					//		$('.selected input#' +resourceIDsArray[i]).iCheck('check').iCheck('uncheck');
 					//	}
 					//}
 					else if(currSelection == '#aob2'){//aob2: save
@@ -73,7 +73,7 @@ $(function () {
 					}
 					currSelection = false;//reset user's aob selection
 				}
-		    e.preventDefault(); 
+		    e.preventDefault();
 		}
   });
   $('#omniButton').draggable({//fires whenever #omniButton's dragged; calcs distance; crazy maths going on here
@@ -99,7 +99,7 @@ function hideControls(mouseTerminusTop, mouseTerminusLeft) {
     elementSpringTo('#aob0', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
     //elementSpringTo('#aob1', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
     elementSpringTo('#aob2', mouseTerminusLeft-aobWidthHalved, mouseTerminusTop-aobWidthHalved, [140, 8, 3]);//byee!
-  }; 
+  };
 };
 function checkProximity(e, ui) {
 	omniButton.top = ui.position.top;
@@ -108,7 +108,7 @@ function checkProximity(e, ui) {
     name: '#aob0',
     oX: mouseInitialLeft-aobWidthHalved-bDist,
     oY: mouseInitialTop-aobWidthHalved
-  }, 
+  },
   //{
   //    name: '#aob1',
   //    oX: mouseInitialLeft-aobWidthHalved,
@@ -166,7 +166,7 @@ function calculateDistanceBetween(a, b) {
 		width: 60px;
 		top:-1000px;
 		height: 60px;
-		background: #428bca; 
+		background: #428bca;
 		border-radius: 50px;
 	  /* IE 8 */
 	  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
