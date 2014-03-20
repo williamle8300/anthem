@@ -11,7 +11,7 @@
 	  <meta name="description" content="">
 	  <meta name="author" content="">
 	</head>
-  
+
 	<body>
 		{% block nav %}
 		<div id="omniWrapper">
@@ -73,12 +73,12 @@
 	  </div><!-- /.navigation -->
 		{% endblock %}
 
-	  <div class="main container">
+	  <div class="main container">{#  #}
 			{% block center %}
 			{% endblock %}
 		</div>
 
-		{% block clientSideScripts %}{# order of snippets: important #}
+		{% block clientSideScripts %}{# the order is importanté #}
 		{% include 'snippets/allJavascriptPlugins.html' %}
 		{% include 'snippets/listeners_KeyBindings.html' %}
 		{% include 'snippets/listeners_iCheck.html' %}
@@ -86,6 +86,6 @@
 		{% include 'snippets/listeners_omniButton.html' %}
 		{% include 'profile/postProcess.html' %}
 		{% endblock %}
-		  
+
 </body>
 </html>
