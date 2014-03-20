@@ -71,7 +71,8 @@ on-proxy before post-proxy
   social aspects
 	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
 
-  upload to github
+  privatized on github
+	Reset password: http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
   deploy Anthem online
   start public beta!
 

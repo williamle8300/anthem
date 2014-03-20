@@ -1,3 +1,12 @@
+/*
+**
+**
+** Front-end shims
+**
+**
+**
+*/
+
 $(document).ready(function() {
 /*
 * escapes chars: [ " & ? = / ]
@@ -79,7 +88,7 @@ $(document).ready(function() {
 	* Licensed under the X11/MIT License
 	*   See LICENSE.md
 	*/
-	// Removed a few JSLint options as Notepad++ JSLint validator complaining and 
+	// Removed a few JSLint options as Notepad++ JSLint validator complaining and
 	//   made comply with JSLint; also moved 'use strict' inside function
 	/*jslint white: true, undef: true, plusplus: true,
 	  bitwise: true, regexp: true, newcap: true, maxlen: 90 */
@@ -210,7 +219,7 @@ $(document).ready(function() {
 	     }
 	     for (i = 0; i < attsLength; i++) {
 	       attribute = attributes[i];
-	       // Fix: This test really should allow any XML Name without 
+	       // Fix: This test really should allow any XML Name without
 	       //         colons (and non-uppercase for XHTML)
 	       if (attribute && attribute.name &&
 	         (/^data-\w[\w\-]*$/).test(attribute.name)) {
@@ -233,7 +242,7 @@ $(document).ready(function() {
 	   }
 	 };
 	 try {
-	   // FF enumerates over element's dataset, but not 
+	   // FF enumerates over element's dataset, but not
 	   //   Element.prototype.dataset; IE9 iterates over both
 	   Object.defineProperty(Element.prototype, 'dataset', propDescriptor);
 	 } catch (e) {
@@ -242,4 +251,3 @@ $(document).ready(function() {
 	 }
 	};
 });
-
