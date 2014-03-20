@@ -15,7 +15,7 @@ exports.getProfile = function (req, res, next) {
       username: profileUser.username,
       _track: profileUser._track,
       _trackSet: profileUser._trackSet,
-      profile: profileUser.profile//temp only!
+      //profile: profileUser.profile//not needed yet
     };
     res.render('profile/index.html', {
       app: 'Anthem',
