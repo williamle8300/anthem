@@ -19,6 +19,7 @@ var phantomSoundCloud = require('./lib/phantomFunctions').phantomSoundCloud;
  */
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
+var profileController = require('./controllers/profile');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 
@@ -110,10 +111,11 @@ app.get('/api/lastfm', apiController.getLastfm);
 app.get('/api/nyt', apiController.getNewYorkTimes);
 app.get('/api/twitter', passportConf.isAuthenticated, apiController.getTwitter);
 app.get('/api/aviary', apiController.getAviary);
-//Profile (must be listed last)
-app.get('/:username', passportConf.isAuthenticated, userController.getProfile);
+//User
 app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource);
 app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource);
+//Profile (must be listed last)
+app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
 
 //Start-up the app!
 app.listen(app.get('port'), function() {

@@ -1,5 +1,5 @@
 
-/**   
+/**
  * GET
  * for routes: '/', '/search'
  */

@@ -32,31 +32,6 @@ exports.getSignup = function(req, res) {
 };
 
 /**
- * GET /profile
- * Profile page.
- */
-
-exports.getProfile = function(req, res, next) {
-	var username = req.params.username;
-  User.findOne({username: username}, function(err, profileUser) {     
-    if (!profileUser) return next(err);
-    var profileUser = {
-      username: profileUser.username,
-      _track: profileUser._track,
-      _trackSet: profileUser._trackSet,
-			profile: profileUser.profile//temp only!
-    };
-	  res.render('profile/index.html', {
-	    app: 'Anthem',
-	    title: 'Songs',
-	    success: req.flash('success'),
-	    error: req.flash('error'),
-			profileUser: profileUser
-	  });
-	});
-};
-
-/**
  * GET /settings
  * User settings.
  */
@@ -250,9 +225,9 @@ exports.logout = function(req, res) {
  */
 exports.saveResource = function(req, res, next){
 	var resourceID = req.params.resourceID;
-	var encodedObjHTML = req.params.encodedObjHTML;	
+	var encodedObjHTML = req.params.encodedObjHTML;
 	// var Person = mongoose.model('Person', yourSchema);
-  // 
+  //
 	// // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
 	// Person.findOne({ 'name.last': 'Ghost' }, 'name occupation', function (err, person) {
 	//   if (err) return handleError(err);
@@ -274,7 +249,7 @@ exports.saveResource = function(req, res, next){
  */
 exports.removeResource = function(req, res, next) {
 	var removeResourceID = req.params.resourceID;//resourceID
-  User.findById(req.user.id, function(err, user) {                                                             
+  User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
 		var isMatch = false;
 		for (var matchIdx = 0; matchIdx < user._track.list.length; matchIdx++) {//loop over, find, splice it out
