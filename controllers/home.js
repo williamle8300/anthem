@@ -1,4 +1,3 @@
-
 /**
  * GET
  * for routes: '/', '/search'

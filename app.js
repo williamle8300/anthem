@@ -18,13 +18,12 @@ var phantomSoundCloud = require('./lib/phantomFunctions').phantomSoundCloud;
  * Load controllers.
  */
 var homeController = require('./controllers/home');
+var accountsController = require('./controllers/accounts');
 var userController = require('./controllers/user');
 var profileController = require('./controllers/profile');
-var apiController = require('./controllers/api');
-var contactController = require('./controllers/contact');
 
 /**
- * API keys + Passport configuration.
+ * API keys & Passport configuration.
  */
 var secrets = require('./config/secrets');
 var passportConf = require('./config/passport');
@@ -63,7 +62,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res) {res.status(404).render('404.html', { status: 404 }); });
 app.use(express.errorHandler());
 
-
 /**
  * Application routes.
  */
@@ -72,12 +70,10 @@ app.get('/', homeController.search);//same
 app.get('/search', homeController.search);//same
 app.get('/search/:query', homeController.getSearchResults(phantomSoundCloud));
 app.post('/postSearch', homeController.postSearch); //handles 'query' in searchbox
-//LoginandSignUps
-app.get('/login', userController.getLogin);
-app.post('/login', userController.postLogin);
-app.get('/logout', userController.logout);
-app.get('/signup', userController.getSignup);
-app.post('/signup', userController.postSignup);
+app.get('/login', accountsController.getLogin);
+app.post('/login', accountsController.postLogin);
+app.get('/signup', accountsController.getSignup);
+app.post('/signup', accountsController.postSignup);
 //LoginViaOAuth2
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/profile', failureRedirect: '/login' }));
@@ -91,20 +87,6 @@ app.get('/auth/foursquare', passport.authorize('foursquare'));
 app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/foursquare'); });
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
-//ContactUsPage
-app.get('/contact', contactController.getContact);
-app.post('/contact', contactController.postContact);
-//API
-app.get('/api', apiController.getApi);
-app.get('/api/foursquare', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getFoursquare);
-app.get('/api/tumblr', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTumblr);
-app.get('/api/facebook', passportConf.isAuthenticated, apiController.getFacebook);
-app.get('/api/scraping', apiController.getScraping);
-app.get('/api/github', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getGithub);
-app.get('/api/lastfm', apiController.getLastfm);
-app.get('/api/nyt', apiController.getNewYorkTimes);
-app.get('/api/twitter', passportConf.isAuthenticated, apiController.getTwitter);
-app.get('/api/aviary', apiController.getAviary);
 //User
 app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource);
 app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource);
@@ -113,7 +95,8 @@ app.post('/settings/profile', passportConf.isAuthenticated, userController.postU
 app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
-//Profile (must be listed last)
+app.get('/logout', passportConf.isAuthenticated, userController.logout);
+//Profile (list these routers last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
 
 //Start-up the app!
