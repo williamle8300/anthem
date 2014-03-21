@@ -32,9 +32,7 @@ add • delete • organize tracksets
   login with username instead of email
   learn Atom!
 	establish the modol mon!
-
--
-create app-wide/global model to store every API search/resolve call
+	create app-wide/global model to store every API search/resolve call
 
   "save track(s)" to user._track.list
  		wid da propa modol mon
@@ -181,15 +179,14 @@ http://heroku.com
 http://getbootstrap.com
 
 # running the app
-- (install phantomjs, casperjs, mongodb, run 'sudo npm install -g nodemon && npm install')
-
-- mongod
-
-- cd ~/Desktop/anthem/public/css/lib/bootstrap
-- grunt watch
-
-- cd ~/Desktop/anthem/
-- nodemon app.js
+## Setting up environment
+• Install phantomjs, casperjs, mongodb, lessc, grunt-cli binaries;
+• $ sudo npm install -g nodemon && npm install
+• $ cd public/css/lib/bootstrap && npm install #for some reason it needs phantom and might try to download a new phantomJS binary
+• $ grunt watch
+• $ mongod #start the mongodb server... and heeere we go!
+• $ cd /
+• $ nodemon -e js,html,css app
 
 # Target Market
 - self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
