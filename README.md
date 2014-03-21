@@ -32,8 +32,10 @@ add • delete • organize tracksets
   "From the hit 90s stylinz of criss-cross!"
   login with username instead of email
   learn Atom!
+	establish the modol mon!
 
 -
+create app-wide/global model to store every API search/resolve call
 
   "save track(s)" to user._track.list
  		wid da propa modol mon
@@ -48,9 +50,6 @@ add • delete • organize tracksets
   filter by 'labeled' and 'unlabeled' tracks
   filter tracks by 'labeled', 'unlabeled', 'trackSets'
   navbar with trackSets ordered by last modified/played
-
--
-
   realize user schema (how to do sorting of tracks?)
 	 • http://mongoosejs.com/docs/queries.html
 	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
@@ -59,7 +58,6 @@ add • delete • organize tracksets
 	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
 	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
-  create app-wide/global model to store every API resolve call
 
 
 Stage 2: Alpha [3]
