@@ -72,12 +72,6 @@ app.get('/', homeController.search);//same
 app.get('/search', homeController.search);//same
 app.get('/search/:query', homeController.getSearchResults(phantomSoundCloud));
 app.post('/postSearch', homeController.postSearch); //handles 'query' in searchbox
-//UserSettings
-app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
-app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
-app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
-app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
-app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 //LoginandSignUps
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
@@ -114,6 +108,11 @@ app.get('/api/aviary', apiController.getAviary);
 //User
 app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource);
 app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource);
+app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
+app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
+app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
+app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
+app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 //Profile (must be listed last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
 

@@ -29,7 +29,7 @@
 		<div class="col-xs-2"></div>
     <h3 class="col-xs-4">Profile Information</h3>
 	</div>
-	
+
   <form class="form-horizontal" action="/settings/profile" method="POST">
     <div class="form-group">
       <label class="col-xs-2 control-label" for="username">Username</label>
@@ -79,7 +79,7 @@
 		<div class="col-xs-2"></div>
     <h3 class="col-xs-4">Change Password</h3>
 	</div>
-	
+
   <form class="form-horizontal" action="/settings/password" method="POST">
     <div class="form-group">
       <label class="col-xs-2 control-label" for="password">New Password</label>
@@ -104,12 +104,12 @@
 		<div class="col-xs-2"></div>
     <h3 class="col-xs-4">Delete Account</h3>
 	</div>
-	
+
   <p class="col-xs-offset-2 col-xs-4">You can delete your account, but keep in mind this action is irreversible.</p>
   <form action="/settings/delete" method="POST">
     <button class="btn btn-danger" type="submit">Delete my account</button>
 	</form>
-	
+
   <div class="page-header row">
 		<div class="col-xs-2"></div>
     <h3 class="col-xs-4">Linked Accounts</h3>
@@ -138,5 +138,5 @@
   {% else %}
     <p><a href="/auth/github">Link your GitHub account</a></p>
 	{% endif %}
-	</div>	
+	</div>
 {% endblock %}

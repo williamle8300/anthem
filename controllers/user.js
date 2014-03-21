@@ -37,7 +37,7 @@ exports.getSignup = function(req, res) {
  */
 
 exports.getSettings = function(req, res) {
-  res.render('settings.html', {
+  res.render('user/settings.html', {
     app: 'Anthem',
     title: 'Settings',
     success: req.flash('success'),
