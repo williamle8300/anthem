@@ -28,8 +28,7 @@ _trackSets
 Stage 1: Alpha [1]
 add • delete • organize tracksets
 
-  reformat project
-  "From the hit 90s stylinz of criss-cross!"
+  get grunt working: "From the hit 90s stylinz of criss-cross!"
   login with username instead of email
   learn Atom!
 	establish the modol mon!

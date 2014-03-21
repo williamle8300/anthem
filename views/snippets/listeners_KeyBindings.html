@@ -9,7 +9,7 @@ $(document).bind('keyup', 'alt', function(){//inverse .selected
 window.keyCodeInfo = function(e) {
 	var info = {}, target = $(e.target) || $(e.srcElement);
 	if (!e) {
-		e = window.event;  
+		e = window.event;
 	}
 	info.code = e.keyCode ? e.keyCode : e.which;
 	info.shortcut = e.ctrlKey || e.altKey || e.metaKey;

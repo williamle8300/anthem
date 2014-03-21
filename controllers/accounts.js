@@ -3,7 +3,7 @@ var passport = require('passport');
 var User = require('../models/User');
 
 /**
- * GET /login
+ * GET /login.html
  * Login page.
  */
 
@@ -17,7 +17,7 @@ exports.getLogin = function(req, res) {
 };
 
 /**
- * GET /signup
+ * GET /signup.html
  * Signup page.
  */
 
@@ -31,7 +31,7 @@ exports.getSignup = function(req, res) {
 };
 
 /**
- * POST /login
+ * POST /login.html
  * Sign in using email and password.
  * @param {string} email
  * @param {string} password
@@ -46,7 +46,7 @@ exports.postLogin = function(req, res, next) {
 
   if (errors) {
     req.flash('errors', errors);
-    return res.redirect('/login');
+    return res.redirect('/login.html');
   }
 
   passport.authenticate('local', function(err, user, info) {
@@ -54,7 +54,7 @@ exports.postLogin = function(req, res, next) {
 
     if (!user) {
       req.flash('errors', { msg: info.message });
-      return res.redirect('/login');
+      return res.redirect('/login.html');
     }
 
     req.logIn(user, function(err) {
@@ -65,7 +65,7 @@ exports.postLogin = function(req, res, next) {
 };
 
 /**
- * POST /signup
+ * POST /signup.html
  * Create a new local account.
  * @param {string} email
  * @param {string} password
@@ -82,7 +82,7 @@ exports.postSignup = function(req, res, next) {
 
   if (errors) {
     req.flash('errors', errors);
-    return res.redirect('/signup');
+    return res.redirect('/signup.html');
   }
 
   var user = new User({
@@ -96,7 +96,7 @@ exports.postSignup = function(req, res, next) {
       if (err.code === 11000) {
         req.flash('errors', { msg: 'User already exists.' });
       }
-      return res.redirect('/signup');
+      return res.redirect('/signup.html');
     }
     req.logIn(user, function(err) {
       if (err) return next(err);
