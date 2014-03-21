@@ -72,7 +72,7 @@ on-proxy before post-proxy
 	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
 
   privatized on github
-	Reset password: http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
+	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
   deploy Anthem online
   start public beta!
 
