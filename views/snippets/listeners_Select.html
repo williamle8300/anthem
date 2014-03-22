@@ -12,7 +12,7 @@ $('.leftPanel')
   //})
 	.drag("start", function (e, dd) {
 	  return $('<div class="selection" />')
-	    .css('opacity', .65)
+	    .css('opacity', .5)
 	    .appendTo(document.body);
 	})
   .drag(function (e, dd) {
@@ -45,16 +45,16 @@ $.drop({
 	border: 1px solid #428bca;
 	background: #428bca;
 	z-index:10000;
-	opacity:0.3;
 	}
 .selected {
-	background-color: #ccc !important;
-}	
-/*.leftPanel.selected.hover {  
+	/*Source: http://ptrn.it/1hQiv0N*/
+	background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAIklEQVQIW2N07DlrvL/E+CwDFID4jDAOMg0XRNaBXSU2MwE9mw+gaE/CIgAAAABJRU5ErkJggg==');
+}
+/*.leftPanel.selected.hover {
 	background-color: #EBC;
 	border-color: #B89;
 }
-.leftPanel.hover {  
+.leftPanel.hover {
 	background-color: #CEB;
 	border-color: #9B8;
 }*/

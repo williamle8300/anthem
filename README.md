@@ -28,11 +28,10 @@ _trackSets
 Stage 1: Alpha [1]
 add • delete • organize tracksets
 
-  get grunt working: "From the hit 90s stylinz of criss-cross!"
-  login with username instead of email
-  learn Atom!
-	establish the modol mon!
 	create app-wide/global model to store every API search/resolve call
+  login with username instead of email
+	establish the modol mon!
+  learn Atom!
 
   "save track(s)" to user._track.list
  		wid da propa modol mon
@@ -196,6 +195,7 @@ http://getbootstrap.com
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 - "The Grind," Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
+- "[trackSet]," cool woman in black dress, tiny dancer, stuck in the middle, jet
 - "SO MUCH SMILE," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 - "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
 - "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share,
@@ -320,7 +320,7 @@ cachedAPICalls: [
 	}
 ]
 
-#License
+# License
 The MIT License (MIT)
 
 Copyright (c) 2014 William Le
