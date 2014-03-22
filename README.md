@@ -30,8 +30,20 @@ add • delete • organize tracksets
 
 	create app-wide/global model to store every API search/resolve call
   login with username instead of email
+<<<<<<< HEAD
 	establish the modol mon!
   learn Atom!
+=======
+  learn Atom!
+<<<<<<< HEAD
+
+-
+create app-wide/global model to store every API search/resolve call
+=======
+	establish the modol mon!
+	create app-wide/global model to store every API search/resolve call
+>>>>>>> a231d984ed4a4e34f65229c4b4c3c5f54628da33
+>>>>>>> 3793f2dbe1c365a188141148c2f052691d92c3c7
 
   "save track(s)" to user._track.list
  		wid da propa modol mon
