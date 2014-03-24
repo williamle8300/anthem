@@ -46,7 +46,7 @@ exports.postLogin = function(req, res, next) {
 
   if (errors) {
     req.flash('errors', errors);
-    return res.redirect('/login.html');
+    return res.redirect('/login');
   }
 
   passport.authenticate('local', function(err, user, info) {
@@ -54,7 +54,7 @@ exports.postLogin = function(req, res, next) {
 
     if (!user) {
       req.flash('errors', { msg: info.message });
-      return res.redirect('/login.html');
+      return res.redirect('/login');
     }
 
     req.logIn(user, function(err) {
@@ -82,7 +82,7 @@ exports.postSignup = function(req, res, next) {
 
   if (errors) {
     req.flash('errors', errors);
-    return res.redirect('/signup.html');
+    return res.redirect('/signup');
   }
 
   var user = new User({
@@ -93,10 +93,10 @@ exports.postSignup = function(req, res, next) {
 
   user.save(function(err) {
     if (err) {
-      if (err.code === 11000) {
+      if (err.code === 11000) {//MongoDB code for "duplicate _id exists in collection"
         req.flash('errors', { msg: 'User already exists.' });
       }
-      return res.redirect('/signup.html');
+      return res.redirect('/signup');
     }
     req.logIn(user, function(err) {
       if (err) return next(err);
