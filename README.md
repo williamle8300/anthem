@@ -33,9 +33,8 @@ add • delete • organize tracksets
 	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
 	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
-
+	list of 10 tracks, most-played
 -
-
 
 Stage 2: Alpha [3]
 on-proxy before post-proxy
@@ -175,12 +174,14 @@ http://getbootstrap.com
 - major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
-- "The Grind," Jon Hopkins, Motor City Drum Ensemble, Flying Lotus
-- "[trackSet]," cool woman in black dress, tiny dancer, stuck in the middle, jet
-- "SO MUCH SMILE," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
+- "Da Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, Motor City Drum Ensemble,
+- "Gra-Grind," 'Hedron' BADBADNOTGOOD,
+- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
+- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 - "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
-- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane"
-- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette),
+- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
+- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
+- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
 - "Burial-Fourtet Sessions"
 - "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
 - "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay

@@ -1,14 +1,17 @@
+
+
 //PATH ONE
+//people CLONE complete 'trackSets'
+//people listen to 'trackSets'
+//people add/remove 'trackSets'
+//DONE
+
+//PATH TWO
 //people ADD SONGS to 'unlabeled'
 //people PARSE 'unlabeled' *into* actual 'trackSets'
 //DONE
 //-option: shuffle play
 //-option: sort tracks in trackSets
-
-//PATH TWO
-//people CLONE complete 'trackSets'
-//'trackSets' will self-update
-//DONE
 
 //===========================//
 //===========TRACKS==========//
