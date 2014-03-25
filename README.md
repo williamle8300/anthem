@@ -23,7 +23,6 @@ add • delete • organize tracksets
   "Remove track(s) from trackset"
   "Add to a trackset..."
   [¡Delete trackset!]
-  filter by 'labeled' and 'unlabeled' tracks
   filter tracks by 'labeled', 'unlabeled', 'trackSets'
   navbar with trackSets ordered by last modified/played
   realize user schema (how to do sorting of tracks?)
@@ -180,8 +179,8 @@ http://getbootstrap.com
 - "[trackSet]," cool woman in black dress, tiny dancer, stuck in the middle, jet
 - "SO MUCH SMILE," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 - "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
-- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share,
-- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), 
+- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane"
+- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette),
 - "Burial-Fourtet Sessions"
 - "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
 - "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
