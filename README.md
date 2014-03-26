@@ -8,12 +8,21 @@ functional, social, emotional value
 Stage 1: Alpha [1]
 add • delete • organize tracksets
 
-	create user flows for [ new trackset / add to trackset ]n (e.g., the modal)
-	draft the working modol, MON!
-	add numbering in .leftPanel
-	mockup user flow for trackSet modal 1.0 (filtering-by-typing; highlight when 1-to-1 typed match; no particular ordering; one message for 'submit': "ADD")
-	create aobs for 'trackset' & 'clone trackset'
-	
+	establish working model
+	aobs
+	mockup the user flow for trackSet modal 1.0
+		• filtering-by-typing
+		• highlight when 1-to-1 typed match
+		• no particular ordering
+		• one message for 'submit': "ADD"
+
+	quickest route to having trackSets
+		user flows for trackSet modal
+		the objects it'll need, and frontend components needed
+	don't worry about future changes
+	since no changes are 'breaking' changes (no such thing)
+	once done with this, iterate new FEATURES into codebase
+		
   Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"
@@ -37,6 +46,8 @@ add • delete • organize tracksets
 	create nav button for unlabeled
 	
 	redo profile page
+	
+	add numbering in .leftPanel
 	
 	list of 10 tracks, most-played
 
