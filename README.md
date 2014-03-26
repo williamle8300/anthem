@@ -8,13 +8,12 @@ functional, social, emotional value
 Stage 1: Alpha [1]
 add • delete • organize tracksets
 
-	create app-wide/global model to store every API search/resolve call
-  login with username instead of email
-	establish the modol mon!
-  learn Atom!
-
-  "save track(s)" to user._track.list
- 		wid da propa modol mon
+	create user flows for [ new trackset / add to trackset ]n (e.g., the modal)
+	draft the working modol, MON!
+	add numbering in .leftPanel
+	mockup user flow for trackSet modal 1.0 (filtering-by-typing; highlight when 1-to-1 typed match; no particular ordering; one message for 'submit': "ADD")
+	create aobs for 'trackset' & 'clone trackset'
+	
   Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"
@@ -33,11 +32,18 @@ add • delete • organize tracksets
 	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
 	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
+	create nav for trackSets, with ordering by played-modified, 
+	add frosting to trackSet modal (typed autofiltering; ordering by p/m; glowing/altering button; highlight when 1-to-1 typed match; last typed trackSet cache)
+	create nav button for unlabeled
+	
+	redo profile page
+	
 	list of 10 tracks, most-played
--
 
 Stage 2: Alpha [3]
 on-proxy before post-proxy
+	
+	create app-wide/global model to store every API search/resolve call
 
   autocomplete searching by artist. display results. user can org to trackset at that point (e.g. "remi|x...")
   nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
