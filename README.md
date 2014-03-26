@@ -10,11 +10,13 @@ add • delete • organize tracksets
 
 	create app-wide/global model to store every API search/resolve call
   login with username instead of email
-	establish the modol mon!
+	est. da wourkin modol mon!
   learn Atom!
 
-  "save track(s)" to user._track.list
- 		wid da propa modol mon
+	redo profile pages
+
+	ts nav
+	
   Create tracksets
 	 • "/williamle8300?trackset=canadian-indierock"
 	 • "/williamle8300?trackset=burial-fourtet"
