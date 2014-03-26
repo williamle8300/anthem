@@ -42,7 +42,7 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 	$.getJSON(URI, function(track) {
 		if (track.streamable){//if the track's streamable, we'll show it!
 			trackHREFs.item(i).id = 'track' +track.id;//serialize stuff
-				inputs.item(i).id = track.id;             //serialize stuff
+			inputs.item(i).id = track.id;             //serialize stuff
 			inputs.item(i).dataset.id = track.id;     //serialize stuff
 			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
 			tracks.item(i).style.display = 'block'; //reveal to user
