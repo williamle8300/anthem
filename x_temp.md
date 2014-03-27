@@ -1,5 +1,15 @@
+http://anthem.com/williamle8300/unlabeled
+http://anthem.com/williamle8300/labeled
+http://anthem.com/williamle8300?trackset=Canadian20%Indie  |  http://anthem.com/williamle8300/trackset/Canadian20%Indie
+http://anthem.com/williamle8300?trackset=Dream20%of20%the20%90s
+http://anthem.com/search/monsieur20%adi
+
+how to present permalinks?
+how to organize the model (considering there will be a global API cache)?
+DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs
+does indexOf actually work? do embedded find queries work?
+
 create playlist for unlabeled, proper controllers
-	http://anthem.com/williamle8300?
 navbar with unlabeled link
 aobs + modal
 slowly accrete features
