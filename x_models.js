@@ -37,24 +37,14 @@ _track: {
 //===========TRACKSETS=======//
 //===========================//
 
-_trackSet.list[3].setID // 4451
-_trackSet.list[3].setList // [948548, 7785422, 949331, 410200, 1103948, 991222]
+collection.unlabeled[0].resourceID // '38412'
+collection.unlabeled[0].encodedObjHTML // #%##%##%##%##%##%##%##%##%##%##%##%##%##%##%##%##%##%#..
+collection.trackSet[i].setList.indexOf(removeResourceID) // [•••] (use indexof; or recusive findall for performance)
 
-_trackset: {
-	list: [
-		{
-	   name: 'LABELED',//everytime anything is done with a trackSet (e.g., saves, removes)
-	   setID: 0,
-	   setList: [948548, 7785422, 949331, 410200, 1103948, 991222, 948548, 7785422, 949331, 410200, 1103948, 991222, 948548, 7785422, 949331, 410200, 1103948, 991222],
-	  },
-		•••
-		{
-	   name: 'Canadian Indie',
-	   setID: 4451,
-	   setList: [948548, 7785422, 949331, 410200, 1103948, 991222]
-	  },
-	  •••
-	]
+collection: {
+	unlabeled: [•],
+	labeled: [•],
+	trackSets: [ {name: 'Canadian Indie', permID: 2, setList: [948548, 7785422, 949331, 410200, 1103948, 991222]}, ••• ]
 }
 
 //===========================//

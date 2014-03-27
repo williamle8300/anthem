@@ -1,7 +1,8 @@
-create playlist for unlabeled
+create playlist for unlabeled, proper controllers
+	http://anthem.com/williamle8300?
 navbar with unlabeled link
 aobs + modal
-slowly
+slowly accrete features
 
 #### *SEARCH RESULTS*
 
@@ -25,7 +26,6 @@ _unlabeled_
 _labeled_
 _x_
 
-
 #### UNLABELED
 
 [SAVE]
@@ -47,7 +47,6 @@ _x_
 _unlabeled_
 _labeled_
 _x_
-
 
 #### LABELED
 
