@@ -51,12 +51,16 @@ add • delete • organize tracksets
 	
 	list of 10 tracks, most-played
 
+	SIGNALS & PERMALINKS!
+	SHUFFLE PLAY!
+	SORT TRACKS!
+	BLEND TRACKSETS
+
 Stage 2: Alpha [3]
 on-proxy before post-proxy
 	
-	create app-wide/global model to store every API search/resolve call
-
-	autocomplete searching by artist. display results. user can org to trackset at that point (e.g. "remi|x...")
+	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x...")
+		
 	nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
 
 	social aspects
