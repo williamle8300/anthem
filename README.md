@@ -211,7 +211,8 @@ Stage: Future!
 	- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
 	- "Burial-Fourtet Sessions"
 	- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
-	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay
+	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay, 'No diggity'
+	- "90s R&B," Toni Braxton, 'If' by Janet Jackson, 'end of the road' Boyz II Men
 	- "The 27 Club," Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
 	- "hypem weekly," (weekly tracks)
 	- "Bob Dylan"
