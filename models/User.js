@@ -27,11 +27,6 @@ var userSchema = new mongoose.Schema({
 	}
 });
 
-// var UserSchema = new Schema({
-//     _id: Schema.Types.Mixed,
-//     name: String
-// });
-
 userSchema.pre('save', function(next) {
   var user = this;
   var SALT_FACTOR = 5;
