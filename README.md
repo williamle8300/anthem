@@ -51,6 +51,7 @@ add • delete • organize tracksets
 	
 	list of 10 tracks, most-played
 
+	DOWNLOAD?? RADIO LINKS ONLY??
 	SIGNALS & PERMALINKS!
 	SHUFFLE PLAY!
 	SORT TRACKS!
@@ -169,6 +170,7 @@ Stage: Future!
 
 # Visual Identity
 	http://stp.so/JxhU
+	colors/proportions: http://dribbble.com/shots/1487542-Survey-Results-Dashboard?list=users&offset=0
 	for typographic rhythm, and layout: http://andrewtarcon.com/
 	LANDING PAGE: https://www.threadmeup.com/
 	http://dribbble.com/shots/1429401-karbar-main/attachments/210024
@@ -212,6 +214,7 @@ Stage: Future!
 	- "Burial-Fourtet Sessions"
 	- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
 	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay, 'No diggity'
+	- "Dream of the 90s (REEEEEMIIIIIIX)" ..
 	- "90s R&B," Toni Braxton, 'If' by Janet Jackson, 'end of the road' Boyz II Men
 	- "The 27 Club," Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
 	- "hypem weekly," (weekly tracks)
