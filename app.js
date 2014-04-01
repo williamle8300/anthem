@@ -66,8 +66,8 @@ app.use(express.errorHandler());
  * Application routes.
  */
 //Home
-app.get('/', homeController.search);//same
-app.get('/search', homeController.search);//same
+app.get('/', passportConf.isAuthenticated, homeController.search);//same
+app.get('/search', passportConf.isAuthenticated, homeController.search);//same
 app.get('/search/:query', homeController.getSearchResults(phantomSoundCloud));
 app.post('/postSearch', homeController.postSearch); //handles 'query' in searchbox
 app.get('/login', accountsController.getLogin);
