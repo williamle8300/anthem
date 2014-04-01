@@ -12,9 +12,8 @@ add • delete • organize tracksets
 	aobs
 	mockup the user flow for trackSet modal 1.0
 		• filtering-by-typing
-		• highlight when 1-to-1 typed match
-		• no particular ordering
-		• one message for 'submit': "ADD"
+		• highlight when 1-to-1 typed match, flip 'submit' button
+		• no particular ordering for trackSets
 
 	quickest route to having trackSets
 		user flows for trackSet modal
