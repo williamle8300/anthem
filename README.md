@@ -5,11 +5,10 @@ http://anthem.com/williamle8300/trackset/Dream20%of20%the20%90s
 http://anthem.com/williamle8300/trackset/Canadian20%Indie/Best20%Of20%SubPop/Dream20%of20%the20%90s
 http://anthem.com/search/monsieur20%adi
 
-dl extension for saving password
 create global cache
-DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE)
+DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
 
-learn mongoose						
+learn mongoose
 	learn mongodb 
 	need-to-know queries
 		find()
