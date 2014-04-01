@@ -45,7 +45,7 @@ collection: {
 	unlabeled: [991222, 1103948, 948548, 7785422, 949331, 410200],
 	labeled: [1103948, 7785422, 949331, 223310, 11322],
 	trackSets: {
-		list: [ {name: 'Canadian Indie', permID: 2, setList: [948548, 7785422, 949331, 410200, 1103948, 991222], signed: [signedAt: 'mawtrombone/trackset/478', own: 3978, inherited: 2433]}, ••• ],
+		list: [ {name: 'Canadian Indie', permID: 2, setList: [948548, 7785422, 949331, 410200, 1103948, 991222], signed: {signedAt: 'mawtrombone/trackset/478', own: 3978, inherited: 2433} }, ••• ],
 		lastPlayed: [•permIDs•],
 		lastModified: [•permIDs•]
 	}

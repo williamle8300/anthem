@@ -206,6 +206,7 @@ Stage: Future!
 	- "Gra-Grind," 'Hedron' BADBADNOTGOOD,
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
+	- "Kicktranada," only DJ Kicks and Kaytranada tracks
 	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
 	- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
 	- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
