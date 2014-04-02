@@ -65,13 +65,13 @@ app.use(express.errorHandler());
 /**
  * Application routes.
  */
-//Home
+//Home 
 app.get('/', passportConf.isAuthenticated, applicationController.search);//same
 app.get('/search', passportConf.isAuthenticated, applicationController.search);//same
 app.get('/search/:query', applicationController.getSearchResults(phantomSoundCloud));
 app.post('/postSearch', applicationController.postSearch); //handles 'query' in searchbox
-app.get('/getIDEOH/:resourceID', applicationController.getIDEOH);
-app.get('/postIDEOH/:resourceID/:encodedObjHTML', applicationController.postIDEOH);
+app.get('/getCachedTrackObj/:resourceID', applicationController.getCachedTrackObj);
+app.post('/postCachedTrackObj/:resourceID/:encodedObjHTML', applicationController.getCachedTrackObj);
 app.get('/login', accountsController.getLogin);
 app.post('/login', accountsController.postLogin);
 app.get('/signup', accountsController.getSignup);

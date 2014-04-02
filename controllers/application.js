@@ -60,9 +60,10 @@ exports.getSearchResults = function(phantomSoundCloud) {//have to flip the funct
  * IF exists, it returns an object {`resourceID``encodedObjHTML`}
  * ELSE, returns the `false` bool
  */
-exports.getIDEOH = function (req, res) {
+exports.getCachedTrackObj = function (req, res) {
 //  var newTrack = new cachedTrackObj({
-//    resourceID: req.params.resourceID
+//    resourceID: req.params.resourceID,
+//		encodedObjHTML: req.params.encodedObjHTML
 //  });
 //  newTrack.save(function(err) {
 //    if (err) {
@@ -78,7 +79,7 @@ exports.getIDEOH = function (req, res) {
 //  });
 }
 
-exports.postIDEOH = function (req, res) {
+exports.postCachedTrackObj = function (req, res) {
   var newTrack = new cachedTrackObj({
     resourceID: req.params.resourceID,
 		encodedObjHTML: req.params.encodedObjHTML
@@ -92,8 +93,7 @@ exports.postIDEOH = function (req, res) {
     }
 	  cachedTrackObj.find({}, function(err, results) {//log the whole collection
 			console.log(results);
-	 		res.send(200);
+	 		//res.send(200);
 		});
-  });
-	
+  });	
 }
