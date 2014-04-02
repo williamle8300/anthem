@@ -17,7 +17,7 @@ var phantomSoundCloud = require('./lib/phantomFunctions').phantomSoundCloud;
 /**
  * Load controllers.
  */
-var homeController = require('./controllers/home');
+var applicationController = require('./controllers/application');
 var accountsController = require('./controllers/accounts');
 var userController = require('./controllers/user');
 var profileController = require('./controllers/profile');
@@ -66,10 +66,11 @@ app.use(express.errorHandler());
  * Application routes.
  */
 //Home
-app.get('/', passportConf.isAuthenticated, homeController.search);//same
-app.get('/search', passportConf.isAuthenticated, homeController.search);//same
-app.get('/search/:query', homeController.getSearchResults(phantomSoundCloud));
-app.post('/postSearch', homeController.postSearch); //handles 'query' in searchbox
+app.get('/', passportConf.isAuthenticated, applicationController.search);//same
+app.get('/search', passportConf.isAuthenticated, applicationController.search);//same
+app.get('/search/:query', applicationController.getSearchResults(phantomSoundCloud));
+app.post('/postSearch', applicationController.postSearch); //handles 'query' in searchbox
+app.get('/getEHO/:resourceID', applicationController.getEHO);
 app.get('/login', accountsController.getLogin);
 app.post('/login', accountsController.postLogin);
 app.get('/signup', accountsController.getSignup);
