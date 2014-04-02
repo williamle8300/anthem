@@ -1,14 +1,7 @@
-//GET
-//store some test tracks
-//test retrieval
-//POST
-// ... 
-//prevent dups
-
 var mongoose = require('mongoose');
 var passport = require('passport');
 var _ = require('underscore');
-var apiCache = require('../models/apiCache');
+var cachedTrackObj = require('../models/CachedTrackObj');
 var User = require('../models/User');
 
 /**
@@ -32,7 +25,7 @@ exports.postSearch = function(req, res){
 };
 
 /**
- * GET /search/{query}
+ * GET /search/:query
  * Runs phantomFunctions and displays search results to user
  * @param {function} phantomSoundCloud
  * @param {string} query
@@ -54,9 +47,41 @@ exports.getSearchResults = function(phantomSoundCloud) {//have to flip the funct
 	};
 };
 
-exports.getEHO = function (req, res) {
-  var newTrack = new apiCache({
+//GET
+//store some test tracks
+//test retrieval
+//POST
+// ... 
+//prevent dups
+
+/**
+ * GET /getIDEOH/:resourceID
+ * Uses `resourceID` to check whether document exists in db
+ * IF exists, it returns an object {`resourceID``encodedObjHTML`}
+ * ELSE, returns the `false` bool
+ */
+exports.getIDEOH = function (req, res) {
+//  var newTrack = new cachedTrackObj({
+//    resourceID: req.params.resourceID
+//  });
+//  newTrack.save(function(err) {
+//    if (err) {
+//      if (err.code === 11000) {//MongoDB code for "duplicate _id exists in collection"
+//        req.flash('errors', { msg: 'Track already exists.' });
+//      }
+//      return res.redirect('/');
+//    }
+//	  cachedTrackObj.find({}, function(err, results) {//log the whole collection
+//			console.log(results);
+//	 		res.send(200);
+//		});
+//  });
+}
+
+exports.postIDEOH = function (req, res) {
+  var newTrack = new cachedTrackObj({
     resourceID: req.params.resourceID,
+		encodedObjHTML: req.params.encodedObjHTML
   });
   newTrack.save(function(err) {
     if (err) {
@@ -65,7 +90,7 @@ exports.getEHO = function (req, res) {
       }
       return res.redirect('/');
     }
-	  apiCache.find({}, function(err, results) {//log the whole collection
+	  cachedTrackObj.find({}, function(err, results) {//log the whole collection
 			console.log(results);
 	 		res.send(200);
 		});
