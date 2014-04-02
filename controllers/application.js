@@ -93,7 +93,7 @@ exports.postCachedTrackObj = function (req, res) {
     }
 	  cachedTrackObj.find({}, function(err, results) {//log the whole collection
 			console.log(results);
-	 		//res.send(200);
+	 		res.send(200);
 		});
   });	
 }
