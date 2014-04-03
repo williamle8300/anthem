@@ -44,9 +44,9 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 			var resourceID = track.id;
 			var encodedObjHTML = '';
 			
-			trackHREFs.item(i).id = 'track' +track.id;//serialize with id!
-			inputs.item(i).id = track.id;             //serialize with id!
-			inputs.item(i).dataset.id = track.id;     //serialize with id!
+			trackHREFs.item(i).id = 'track' +resourceID;//serialize with id!
+			inputs.item(i).id = resourceID;             //serialize with id!
+			inputs.item(i).dataset.id = resourceID;     //serialize with id!
 			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //serialize with stream_ur!
 			encodedObjHTML = inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//flash EOH into 'data-encodedobjhtml'... now it's ready to iCheck
 			$.ajax({//now cache the encodedObjHTML for rapid retrieval
@@ -54,14 +54,14 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 				url: '/postCachedTrackObj/' +resourceID+ '/' +encodedObjHTML,
 				async: false,
 				success: function(data) {
-				  $('input#' +track.id).iCheck({//manually init each iCheck ele
+				  $('input#' +resourceID).iCheck({//manually init each iCheck ele
 				    checkboxClass: 'icheckbox_square-blue',
 				    increaseArea: '300%', // optional
 						aria: false
 				  });
-					if (userTrackResourceIDs.indexOf(track.id) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
-						$('a#track' +track.id+ ' div.icheckbox_square-blue').addClass('checked');
-						$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);
+					if (userTrackResourceIDs.indexOf(resourceID) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
+						$('a#track' +resourceID+ ' div.icheckbox_square-blue').addClass('checked');
+						$('a#track' +resourceID+ ' div.icheckbox_square-blue input').prop('checked', true);
 					}
 					tracks.item(i).style.display = 'block'; //reveal to user
 				}
