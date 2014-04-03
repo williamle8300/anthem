@@ -41,24 +41,32 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 
 	$.getJSON(URI, function(track) {
 		if (track.streamable){//if the track's streamable, we'll show it!
-			//IF here check for 'track.id' existence in global cache
-			//ELSE...
-				trackHREFs.item(i).id = 'track' +track.id;//serialize pertinent HTML el
-				inputs.item(i).id = track.id;             //serialize pertinent HTML el
-				inputs.item(i).dataset.id = track.id;     //serialize pertinent HTML el
-				trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
-				//store track.id & EHO global cache
-				inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//convert, and store track node to 'data-encodedobjhtml'
-			  $('input#' +track.id).iCheck({//manually init each iCheck ele
-			    checkboxClass: 'icheckbox_square-blue',
-			    increaseArea: '300%', // optional
-					aria: false
-			  });
-				if (userTrackResourceIDs.indexOf(track.id) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
-					$('a#track' +track.id+ ' div.icheckbox_square-blue').addClass('checked');
-					$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);
+			var resourceID = track.id;
+			var encodedObjHTML = '';
+			
+			trackHREFs.item(i).id = 'track' +track.id;//serialize pertinent HTML el
+			inputs.item(i).id = track.id;             //serialize pertinent HTML el
+			inputs.item(i).dataset.id = track.id;     //serialize pertinent HTML el
+			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
+			//store track.id & EHO global cache
+			encodedObjHTML = inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//convert, and store track DOM node into 'data-encodedobjhtml' attr
+			$.ajax({//cache everything into db
+				type: 'POST',
+				url: '/postCachedTrackObj/' +resourceID+ '/' +encodedObjHTML,
+				async: false,
+				success: function(data) {
+				  $('input#' +track.id).iCheck({//manually init each iCheck ele
+				    checkboxClass: 'icheckbox_square-blue',
+				    increaseArea: '300%', // optional
+						aria: false
+				  });
+					if (userTrackResourceIDs.indexOf(track.id) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
+						$('a#track' +track.id+ ' div.icheckbox_square-blue').addClass('checked');
+						$('a#track' +track.id+ ' div.icheckbox_square-blue input').prop('checked', true);
+					}
+					tracks.item(i).style.display = 'block'; //reveal to user
 				}
-				tracks.item(i).style.display = 'block'; //reveal to user
+			});
 		}
 		else {//all unstreamable tracks are removed from DOM
 			tracks.item(i).parentNode.removeChild(tracks.item(i));
