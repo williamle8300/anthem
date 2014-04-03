@@ -39,18 +39,17 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 	var CLIENT_ID = '212b7a5080f5d7f8e831583446771a02';//SoundCloud API ID
 	var URI = 'http://api.soundcloud.com/resolve.json?callback=?&url=' +permalink+ '&client_id=' +CLIENT_ID;//construct request url; 'callback' param specif. for Safari
 
-	$.getJSON(URI, function(track) {
+	$.getJSON(URI, function(track) {//serialize with id • serialize with stream_url • flash DOM node for EOH • (...ready for iCheck)
 		if (track.streamable){//if the track's streamable, we'll show it!
 			var resourceID = track.id;
 			var encodedObjHTML = '';
 			
-			trackHREFs.item(i).id = 'track' +track.id;//serialize pertinent HTML el
-			inputs.item(i).id = track.id;             //serialize pertinent HTML el
-			inputs.item(i).dataset.id = track.id;     //serialize pertinent HTML el
-			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //populate HREF
-			//store track.id & EHO global cache
-			encodedObjHTML = inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//convert, and store track DOM node into 'data-encodedobjhtml' attr
-			$.ajax({//cache everything into db
+			trackHREFs.item(i).id = 'track' +track.id;//serialize with id!
+			inputs.item(i).id = track.id;             //serialize with id!
+			inputs.item(i).dataset.id = track.id;     //serialize with id!
+			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //serialize with stream_ur!
+			encodedObjHTML = inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//flash EOH into 'data-encodedobjhtml'... now it's ready to iCheck
+			$.ajax({//now cache the encodedObjHTML for rapid retrieval
 				type: 'POST',
 				url: '/postCachedTrackObj/' +resourceID+ '/' +encodedObjHTML,
 				async: false,
