@@ -47,40 +47,24 @@ exports.getSearchResults = function(phantomSoundCloud) {//have to flip the funct
 	};
 };
 
-//GET
-//store some test tracks
-//test retrieval
-//POST
-// ... 
-//prevent dups
-
 /**
- * GET /getIDEOH/:resourceID
- * Uses `resourceID` to check whether document exists in db
- * IF exists, it returns an object {`resourceID``encodedObjHTML`}
- * ELSE, returns the `false` bool
+ * GET /postCachedTrackObj/:resourceID
+ * Returns results after runnig resourceID against db
  */
-exports.getCachedTrackObj = function (req, res) {
-//  var newTrack = new cachedTrackObj({
-//    resourceID: req.params.resourceID,
-//		encodedObjHTML: req.params.encodedObjHTML
-//  });
-//  newTrack.save(function(err) {
-//    if (err) {
-//      if (err.code === 11000) {//MongoDB code for "duplicate _id exists in collection"
-//        req.flash('errors', { msg: 'Track already exists.' });
-//      }
-//      return res.redirect('/');
-//    }
-//	  cachedTrackObj.find({}, function(err, results) {//log the whole collection
-//			console.log(results);
-//	 		res.send(200);
-//		});
-//  });
+exports.getCachedTrackObj = function (req, res, next) {
+	var resourceID = req.params.resourceID;
+  cachedTrackObj.findOne({resourceID: resourceID}, function(err, cachedTrackObj) {//log the whole collection
+		if (err) return next(err);
+		res.send(cachedTrackObj);//send to $.ajax's success func; if nothing found in db, sends back blank string
+	});
 }
 
-exports.postCachedTrackObj = function (req, res) {
-  var newTrack = new cachedTrackObj({
+/**
+ * POST /postCachedTrackObj/:resourceID/:encodedObjHTML
+ * Stores into db; schema prevents duplicate docs
+ */
+exports.postCachedTrackObj = function (req, res, next) {
+  var newTrack = new cachedTrackObj({//create new object for mongodb
     resourceID: req.params.resourceID,
 		encodedObjHTML: req.params.encodedObjHTML
   });
@@ -91,9 +75,6 @@ exports.postCachedTrackObj = function (req, res) {
       }
       return res.redirect('/');
     }
-	  cachedTrackObj.find({}, function(err, results) {//log the whole collection
-			console.log(results);
-	 		res.send(200);
-		});
+ 		res.send(200);
   });	
 }

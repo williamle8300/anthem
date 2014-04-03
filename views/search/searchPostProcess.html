@@ -8,8 +8,8 @@ var trackSetLen = tracks.length;                                                
 var userTrackResourceIDs = [];                                                                    
 var permalinks = [];                                                                         
 
-//check if user has some tracks saved; push into temporary Array (userTrackResourceIDs)
-{% if user %}//if logged in?, we'll do this check
+//push ALL of users's "saves" into a temporary Array (userTrackResourceIDs)
+{% if user %}//if logged in, we'll do this whole rigamaroll
 	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'
 	userTrackResourceIDs.push({{userTrack.resourceID | safe}});//go thru results, and push 'saves' into this temp Array
 	{% endfor %}
