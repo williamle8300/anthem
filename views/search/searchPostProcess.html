@@ -44,6 +44,7 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 			var resourceID = track.id;
 			var encodedObjHTML = '';
 			
+			tracks.item(i).style.display = 'block'; 	  //reveal to user (has to be done before storing into "data-encodedobjhtml"!)
 			trackHREFs.item(i).id = 'track' +resourceID;//serialize with id!
 			inputs.item(i).id = resourceID;             //serialize with id!
 			inputs.item(i).dataset.id = resourceID;     //serialize with id!
@@ -63,7 +64,6 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 						$('a#track' +resourceID+ ' div.icheckbox_square-blue').addClass('checked');
 						$('a#track' +resourceID+ ' div.icheckbox_square-blue input').prop('checked', true);
 					}
-					tracks.item(i).style.display = 'block'; //reveal to user
 				}
 			});
 		}
