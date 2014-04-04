@@ -9,7 +9,7 @@ Stage 1: Alpha [1]
 add • delete • organize tracksets
 
 	DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
-	redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled
+	redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled. create nav bar with 'unlabeled'
 
 	learn mongoose
 		learn mongodb 
@@ -59,6 +59,8 @@ add • delete • organize tracksets
 	
 	add numbering in .leftPanel
 	
+	sort tracks in unlabeled, and TS1, TS2, ...
+	
 	list of 10 tracks, most-played
 
 	DOWNLOAD?? RADIO LINKS ONLY??
@@ -66,6 +68,7 @@ add • delete • organize tracksets
 	SHUFFLE PLAY!
 	SORT TRACKS!
 	BLEND TRACKSETS
+	-HAPPY WID IT. FORMULATE BUSINESS MODEL-
 
 Stage 2: Alpha [3]
 on-proxy before post-proxy
