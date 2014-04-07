@@ -73,6 +73,7 @@ add • delete • organize tracksets
 Stage 2: Alpha [3]
 on-proxy before post-proxy
 	
+	progress buttons: http://tympanus.net/Development/ProgressButtonStyles/
 	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x...")
 		
 	nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
