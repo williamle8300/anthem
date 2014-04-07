@@ -1,60 +1,65 @@
+# i can't create sets of music for playback
+## whenever and wherever i am... and with ease
+### if someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*
+
 # Ideas
 SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
 functional, social, emotional value
 "Can I give you my money?"
 
-
 Stage 1: Alpha [1]
 add • delete • organize tracksets
 
-	DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
-	redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled. create nav bar with 'unlabeled'
+	Tracksets
+		DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
+		redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled. create nav bar with 'unlabeled'
 
-	learn mongoose
-		learn mongodb 
-		need-to-know queries
-			find()
-			count()
-		'unique:true, sparse:true'
-		sort: ({createdAt .. })
-		various event emitters for a mongo object, e.g., 'open'
-		creating methods for schemas, e.g.:
-			User.methods.totalSig = function(){
-				var totalSig = this.own + this.inherited
-				return totalSig
-			}
+		learn mongoose
+			learn mongodb 
+			need-to-know queries
+				find()
+				count()
+			'unique:true, sparse:true'
+			sort: ({createdAt .. })
+			various event emitters for a mongo object, e.g., 'open'
+			creating methods for schemas, e.g.:
+				User.methods.totalSig = function(){
+					var totalSig = this.own + this.inherited
+					return totalSig
+				}
 
-	does indexOf actually work? do embedded find queries work?
+		does indexOf actually work? do embedded find queries work?
 
-	"just... begin to make things happen"
-	create playlist for unlabeled, proper controllers
-	navbar with unlabeled link
-	create aobs + modal
-		• filtering-by-typing
-		• highlight when 1-to-1 typed match, flip 'submit' button
-		• no particular ordering for trackSets
-	slowly accrete features
+		"just... begin to make things happen"
+		create playlist for unlabeled, proper controllers
+		navbar with unlabeled link
+		create aobs + modal
+			• filtering-by-typing
+			• highlight when 1-to-1 typed match, flip 'submit' button
+			• no particular ordering for trackSets
+		slowly accrete features
 
-	quickest route to having trackSets
-		user flows for trackSet modal
-		the objects it'll need, and frontend components needed
-	don't worry about future changes
-	since no changes are 'breaking' changes (no such thing)
-	once done with this, iterate new FEATURES into codebase
+		quickest route to having trackSets
+			user flows for trackSet modal
+			the objects it'll need, and frontend components needed
+		don't worry about future changes
+		since no changes are 'breaking' changes (no such thing)
+		once done with this, iterate new FEATURES into codebase
 		
-	navbar with trackSets ordered by last modified/played
-	 • http://mongoosejs.com/docs/queries.html
-	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
-	 • https://stackoverflow.com/questions/19093469/mongoose-find-vs-find-where
-	 • http://blog.mongodb.org/post/52299826008/the-mean-stack-mistakes-youre-probably-making-with
-	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
-	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
+		navbar with trackSets ordered by last modified/played
+		 • http://mongoosejs.com/docs/queries.html
+		 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
+		 • https://stackoverflow.com/questions/19093469/mongoose-find-vs-find-where
+		 • http://blog.mongodb.org/post/52299826008/the-mean-stack-mistakes-youre-probably-making-with
+		 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
+		 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
-	create nav for trackSets, with ordering by played-modified, 
-	add frosting to trackSet modal (typed autofiltering; ordering by p/m; glowing/altering button; highlight when 1-to-1 typed match; last typed trackSet cache)
-	create nav button for unlabeled
+		create nav for trackSets, with ordering by played-modified, 
+		add frosting to trackSet modal (typed autofiltering; ordering by p/m; glowing/altering button; highlight when 1-to-1 typed match; last typed trackSet cache)
+		create nav button for unlabeled
 	
+	create routing when trackset permIDs are used. should be identical
 	redo profile page
 	
 	add numbering in .leftPanel
@@ -210,7 +215,7 @@ Stage: Future!
 	• $ cd /
 	• $ nodemon -e js,html,css app
 
-# Target Market
+# Target Market. Selling points "it's free, legal, social, and just better!"
 	- self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
 	- or people who work at computers all day (by themselves); remote working;
 	- musicians; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/

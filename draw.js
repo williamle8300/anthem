@@ -3,7 +3,7 @@ $.ajax({
 	url: "/getCachedTrackObj/474764",
 	async: false,
 	success: function(cachedTrackObj) {
-		if (cachedTrackObj) { alert('true!') } else { alert('false!') };
+		//if (cachedTrackObj) { alert('true!') } else { alert('false!') };
 		console.log(cachedTrackObj.encodedObjHTML);
 	}
 });
@@ -24,14 +24,13 @@ User: {
 		unlabeled: [991222, 1103948, 948548, 7785422, 949331, 410200],
 		labeled: [1103948, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322],
 		trackSets: {
-			list: [ {name: 'Canadian Indie', permID: 2, setList: [948548, 7785422, 949331, 410200, 1103948, 991222], signed: {signedAt: 'mawtrombone/trackset/478', own: 3978, inherited: 2433} }, ••• ],
+			list: [ {permID: 2, name: 'Canadian Indie', setList: [948548, 7785422, 949331, 410200, 1103948, 991222], _sign: {signedAt: 'mawtrombone/trackset/478', own: 3978, borrowed: 2433} }, ••• ],
 			lastPlayed: [•(trackSet permIDs)•],
 			lastModified: [•(trackSet permIDs)•]
 		}
 	}
 	...
 }
-
 
 //===========================//
 //=====APICALLCACHE==========//
