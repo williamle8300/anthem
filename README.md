@@ -1,5 +1,5 @@
-# i can't create sets of music for playback
-## whenever and wherever i am... and with ease
+# i can't create sets of music to listen to
+## whenever, wherever... and with ease
 ### if someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*
 
 # Ideas
@@ -7,12 +7,14 @@ SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
 functional, social, emotional value
 "Can I give you my money?"
+FEATURES • LOOKS • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
 Stage 1: Alpha [1]
 add • delete • organize tracksets
 
 	Tracksets
 		DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
+		everything is gonna happen 'local'
 		redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled. create nav bar with 'unlabeled'
 
 		learn mongoose
@@ -218,7 +220,7 @@ Stage: Future!
 # Target Market. Selling points "it's free, legal, social, and just better!"
 	- self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
 	- or people who work at computers all day (by themselves); remote working;
-	- musicians; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/
+	- musicians: kaytranada, monsieur adi, rac; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/
 	- major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)

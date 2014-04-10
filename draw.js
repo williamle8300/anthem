@@ -1,6 +1,14 @@
+//http://anthem.com/williamle8300/unlabeled
+//http://anthem.com/williamle8300/trackset/Canadian20%Indie 
+//http://anthem.com/williamle8300/trackset/502	  //>"Canadian Indie"
+//http://anthem.com/williamle8300#502						  //>"Canadian Indie"
+//http://anthem.com/williamle8300/trackset/Dream20%of20%the20%90s#trackOne
+//http://anthem.com/williamle8300/trackset/Canadian20%Indie/Best20%Of20%SubPop/Dream20%of20%the20%90s
+//http://anthem.com/search/monsieur20%adi
+
 $.ajax({
 	type: "GET",
-	url: "/getCachedTrackObj/474764",
+	url: "/getCachedTrackObj/54565448",
 	async: false,
 	success: function(cachedTrackObj) {
 		//if (cachedTrackObj) { alert('true!') } else { alert('false!') };
@@ -8,15 +16,10 @@ $.ajax({
 	}
 });
 
-//http://anthem.com/williamle8300/unlabeled
-//http://anthem.com/williamle8300/trackset/Canadian20%Indie
-//http://anthem.com/williamle8300/trackset/Dream20%of20%the20%90s
-//http://anthem.com/williamle8300/trackset/Canadian20%Indie/Best20%Of20%SubPop/Dream20%of20%the20%90s
-//http://anthem.com/search/monsieur20%adi
-
 collection.unlabeled[0].resourceID // '38412'
 collection.unlabeled[0].encodedObjHTML // #%##%##%##%##%##%##%##%##%##%##%##%##%##%##%##%##%##%#..
-collection.trackSets.list[0].setList.indexOf(removeResourceID) // [•••] (use indexof; or recusive findall for performance;)
+var removeResourceID = 38412;
+collection.trackSets.list[0].setList.indexOf(removeResourceID) // [•••] (use indexof; or recursive findall for performance;)
 
 User: {
 	...
@@ -24,49 +27,19 @@ User: {
 		unlabeled: [991222, 1103948, 948548, 7785422, 949331, 410200],
 		labeled: [1103948, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322, 7785422, 949331, 223310, 11322],
 		trackSets: {
-			list: [ {permID: 2, name: 'Canadian Indie', setList: [948548, 7785422, 949331, 410200, 1103948, 991222], _sign: {signedAt: 'mawtrombone/trackset/478', own: 3978, borrowed: 2433} }, ••• ],
-			lastPlayed: [•(trackSet permIDs)•],
-			lastModified: [•(trackSet permIDs)•]
+			list: [
+				•••
+				{permID:174,name:'Da Grind',setList:[948548,12322,23,128,948548,7785422,949331,410200,1103948,991222,23,128,948548,7785422,949331,410200,1103948,991222]},
+				{permID:502,name:'Canadian Indie',setList:[7785422,949331,948548,1103948,948548,7785422,949331,410200,1103948,991222]},
+				•••
+			],
+			currentPermID:503;
+			lastPlayed:[•(trackSet permIDs)•],
+			lastModified:[•(trackSet permIDs)•]
 		}
 	}
 	...
 }
-
-//===========================//
-//=====APICALLCACHE==========//
-//===========================//
-
-cachedAPICalls: [
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-  {
-    resourceID: '183820',
-    encodedObjHTML: '#%##%##%##%##%##%##%##%##%#'
-  }
-]
-
 
 #### *SEARCH RESULTS*
 
