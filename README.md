@@ -230,6 +230,7 @@ Stage: Future!
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
 	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
+	- "Henry Rollins Week 1", ...
 	- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
 	- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
 	- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
