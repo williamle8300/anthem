@@ -7,10 +7,13 @@ SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
 functional, social, emotional value
 "Can I give you my money?"
-FEATURES • LOOKS • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
+[Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
-Stage 1: Alpha [1]
-add • delete • organize tracksets
+Stage 1: FEATURES
+tracksets, rudimentary UX, shuffle play, sorting tracks, keyboard shortcuts
+
+	staged, destage
+	tracksets
 
 	Tracksets
 		DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
@@ -71,19 +74,17 @@ add • delete • organize tracksets
 	list of 10 tracks, most-played
 
 	DOWNLOAD?? RADIO LINKS ONLY??
-	SIGNALS & PERMALINKS!
 	SHUFFLE PLAY!
 	SORT TRACKS!
-	BLEND TRACKSETS
 	-HAPPY WID IT. FORMULATE BUSINESS MODEL-
+	SIGNALS & PERMALINKS! BLEND TRACKSETS
 
-Stage 2: Alpha [3]
-on-proxy before post-proxy
-	
+Stage 2: Alpha [3]	
+
 	progress buttons: http://tympanus.net/Development/ProgressButtonStyles/
 	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x...")
 		
-	nail down keybindings! make it so people can stuff quick: like searching, selecting, adding, and creating/cloning tracksets
+	nail down keybindings! make it so people can do stuff quick: like searching, selecting, adding, and creating/cloning tracksets
 
 	social aspects
 	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
