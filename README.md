@@ -10,13 +10,12 @@ functional, social, emotional value
 [Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
 Stage 1: FEATURES
-tracksets, rudimentary UX, shuffle play, sorting tracks, keyboard shortcuts
+tracksets, rudimentary UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	staged, destage
-	tracksets
+	stage-destage && tracksets
 
 	Tracksets
-		DRAW OUT FLOW CHART OF BACKEND WORKING for VARIOUS REQs with LOGIC (FEEL COMFORTABLE wid it)
+		draw out flow chart of backend working for various reqs with logic (feel comfortable wid it)
 		everything is gonna happen 'local'
 		redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled. create nav bar with 'unlabeled'
 
