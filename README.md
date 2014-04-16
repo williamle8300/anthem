@@ -1,5 +1,5 @@
 # i can't create sets of music to listen to
-## whenever, wherever... and with ease
+## whenever, wherever i am... and with ease
 ### if someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*
 
 # Ideas
@@ -12,7 +12,13 @@ functional, social, emotional value
 Stage 1: FEATURES
 tracksets, rudimentary UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	stage-destage && tracksets
+	"Just start making the tracksets, and use it."
+	
+	map out visually; draw stuff! (must evoke a strong UX)
+	stage-destage && tracksets; draft the models
+	logically
+	pericopete thn featuros
+	make headway on the "staged trackset"
 
 	Tracksets
 		draw out flow chart of backend working for various reqs with logic (feel comfortable wid it)
@@ -213,7 +219,7 @@ Stage: Future!
 	• $ sudo npm install -g nodemon && npm install
 	• $ cd public/css/lib/bootstrap && npm install #for some reason it needs phantom and might try to download a new phantomJS binary
 	• $ grunt watch
-	• $ mongod #start the mongodb server... and heeere we go!
+	• $ mongod #start the mongodb server... and heeere we go!s
 	• $ cd /
 	• $ nodemon -e js,html,css app
 
@@ -229,8 +235,8 @@ Stage: Future!
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
+	- "Henry Rollins WeekX" ...
 	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
-	- "Henry Rollins Week 1", ...
 	- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
 	- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
 	- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
