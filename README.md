@@ -7,68 +7,56 @@ SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
 functional, social, emotional value
 "Can I give you my money?"
-[Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
+[Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
-Stage 1: FEATURES
-tracksets, rudimentary UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	"Just start making the tracksets, and use it."
+Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
+tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
+
+	learn mongoose
+		learn mongodb
+		need-to-know queries
+			find()
+			count()
+		'unique:true, sparse:true'
+		sort: ({createdAt .. })
+		various event emitters for a mongo object, e.g., 'open'
+		creating methods for schemas, e.g.:
+			User.methods.totalSig = function(){
+				var totalSig = this.own + this.inherited
+				return totalSig
+			}
+
+	does indexOf actually work? do embedded find queries work?
+
+	"just... begin to make things happen"
+	create playlist for unlabeled, proper controllers
+	navbar with unlabeled link
+	create aobs + modal
+		• filtering-by-typing
+		• highlight when 1-to-1 typed match, flip 'submit' button
+		• no particular ordering for trackSets
+	slowly accrete features
+
+	quickest route to having trackSets
+		user flows for trackSet modal
+		the objects it'll need, and frontend components needed
+	don't worry about future changes
+	since no changes are 'breaking' changes (no such thing)
+	once done with this, iterate new FEATURES into codebase
 	
-	map out visually; draw stuff! (must evoke a strong UX)
-	stage-destage && tracksets; draft the models
-	logically
-	pericopete thn featuros
-	make headway on the "staged trackset"
+	navbar with trackSets ordered by last modified/played
+	 • http://mongoosejs.com/docs/queries.html
+	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
+	 • https://stackoverflow.com/questions/19093469/mongoose-find-vs-find-where
+	 • http://blog.mongodb.org/post/52299826008/the-mean-stack-mistakes-youre-probably-making-with
+	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
+	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
 
-	Tracksets
-		draw out flow chart of backend working for various reqs with logic (feel comfortable wid it)
-		everything is gonna happen 'local'
-		redo User schema. add tracks to unlabeled. create controllers for profile/unlabeled. create nav bar with 'unlabeled'
+	create nav for trackSets, with ordering by played-modified, 
+	add frosting to trackSet modal (typed autofiltering; ordering by p/m; glowing/altering button; highlight when 1-to-1 typed match; last typed trackSet cache)
+	create nav button for unlabeled
 
-		learn mongoose
-			learn mongodb 
-			need-to-know queries
-				find()
-				count()
-			'unique:true, sparse:true'
-			sort: ({createdAt .. })
-			various event emitters for a mongo object, e.g., 'open'
-			creating methods for schemas, e.g.:
-				User.methods.totalSig = function(){
-					var totalSig = this.own + this.inherited
-					return totalSig
-				}
-
-		does indexOf actually work? do embedded find queries work?
-
-		"just... begin to make things happen"
-		create playlist for unlabeled, proper controllers
-		navbar with unlabeled link
-		create aobs + modal
-			• filtering-by-typing
-			• highlight when 1-to-1 typed match, flip 'submit' button
-			• no particular ordering for trackSets
-		slowly accrete features
-
-		quickest route to having trackSets
-			user flows for trackSet modal
-			the objects it'll need, and frontend components needed
-		don't worry about future changes
-		since no changes are 'breaking' changes (no such thing)
-		once done with this, iterate new FEATURES into codebase
-		
-		navbar with trackSets ordered by last modified/played
-		 • http://mongoosejs.com/docs/queries.html
-		 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
-		 • https://stackoverflow.com/questions/19093469/mongoose-find-vs-find-where
-		 • http://blog.mongodb.org/post/52299826008/the-mean-stack-mistakes-youre-probably-making-with
-		 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
-		 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
-
-		create nav for trackSets, with ordering by played-modified, 
-		add frosting to trackSet modal (typed autofiltering; ordering by p/m; glowing/altering button; highlight when 1-to-1 typed match; last typed trackSet cache)
-		create nav button for unlabeled
-	
 	create routing when trackset permIDs are used. should be identical
 	redo profile page
 	
@@ -81,15 +69,13 @@ tracksets, rudimentary UX (obz?, trackset listings?), shuffle play, sorting trac
 	DOWNLOAD?? RADIO LINKS ONLY??
 	SHUFFLE PLAY!
 	SORT TRACKS!
-	-HAPPY WID IT. FORMULATE BUSINESS MODEL-
-	SIGNALS & PERMALINKS! BLEND TRACKSETS
+	SIGNALS & PERMALINKS! 
+
 
 Stage 2: Alpha [3]	
 
 	progress buttons: http://tympanus.net/Development/ProgressButtonStyles/
-	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x...")
-		
-	nail down keybindings! make it so people can do stuff quick: like searching, selecting, adding, and creating/cloning tracksets
+	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x..."
 
 	social aspects
 	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
@@ -113,9 +99,14 @@ Stage 2: Alpha [3]
 Stage 3: Alpha [5]					!!!magic number
 
 	feature: proxy thUser's trackset
+	(make searching for tracks a lot faster)
+
+	go super public!
 
 
 Stage 4: Beta [15]
+
+	blend two/more tracksets together
 
 	make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
 	for "touch" events
@@ -196,7 +187,7 @@ Stage: Future!
 
 
 # Visual Identity
-	http://stp.so/JxhU
+	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity |
 	colors/proportions: http://dribbble.com/shots/1487542-Survey-Results-Dashboard?list=users&offset=0
 	for typographic rhythm, and layout: http://andrewtarcon.com/
 	LANDING PAGE: https://www.threadmeup.com/
@@ -236,7 +227,7 @@ Stage: Future!
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
 	- "Henry Rollins WeekX" ...
-	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire
+	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire 
 	- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
 	- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
 	- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
