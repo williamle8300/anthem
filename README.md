@@ -13,6 +13,11 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
+	just drop in the 'staged' trackset and make the routers work right
+	(drop in the canadian indie trackset? make the routers work right)
+	figure how to attack the overlay
+		add-to-trackset: allow multiselect, 
+
 	learn mongoose
 		learn mongodb
 		need-to-know queries
