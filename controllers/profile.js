@@ -15,7 +15,7 @@ exports.getProfile = function (req, res, next) {
       username: profileUser.username,
       _track: profileUser._track,
       _trackSet: profileUser._trackSet,
-      //profile: profileUser.profile//not needed yet
+      //profile: profileUser.profile
     };
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
@@ -26,3 +26,7 @@ exports.getProfile = function (req, res, next) {
     });
   });
 };
+
+exports.getTrackSet = function (req, res, next) {
+	//musicCollection.trackSets.list[i].setList[i]
+}

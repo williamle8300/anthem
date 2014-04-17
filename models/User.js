@@ -11,6 +11,14 @@ var userSchema = new mongoose.Schema({
   twitter: { type: String, unique: true, sparse: true },
   google: { type: String, unique: true, sparse: true },
   github: { type: String, unique: true, sparse: true },
+	musicCollection: {
+		trackSets: {
+			list: [mongoose.Schema.Types.Mixed],
+			permIDCounter: { type: Number, default: 0 },
+			lastPlayed:[mongoose.Schema.Types.Mixed],
+			lastModified:[mongoose.Schema.Types.Mixed]
+		}
+	},
 	_track: {
 		list: [mongoose.Schema.Types.Mixed]
 	},

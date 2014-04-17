@@ -17,6 +17,8 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 	(drop in the 'canadian indie' trackset? make the routers work right)
 	figure how to attack the overlay
 		add-to-trackset: allow multiselect, 
+		new trackset:
+		clone:
 
 	learn mongoose
 		learn mongodb
@@ -209,7 +211,7 @@ Stage: Future!
 
 # running the app
 
-## Setting up environment
+## Setting up environment (Codeship.io, Modulus.io, Heroku)
 
 	• Install phantomjs, casperjs, mongodb, lessc, grunt-cli binaries;
 	• $ sudo npm install -g nodemon && npm install
