@@ -100,6 +100,7 @@ app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userControll
 app.get('/logout', passportConf.isAuthenticated, userController.logout);
 //Profile (list these routers last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
+//app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
 
 //Start-up the app!
 app.listen(app.get('port'), function() {

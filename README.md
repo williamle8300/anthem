@@ -105,8 +105,8 @@ Stage 2: Alpha [3]
 
 Stage 3: Alpha [5]					!!!magic number
 
+	(make searching for tracks a lot faster: http://karan.github.io/scInstant/)
 	feature: proxy thUser's trackset
-	(make searching for tracks a lot faster)
 
 	go super public!
 
@@ -194,7 +194,7 @@ Stage: Future!
 
 
 # Visual Identity
-	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity |
+	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity | http://dribbble.com/shots/1512819-Antigo/attachments/228110 | 
 	colors/proportions: http://dribbble.com/shots/1487542-Survey-Results-Dashboard?list=users&offset=0
 	for typographic rhythm, and layout: http://andrewtarcon.com/
 	LANDING PAGE: https://www.threadmeup.com/
@@ -229,6 +229,7 @@ Stage: Future!
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 	- "Da Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, Motor City Drum Ensemble,
+	- "Electroclash," College, Electric Youth, ..
 	- "Gra-Grind," 'Hedron' BADBADNOTGOOD,
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
