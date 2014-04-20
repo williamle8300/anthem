@@ -18,6 +18,8 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 
 	just drop in the 'staged' trackset and make the routers work, and render properly using the permalink
 	...same with the 'canadian indie' trackset!	
+		learn lodash, dropin lodash
+		saving entry values in setList, and saving (probz need to learn mongoose better for this)
 
 	attack the overlay!
 		add-to-trackset: allow multiselect, 
