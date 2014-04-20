@@ -15,7 +15,11 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 
 	just drop in the 'staged' trackset and make the routers work right
 	(drop in the 'canadian indie' trackset? make the routers work right)
-	figure how to attack the overlay
+
+	decide on how to GET "staged" mixtape
+	decide on how to print permalinks for mixtapes
+
+	attack the overlay!
 		add-to-trackset: allow multiselect, 
 		new trackset:
 		clone:
@@ -161,7 +165,7 @@ Stage: Future!
 	submit mp3 URIs
 	sort tracks
 	download profile data (as CSV)
-	downloading
+	downloading. Zipping files with JS: http://stuk.github.io/jszip/
 	voting for next track?
 	"rooms." all users tracksets are merged together, and vote for the next played song.
 	security measures to detect abuse (e.g., automate or deluge of user activity); bogus accounts/activity

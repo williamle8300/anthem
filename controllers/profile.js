@@ -28,5 +28,19 @@ exports.getProfile = function (req, res, next) {
 };
 
 exports.getTrackSet = function (req, res, next) {
-	//musicCollection.trackSets.list[i].setList[i]
+	var username = req.params.username;
+	var trackSet = req.params.trackSet;
+	
+	User.findOne({username: username}, function(err, userObj){
+		if(!userObj) {//username doesn't exists... just end the request
+			console.log('> accidental GET request for a trackSet!');
+			res.end();
+		}
+		else {//username exists
+			console.log(userObj.musicCollection.trackSets.list[0].setList);//log the 'staging' trackSet
+			//get 'username's 'trackSets.list'
+			//use the params to return the correct trackSet in 'list'
+			res.end();
+		}
+	});
 }

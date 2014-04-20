@@ -58,7 +58,8 @@ app.use(function(req, res, next) { res.locals.user = req.user; next(); });
 app.use(flash());
 app.use(less({ src: __dirname + '/public', compress: true }));
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '')));//removed 'public'
+app.use('/public', express.static(__dirname + '/public'));
 app.use(function(req, res) {res.status(404).render('404.html', { status: 404 }); });
 app.use(express.errorHandler());
 
@@ -98,9 +99,9 @@ app.post('/settings/password', passportConf.isAuthenticated, userController.post
 app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 app.get('/logout', passportConf.isAuthenticated, userController.logout);
-//Profile (list these routers last)
+//Profile (must list these last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
-//app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
+app.get('/:username/:trackSet', passportConf.isAuthenticated, profileController.getTrackSet);
 
 //Start-up the app!
 app.listen(app.get('port'), function() {
