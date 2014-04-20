@@ -14,6 +14,7 @@ Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
 	set a deadline (JUNE, 20TH)! set group of features to finish
+	"the feeling of making progress is just as important as making actual progress"
 
 	just drop in the 'staged' trackset and make the routers work, and render properly using the permalink
 	...same with the 'canadian indie' trackset!	
