@@ -36,7 +36,7 @@ exports.getTrackSet = function (req, res, next) {
 			console.log('> accidental GET request for a trackSet!');
 			res.end();
 		}
-		else {//username exists
+		else {//username does exist
 			console.log(userObj.musicCollection.trackSets.list[0].setList);//log the 'staging' trackSet
 			//get 'username's 'trackSets.list'
 			//use the params to return the correct trackSet in 'list'
