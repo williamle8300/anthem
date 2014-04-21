@@ -13,13 +13,8 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	set a deadline (JUNE, 20TH)! set group of features to finish
-	"the feeling of making progress is just as important as making actual progress"
-
-	just drop in the 'staged' trackset and make the routers work, and render properly using the permalink
+	just drop in the 'staged' trackset and make the routers work, and render properly using the permalink ("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
 	...same with the 'canadian indie' trackset!	
-		learn lodash, dropin lodash
-		saving entry values in setList, and saving (probz need to learn mongoose better for this)
 
 	attack the overlay!
 		add-to-trackset: allow multiselect, 
@@ -302,5 +297,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# Ø and "∅" (U+2205)
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Ø and "∅" (U+2205)
