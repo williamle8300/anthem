@@ -123,6 +123,7 @@ exports.logout = function(req, res) {
 exports.saveResource = function(req, res, next){
 	var resourceID = req.params.resourceID;
 	var encodedObjHTML = req.params.encodedObjHTML;
+	
 	// var Person = mongoose.model('Person', yourSchema);
   //
 	// // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
@@ -145,20 +146,21 @@ exports.saveResource = function(req, res, next){
  * remove the permalink
  */
 exports.removeResource = function(req, res, next) {
-	var removeResourceID = req.params.resourceID;//resourceID
   User.findById(req.user.id, function(err, user) {
+		var removeResourceID = req.params.resourceID;//resourceID
+		var trackslist = user._track.list;
+		var matchIdx = -1;
+
     if (err) return next(err);
-				var matchIdx = _.findIndex(user._track.list, {'resourceID' : removeResourceID});
-				user._track.list.splice(matchIdx, 1);
-		    user.save(function(err) {
-		      if (err) return next(err);
-					res.send(200);//removed.
-		    });
-			//}
-			//};
-		//if(isMatch == false){//no match was found
-		//	console.log(removeResourceID+ ' isn\'t saved by user.')
-		//	res.send(404);
-		//}
+		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});
+		if (matchIdx === -1) {//resource don't exist
+			console.log(removeResourceID + ' isn\'t saved by user.');
+			res.send(404);
+		}
+		trackslist.splice(matchIdx, 1);
+    user.save(function(err) {
+      if (err) return next(err);
+			res.send(200);//removed.
+    });
 	});
 };
