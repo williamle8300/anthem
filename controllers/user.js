@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
-var _ = require('underscore');
+var _ = require('lodash');
+var User = require('../models/User');
 var User = require('../models/User');
 
 /**
@@ -147,34 +148,17 @@ exports.removeResource = function(req, res, next) {
 	var removeResourceID = req.params.resourceID;//resourceID
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
-		//var matchIDX = user._track.list.indexOf(removeResourceID);
-		//console.log(user._track.list);
-		//console.log(matchIDX);
-		//if (matchIDX !== -1){//exists!
-    //  user._track.list.splice(matchIDX, 1);
-	  //  user.save(function(err) {
-	  //    if (err) return next(err);
-		//		res.send(200);//removed.
-	  //  });
-		//} else {//no exist
-		//	console.log(removeResourceID+ ' isn\'t saved by user.')
-		//	res.send(404);
-		//};
-		
-		var isMatch = false;
-		for (var matchIdx = 0; matchIdx < user._track.list.length; matchIdx++) {//loop over, find, splice it out
-			if (user._track.list[matchIdx].resourceID == removeResourceID) {
-				isMatch = true;
-	      user._track.list.splice(matchIdx, 1);
+				var matchIdx = _.findIndex(user._track.list, {'resourceID' : removeResourceID});
+				user._track.list.splice(matchIdx, 1);
 		    user.save(function(err) {
 		      if (err) return next(err);
 					res.send(200);//removed.
 		    });
-			}
-		};
-		if(isMatch == false){//no match was found
-			console.log(removeResourceID+ ' isn\'t saved by user.')
-			res.send(404);
-		}
+			//}
+			//};
+		//if(isMatch == false){//no match was found
+		//	console.log(removeResourceID+ ' isn\'t saved by user.')
+		//	res.send(404);
+		//}
 	});
 };
