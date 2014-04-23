@@ -147,20 +147,20 @@ exports.saveResource = function(req, res, next){
  */
 exports.removeResource = function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
-		var removeResourceID = req.params.resourceID;//resourceID
+		var removeResourceID = req.params.resourceID;
 		var trackslist = user._track.list;
 		var matchIdx = -1;
 
     if (err) return next(err);
-		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});
-		if (matchIdx === -1) {//resource don't exist
+		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});//SICK.
+		if (matchIdx === -1) {//resource ain't exist
 			console.log(removeResourceID + ' isn\'t saved by user.');
 			res.send(404);
 		}
 		trackslist.splice(matchIdx, 1);
     user.save(function(err) {
       if (err) return next(err);
-			res.send(200);//removed.
+			res.send(200);//resource removed
     });
 	});
 };

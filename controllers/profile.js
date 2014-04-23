@@ -33,7 +33,7 @@ exports.getTrackSet = function (req, res, next) {
 	
 	User.findOne({username: username}, function(err, userObj){
 		if(!userObj) {//username doesn't exists... just end the request
-			console.log('> accidental GET request for a trackSet!');
+			console.log('> accidental GET request for a trackSet! ' +req.url);
 			res.end();
 		}
 		else {//username does exist
