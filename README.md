@@ -13,7 +13,6 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	just get familiar with lodash library for arrays, and objects. using 'pluck' and 'where'
 	just drop in the 'staged' trackset and make the routers work, and render properly using the permalink ("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
 	...same with the 'canadian indie' trackset!	
 
@@ -232,7 +231,7 @@ Stage: Future!
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 	- "Da Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, Motor City Drum Ensemble,
 	- "Electroclash," College, Electric Youth, ..
-	- "Gra-Grind," 'Hedron' BADBADNOTGOOD,
+	- "Rolling Stone Top 100 singers," CF.: http://www.rollingstone.com/music/lists/100-greatest-singers-of-all-time-19691231/sam-cooke-20101202
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
