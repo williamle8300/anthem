@@ -99,6 +99,7 @@ app.post('/settings/password', passportConf.isAuthenticated, userController.post
 app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 app.get('/logout', passportConf.isAuthenticated, userController.logout);
+//app.get(/^\/public\/(.*?)$/, function(req, res, next) { console.log(req.params[0]); res.sendfile('public/' +req.params[0], {root: __dirname }) res.end(); });
 //Profile (must list these last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
 app.get('/:username/:trackSet', passportConf.isAuthenticated, profileController.getTrackSet);

@@ -40,9 +40,7 @@ exports.getTrackSet = function (req, res, next) {
 			res.end();
 		} else {
 			console.log(_.find(userTrackSetList, {'name': trackSetName}));
-			//log the 'staging' trackSet
-			//get 'username's 'trackSets.list'
-			//use the params to return the correct trackSet in 'list'
+			//RENDER with the trackSet array
 			res.end();
 		}
 	});

@@ -14,9 +14,8 @@ $.ajax({
 	type: "GET",
 	url: "/getCachedTrackObj/54565448",
 	async: false,
-	success: function(cachedTrackObj) {
-		//if (cachedTrackObj) { alert('true!') } else { alert('false!') };
-		console.log(cachedTrackObj.encodedObjHTML);
+	success: function(trackObj) {
+		//trackObj.encodedObjHTML;
 	}
 });
 
@@ -26,7 +25,7 @@ User: {
 		allTracks: [991222,1103948,948548,7785422,949331,410200,1103948,7785422,949331,223310,11322,7785422,949331,223310,11322,7785422,949331,223310,11322,7785422,949331,223310,11322,7785422,949331,223310,11322,7785422,949331,223310,11322,7785422,949331,223310,11322]
 		trackSets: {
 			list: [
-				{permID:0,name:null,setList:[991222,1103948,948548,7785422,949331,410200]},
+				{permID:0,name:'staged',setList:[991222,1103948,948548,7785422,949331,410200]},
 				{permID:174,name:'Da Grind',setList:[948548,12322,23,128,948548,7785422,949331,410200,1103948,991222,23,128,948548,7785422,949331,410200,1103948,991222]},
 				{permID:502,name:'Canadian Indie',setList:[7785422,949331,948548,1103948,948548,7785422,949331,410200,1103948,991222]},
 			],

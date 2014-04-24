@@ -230,8 +230,8 @@ Stage: Future!
 	- major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
-	- "Da Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, Motor City Drum Ensemble,
-	- "Electroclash," College, Electric Youth, ..
+	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, Motor City Drum Ensemble,
+	- "Electro-clash!!!!," College, Electric Youth, ..
 	- "Rolling Stone Top 100 singers," CF.: http://www.rollingstone.com/music/lists/100-greatest-singers-of-all-time-19691231/sam-cooke-20101202
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";

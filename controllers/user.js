@@ -130,7 +130,7 @@ exports.saveResource = function(req, res, next){
 	// Person.findOne({ 'name.last': 'Ghost' }, 'name occupation', function (err, person) {
 	//   if (err) return handleError(err);
 	//   console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
-	// })
+	// });
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
 		user._track.list.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});//currently user only has one playlist: 'playlist1'
