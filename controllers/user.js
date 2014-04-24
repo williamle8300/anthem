@@ -152,12 +152,13 @@ exports.removeResource = function(req, res, next) {
 		var matchIdx = -1;
 
     if (err) return next(err);
-		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});//SICK.
-		if (matchIdx === -1) {//resource ain't exist
+		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});//lodash magique.
+		if (matchIdx === -1) {
 			console.log(removeResourceID + ' isn\'t saved by user.');
 			res.send(404);
-		}
-		trackslist.splice(matchIdx, 1);
+		} else {
+			trackslist.splice(matchIdx, 1);
+		};
     user.save(function(err) {
       if (err) return next(err);
 			res.send(200);//resource removed

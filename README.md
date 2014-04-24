@@ -13,8 +13,9 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	just drop in the 'staged' trackset and make the routers work, and render properly using the permalink ("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
-	...same with the 'canadian indie' trackset!
+	render tracks for trackSets
+	figure out da permalinks
+		("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
 
 	attack the overlay!
 		add-to-trackset: allow multiselect, 

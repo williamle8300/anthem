@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
 var User = require('../models/User');
+var _ = require('lodash');
 
 /**
  * GET /profile
@@ -29,15 +30,17 @@ exports.getProfile = function (req, res, next) {
 
 exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
-	var trackSet = req.params.trackSet;
-	
+	var trackSetName = req.params.trackSet;
+
 	User.findOne({username: username}, function(err, userObj){
+		var userTrackSetList = userObj.musicCollection.trackSets.list
+
 		if(!userObj) {//username doesn't exists... just end the request
 			console.log('> accidental GET request for a trackSet! ' +req.url);
 			res.end();
-		}
-		else {//username does exist
-			console.log(userObj.musicCollection.trackSets.list[0].setList);//log the 'staging' trackSet
+		} else {
+			console.log(_.find(userTrackSetList, {'name': trackSetName}));
+			//log the 'staging' trackSet
 			//get 'username's 'trackSets.list'
 			//use the params to return the correct trackSet in 'list'
 			res.end();

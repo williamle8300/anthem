@@ -53,6 +53,7 @@ exports.getSearchResults = function(phantomSoundCloud) {//have to flip the funct
  */
 exports.getCachedTrackObj = function (req, res, next) {
 	var resourceID = req.params.resourceID;
+
   cachedTrackObj.findOne({resourceID: resourceID}, function(err, cachedTrackObj) {//log the whole collection
 		if (err) return next(err);
 		res.send(cachedTrackObj);//send to $.ajax's success func; if nothing found in db, sends back blank string
