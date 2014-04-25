@@ -5,7 +5,9 @@
  * This block of code
  * serves an idiosyncratic purpose
  *
- * It grabs all track nodes
+ * It accesses the track cache and append them to ul.playlist
+ *
+ * Grabs all track nodes
  * and stores their markup into
  * input[data-encodedobjhtml], then
  * synchronously checks each iCheck
@@ -13,10 +15,28 @@
  * Also goes through, sees if userObj == user
  * then does the appropriate iChecks
 **/
-var tracks = document.querySelectorAll('li.track');
-var tracksLen = tracks.length;
+
+var setList = [{{userObj.setList}}]
+	
+for (var i = 0; i < setList.length; i++) {
+	var resourceID = setList[i].toString();
+	$.ajax({
+		type: 'GET',
+		url: '/getCachedTrackObj/' +resourceID,
+		async: false,
+		success: function(trackObj) {
+			console.log(resourceID);
+			console.log(trackObj);
+			$('ul.playlist').append(trackObj.encodedObjHTML)
+		}
+	});
+}
+
 var inputs = document.querySelectorAll('li.track input');
-var onPageIDs = [];for (var i = 0; i < inputs.length; i++) { onPageIDs.push(parseInt(inputs[i].id)); }//all ids attrs of VARinputs on the loaded page
+var onPageIDs = [];
+for (var i = 0; i < inputs.length; i++) {//all ids attrs of VARinputs on the loaded page
+	onPageIDs.push(parseInt(inputs[i].id));
+}
 var userTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
 {% if user %}//if logged in?, we'll do this check                                                             //!REFACTOR
 	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'                  //!REFACTOR
