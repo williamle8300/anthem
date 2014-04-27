@@ -4,10 +4,9 @@
 $('input[type="checkbox"]').on('ifChecked', function(event){
 	var clicked = $(this); //get data-permalink value ('permalink')
 	var resourceID = clicked.data('id');
-	var encodedObjHTML = clicked.data('encodedobjhtml');
 	$.ajax({
 	  type: "POST",
-	  url: "/save/" +resourceID+ "/" +encodedObjHTML,
+	  url: "/save/" +resourceID,
 		async: false,
 		success: function(data) {
 		  console.log('♫ Track saved: ' +resourceID);

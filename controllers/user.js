@@ -118,24 +118,16 @@ exports.logout = function(req, res) {
 };
 
 /**
- * POST /save/:resourceID/:encodedObjHTML
+ * POST /save/:resourceID
  * save the permalink
  */
 exports.saveResource = function(req, res, next){
-	var resourceID = req.params.resourceID;
-	var encodedObjHTML = req.params.encodedObjHTML;
+	var resourceID = parseInt(req.params.resourceID);
 	
-	// var Person = mongoose.model('Person', yourSchema);
-  //
-	// // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
-	// Person.findOne({ 'name.last': 'Ghost' }, 'name occupation', function (err, person) {
-	//   if (err) return handleError(err);
-	//   console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
-	// });
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
-		//var userTrackSetList = userObj.musicCollection.trackSets.list[0];//TEMP. right now only save/remove from NULL
-		user._track.list.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});//currently user only has one playlist: 'playlist1'
+		user.musicCollection.trackSets.list[0].setList.unshift(resourceID);//currently user only has one playlist: 'playlist1'
+		user.markModified('musicCollection');
     user.save(function(err) {
       if (err) return next(err);
 			res.send(200);//saved.
@@ -148,22 +140,22 @@ exports.saveResource = function(req, res, next){
  * remove the permalink
  */
 exports.removeResource = function(req, res, next) {
-  User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, userObj) {
 		if(err) return next(err);
 		var resourceID = parseInt(req.params.resourceID);
-		var matchIdx = _.indexOf(user.musicCollection.trackSets.list[0].setList, resourceID);
+		var matchIdx = _.indexOf(userObj.musicCollection.trackSets.list[0].setList, resourceID);
 		
 		if(matchIdx !== -1){//resourceID not found
-			user.musicCollection.trackSets.list[0].setList = _.pull(user.musicCollection.trackSets.list[0].setList, resourceID);
-			user.markModified('musicCollection')
+			userObj.musicCollection.trackSets.list[0].setList = _.pull(userObj.musicCollection.trackSets.list[0].setList, resourceID);
+			userObj.markModified('musicCollection');//required. call this on mixed
 		}
 		else {//resourceID found
 			console.log('nada...');
 			res.send(404);
 		};
-		user.save(function(err) {
+		userObj.save(function(err) {
 		  if (err) return next(err);
-			console.log(user.musicCollection.trackSets.list[0].setList);
+			console.log(userObj.musicCollection.trackSets.list[0].setList);
 			res.send(200);//resource removed
 		});
 	});

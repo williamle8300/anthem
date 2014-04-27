@@ -91,7 +91,7 @@ app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureR
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
 //User
-app.post('/save/:resourceID/:encodedObjHTML', passportConf.isAuthenticated, userController.saveResource);
+app.post('/save/:resourceID', passportConf.isAuthenticated, userController.saveResource);
 app.post('/remove/:resourceID', passportConf.isAuthenticated, userController.removeResource);
 app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
 app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
