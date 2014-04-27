@@ -10,7 +10,7 @@
  * input[data-encodedobjhtml], then
  * synchronously checks each iCheck
  *
- * Also goes through, sees if userObj == user
+ * Also goes through, sees if usersProfile == user
  * then does the appropriate iChecks
 **/
 var tracks = document.querySelectorAll('li.track');
@@ -33,11 +33,11 @@ $(inputs).iCheck({//instantiate iChecks (does not mean to actually "check" the i
 	aria: false
 });
 
-if ('{{userObj.username}}' == '{{user.username}}') {//if profile belongs to the user...
+if ('{{usersProfile.username}}' == '{{user.username}}') {//if profile belongs to the user...
 	$('div.icheckbox_square-blue').addClass('checked');//check EVYERHING!
 	$('div.icheckbox_square-blue input').prop('checked', true);
 }
-else {//user !== userObj ergo manually check for 'shared saves'
+else {//user !== usersProfile ergo manually check for 'shared saves'
 	for (var i = 0; i < onPageIDs.length; i++) {
 		if(userTrackResourceIDs.indexOf(onPageIDs[i]) !== -1) {//if any onPageIDs match any of the user's, check it!
 			var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR

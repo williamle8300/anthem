@@ -10,18 +10,18 @@ var _ = require('lodash');
 
 exports.getProfile = function (req, res, next) {
   var username = req.params.username;
-  User.findOne({username: username}, function(err, userObj) {
-    if (!userObj) return next(err);
-    var userObj = {
-      username: userObj.username,
-      _track: userObj._track,
-      _trackSet: userObj._trackSet,
-      //profile: userObj.profile
+  User.findOne({username: username}, function(err, usersProfile) {
+    if (!usersProfile) return next(err);
+    var usersProfile = {
+      username: usersProfile.username,
+      _track: usersProfile._track,
+      _trackSet: usersProfile._trackSet,
+      //profile: usersProfile.profile
     };
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
       title: 'Songs',
-      userObj: userObj,
+      usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
     });
@@ -32,25 +32,24 @@ exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
 	var trackSet = req.params.trackSet;
 
-	User.findOne({username: username}, function(err, userObj){
-		var userTrackSetList = userObj.musicCollection.trackSets.list;
-		var userObj = userObj;
+	User.findOne({username: username}, function(err, usersProfile){
+		var userTrackSetList = usersProfile.musicCollection.trackSets.list;
+		var usersProfile = usersProfile;
 		var setList = [];
 
-		if(!userObj) {//username doesn't exists... just end the request
+		if(!usersProfile) {//username doesn't exists... just end the request
 			console.log('> accidental GET request for a trackSet! ' +req.url);
 			res.end();
-		} else {
-			setList = _.find(userTrackSetList, {'name': trackSet}).setList;
-			console.log(setList);
-	    userObj = {
-	      username: userObj.username,
+		} else {//found a user
+			setList = _.find(userTrackSetList, {'name': trackSet}).setList;//lookup partic trackSet
+	    usersProfile = {//ready usersProfile
+	      username: usersProfile.username,
 				setList: setList
 	    };
 	    res.render('profile/profileTrackSet.html', {
 	      app: 'Anthem',
 	      title: trackSet,
-	      userObj: userObj,
+	      usersProfile: usersProfile,
 	      success: req.flash('success'),
 	      error: req.flash('error')
 	    });

@@ -12,11 +12,11 @@
  * input[data-encodedobjhtml], then
  * synchronously checks each iCheck
  *
- * Also goes through, sees if userObj == user
+ * Also goes through, sees if usersProfile == user
  * then does the appropriate iChecks
 **/
 
-var setList = [{{userObj.setList}}]
+var setList = [{{usersProfile.setList}}]
 	
 for (var i = 0; i < setList.length; i++) {
 	var resourceID = setList[i].toString();
@@ -31,10 +31,13 @@ for (var i = 0; i < setList.length; i++) {
 }
 
 var inputs = document.querySelectorAll('li.track input');
-var onPageIDs = [];
-for (var i = 0; i < inputs.length; i++) {//all ids attrs of VARinputs on the loaded page
-	onPageIDs.push(parseInt(inputs[i].id));
-}
+//DONT NEED USE 'setList'
+//var onPageIDs = [];
+//for (var i = 0; i < inputs.length; i++) {//all ids attrs of VARinputs on the loaded page
+//	onPageIDs.push(parseInt(inputs[i].id));
+//}
+
+//get ALL tracks 'saved' by user (not usersProfile!)
 var userTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
 {% if user %}//if logged in?, we'll do this check                                                             //!REFACTOR
 	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'                  //!REFACTOR
@@ -42,6 +45,9 @@ var userTrackResourceIDs = [];//all user track ids                              
 	{% endfor %}                                                                                                //!REFACTOR
 {% endif %}                                                                                                   //!REFACTOR
 
+//encode itself into li.track input
+var tracks = document.querySelectorAll('li.track')
+var tracksLen = tracks.length;
 for (var i = 0; i < tracksLen; i++) {
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());
 }
@@ -51,11 +57,11 @@ $(inputs).iCheck({//instantiate iChecks (does not mean to actually "check" the i
 	aria: false
 });
 
-if ('{{userObj.username}}' == '{{user.username}}') {//if profile belongs to the user...
+if ('{{usersProfile.username}}' == '{{user.username}}') {//if profile belongs to the user...
 	$('div.icheckbox_square-blue').addClass('checked');//check EVYERHING!
 	$('div.icheckbox_square-blue input').prop('checked', true);
 }
-else {//user !== userObj ergo manually check for 'shared saves'
+else {//user !== usersProfile ergo manually check for 'shared saves'
 	for (var i = 0; i < onPageIDs.length; i++) {
 		if(userTrackResourceIDs.indexOf(onPageIDs[i]) !== -1) {//if any onPageIDs match any of the user's, check it!
 			var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
