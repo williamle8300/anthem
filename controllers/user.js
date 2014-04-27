@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var _ = require('lodash');
 var User = require('../models/User');
-var User = require('../models/User');
 
 /**
  * GET /settings
@@ -154,38 +153,18 @@ exports.removeResource = function(req, res, next) {
 		var resourceID = parseInt(req.params.resourceID);
 		var matchIdx = _.indexOf(user.musicCollection.trackSets.list[0].setList, resourceID);
 		
-		if(matchIdx === -1){//resourceID not found
+		if(matchIdx !== -1){//resourceID not found
+			user.musicCollection.trackSets.list[0].setList = _.pull(user.musicCollection.trackSets.list[0].setList, resourceID);
+			user.markModified('musicCollection')
+		}
+		else {//resourceID found
 			console.log('nada...');
 			res.send(404);
-		} else {//resourceID found
-			_.pull(user.musicCollection.trackSets.list[0].setList, resourceID);
-			user.save(function(err) {
-			  if (err) return next(err);
-				console.log(user.musicCollection.trackSets.list[0].setList);
-				res.send(200);//resource removed
-			});
 		};
-		
+		user.save(function(err) {
+		  if (err) return next(err);
+			console.log(user.musicCollection.trackSets.list[0].setList);
+			res.send(200);//resource removed
+		});
 	});
 };
-
-//exports.removeResource = function(req, res, next) {
-//  User.findById(req.user.id, function(err, user) {
-//		var removeResourceID = req.params.resourceID;
-//		var trackslist = user._track.list;
-//		var matchIdx = -1;
-//
-//    if (err) return next(err);
-//		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});//lodash magique.
-//		if (matchIdx === -1) {
-//			console.log(removeResourceID + ' isn\'t saved by user.');
-//			res.send(404);
-//		} else {
-//			trackslist.splice(matchIdx, 1);
-//		};
-//    user.save(function(err) {
-//      if (err) return next(err);
-//			res.send(200);//resource removed
-//    });
-//	});
-//};

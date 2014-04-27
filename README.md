@@ -15,7 +15,7 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 
 	add/remove properly from "staged" only. Not _track.list
 	create placeholder content for profileIndex.97806html
-	manually create a bunch of playlists!!! w000!
+	manually create a bunch of playlists!!! w0000000000000!!!!!
 	figure out da permalinks
 		("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
 	create something to
