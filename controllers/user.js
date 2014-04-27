@@ -1,3 +1,5 @@
+//'user' actions
+
 var mongoose = require('mongoose');
 var passport = require('passport');
 var _ = require('lodash');
