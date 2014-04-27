@@ -5,9 +5,7 @@
  * This block of code
  * serves an idiosyncratic purpose
  *
- * It accesses the track cache and append them to ul.playlist
- *
- * Grabs all track nodes
+ * It grabs all track nodes
  * and stores their markup into
  * input[data-encodedobjhtml], then
  * synchronously checks each iCheck
@@ -15,33 +13,16 @@
  * Also goes through, sees if usersProfile == user
  * then does the appropriate iChecks
 **/
-
-var setList = [{{usersProfile.setList}}]
-	
-for (var i = 0; i < setList.length; i++) {
-	var resourceID = setList[i].toString();
-	$.ajax({
-		type: 'GET',
-		url: '/getCachedTrackObj/' +resourceID,
-		async: false,
-		success: function(trackObj) {
-			$('ul.playlist').append(trackObj.encodedObjHTML);
-		}
-	});
-}
-
-//get ALL tracks 'saved' by user (not usersProfile!)
+var tracks = document.querySelectorAll('li.track');
+var tracksLen = tracks.length;
+var inputs = document.querySelectorAll('li.track input');
+var onPageIDs = [];for (var i = 0; i < inputs.length; i++) { onPageIDs.push(parseInt(inputs[i].id)); }//all ids attrs of VARinputs on the loaded page
 var userTrackResourceIDs = [];//all user track ids                                                            //!REFACTOR
 {% if user %}//if logged in?, we'll do this check                                                             //!REFACTOR
 	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'                  //!REFACTOR
 	userTrackResourceIDs.push({{userTrack.resourceID}});//go thru results, and push 'saves' into this temp Array//!REFACTOR
 	{% endfor %}                                                                                                //!REFACTOR
 {% endif %}                                                                                                   //!REFACTOR
-
-//encode itself into li.track input
-var tracks = document.querySelectorAll('li.track')
-var tracksLen = tracks.length;
-var inputs = document.querySelectorAll('li.track input');
 
 for (var i = 0; i < tracksLen; i++) {
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());
@@ -52,7 +33,6 @@ $(inputs).iCheck({//instantiate iChecks (does not mean to actually "check" the i
 	aria: false
 });
 
-//IF user IS usersProfile, just check everythang. ELSE, compare and iCheck as needed.
 if ('{{usersProfile.username}}' == '{{user.username}}') {//if profile belongs to the user...
 	$('div.icheckbox_square-blue').addClass('checked');//check EVYERHING!
 	$('div.icheckbox_square-blue input').prop('checked', true);

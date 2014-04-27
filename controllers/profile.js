@@ -43,6 +43,7 @@ exports.getTrackSet = function (req, res, next) {
 			console.log('> accidental GET request for a trackSet! ' +req.url);
 			res.end();
 		} else {//found a user
+			console.log(req.url);//ONLY TEMP. tracking a bug down...
 			setList = _.find(userTrackSetList, {'name': trackSet}).setList;//lookup partic trackSet
 	    usersProfile = {//ready usersProfile
 	      username: usersProfile.username,
