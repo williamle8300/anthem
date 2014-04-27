@@ -195,8 +195,8 @@ Stage: Future!
 
 
 
-# Visual Identity
-	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity | http://dribbble.com/shots/1512819-Antigo/attachments/228110 | 
+# Visual Identity; tint everything (https://dribbble.com/shots/1524101-Cafe/attachments/230585)
+	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity | http://dribbble.com/shots/1512819-Antigo/attachments/228110 |
 	colors/proportions: http://dribbble.com/shots/1487542-Survey-Results-Dashboard?list=users&offset=0
 	for typographic rhythm, and layout: http://andrewtarcon.com/
 	LANDING PAGE: https://www.threadmeup.com/

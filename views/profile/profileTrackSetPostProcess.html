@@ -25,9 +25,7 @@ for (var i = 0; i < setList.length; i++) {
 		url: '/getCachedTrackObj/' +resourceID,
 		async: false,
 		success: function(trackObj) {
-			console.log(resourceID);
-			console.log(trackObj);
-			$('ul.playlist').append(trackObj.encodedObjHTML)
+			$('ul.playlist').append(trackObj.encodedObjHTML);
 		}
 	});
 }
