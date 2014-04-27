@@ -13,13 +13,15 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	how to setup the "staged" trackSet? null?
 	add/remove properly from "staged" only. Not _track.list
-	create placeholder content for profileIndex.html
+	create placeholder content for profileIndex.97806html
 	manually create a bunch of playlists!!! w000!
 	figure out da permalinks
 		("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
-	create something to quickly switch between trackSets, or findSongs and play it directly in the trackSet
+	create something to
+		- quickly switch between trackSets,
+		- or findSongs and play it directly in the trackSet,
+		- blend trackSets
 
 	attack the overlay!
 		add-to-trackset: allow multiselect, 

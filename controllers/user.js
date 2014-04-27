@@ -135,6 +135,7 @@ exports.saveResource = function(req, res, next){
 	// });
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
+		//var userTrackSetList = userObj.musicCollection.trackSets.list[0];//TEMP. right now only save/remove from NULL
 		user._track.list.unshift({encodedObjHTML: encodedObjHTML, resourceID: resourceID});//currently user only has one playlist: 'playlist1'
     user.save(function(err) {
       if (err) return next(err);
@@ -149,21 +150,42 @@ exports.saveResource = function(req, res, next){
  */
 exports.removeResource = function(req, res, next) {
   User.findById(req.user.id, function(err, user) {
-		var removeResourceID = req.params.resourceID;
-		var trackslist = user._track.list;
-		var matchIdx = -1;
-
-    if (err) return next(err);
-		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});//lodash magique.
-		if (matchIdx === -1) {
-			console.log(removeResourceID + ' isn\'t saved by user.');
+		if(err) return next(err);
+		var resourceID = parseInt(req.params.resourceID);
+		var matchIdx = _.indexOf(user.musicCollection.trackSets.list[0].setList, resourceID);
+		
+		if(matchIdx === -1){//resourceID not found
+			console.log('nada...');
 			res.send(404);
-		} else {
-			trackslist.splice(matchIdx, 1);
+		} else {//resourceID found
+			_.pull(user.musicCollection.trackSets.list[0].setList, resourceID);
+			user.save(function(err) {
+			  if (err) return next(err);
+				console.log(user.musicCollection.trackSets.list[0].setList);
+				res.send(200);//resource removed
+			});
 		};
-    user.save(function(err) {
-      if (err) return next(err);
-			res.send(200);//resource removed
-    });
+		
 	});
 };
+
+//exports.removeResource = function(req, res, next) {
+//  User.findById(req.user.id, function(err, user) {
+//		var removeResourceID = req.params.resourceID;
+//		var trackslist = user._track.list;
+//		var matchIdx = -1;
+//
+//    if (err) return next(err);
+//		matchIdx = _.findIndex(trackslist, {'resourceID' : removeResourceID});//lodash magique.
+//		if (matchIdx === -1) {
+//			console.log(removeResourceID + ' isn\'t saved by user.');
+//			res.send(404);
+//		} else {
+//			trackslist.splice(matchIdx, 1);
+//		};
+//    user.save(function(err) {
+//      if (err) return next(err);
+//			res.send(200);//resource removed
+//    });
+//	});
+//};

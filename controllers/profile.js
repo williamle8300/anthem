@@ -33,21 +33,23 @@ exports.getProfile = function (req, res, next) {
 exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
 	var trackSet = req.params.trackSet;
+	trackSet === "null" ? trackSet = null : trackSet = trackSet;//is the trackSet called NULL?
 
 	User.findOne({username: username}, function(err, usersProfile){
+    if (err) return next(err);
 		var userTrackSetList = usersProfile.musicCollection.trackSets.list;
 		var usersProfile = usersProfile;
+		var thisTrackSet = {};
 		var setList = [];
 
-		if(!usersProfile) {//username doesn't exists... just end the request
+		if(!usersProfile) {//username aint exist
 			console.log('> accidental GET request for a trackSet! ' +req.url);
 			res.end();
-		} else {//found a user
-			console.log(req.url);//ONLY TEMP. tracking a bug down...
-			setList = _.find(userTrackSetList, {'name': trackSet}).setList;//lookup partic trackSet
-	    usersProfile = {//ready usersProfile
+		} else {//found the username
+			thisTrackSet = _.find(userTrackSetList, {'name': trackSet});//lookup the particular trackSet
+	    usersProfile = {//create the object
 	      username: usersProfile.username,
-				setList: setList
+				setList: thisTrackSet.setList//just an array of resourceIDs
 	    };
 	    res.render('profile/profileTrackSet.html', {
 	      app: 'Anthem',
