@@ -13,8 +13,7 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	add/remove properly from "staged" only. Not _track.list
-	create placeholder content for profileIndex.97806html
+	create placeholder content for profileIndex.html
 	manually create a bunch of playlists!!! w0000000000000!!!!!
 	figure out da permalinks
 		("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
