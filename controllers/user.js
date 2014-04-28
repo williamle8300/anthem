@@ -127,7 +127,7 @@ exports.saveResource = function(req, res, next){
   User.findById(req.user.id, function(err, user) {
     if (err) return next(err);
 		user.musicCollection.trackSets.list[0].setList.unshift(resourceID);//currently user only has one playlist: 'playlist1'
-		user.markModified('musicCollection');
+		user.markModified('musicCollection');//REQUIRED
     user.save(function(err) {
       if (err) return next(err);
 			res.send(200);//saved.
@@ -147,15 +147,14 @@ exports.removeResource = function(req, res, next) {
 		
 		if(matchIdx !== -1){//resourceID not found
 			userObj.musicCollection.trackSets.list[0].setList = _.pull(userObj.musicCollection.trackSets.list[0].setList, resourceID);
-			userObj.markModified('musicCollection');//required. call this on mixed
+			userObj.markModified('musicCollection');//REQUIRED
 		}
 		else {//resourceID found
-			console.log('nada...');
+			console.log('> ' +resourceID+ ' not found in this trackSet');
 			res.send(404);
 		};
 		userObj.save(function(err) {
 		  if (err) return next(err);
-			console.log(userObj.musicCollection.trackSets.list[0].setList);
 			res.send(200);//resource removed
 		});
 	});
