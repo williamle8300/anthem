@@ -124,11 +124,11 @@ exports.logout = function(req, res) {
 exports.saveResource = function(req, res, next){
 	var resourceID = parseInt(req.params.resourceID);
 	
-  User.findById(req.user.id, function(err, user) {
+  User.findById(req.user.id, function(err, userObj) {
     if (err) return next(err);
-		user.musicCollection.trackSets.list[0].setList.unshift(resourceID);//currently user only has one playlist: 'playlist1'
-		user.markModified('musicCollection');//REQUIRED
-    user.save(function(err) {
+		userObj.musicCollection.trackSets.list[0].setList.unshift(resourceID);//currently user only has one playlist: 'playlist1'
+		userObj.markModified('musicCollection');//REQUIRED
+    userObj.save(function(err) {
       if (err) return next(err);
 			res.send(200);//saved.
     });
@@ -144,7 +144,7 @@ exports.removeResource = function(req, res, next) {
 		if(err) return next(err);
 		var resourceID = parseInt(req.params.resourceID);
 		var matchIdx = _.indexOf(userObj.musicCollection.trackSets.list[0].setList, resourceID);
-		  
+		
 		if(matchIdx !== -1){//resourceID not found
 			userObj.musicCollection.trackSets.list[0].setList = _.pull(userObj.musicCollection.trackSets.list[0].setList, resourceID);
 			userObj.markModified('musicCollection');//REQUIRED
