@@ -144,7 +144,7 @@ exports.removeResource = function(req, res, next) {
 		if(err) return next(err);
 		var resourceID = parseInt(req.params.resourceID);
 		var matchIdx = _.indexOf(userObj.musicCollection.trackSets.list[0].setList, resourceID);
-		
+		 
 		if(matchIdx !== -1){//resourceID not found
 			userObj.musicCollection.trackSets.list[0].setList = _.pull(userObj.musicCollection.trackSets.list[0].setList, resourceID);
 			userObj.markModified('musicCollection');//REQUIRED
