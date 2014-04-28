@@ -6,10 +6,9 @@ var User = require('../models/User');
 var _ = require('lodash');
 
 /**
- * GET /profile
+ * GET /:username
  * Profile page.
  */
-
 exports.getProfile = function (req, res, next) {
   var username = req.params.username;
   User.findOne({username: username}, function(err, usersProfile) {
@@ -30,6 +29,10 @@ exports.getProfile = function (req, res, next) {
   });
 };
 
+/**
+ * GET /:username/:trackSet
+ * Profile page.
+ */
 exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
 	var trackSet = req.params.trackSet;
@@ -49,7 +52,7 @@ exports.getTrackSet = function (req, res, next) {
 			thisTrackSet = _.find(userTrackSetList, {'name': trackSet});//lookup the particular trackSet
 	    usersProfile = {//create the object
 	      username: usersProfile.username,
-				setList: thisTrackSet.setList//just an array of resourceIDs
+				setList: thisTrackSet.setList//an array of resourceIDs
 	    };
 	    res.render('profile/profileTrackSet.html', {
 	      app: 'Anthem',

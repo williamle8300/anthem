@@ -13,14 +13,16 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	create placeholder content for profileIndex.html
 	manually create a bunch of playlists!!! w0000000000000!!!!!
 	figure out da permalinks
 		("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
+	add/remove from {trackSet}
 	create something to
 		- quickly switch between trackSets,
 		- or findSongs and play it directly in the trackSet,
 		- blend trackSets
+		- sort tracks
+	how to handle the ichecks? for consistency. how to signal "stored in a {trackSet}"?
 
 	attack the overlay!
 		add-to-trackset: allow multiselect, 
@@ -235,8 +237,9 @@ Stage: Future!
 	- major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
-	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, Motor City Drum Ensemble,
-	- "Electro-clash!!!!," College, Electric Youth, ..
+	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, 
+	- "Electro-clash!!!!," various College, Electric Youth songs
+	- "Electronic R&B,": Paris (Aeroplane), Why Don't We Fall in Love (Amerie), The Best Thing (Electric Youth)
 	- "Rolling Stone Top 100 singers," CF.: http://www.rollingstone.com/music/lists/100-greatest-singers-of-all-time-19691231/sam-cooke-20101202
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
