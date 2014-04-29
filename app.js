@@ -70,7 +70,7 @@ app.use(express.errorHandler());
 app.get('/', passportConf.isAuthenticated, applicationController.search);//same
 app.get('/search', passportConf.isAuthenticated, applicationController.search);//same
 app.get('/search/:query', applicationController.getSearchResults(phantomSoundCloud));
-app.post('/postSearch', applicationController.postSearch); //handles 'query' in searchbox
+app.post('/postSearch', passportConf.isAuthenticated, applicationController.postSearch); //handles 'query' in searchbox
 app.get('/getCachedTrackObj/:resourceID', applicationController.getCachedTrackObj);
 app.post('/postCachedTrackObj/:resourceID/:encodedObjHTML', applicationController.postCachedTrackObj);
 app.get('/login', accountsController.getLogin);

@@ -69,10 +69,16 @@ exports.postCachedTrackObj = function (req, res, next) {
     resourceID: req.params.resourceID,
 		encodedObjHTML: req.params.encodedObjHTML
   });
+	
   newTrack.save(function(err) {
     if (err) {
-      if (err.code === 11000) {//MongoDB code for "duplicate _id exists in collection"
-        req.flash('errors', { msg: 'Track already exists.' });
+      if (err.code === 11000) {//mongodb "duplicate" err.code
+        console.log(newTrack.resourceID + ' already exists in cachedTrackObj collection.');
+				cachedTrackObj.findOne({resourceID: parseInt(req.params.resourceID)}, function (err, track) {//remove ALL dups. prob should switch to 'findOne'
+					//if (err) {return next(err)}//!TEMP prob needs error checking here
+				  track.encodedObjHTML = req.params.encodedObjHTML;
+				  track.save();
+				})
       }
       return res.redirect('/');
     }

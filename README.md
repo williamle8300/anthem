@@ -13,6 +13,7 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
+	order? (top-10 lists), listening habits, numbering
 
 	manually create a bunch of playlists!!! w0000000000000!!!!!
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
@@ -197,17 +198,9 @@ Stage: Future!
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, 
-	- "Electro-clash!!!!," various College, Electric Youth songs
+	- "ELECTROCLASH," various College, Electric Youth songs
 	- "electronic lurrrve,": Paris (Aeroplane), Why Don't We Fall in Love (Amerie), The Best Thing (Electric Youth)
-	- "Rolling Stone Top 100 singers,"
-
-143401228,
-45869768,
-64949927,
-22761125,
-5384178,
-1544566,		
-14615469
+	- "Rolling Stone Top 10 Singers," ..
 	- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
 	- "Helter Skelter," https://soundcloud.com/lizie-sass
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
