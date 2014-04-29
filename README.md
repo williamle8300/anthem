@@ -13,79 +13,38 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
+
 	manually create a bunch of playlists!!! w0000000000000!!!!!
-	figure out da permalinks
-		("Thus, only alphanumerics, the special characters "$-_.+!*'(),", and reserved characters used for their reserved purposes may be used unencoded within a URL.")
-	add/remove from {trackSet}
+	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
+	add/remove from [trackSet]
+	sort tracks (can you do it to currently playing songs?)
 	create something to
 		- quickly switch between trackSets,
 		- or findSongs and play it directly in the trackSet,
 		- blend trackSets
-		- sort tracks
-	how to handle the ichecks? for consistency. how to signal "stored in a {trackSet}"?
+		- shuffle play! w000!
 
-	attack the overlay!
-		add-to-trackset: allow multiselect, 
-		new trackset:
-		clone:
+	how to use the ichecks? for consistency. how to signal "stored in a {trackSet}"?
 
-	learn mongoose
-		learn mongodb
-		need-to-know queries
-			find()
-			count()
-		'unique:true, sparse:true'
-		sort: ({createdAt .. })
-		various event emitters for a mongo object, e.g., 'open'
-		creating methods for schemas, e.g.:
-			User.methods.totalSig = function(){
-				var totalSig = this.own + this.inherited
-				return totalSig
-			}
-
-	does indexOf actually work? do embedded find queries work?
-
-	"just... begin to make things happen"
-	create playlist for unlabeled, proper controllers
-	navbar with unlabeled link
-	create aobs + modal
-		• filtering-by-typing
-		• highlight when 1-to-1 typed match, flip 'submit' button
-		• no particular ordering for trackSets
-	slowly accrete features
-
-	quickest route to having trackSets
-		user flows for trackSet modal
-		the objects it'll need, and frontend components needed
-	don't worry about future changes
-	since no changes are 'breaking' changes (no such thing)
-	once done with this, iterate new FEATURES into codebase
-	
-	navbar with trackSets ordered by last modified/played
-	 • http://mongoosejs.com/docs/queries.html
-	 • https://stackoverflow.com/questions/20895255/how-to-load-document-with-a-custom-id-by-mongoose
-	 • https://stackoverflow.com/questions/19093469/mongoose-find-vs-find-where
-	 • http://blog.mongodb.org/post/52299826008/the-mean-stack-mistakes-youre-probably-making-with
-	 • https://stackoverflow.com/questions/8303900/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
-	 • FOR LOOPS: https://stackoverflow.com/questions/21829789/node-mongoose-find-query-in-loop-not-working
-
-	create nav for trackSets, with ordering by played-modified, 
-	add frosting to trackSet modal (typed autofiltering; ordering by p/m; glowing/altering button; highlight when 1-to-1 typed match; last typed trackSet cache)
-	create nav button for unlabeled
+	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	• filtering-by-typing
+	• ordering by p/m OR no particular ordering for trackSets?
+	• highlight when 1-to-1 typed match, flip 'submit' button
+	• glowing/altering button
+	• last typed trackSet in inputbox
+	====
+	• add-to-trackset: allow multiselect
+	• new trackset:
+	• clone:
+	• add/remove: from [here]
 
 	create routing when trackset permIDs are used. should be identical
 	redo profile page
-	
-	add numbering in .leftPanel
-	
-	sort tracks in unlabeled, and TS1, TS2, ...
-	
-	list of 10 tracks, most-played
+	add numbering in .leftPanel	
+	list of 10 tracks, most-played tracks in profileIndex.html
 
 	DOWNLOAD?? RADIO LINKS ONLY??
-	SHUFFLE PLAY!
-	SORT TRACKS!
-	SIGNALS & PERMALINKS! 
+	SIGNALS & PERMALINKS!
 
 
 Stage 2: Alpha [3]	
@@ -239,8 +198,18 @@ Stage: Future!
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, 
 	- "Electro-clash!!!!," various College, Electric Youth songs
-	- "Electronic R&B,": Paris (Aeroplane), Why Don't We Fall in Love (Amerie), The Best Thing (Electric Youth)
-	- "Rolling Stone Top 100 singers," CF.: http://www.rollingstone.com/music/lists/100-greatest-singers-of-all-time-19691231/sam-cooke-20101202
+	- "electronic lurrrve,": Paris (Aeroplane), Why Don't We Fall in Love (Amerie), The Best Thing (Electric Youth)
+	- "Rolling Stone Top 100 singers,"
+
+143401228,
+45869768,
+64949927,
+22761125,
+5384178,
+1544566,		
+14615469
+	- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
+	- "Helter Skelter," https://soundcloud.com/lizie-sass
 	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
@@ -250,7 +219,6 @@ Stage: Future!
 	- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
 	- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
 	- "Burial-Fourtet Sessions"
-	- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
 	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay, 'No diggity'
 	- "Dream of the 90s (REEEEEMIIIIIIX)" ..
 	- "90s R&B," Toni Braxton, 'If' by Janet Jackson, 'end of the road' Boyz II Men

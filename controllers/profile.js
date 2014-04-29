@@ -17,7 +17,6 @@ exports.getProfile = function (req, res, next) {
       username: usersProfile.username,
       _track: usersProfile._track,
       _trackSet: usersProfile._trackSet,
-      //profile: usersProfile.profile
     };
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
