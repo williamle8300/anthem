@@ -13,8 +13,6 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	order? (top-10 lists), listening habits, numbering
-
 	manually create a bunch of playlists!!! w0000000000000!!!!!
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
 	add/remove from [trackSet]
@@ -207,6 +205,7 @@ Stage: Future!
 	- "Live at Woodstock," hendrix, csny, joe cocker, the who, ccr, grateful dead "turn on your love light", santana
 	- "Skelter Swagga," cool woman in black dress, stuck in the middle, jet	
 	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age", The NYAN cat,
+
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
 	- "Henry Rollins WeekX" ...
 	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire 
