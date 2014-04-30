@@ -15,21 +15,21 @@ var permalinks = [];
 	{% endfor %}
 	$(".rightPanel form").css("display", "table-cell");
 {% endif %}
-
-for(var i = 0; i<trackSetLen; i++){//call soundCloudResolveTrack on each track
-	permalinks[i] = trackHREFs.item(i).getAttribute('href');
-	soundCloudResolveTrack(permalinks, i, userTrackResourceIDs);
-}
-
-/**
- * Communicates with SoundCloud API to
- * get pertinent track data ('/resolve' endpoint)
- * 
- * Populates track with that data
- * 
- * If user is logged, display <form/>
- * and if user has saved it, set 'checked' attr to iCheck
- * 
+                                                                                        //
+for(var i = 0; i<trackSetLen; i++){//call soundCloudResolveTrack on each track          //SC.initialize({
+	permalinks[i] = trackHREFs.item(i).getAttribute('href');                              //  client_id: '212b7a5080f5d7f8e831583446771a02'
+	soundCloudResolveTrack(permalinks, i, userTrackResourceIDs);                          //});
+}                                                                                       //
+                                                                                        //// permalink to a track
+/**                                                                                     //var track_url = 'https://soundcloud.com/platform/motor-city-drum-ensemble-55';
+ * Communicates with SoundCloud API to                                                  //
+ * get pertinent track data ('/resolve' endpoint)                                       //SC.get('/resolve', { url: track_url }, function(track) {
+ *                                                                                      //  SC.get('/tracks/' + track.id + '/comments', function(comments) {
+ * Populates track with that data                                                       //      console.log(track.id);
+ *                                                                                      //  });
+ * If user is logged, display <form/>                                                   //});
+ * and if user has saved it, set 'checked' attr to iCheck                               
+ *                                                                                      
  * @param {array} permalinks
  * @param {number} i
  * @param {array} userTrackResourceIDs

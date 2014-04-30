@@ -14,6 +14,7 @@ Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
 	manually create a bunch of playlists!!! w0000000000000!!!!!
+	add links to trackSets at: profileIndex.html
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
 	add/remove from [trackSet]
 	sort tracks (can you do it to currently playing songs?)
@@ -204,17 +205,15 @@ Stage: Future!
 	- "Rolling Stone Top 10 Singers," ..
 	- "Live at Woodstock," hendrix, csny, joe cocker, the who, ccr, grateful dead "turn on your love light", santana
 	- "Skelter Swagga," cool woman in black dress, stuck in the middle, jet	
-	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age", The NYAN cat,
-
-	- "Kicktranada," only DJ Kicks and Kaytranada tracks
-	- "Henry Rollins WeekX" ...
-	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire 
-	- "Crazy Awesome Remixes," moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
-	- "SPARKLENATION," nyan cat song, koopa beach remix, Live in this City (Dragonette), Love Triangle by N.O.,
-	- "Best of DJ Kicks," L.O.V.E. by Motor City ..,
+	- "SO MUCH WOW," nyan cat song, koopa beach remix, Live in this City (Dragonette), Fatboy Slim, "Praise You"; The Killers, "Day & Age", The NYAN cat,
+	- "Best of Motor City Drum Ensemble," ...
+	- "Best of Boiler Room"
+	- "Canadian Indierock,"
+	- "Crazy Awesome Remixes," sprawl II (remix), moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
+	
 	- "Burial-Fourtet Sessions"
 	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay, 'No diggity'
-	- "Dream of the 90s (REEEEEMIIIIIIX)" ..
+	- "Dream of the 90s (REEEEEMIIIIIIX)" ..Mariah Carey remixed, Toni Braxton, ...
 	- "90s R&B," Toni Braxton, 'If' by Janet Jackson, 'end of the road' Boyz II Men
 	- "The 27 Club," Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
 	- "hypem weekly," (weekly tracks)
@@ -223,7 +222,7 @@ Stage: Future!
 	- "Bit Crushin'," Radiohead's Kid A
 	- "It Was All a Dream," Wu Tang Clan, Tribe Called Quest, Mos Def, Notorious B.I.G., Tupac
 	- "Progressive House": SBTRKT
-
+	- "No Woman No Cry "sprawl II" [42765947]
 
 # investigate memory leak
 $	POST /postSearch 302 4ms - 92b
