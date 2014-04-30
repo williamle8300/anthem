@@ -178,6 +178,7 @@ Stage: Future!
 	http://heroku.com
 	http://getbootstrap.com
 
+
 # running the app
 
 ## Setting up environment (Codeship.io, Modulus.io, Heroku)
@@ -190,21 +191,22 @@ Stage: Future!
 	• $ cd /
 	• $ nodemon -e js,html,css app
 
+
 # Target Market. Selling points "it's free, legal, social, and just better!"
 	- self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
 	- or people who work at computers all day (by themselves); remote working;
 	- musicians: kaytranada, monsieur adi, rac; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/
 	- major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
 
+
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
 	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, 
 	- "ELECTROCLASH," various College, Electric Youth songs
 	- "electronic lurrrve,": Paris (Aeroplane), Why Don't We Fall in Love (Amerie), The Best Thing (Electric Youth)
 	- "Rolling Stone Top 10 Singers," ..
-	- "Woodstock 1969," Joe Cocker, Jimi Hendrix, CCR
-	- "Helter Skelter," https://soundcloud.com/lizie-sass
-	- "70s Swagga," cool woman in black dress, tiny dancer, stuck in the middle, jet
-	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age";
+	- "Live at Woodstock," hendrix, csny, joe cocker, the who, ccr, grateful dead "turn on your love light", santana
+	- "Skelter Swagga," cool woman in black dress, stuck in the middle, jet	
+	- "SO MUCH WOW," Fatboy Slim, "Praise You"; The Killers, "Day & Age", The NYAN cat,
 	- "Kicktranada," only DJ Kicks and Kaytranada tracks
 	- "Henry Rollins WeekX" ...
 	- "Canadian Indierock," Feist, Broken Social Scene, Arcade Fire 
@@ -223,7 +225,8 @@ Stage: Future!
 	- "It Was All a Dream," Wu Tang Clan, Tribe Called Quest, Mos Def, Notorious B.I.G., Tupac
 	- "Progressive House": SBTRKT
 
-#investigate memory leak
+
+# investigate memory leak
 $	POST /postSearch 302 4ms - 92b
 $	(node) warning: possible EventEmitter memory leak detected. 11 listeners added. Use emitter.setMaxListeners() to increase limit.
 $	Trace
@@ -257,6 +260,7 @@ $	[debug] [phantom] Navigation requested: url=http://s3-us-east.cdnplanet.com/st
 $	[debug] [phantom] Navigation requested: url=http://onapp.cdnplanet.com/static/rum/xhr-20130809.html?cdn=37&t=1391727639239, type=Other, willNavigate=true, isMainFrame=false
 $	[debug] [phantom] Navigation requested: url=http://awsdns-validation.com/static/rum/xhr-20130809.html?cdn=114&t=1391727639239, type=Other, willNavigate=true, isMainFrame=false
 
+
 # License
 The MIT License (MIT)
 
@@ -268,7 +272,9 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
 # Ø and "∅" (U+2205)
 OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 # Ø and "∅" (U+2205)
