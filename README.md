@@ -13,8 +13,9 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	manually create a bunch of playlists!!! w0000000000000!!!!!
-	add links to trackSets at: profileIndex.html
+	import cachedtrackobjs to AC130
+	add track "selected/count"?
+	add links to all trackSets at: profileIndex.html
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
 	add/remove from [trackSet]
 	sort tracks (can you do it to currently playing songs?)
@@ -199,30 +200,26 @@ Stage: Future!
 
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
-	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, 
+	- "The Daily Grind," 'Open Eye Signal', 'Mister Murky Socks', 'L.O.V.E.' by Motor City ..(rmx by DJ Kicks), Jet by Wings, voodoo child	
 	- "ELECTROCLASH," various College, Electric Youth songs
 	- "electronic lurrrve,": Paris (Aeroplane), Why Don't We Fall in Love (Amerie), The Best Thing (Electric Youth)
 	- "Rolling Stone Top 10 Singers," ..
 	- "Live at Woodstock," hendrix, csny, joe cocker, the who, ccr, grateful dead "turn on your love light", santana
-	- "Skelter Swagga," cool woman in black dress, stuck in the middle, jet	
-	- "SO MUCH WOW," nyan cat song, koopa beach remix, Live in this City (Dragonette), Fatboy Slim, "Praise You"; The Killers, "Day & Age", The NYAN cat,
+	- "Skelter Swagga," cool woman in black dress, stuck in the middle, jet		
+	- "SO MUCH WOW," nyan cat song, koopa beach remix, Live in this City (Dragonette), Fatboy Slim, "Praise You"; The Killers, "Day & Age", The NYAN cat,	
 	- "Best of Motor City Drum Ensemble," ...
-	- "Best of Boiler Room"
-	- "Canadian Indierock,"
+	- "Best of Boiler Room", ..
+	- "Canadian Indierock," ..
 	- "Crazy Awesome Remixes," sprawl II (remix), moon boots remix of CHVRCHES mother we share, chvrches remix of MR MS' "Hurricane", Paris by Au Revoir Simone (remix by Aeroplane)
-	
-	- "Burial-Fourtet Sessions"
-	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders, Alice Deejay, 'No diggity'
-	- "Dream of the 90s (REEEEEMIIIIIIX)" ..Mariah Carey remixed, Toni Braxton, ...
-	- "90s R&B," Toni Braxton, 'If' by Janet Jackson, 'end of the road' Boyz II Men
+	- "Dream of the 90s" The Cardigans, Matchbox 20, Goo Goo Dolls, No Doubt, Nirvana, Garbage, The Breeders
+	- "90s R&B," No Diggity, Toni Braxton, Aaliyah
+	- Best of Michael Jackson, "rock with you", "thriller", "remember the time", "bad", "billie jean", "black or white"
 	- "The 27 Club," Kurt Cobain, Amy Winehouse, Jimi Hendrix, Jim Morrison
-	- "hypem weekly," (weekly tracks)
 	- "Bob Dylan"
-	- "Drive OST"
-	- "Bit Crushin'," Radiohead's Kid A
-	- "It Was All a Dream," Wu Tang Clan, Tribe Called Quest, Mos Def, Notorious B.I.G., Tupac
-	- "Progressive House": SBTRKT
-	- "No Woman No Cry "sprawl II" [42765947]
+	- "Drive (Soundtrack)"
+	- "Bit Crushin'," Mario Bros Theme, Radiohead's Kid A, Garbage, cardigans, Bach's 5th, Myxomatosis, Bizarre Love Triangle, Closer to Me (Cure), 12:51 (strokes), Mario Bros Cleared Stage, 	
+	-"It Was All a Dream," Notorious B.I.G., Bone Thugs, Wu Tang Clan, Tribe Called Quest, Mos Def, Tupac
+	- "Best of deadmau5"
 
 # investigate memory leak
 $	POST /postSearch 302 4ms - 92b
