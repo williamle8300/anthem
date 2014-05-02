@@ -14,10 +14,15 @@ Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
 	add links to all available trackSets at: profileIndex.html
-	...some thought towards how/why to signify STAGED or TRACKSET Tracks
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
 	actually add/remove from [trackSet]
-	add track "selected/count"?
+	...some thought towards how/why to signify STAGED or TRACKSET Tracks
+	Draft out
+		profile picture, username
+		trackSet name
+		TRACK "SELECTED/COUNT" INDICATOR
+		'delete this trackSet'
+		signal count: own + inherited
 
 	sort tracks (can you do it to currently playing songs?)
 	create something to
