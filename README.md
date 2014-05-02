@@ -13,11 +13,12 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	import cachedtrackobjs to AC130
-	add track "selected/count"?
-	add links to all trackSets at: profileIndex.html
+	add links to all available trackSets at: profileIndex.html
+	...some thought towards how/why to signify STAGED or TRACKSET Tracks
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
-	add/remove from [trackSet]
+	actually add/remove from [trackSet]
+	add track "selected/count"?
+
 	sort tracks (can you do it to currently playing songs?)
 	create something to
 		- quickly switch between trackSets,
