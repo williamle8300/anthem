@@ -11,13 +11,21 @@ var _ = require('lodash');
  */
 exports.getProfile = function (req, res, next) {
   var username = req.params.username;
+
   User.findOne({username: username}, function(err, usersProfile) {
     if (!usersProfile) return next(err);
+		var allTrackSets = usersProfile.musicCollection.trackSets.list;
+		
+		allTrackSets = _.forEach(allTrackSets, function(trackSet) {
+			//convert name to URL.
+			//store into the object.
+			trackSet.permachunk = trackSet.name
+		});
     var usersProfile = {
       username: usersProfile.username,
-      _track: usersProfile._track,
-      _trackSet: usersProfile._trackSet,
+			allTrackSets: allTrackSets
     };
+		
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
       title: 'Songs',

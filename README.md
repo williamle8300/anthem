@@ -16,8 +16,9 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 	add links to all available trackSets at: profileIndex.html
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
 	actually add/remove from [trackSet]
-	...some thought towards how/why to signify STAGED or TRACKSET Tracks
-	Draft out
+
+	...some thought towards how/why to signify STAGED or TRACKSET Tracks (colors for (blend trackSets)?)
+	Draft out 
 		profile picture, username
 		trackSet name
 		TRACK "SELECTED/COUNT" INDICATOR
