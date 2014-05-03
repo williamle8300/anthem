@@ -38,28 +38,30 @@ exports.getTrackSet = function (req, res, next) {
 	trackSet === "null" ? trackSet = null : trackSet = trackSet;//is the trackSet called NULL?
 
 	User.findOne({username: username}, function(err, usersProfile){
-    if (err) return next(err);
+    if (err | !usersProfile){
+			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
+			return next(err);
+		}
 		var userTrackSetList = usersProfile.musicCollection.trackSets.list;
 		var usersProfile = usersProfile;
 		var thisTrackSet = {};
 		var setList = [];
 
-		if(!usersProfile) {//username aint exist
-			console.log('> accidental GET request for a trackSet! ' +req.url);
-			res.end();
-		} else {//found the username
-			thisTrackSet = _.find(userTrackSetList, {'name': trackSet});//lookup the particular trackSet
-	    usersProfile = {//create the object
-	      username: usersProfile.username,
-				setList: thisTrackSet.setList//an array of resourceIDs
-	    };
-	    res.render('profile/profileTrackSet.html', {
-	      app: 'Anthem',
-	      title: trackSet,
-	      usersProfile: usersProfile,
-	      success: req.flash('success'),
-	      error: req.flash('error')
-	    });
-		}
+		thisTrackSet = _.find(userTrackSetList, {'name': trackSet});
+		if (!thisTrackSet) {//trackSet not found
+			console.log('> 404GET /:username/:trackSet. No "trackSet" at: ' +req.url);
+			return next(err);
+		};
+    usersProfile = {//create the object
+      username: usersProfile.username,
+			setList: thisTrackSet.setList//an array of resourceIDs
+    };
+    res.render('profile/profileTrackSet.html', {
+      app: 'Anthem',
+      title: trackSet,
+      usersProfile: usersProfile,
+      success: req.flash('success'),
+      error: req.flash('error')
+    });
 	});
 }
