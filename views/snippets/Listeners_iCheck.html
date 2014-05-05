@@ -4,9 +4,11 @@
 $('input[type="checkbox"]').on('ifChecked', function(event){
 	var clicked = $(this); //get data-permalink value ('permalink')
 	var resourceID = clicked.data('id');
+	var trackSet = $('.form-control').attr("placeholder");
+	
 	$.ajax({
 	  type: "POST",
-	  url: "/save/" +resourceID,
+	  url: "/save/" +resourceID+ "/" +trackSet,
 		async: false,
 		success: function(data) {
 		  console.log('♫ Track saved: ' +resourceID);
@@ -17,9 +19,11 @@ $('input[type="checkbox"]').on('ifChecked', function(event){
 $('input[type="checkbox"]').on('ifUnchecked', function(event){
 	var clicked = $(this); //get data-permalink value ('permalink')
 	var resourceID = clicked.data('id');
+	var trackSet = $('.form-control').attr("placeholder");
+	
 	$.ajax({
 	  type: "POST",
-	  url: "/remove/" +resourceID,
+	  url: "/remove/" +resourceID+ "/" +trackSet,
 		async: false,
 		success: function(data) {
 			console.log('♫ Track removed: ' +resourceID);

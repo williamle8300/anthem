@@ -118,15 +118,19 @@ exports.logout = function(req, res) {
 };
 
 /**
- * POST /save/:resourceID
+ * POST /save/:resourceID/:trackSet
  * save the permalink
  */
 exports.saveResource = function(req, res, next){
-	var resourceID = parseInt(req.params.resourceID);
-	
   User.findById(req.user.id, function(err, userObj) {
+		var resourceID = parseInt(req.params.resourceID);
+		var trackSet = req.params.trackSet;
+		var userTrackSets = userObj.musicCollection.trackSets.list;
+		var thisTrackSet = {};
+
     if (err) return next(err);
-		userObj.musicCollection.trackSets.list[0].setList.unshift(resourceID);//currently user only has one playlist: 'playlist1'
+		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
+		thisTrackSet.setList.unshift(resourceID);
 		userObj.markModified('musicCollection');//REQUIRED
     userObj.save(function(err) {
       if (err) return next(err);
@@ -136,23 +140,30 @@ exports.saveResource = function(req, res, next){
 };
 
 /**
- * POST /remove/:resourceID
+ * POST /remove/:resourceID/:trackSet
  * remove the permalink
  */
 exports.removeResource = function(req, res, next) {
   User.findById(req.user.id, function(err, userObj) {
 		if(err) return next(err);
 		var resourceID = parseInt(req.params.resourceID);
-		var matchIdx = _.indexOf(userObj.musicCollection.trackSets.list[0].setList, resourceID);
-		
-		if(matchIdx !== -1){//resourceID not found
-			userObj.musicCollection.trackSets.list[0].setList = _.pull(userObj.musicCollection.trackSets.list[0].setList, resourceID);
-			userObj.markModified('musicCollection');//REQUIRED
-		}
-		else {//resourceID found
-			console.log('> ' +resourceID+ ' not found in this trackSet');
-			res.send(404);
+		var trackSet = req.params.trackSet;
+		var userTrackSets = userObj.musicCollection.trackSets.list;
+		var thisTrackSet = {};
+
+		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
+		if (!thisTrackSet) {//trackSet not found
+			console.log('> 404POST remove/:resourceID/:trackSet. No "trackSet" at: ' +req.url);
+			return next(err);
 		};
+		
+		thisTrackSet.setList = _.pull(thisTrackSet.setList, resourceID);
+		userObj.markModified('musicCollection');//REQUIRED!
+		
+		//	else {//resourceID found
+		//	console.log('> ' +resourceID+ ' not found in this trackSet');
+		//	res.send(404);
+		//};
 		userObj.save(function(err) {
 		  if (err) return next(err);
 			res.send(200);//resource removed

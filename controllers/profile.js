@@ -16,7 +16,7 @@ exports.getProfile = function (req, res, next) {
     if (!usersProfile) return next(err);
 		var allTrackSets = usersProfile.musicCollection.trackSets.list;
 				
-		allTrackSets = _.forEach(allTrackSets, function(trackSet) {//modify the obj a bit...
+		allTrackSets = _.forEach(allTrackSets, function(trackSet) {//!TEMP manually create 'nameChunk' property
 			trackSet.nameChunk = trackSet.name.replace(/ /g, '_');
 		});
     var usersProfile = {
@@ -52,12 +52,12 @@ exports.getTrackSet = function (req, res, next) {
 			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
 			return next(err);
 		}
-		var userTrackSetList = usersProfile.musicCollection.trackSets.list;
+		var userTrackSets = usersProfile.musicCollection.trackSets.list;
 		var usersProfile = usersProfile;
 		var thisTrackSet = {};
 		var setList = [];
  
-		thisTrackSet = _.find(userTrackSetList, {'name': trackSet});
+		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
 		if (!thisTrackSet) {//trackSet not found
 			console.log('> 404GET /:username/:trackSet. No "trackSet" at: ' +req.url);
 			return next(err);
