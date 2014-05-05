@@ -17,10 +17,8 @@ exports.getProfile = function (req, res, next) {
 		var allTrackSets = usersProfile.musicCollection.trackSets.list;
 		
 		allTrackSets = _.forEach(allTrackSets, function(trackSet) {//modify the obj a bit...
-			//convert name to URL.
-			//store into the object.
-			//alphanumerics ,$-_.+!*'()
-			trackSet.permachunk = trackSet.name
+			trackSet.permachunk = trackSet.name;
+			trackSet.permachunk = trackSet.permachunk.replace(/ /g, '_')
 		});
     var usersProfile = {
       username: usersProfile.username,
@@ -44,10 +42,12 @@ exports.getProfile = function (req, res, next) {
 exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
 	var trackSet = req.params.trackSet;
-	trackSet === "null" ? trackSet = null : trackSet = trackSet;//is the trackSet called NULL?
-
-	//alphanumerics ,$-_.+!*'()
-
+	
+	if (trackSet === 'null') {//is the trackSet called NULL?
+		trackSet = null;
+	} else {
+		trackSet = trackSet.replace(/_/g, ' ');//escape spec chars
+	}
 	User.findOne({username: username}, function(err, usersProfile){
     if (err | !usersProfile){
 			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
@@ -57,7 +57,7 @@ exports.getTrackSet = function (req, res, next) {
 		var usersProfile = usersProfile;
 		var thisTrackSet = {};
 		var setList = [];
-
+ 
 		thisTrackSet = _.find(userTrackSetList, {'name': trackSet});
 		if (!thisTrackSet) {//trackSet not found
 			console.log('> 404GET /:username/:trackSet. No "trackSet" at: ' +req.url);

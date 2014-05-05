@@ -17,7 +17,7 @@
 <ul class="playlist col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<!-- dump all trackSets here -->
 	{% for trackSet in usersProfile.allTrackSets %}
-		<a href="/{{usersProfile.username}}/{{trackSet.permachunk}}" id="{{trackSet.permID}}" class="btn btn-primary btn-lg" role="button">{{trackSet.name}}</a>
+	<a href="/{{usersProfile.username}}/{{trackSet.permachunk}}" id="{{trackSet.permID}}" class="btn btn-primary btn-lg" role="button">{{trackSet.name}}</a>
 	{% endfor %}
 	<!--
 	[
