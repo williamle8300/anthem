@@ -13,7 +13,6 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	add links to all available trackSets at: profileIndex.html
 	figure out da permalinks: alphanumerics ,$-_.+!*'() may be used unencoded within a URL
 	actually add/remove from [trackSet]
 
@@ -28,9 +27,9 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 	sort tracks (can you do it to currently playing songs?)
 	create something to
 		- quickly switch between trackSets,
-		- or findSongs and play it directly in the trackSet,
-		- blend trackSets
-		- shuffle play! w000!
+		- or findSongs and play it directly from within a trackSet,
+		- blend 2/MORE trackSets
+		- shuffle play! w000! aw jea
 
 	how to use the ichecks? for consistency. how to signal "stored in a {trackSet}"?
 

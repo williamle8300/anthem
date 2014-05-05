@@ -15,10 +15,9 @@ exports.getProfile = function (req, res, next) {
   User.findOne({username: username}, function(err, usersProfile) {
     if (!usersProfile) return next(err);
 		var allTrackSets = usersProfile.musicCollection.trackSets.list;
-		
+				
 		allTrackSets = _.forEach(allTrackSets, function(trackSet) {//modify the obj a bit...
-			trackSet.permachunk = trackSet.name;
-			trackSet.permachunk = trackSet.permachunk.replace(/ /g, '_')
+			trackSet.nameChunk = trackSet.name.replace(/ /g, '_');
 		});
     var usersProfile = {
       username: usersProfile.username,
@@ -44,7 +43,7 @@ exports.getTrackSet = function (req, res, next) {
 	var trackSet = req.params.trackSet;
 	
 	if (trackSet === 'null') {//is the trackSet called NULL?
-		trackSet = null;
+		trackSet = 'null';
 	} else {
 		trackSet = trackSet.replace(/_/g, ' ');//escape spec chars
 	}
