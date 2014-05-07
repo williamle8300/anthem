@@ -13,32 +13,34 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	change to use 'trackSet'
-	Draft out all pages: trackSet pages & search pages.
-		profile picture, username
-		trackSet name
-		TRACK "SELECTED/COUNT" INDICATOR! CONSPICUOUS
-		DIALOGS "Added 2 tracks. Removed 1 track." or...
+	figure all dis out yo
+	draw it all out on papíer
 
-			3/12 Tracks [SELECTED]
-				"+2 track(s)"
-				"-1 track(s)"
+		change to use 'trackSet'
+		Draft out all pages: trackSet pages & search pages.
+			profile picture, username
+			trackSet name
+			TRACK "SELECTED/COUNT" INDICATOR! CONSPICUOUS
+			DIALOGS "Added 2 tracks. Removed 1 track." or...
 
-				"Moved 3 Tracks UP"
+				3/12 Tracks [SELECTED]
+					"+2 track(s)"
+					"-1 track(s)"
 
-				"Moved 3 Tracks DOWN"
+					"Moved 3 Tracks UP"
 
-		'delete this trackSet'
-		signal count: own + inherited
+					"Moved 3 Tracks DOWN"
 
-	sort tracks (can you do it to currently playing songs?)
-	create something to
-		- quickly switch between trackSets,
-		- or findSongs and play it directly from within a trackSet,
-		- blend 2/MORE trackSets
-		- shuffle play! w000! aw jea
+			'delete this trackSet'
+			signal count: own + inherited
 
-	how to use the ichecks? for consistency. how to signal "stored in a {trackSet}"?
+		create something to
+			- sort songs
+			- quickly switch between trackSets,
+			- or findSongs and play it directly from within a trackSet,
+			- blend 2/MORE trackSets
+			- shuffle play! w000! aw jea
+
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
