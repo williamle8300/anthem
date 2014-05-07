@@ -13,11 +13,21 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	change null to staging??
-	Draft out 
+	change to use 'trackSet'
+	Draft out all pages: trackSet pages & search pages.
 		profile picture, username
 		trackSet name
-		TRACK "SELECTED/COUNT" INDICATOR
+		TRACK "SELECTED/COUNT" INDICATOR! CONSPICUOUS
+		DIALOGS "Added 2 tracks. Removed 1 track." or...
+
+			3/12 Tracks [SELECTED]
+				"+2 track(s)"
+				"-1 track(s)"
+
+				"Moved 3 Tracks UP"
+
+				"Moved 3 Tracks DOWN"
+
 		'delete this trackSet'
 		signal count: own + inherited
 
