@@ -13,8 +13,7 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	Some thought towards how&why to signify STAGED or TRACKSET Tracks (colors for (blend trackSets)?)
-		change null to staging??
+	change null to staging??
 	Draft out 
 		profile picture, username
 		trackSet name
