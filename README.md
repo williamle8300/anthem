@@ -17,8 +17,6 @@ Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
 	search page? (non-scrolled/scrolled)
-	'delete this trackSet'
-	signal count: own + inherited
 
 	create something to
 		- sort songs
@@ -194,7 +192,7 @@ Stage: Future!
 	• $ nodemon -e js,html,css app
 
 
-# Target Market. Selling points "it's free, legal, social, and just better!"
+# Target Market. Selling points "it's free, legal, social, and just better!" (hilarious product video Cleetus Wrestlemania Poovey)
 	- self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
 	- or people who work at computers all day (by themselves); remote working;
 	- musicians: kaytranada, monsieur adi, rac; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/
