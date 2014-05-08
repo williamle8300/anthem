@@ -10,6 +10,9 @@ functional, social, emotional value
 [Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
 
+basic features (everything up to 'Signals') //// social? //// messaging, collect user listening metrics //// suggested tracks, top tracks, top artists //// Stripe donation processing, 
+
+
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
@@ -97,8 +100,6 @@ Stage 3: Alpha [5]					!!!magic number
 
 Stage 4: Beta [15]
 
-	blend two/more tracksets together
-
 	make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
 	for "touch" events
 		- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
@@ -140,7 +141,7 @@ Stage 6: "Let's Fail!" []
 
 Stage: Future!
 
-	FEATURE LIST
+	FEATURE LIST (2.0)
 	richer searching experience; seamless searching and playback of music
 	submit mp3 URIs
 	sort tracks
