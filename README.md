@@ -10,39 +10,25 @@ functional, social, emotional value
 [Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
 
-basic features (everything up to 'Signals') //// social? //// messaging, collect user listening metrics //// suggested tracks, top tracks, top artists //// Stripe donation processing, 
+basic features (everything up to 'signals') //// MAKE IT LIVE! //// social? (messaging, sharing tracks??) //// listening metrics //// suggested tracks [highest] (), top tracks [feature] (today, week, month), top artists [recent] (today, week, month) //// Stripe donation processing and advertising system
 
 
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	figure all dis out yo
-	draw it all out on papíer
+	search page? (non-scrolled/scrolled)
+	'delete this trackSet'
+	signal count: own + inherited
 
-		change to use 'trackSet'
-		Draft out all pages: trackSet pages & search pages.
-			profile picture, username
-			trackSet name
-			TRACK "SELECTED/COUNT" INDICATOR! CONSPICUOUS
-			DIALOGS "Added 2 tracks. Removed 1 track." or...
+	create something to
+		- sort songs
+		- quickly switch between trackSets,
+		- or findSongs and play it directly from within a trackSet,
+		- blend 2/MORE trackSets
+		- shuffle play! w000! aw jea
 
-				3/12 Tracks [SELECTED]
-					"+2 track(s)"
-					"-1 track(s)"
 
-					"Moved 3 Tracks UP"
-
-					"Moved 3 Tracks DOWN"
-
-			'delete this trackSet'
-			signal count: own + inherited
-
-		create something to
-			- sort songs
-			- quickly switch between trackSets,
-			- or findSongs and play it directly from within a trackSet,
-			- blend 2/MORE trackSets
-			- shuffle play! w000! aw jea
+	change to use 'trackSet'
 
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
