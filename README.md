@@ -18,7 +18,9 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 
 	use markers to draw inherited-own-total signal UI component
 
-	search page? (non-scrolled/scrolled)
+	sketch...
+		trackSet page?
+		search page? (non-scrolled/scrolled)
 
 	change to use 'trackSet'
 
