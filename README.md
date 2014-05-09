@@ -16,7 +16,11 @@ basic features (everything up to 'signals') //// MAKE IT LIVE! //// social? (mes
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
+	use markers to draw inherited-own-total signal UI component
+
 	search page? (non-scrolled/scrolled)
+
+	change to use 'trackSet'
 
 	create something to
 		- sort songs
@@ -24,10 +28,6 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 		- or findSongs and play it directly from within a trackSet,
 		- blend 2/MORE trackSets
 		- shuffle play! w000! aw jea
-
-
-	change to use 'trackSet'
-
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
