@@ -10,7 +10,7 @@ functional, social, emotional value
 [Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
 
 
-basic features (everything up to 'signals') //// MAKE IT LIVE! //// social? (messaging, sharing tracks??) //// listening metrics //// suggested tracks [highest] (), top tracks [feature] (today, week, month), top artists [recent] (today, week, month) //// Stripe donation processing and advertising system
+basic features (everything up to 'signals') //// MAKE IT LIVE! //// social? (messaging, sharing tracks??) //// listening metrics //// suggested tracks [highest] (), top tracks [feature] (today, week, month), top artists [recent] (today, week, month) //// process Stripe donation and how to do advertising... the Anthem way.
 
 
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
