@@ -7,10 +7,16 @@ SEARCH-ADD-CREATeTRACKSET-BRANCH
 _sharing_recommendations_
 functional, social, emotional value
 "Can I give you my money?"
-[Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING PROJECTS
+[Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING OTHER PROJECTS
 
 
-basic features (everything up to 'signals') //// MAKE IT LIVE! //// social? (messaging, sharing tracks??) //// listening metrics //// suggested tracks [highest] (), top tracks [feature] (today, week, month), top artists [recent] (today, week, month) //// process Stripe donation and how to do advertising... the Anthem way.
+|||| basic features (everything up to 'signals')
+|||| MAKE IT LIVE!
+|||| social? (sharing tracks/trackSets/messages?)
+|||| listening metrics
+|||| suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month)
+|||| process Stripe donation and how to do advertising... the Anthem way
+|||| create reports/analyticsHUD for donors
 
 
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
@@ -31,6 +37,8 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 		- blend 2/MORE trackSets
 		- shuffle play! w000! aw jea
 
+	more tracks, darker the color for trackSet
+	
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
 	• ordering by p/m OR no particular ordering for trackSets?
