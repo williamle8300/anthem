@@ -194,11 +194,13 @@ Stage: Future!
 	• $ nodemon -e js,html,css app
 
 
-# Target Market. Selling points "it's free, legal, social, and just better!" (hilarious product video Cleetus Wrestlemania Poovey)
+# Target Market. Selling points "it's free, legal, social, and just better!" (hilarious product video Cleetus Wrestlemania Poovey). 
+	- hacktivism, club culture, dance music, tech (http://www-refresh.vice-motherboard-test.appspot.com/blog/how-a-german-soda-became-hackers-fuel-of-choice)
 	- self-employed/freelancerse/work-from-home: rogie king, frank chimero (rdio user)
 	- or people who work at computers all day (by themselves); remote working;
 	- musicians: kaytranada, monsieur adi, rac; for what's important to music, look at the nav bar at: http://www.motorcitydrumensemble.com/
 	- major music blogs (the tastemakers), e.g., give them a way to do HTML embeds so they can feature
+	- http://dumb.domains/
 
 
 # Sample TrackSets (see: Pandora Radio's Pre-made TrackSets)
