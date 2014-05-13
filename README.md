@@ -1,40 +1,38 @@
 # I can't create sets of music to listen to
 ## whenever, wherever i am... and with ease
-### if someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*
 
-# Ideas
-SEARCH-ADD-CREATeTRACKSET-BRANCH
-_sharing_recommendations_
-functional, social, emotional value
-"Can I give you my money?"
-[Stage 1: FEATURES] • LOOKS • [FEATURES: 'proxy' and choose model 1/2] • SECURITY • REFACTOR • MARKETING-INTRA (IP leaderboards) • EXTRA-MARKETING • NOW YOU CAN ENJOY IT, AND WORK ON PROGRAMMING OTHER PROJECTS
+	• JSspec = the user
+	•• JS = Anthem
+	••• values = tracks
+	••• arrays = trackSets
+	••• functions = Anthem's feature set
+	••• garbage coll = discovery features
 
+# "If someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*"
 
-|||| basic features (everything up to 'signals')
-|||| MAKE IT LIVE!
-|||| social? (sharing tracks/trackSets/messages?)
-|||| listening metrics
-|||| suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month)
-|||| process Stripe donation and how to do advertising... the Anthem way
-|||| create reports/analyticsHUD for donors
+	advertising?
 
+# Schedule
 
-Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
-tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
+	basic features (everything up to 'signals')
+	MAKE IT LIVE!
+	social? (sharing tracks??/trackSets??; messaging??)
+	listening metrics
+	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month)
+	process Stripe donation and how to do advertising... the Anthem way
+	create reports/analyticsHUD for donors
 
+## Stage 1: Basic Features: "Just Start Making the Tracksets, and Begin Using it"
+### tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
+
+	compile sketches
 	sketch...
 		trackSet page?
+		trackSets page?
 		search page? (non-scrolled/scrolled)
 
 	change to use 'trackSet'
 	change to use simple blue dot
-
-	js = anthem
-	• spec	= user
-	•	• function = anthem features
-	•	• variable = trackSet
-	•	• object = track
-	•	• garbage coll = currency
 
 	create something to
 		- sort songs
@@ -44,7 +42,7 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 		- shuffle play! w000! aw jea
 
 	more tracks, darker the color for trackSet
-	
+
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
 	• ordering by p/m OR no particular ordering for trackSets?
@@ -66,7 +64,7 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 	SIGNALS & PERMALINKS!
 
 
-Stage 2: Alpha [3]	
+## Stage 2: Alpha [3]	
 
 	progress buttons: http://tympanus.net/Development/ProgressButtonStyles/
 	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x..."
@@ -90,7 +88,7 @@ Stage 2: Alpha [3]
 	re-do Show HN
 
 
-Stage 3: Alpha [5]					!!!magic number
+## Stage 3: Alpha [5]					!!!magic number
 
 	(make searching for tracks a lot faster: http://karan.github.io/scInstant/)
 	feature: proxy thUser's trackset
@@ -98,7 +96,7 @@ Stage 3: Alpha [5]					!!!magic number
 	go super public!
 
 
-Stage 4: Beta [15]
+## Stage 4: Beta [15]
 
 	make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
 	for "touch" events
@@ -120,14 +118,14 @@ Stage 4: Beta [15]
 	donors can opt for listing in "Supporters Page" as "commercial sponsor" (based on descending order of donation amount)
 
 
-Stage 5: Open to Public [80]
+## Stage 5: Open to Public [80]
 
 	how to create recommendation graph? ex: "those that have been "shared to" by 3+ people have their 'labels' tabulated"
 	 • SIMILAR TRACKS (3): (for each track: get 3 other tracks at the top of 3 different playlists; 5 tracks for premium users)
 	 • RECOMMENDED TRACKS: on homepage; based on listening history (culled from similar tracks)
 
 
-Stage 6: "Let's Fail!" []
+## Stage 6: "Let's Fail!" []
 
 	offer member plan
 	December 2014-onward, Financial Model
