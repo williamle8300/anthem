@@ -28,7 +28,7 @@
 	compile sketches
 	sketch...
 		trackSet page?
-		trackSets page?
+		trackSets page
 		search page? (non-scrolled/scrolled)
 
 	change to use 'trackSet'
@@ -42,6 +42,7 @@
 		- shuffle play! w000! aw jea
 
 	more tracks, darker the color for trackSet
+	bottom nav: list of "YOU JUST ADDED TRACKS TO... 1)2)3)4)"
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
@@ -236,6 +237,9 @@ Stage: Future!
 	- "Bit Crushin'," Mario Bros Theme, Radiohead's Kid A, Garbage, cardigans, Bach's 5th, Myxomatosis, Bizarre Love Triangle, Closer to Me (Cure), 12:51 (strokes), Mario Bros Cleared Stage, 	
 	-"It Was All a Dream," Notorious B.I.G., Bone Thugs, Wu Tang Clan, Tribe Called Quest, Mos Def, Tupac
 	- "Best of deadmau5"
+
+	- closer, signed seal delivered
+	- black or white, back in black (ACDC), hold the line (TOTO), signed seal delivered
 
 # investigate memory leak
 $	POST /postSearch 302 4ms - 92b
