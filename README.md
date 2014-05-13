@@ -22,8 +22,6 @@ functional, social, emotional value
 Stage 1: Features: "Just Start Making the Tracksets, and Begin Using it"
 tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
 
-	use markers to draw inherited-own-total signal UI component
-
 	sketch...
 		trackSet page?
 		search page? (non-scrolled/scrolled)
