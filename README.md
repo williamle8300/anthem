@@ -27,6 +27,12 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 		search page? (non-scrolled/scrolled)
 
 	change to use 'trackSet'
+	change to use simple blue dot
+
+	js + music
+		function = user
+		object = track
+		variable = trackSet
 
 	create something to
 		- sort songs
