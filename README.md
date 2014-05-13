@@ -27,22 +27,20 @@
 
 	compile sketches
 	sketch...
-		trackSet page?
-		trackSets page
+		trackSet & trackSets page
 		search page? (non-scrolled/scrolled)
 
 	change to use 'trackSet'
 	change to use simple blue dot
 
 	create something to
-		- sort songs
+		- re-order tracks
 		- quickly switch between trackSets,
 		- or findSongs and play it directly from within a trackSet,
 		- blend 2/MORE trackSets
 		- shuffle play! w000! aw jea
 
 	more tracks, darker the color for trackSet
-	bottom nav: list of "YOU JUST ADDED TRACKS TO... 1)2)3)4)"
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
@@ -179,6 +177,7 @@ Stage: Future!
 
 # Visual Identity; tint everything (https://dribbble.com/shots/1524101-Cafe/attachments/230585)
 	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity | http://dribbble.com/shots/1512819-Antigo/attachments/228110 | https://dribbble.com/shots/1537985-Web-Animation/attachments/233838
+	NAV: https://hivewallet.com/
 	colors/proportions: http://dribbble.com/shots/1487542-Survey-Results-Dashboard?list=users&offset=0
 	for typographic rhythm, and layout: http://andrewtarcon.com/
 	LANDING PAGE: https://www.threadmeup.com/
