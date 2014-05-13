@@ -29,10 +29,12 @@ tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tr
 	change to use 'trackSet'
 	change to use simple blue dot
 
-	js + music
-		function = user
-		object = track
-		variable = trackSet
+	js = anthem
+	• spec	= user
+	•	• function = anthem features
+	•	• variable = trackSet
+	•	• object = track
+	•	• garbage coll = currency
 
 	create something to
 		- sort songs
