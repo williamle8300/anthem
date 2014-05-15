@@ -1,26 +1,17 @@
-# I can't create sets of music to listen to
-## whenever, wherever i am... and with ease
-
-	• JSspec = the user
-	•• JS = Anthem
-	••• values = tracks
-	••• arrays = trackSets
-	••• functions = Anthem's feature set
-	••• garbage coll = discovery features
-
-# "If someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*"
-
-	advertising?
+###### I can't create sets of music to listen to whenever, wherever i am... and with ease
+###### "If someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*"
+	list of patrons (ads), and passive rewards
 
 # Schedule
 
-	basic features (everything up to 'signals')
-	MAKE IT LIVE!
-	social? (sharing tracks??/trackSets??; messaging??)
+	>BASIC FEATURES (EVERYTHING UP TO 'SIGNALS')
+	make it live!
+	make it live! (on mobile!)
+	social? (sharing tracks??/tracksets??; messaging??)
 	listening metrics
 	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month)
-	process Stripe donation and how to do advertising... the Anthem way
-	create reports/analyticsHUD for donors
+	process stripe donation and how to do advertising... the anthem way
+	create reports/analyticshud for donors
 
 ## Stage 1: Basic Features: "Just Start Making the Tracksets, and Begin Using it"
 ### tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
