@@ -9,20 +9,20 @@
 	make it live! (on mobile!)
 	social? (sharing tracks??/tracksets??; messaging??)
 	listening metrics
-	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month)
+	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month), top users(???)
 	process stripe donation and how to do advertising... the anthem way
-	create reports/analyticshud for donors
+	create reports/analyticsHUD for donors
 
-## Stage 1: Basic Features: "Just Start Making the Tracksets, and Begin Using it"
-### tracksets, the essential UX (obz?, trackset listings?), shuffle play, sorting tracks, keyboard shortcuts
+## Stage 1: Basic Features (Everything up to 'Signals')
 
-	compile sketches
 	sketch...
 		trackSet & trackSets page
 		search page? (non-scrolled/scrolled)
 
 	change to use 'trackSet'
 	change to use simple blue dot
+	fade SC artist text
+	allow iCheck NULL tracks!
 
 	create something to
 		- re-order tracks
