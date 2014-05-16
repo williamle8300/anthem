@@ -15,7 +15,6 @@
 
 ## Stage 1: Basic Features (Everything up to 'Signals')
 
-	change to use simple blue dot
 	allow iCheck NULL tracks!
 	set/deset at trackSet ONLY
 	fade SC artist text
