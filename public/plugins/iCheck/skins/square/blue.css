@@ -9,7 +9,7 @@
     padding: 0;
     width: 22px;
     height: 22px;
-    background: url(blue@2x.png) no-repeat;
+    background: url(blue@2xMODIFIED.png) no-repeat;
     -webkit-background-size: 240px 24px;
     background-size: 240px 24px;
     border: none;
@@ -70,5 +70,5 @@
 
     .icheckbox_square-blue,
     .iradio_square-blue {
-        background-image: url(blue@2x.png);
+        background-image: url(blue@2xMODIFIED.png);
     }

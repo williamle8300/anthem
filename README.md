@@ -15,14 +15,10 @@
 
 ## Stage 1: Basic Features (Everything up to 'Signals')
 
-	sketch...
-		trackSet & trackSets page
-		search page? (non-scrolled/scrolled)
-
-	change to use 'trackSet'
 	change to use simple blue dot
-	fade SC artist text
 	allow iCheck NULL tracks!
+	set/deset at trackSet ONLY
+	fade SC artist text
 
 	create something to
 		- re-order tracks
@@ -167,6 +163,7 @@ Stage: Future!
 
 
 # Visual Identity; tint everything (https://dribbble.com/shots/1524101-Cafe/attachments/230585)
+## brand color, brand click button, text highlight color, subtext highlight color, clicky highlight color
 	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity | http://dribbble.com/shots/1512819-Antigo/attachments/228110 | https://dribbble.com/shots/1537985-Web-Animation/attachments/233838
 	NAV: https://hivewallet.com/
 	TYPE: https://gist.github.com/williamle8300/bd09384a7812fe59afbf#file-typeforanthem-css

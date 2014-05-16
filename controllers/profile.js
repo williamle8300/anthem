@@ -42,11 +42,7 @@ exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
 	var trackSet = req.params.trackSet;
 	
-	if (trackSet === 'null') {//is the trackSet called NULL?
-		trackSet = 'null';
-	} else {
-		trackSet = trackSet.replace(/_/g, ' ');//escape spec chars
-	}
+	trackSet = trackSet.replace(/_/g, ' ');//escape spec chars
 	User.findOne({username: username}, function(err, usersProfile){
     if (err | !usersProfile){
 			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
