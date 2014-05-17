@@ -4,18 +4,16 @@ list of patrons (ads), and passive rewards(??)
 
 # Schedule
 
->	BASIC FEATURE (EVERYTHING UP TO 'SIGNALS')
-		WEB (3 TESTERS), MOBILE, AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
+>	BASIC FEATURES (EVERYTHING UP TO 'SIGNALS' & 'TOP USERS LIST')
+	WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
 >	Show HN!
-		sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
+	sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???)
 >	how to do advertising?
-		process stripe payments
+	process stripe payments
 >	create reports-analytics for patrons
 
 ### Basic Features (Everything up to 'Signals')
-
-	play with colors
 
 	it iChecks ONLY null tracks
 	sets/desets at trackSet ONLY
@@ -26,11 +24,16 @@ list of patrons (ads), and passive rewards(??)
 
 	create something to
 		- re-order tracks
+			for "touch" events
+				- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
+				- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
 		- quickly switch between trackSets,
 		- or findSongs and play it directly from within a trackSet,
 		- blend 2/MORE trackSets
 		- shuffle play! w000! aw jea
 		- edit trackSet name
+
+	phantom SoundCloud should be better. Way better.
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
@@ -53,14 +56,12 @@ list of patrons (ads), and passive rewards(??)
 	list of 10 tracks, most-played tracks in profileIndex.html
 	total runtime of trackSet ("55mins runtime")
 
-	phantom SoundCloud should be better. Way better.
-
 	SIGNALS
 
 	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
 
-######  Make it Live! web (3 testers)
-	make it live. buy domain, privatize Github repo, etcetera
+######  Make it Live! web (1 tester)
+	make it live. buy domain, privatize Github repo, etcetera...
 	"Who are they??" ShowHN weapon Xs: Look for the 3 people that will help get from web-mobile-desktop-SHOWHN – propa'!
 
 	DOWNLOAD?? RADIO LINKS ONLY??
@@ -85,18 +86,13 @@ list of patrons (ads), and passive rewards(??)
 	feature: proxy thUser's trackset
 
 ######  Make it Live (on Linux, OSX, Windows)
+
 ######  Contact page
 
 ### Show HN!
 
 	make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
-	for "touch" events
-		- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
-		- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
 	offer something awesome-hilarious-very-unnecessary
-	create and offer the paid plans
-	scale hosting service/refactor/document/re-architect?)
-	Start-December 2014, Financial Model
 
 	**$30/year**
 	Can opt-in to be perpetually listed at "Supporters Page" as beta patron
@@ -111,9 +107,7 @@ list of patrons (ads), and passive rewards(??)
 
 ### Stage 5: Open to Public [80]
 
-	how to create recommendation graph? ex: "those that have been "shared to" by 3+ people have their 'labels' tabulated"
-	 • SIMILAR TRACKS (3): (for each track: get 3 other tracks at the top of 3 different playlists; 5 tracks for premium users)
-	 • RECOMMENDED TRACKS: on homepage; based on listening history (culled from similar tracks)
+	how to create "similar tracks" graph? (see business_models.md)
 
 
 ### Stage 6: "Let's Fail!" []

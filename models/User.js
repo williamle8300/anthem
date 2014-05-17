@@ -19,14 +19,6 @@ var userSchema = new mongoose.Schema({
 			lastModified:[mongoose.Schema.Types.Mixed]
 		}
 	},
-	_track: {
-		list: [mongoose.Schema.Types.Mixed]
-	},
-	_trackSet: {
-		list: [mongoose.Schema.Types.Mixed],
-		lastPlayed: [mongoose.Schema.Types.Mixed],
-		lastModified: [mongoose.Schema.Types.Mixed]
-	},
   profile: {
     name: { type: String, default: '' },
     gender: { type: String, default: '' },

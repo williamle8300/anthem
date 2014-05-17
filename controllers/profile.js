@@ -26,7 +26,7 @@ exports.getProfile = function (req, res, next) {
 		
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
-      title: usersProfile.username,
+      title: 'Songs',
       usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
@@ -40,9 +40,9 @@ exports.getProfile = function (req, res, next) {
  */
 exports.getTrackSet = function (req, res, next) {
 	var username = req.params.username;
-	var trackSet = req.params.trackSet;
+	var trackSetName = req.params.trackSet;
 	
-	trackSet = trackSet.replace(/_/g, ' ');//escape spec chars
+	trackSetName = trackSetName.replace(/_/g, ' ');//escape spec chars
 	User.findOne({username: username}, function(err, usersProfile){
     if (err | !usersProfile){
 			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
@@ -53,8 +53,8 @@ exports.getTrackSet = function (req, res, next) {
 		var thisTrackSet = {};
 		var setList = [];
  
-		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
-		if (!thisTrackSet) {//trackSet not found
+		thisTrackSet = _.find(userTrackSets, {'name': trackSetName});
+		if (!thisTrackSet) {//trackSetName not found
 			console.log('> 404GET /:username/:trackSet. No "trackSet" at: ' +req.url);
 			return next(err);
 		};
@@ -64,7 +64,7 @@ exports.getTrackSet = function (req, res, next) {
     };
     res.render('profile/profileTrackSet.html', {
       app: 'Anthem',
-      title: trackSet,
+      title: trackSetName,
       usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
