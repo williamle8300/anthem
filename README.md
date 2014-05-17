@@ -1,23 +1,26 @@
-###### I can't create sets of music to listen to whenever, wherever i am... and with ease
-###### "If someone made this, i would: *use it* and support with *online donations* in exchange for *whatever passive rewards*"
-	list of patrons (ads), and passive rewards
+I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EASE
+"IF SOMEONE MADE THIS, I WOULD: *USE IT* AND SUPPORT WITH *ONLINE DONATIONS* IN EXCHANGE FOR *WHATEVER PASSIVE REWARDS*"
+list of patrons (ads), and passive rewards(??)
 
 # Schedule
 
-	>BASIC FEATURES (EVERYTHING UP TO 'SIGNALS')
-	make it live!
-	make it live! (on mobile!)
-	social? (sharing tracks??/tracksets??; messaging??)
-	listening metrics
-	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists [recent donors] (today, week, month), top users(???)
-	process stripe donation and how to do advertising... the anthem way
-	create reports/analyticsHUD for donors
+>	BASIC FEATURE (EVERYTHING UP TO 'SIGNALS')
+		WEB (3 TESTERS), MOBILE, AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
+>	Show HN!
+		sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
+>	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???)
+>	how to do advertising?
+		process stripe payments
+>	create reports-analytics for patrons
 
-## Stage 1: Basic Features (Everything up to 'Signals')
+### Basic Features (Everything up to 'Signals')
 
-	allow iCheck NULL tracks!
-	set/deset at trackSet ONLY
+	it iChecks ONLY null tracks
+	sets/desets at trackSet ONLY
 	fade SC artist text
+
+	let user a upload profile photo
+	redesign the users trackSet page	
 
 	create something to
 		- re-order tracks
@@ -25,8 +28,7 @@
 		- or findSongs and play it directly from within a trackSet,
 		- blend 2/MORE trackSets
 		- shuffle play! w000! aw jea
-
-	more tracks, darker the color for trackSet
+		- edit trackSet name
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
@@ -36,35 +38,38 @@
 	• last typed trackSet in inputbox
 	====
 	• add-to-trackset: allow multiselect
-	• new trackset:
-	• clone:
-	• add/remove: from [here]
+	• new trackset/clone
+	• set/deset
+
+	redesign the usersProfile page
+		more tracks, darker the color for trackSet
+		circular
 
 	create routing when trackset permIDs are used. should be identical
 	redo profile page
 	add numbering in .leftPanel	
 	list of 10 tracks, most-played tracks in profileIndex.html
+	total runtime of trackSet ("55mins runtime")
+
+	phantom SoundCloud should be better. Way better.
+
+	SIGNALS
+
+	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
+
+######  Make it Live! web (3 testers)
+	make it live. buy domain, privatize Github repo, etcetera
+	"Who are they??" ShowHN weapon Xs: Look for the 3 people that will help get from web-mobile-desktop-SHOWHN – propa'!
 
 	DOWNLOAD?? RADIO LINKS ONLY??
-	SIGNALS & PERMALINKS!
-
-
-## Stage 2: Alpha [3]	
 
 	progress buttons: http://tympanus.net/Development/ProgressButtonStyles/
-	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x..."
-
-	social aspects
-	 • user receiving three messages =translates= logging their activity to build the "Similar Tracks:" graph
+	autocomplete searching by artist. display results. user can parse to trackset at that point (e.g. "remi|x...")
 
 	privatized on github
-	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
 	deploy Anthem online
 	start public beta!
 
-	homepage
-	 • notify when 'branched' tracklist is modified, offer update-merge option, plus 1!
-	 • user's listening history; most played;
 	proper scrolling
 	remedy cross-browser probz
 
@@ -72,16 +77,15 @@
 	make Mac App or Chrome and Safari Extension
 	re-do Show HN
 
-
-## Stage 3: Alpha [5]					!!!magic number
+######  Make it Live (on mobile)!
 
 	(make searching for tracks a lot faster: http://karan.github.io/scInstant/)
 	feature: proxy thUser's trackset
 
-	go super public!
+######  Make it Live (on Linux, OSX, Windows)
+######  Contact page
 
-
-## Stage 4: Beta [15]
+### Show HN!
 
 	make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
 	for "touch" events
@@ -103,14 +107,14 @@
 	donors can opt for listing in "Supporters Page" as "commercial sponsor" (based on descending order of donation amount)
 
 
-## Stage 5: Open to Public [80]
+### Stage 5: Open to Public [80]
 
 	how to create recommendation graph? ex: "those that have been "shared to" by 3+ people have their 'labels' tabulated"
 	 • SIMILAR TRACKS (3): (for each track: get 3 other tracks at the top of 3 different playlists; 5 tracks for premium users)
 	 • RECOMMENDED TRACKS: on homepage; based on listening history (culled from similar tracks)
 
 
-## Stage 6: "Let's Fail!" []
+### Stage 6: "Let's Fail!" []
 
 	offer member plan
 	December 2014-onward, Financial Model
