@@ -15,6 +15,8 @@ list of patrons (ads), and passive rewards(??)
 
 ### Basic Features (Everything up to 'Signals')
 
+	play with colors
+
 	it iChecks ONLY null tracks
 	sets/desets at trackSet ONLY
 	fade SC artist text
