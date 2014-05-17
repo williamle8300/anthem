@@ -29,24 +29,24 @@ for (var i = 0; i < setList.length; i++) {
 
 var theTrackSet = [{{user.musicCollection.trackSets.list[0].setList}}];//create 'theTrackSet'
 var theTrackSetLen = theTrackSet.length;
-var trackSet = document.querySelectorAll('li.track');//..on page vars...
-var trackSetLen = trackSet.length;
-var trackSetIDs = [];
+var trackSet = [];//onPage tracks
+var trackSetDOMNodes = document.querySelectorAll('li.track');
+var trackSetLen = trackSetDOMNodes.length;
 var inputs = document.querySelectorAll('li.track input');
 
-for (var i = 0; i < trackSetLen.length; i++) {//create onPageIDs[]
-	trackSetIDs.push(inputs[i].id);
+for (var i = 0; i < trackSetLen; i++) {//trackSetIDs
+	trackSet.push(parseInt(inputs[i].id));
 }
-for (var i = 0; i < trackSetLen; i++) {//self-encode into li.track input
-	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(trackSet.item(i).outerHTML.toString());
+for (var i = 0; i < trackSetLen; i++) {//put encodedobjhtml into li.track input[i]
+	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(trackSetDOMNodes.item(i).outerHTML.toString());
 }
 $(inputs).iCheck({//instantiate iCheck
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%',
 	aria: false
 });
-for (var i = 0; i < theTrackSetLen; i++) {//compare and iCheck any that match theTrackSet
-	if(theTrackSet.indexOf(theTrackSet[i]) !== -1) {
+for (var i = 0; i < trackSetLen; i++) {//compare and iCheck any that match theTrackSet
+	if(theTrackSet.indexOf(trackSet[i]) !== -1) {//match?
 		var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
 		var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
 		$(tempDiv[i]).addClass('checked');                      //!REFACTOR

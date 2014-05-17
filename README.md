@@ -15,7 +15,6 @@ list of patrons (ads), and passive rewards(??)
 
 ### Basic Features (Everything up to 'Signals')
 
-	it iChecks ONLY null tracks
 	sets/desets at trackSet ONLY
 	fade SC artist text
 
@@ -23,6 +22,7 @@ list of patrons (ads), and passive rewards(??)
 	redesign the users trackSet page	
 
 	create something to
+		- delete from TS
 		- re-order tracks
 			for "touch" events
 				- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen

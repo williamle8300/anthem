@@ -118,19 +118,16 @@ exports.logout = function(req, res) {
 };
 
 /**
- * POST /save/:resourceID/:trackSet
- * save the permalink
+ * POST /set/:resourceID
+ * Set to theTrackSet
  */
-exports.saveResource = function(req, res, next){
+exports.setResource = function(req, res, next){
   User.findById(req.user.id, function(err, userObj) {
 		var resourceID = parseInt(req.params.resourceID);
-		var trackSet = req.params.trackSet;
-		var userTrackSets = userObj.musicCollection.trackSets.list;
-		var thisTrackSet = {};
+		var theTrackSet = userObj.musicCollection.trackSets.list[0].setList;
 
     if (err) return next(err);
-		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
-		thisTrackSet.setList.unshift(resourceID);
+		theTrackSet.unshift(resourceID);
 		userObj.markModified('musicCollection');//REQUIRED
     userObj.save(function(err) {
       if (err) return next(err);
@@ -140,33 +137,69 @@ exports.saveResource = function(req, res, next){
 };
 
 /**
- * POST /remove/:resourceID/:trackSet
- * remove the permalink
+ * POST /deset/:resourceID
+ * Deset from theTrackSet
  */
-exports.removeResource = function(req, res, next) {
+exports.desetResource = function(req, res, next) {
   User.findById(req.user.id, function(err, userObj) {
 		if(err) return next(err);
 		var resourceID = parseInt(req.params.resourceID);
-		var trackSet = req.params.trackSet;
-		var userTrackSets = userObj.musicCollection.trackSets.list;
-		var thisTrackSet = {};
-
-		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
-		if (!thisTrackSet) {//trackSet not found
-			console.log('> 404POST remove/:resourceID/:trackSet. No "trackSet" at: ' +req.url);
-			return next(err);
-		};
+		var theTrackSet = userObj.musicCollection.trackSets.list[0].setList;
 		
-		thisTrackSet.setList = _.pull(thisTrackSet.setList, resourceID);
+		theTrackSet = _.pull(theTrackSet, resourceID);
 		userObj.markModified('musicCollection');//REQUIRED!
-		
-		//	else {//resourceID found
-		//	console.log('> ' +resourceID+ ' not found in this trackSet');
-		//	res.send(404);
-		//};
 		userObj.save(function(err) {
 		  if (err) return next(err);
 			res.send(200);//resource removed
 		});
 	});
 };
+
+///**
+// * POST /save/:resourceID/:trackSet
+// * save to a trackSet
+// */
+//exports.saveResource = function(req, res, next){
+//  User.findById(req.user.id, function(err, userObj) {
+//		var resourceID = parseInt(req.params.resourceID);
+//		var trackSet = req.params.trackSet;
+//		var userTrackSets = userObj.musicCollection.trackSets.list;
+//		var thisTrackSet = {};
+//
+//    if (err) return next(err);
+//		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
+//		thisTrackSet.setList.unshift(resourceID);
+//		userObj.markModified('musicCollection');//REQUIRED
+//    userObj.save(function(err) {
+//      if (err) return next(err);
+//			res.send(200);//saved.
+//    });
+//	});
+//};
+//
+///**
+// * POST /remove/:resourceID/:trackSet
+// * remove from a trackSet
+// */
+//exports.removeResource = function(req, res, next) {
+//  User.findById(req.user.id, function(err, userObj) {
+//		if(err) return next(err);
+//		var resourceID = parseInt(req.params.resourceID);
+//		var trackSet = req.params.trackSet;
+//		var userTrackSets = userObj.musicCollection.trackSets.list;
+//		var thisTrackSet = {};
+//
+//		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
+//		if (!thisTrackSet) {//trackSet not found
+//			console.log('> 404POST remove/:resourceID/:trackSet. No "trackSet" at: ' +req.url);
+//			return next(err);
+//		};
+//		
+//		thisTrackSet.setList = _.pull(thisTrackSet.setList, resourceID);
+//		userObj.markModified('musicCollection');//REQUIRED!
+//		userObj.save(function(err) {
+//		  if (err) return next(err);
+//			res.send(200);//resource removed
+//		});
+//	});
+//};

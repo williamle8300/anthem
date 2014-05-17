@@ -26,7 +26,7 @@ exports.getProfile = function (req, res, next) {
 		
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
-      title: 'Songs',
+      title: usersProfile.username,
       usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
