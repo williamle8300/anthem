@@ -23,9 +23,9 @@ list of patrons (ads), and passive rewards(??)
 	create something to
 		- cut/tape at TS
 		- re-order tracks
-			for "touch" events
-				- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
-				- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
+				for "touch" events
+					- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
+					- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
 		- quickly switch between trackSets,
 		- or findSongs and play it directly from within a trackSet,
 		- blend 2/MORE trackSets
