@@ -6023,24 +6023,24 @@ body {
   z-index: 1030;
   top: 0;
   padding: 15px;
-  background-color: #eeeeee;
+  color: #eeeeee;
+  background-color: #428bca;
   border-bottom: 1px solid #e2e2e2;
   opacity: 0.97;
   filter: alpha(opacity=97);
 }
 .navigation #secondTitle {
-  margin: 12px 0;
-  font-size: 23px;
+  font-size: 18px;
   text-align: right;
   overflow: hidden;
 }
-.navigation .form-group {
+.navigation .jumbo-search .form-group {
   margin-top: 0;
   margin-bottom: 0;
 }
-.jumbo-search input {
+.navigation .jumbo-search .form-group input {
   height: 50px;
-  font-size: 20px;
+  font-size: 24px;
   border-radius: 0;
 }
 .main {
