@@ -6028,10 +6028,11 @@ body {
   opacity: 0.97;
   filter: alpha(opacity=97);
 }
-.navigation .logo {
+.navigation #secondTitle {
   margin: 12px 0;
   font-size: 23px;
-  text-align: center;
+  text-align: right;
+  overflow: hidden;
 }
 .navigation .form-group {
   margin-top: 0;

@@ -26,7 +26,7 @@
 	  <div class="navigation container">
 			<div class="row">
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-	        <h1 class="logo"><a href="/">{{app}}</a></h1>
+	        <h1 id="secondTitle"><a href="/{{secondTitle}}">{{secondTitle}}</a></h1>
 				</div><!-- /LOGODIV -->
 				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 				  {% block mid1 %}
@@ -40,43 +40,13 @@
 				</div><!-- /SEARCHDIV -->
 				<!-- Login/CreateAccount/Profile-->
 				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-		      <ul class="nav navbar-nav navbar-right">
-		        {% if user %}
-		        <li class="dropdown {{'active' if title == 'Account Management' else undefined}}">
-		          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-		            {% if user.profile.picture %}
-		            <img src="{{user.profile.picture}}"/>
-								{% endif %}
-		            {{user.username if user.username else user.id}}
-		            <!--&nbsp; <i class="caret"></i> -->
-							</a>
-		          <ul class="dropdown-menu">
-		            <li>
-		            	<a href="/{{user.username}}">Profile</a>
-		            </li>
-		            <li>
-		            	<a href="/settings">Settings</a>
-		            </li>
-		            <li class="divider"></li>
-		            <li>
-		            	<a href="/logout">Logout</a>
-		            </li>
-						</li>
-		        {% else %}
-		        <li class="{{'active' if title == 'Login' else undefined}}">
-		          <a href="/login">Login</a>
-						</li>
-		        <li class="{{"active" if title == "Sign Up" else undefined}}">
-		          <a href="/signup">Sign Up</a>
-						</li>
-						{% endif %}
-					</ul><!-- Login/CreateAccount/Profile-->
+		      <!-- <ul class="nav navbar-nav navbar-right"> {% if user %} <li class="dropdown {{'active' if title == 'Account Management' else undefined}}"> <a class="dropdown-toggle" href="#" data-toggle="dropdown"> {% if user.profile.picture %} <img src="{{user.profile.picture}}"/> {% endif %} {{user.username if user.username else user.id}} &nbsp; <i class="caret"></i> </a> <ul class="dropdown-menu"> <li> <a href="/{{user.username}}">Profile</a> </li> <li> <a href="/settings">Settings</a> </li> <li class="divider"></li> <li> <a href="/logout">Logout</a> </li> </li> {% else %} <li class="{{'active' if title == 'Login' else undefined}}"> <a href="/login">Login</a> </li> <li class="{{"active" if title == "Sign Up" else undefined}}"> <a href="/signup">Sign Up</a> </li> {% endif %} </ul> -->
 				</div><!-- /NAV_RIGHTPANEL -->
 			</div><!-- /.row -->
 	  </div><!-- /.navigation -->
 		{% endblock %}
 
-	  <div class="main container">{# Where the content goes... y'know the stuff that people look at #}
+	  <div class="main container">{# main content #}
 			{% block center %}
 			{% endblock %}
 		</div>

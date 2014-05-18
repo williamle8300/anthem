@@ -5,9 +5,9 @@ list of patrons (ads), and passive rewards(??)
 # Schedule
 
 ⚑ may 15th
->	BASIC FEATURES (EVERYTHING UP TO 'SIGNALS' & 'TOP USERS LIST')
-	WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
->	Show HN & Build listening graph
+>	BASIC FEATURES
+	'SIGNALS' & 'TOP USERS LIST', WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
+>	Show hn & Listening Graph
 	sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 ⚑ july 15th
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???)
@@ -19,6 +19,9 @@ list of patrons (ads), and passive rewards(??)
 ### Basic Features (Everything up to 'Signals')
 
 	redesign the users trackSet page
+	GET MOBILE READY: iOS app with complete using only...
+		...web tech: node, express, mongo
+		native feel!!!
 
 	create something to
 		- cut/tape at TS

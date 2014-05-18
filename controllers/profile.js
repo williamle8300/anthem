@@ -26,7 +26,8 @@ exports.getProfile = function (req, res, next) {
 		
     res.render('profile/profileIndex.html', {
       app: 'Anthem',
-      title: usersProfile.username,
+      title: 'musicCollection',
+			secondTitle: usersProfile.username,
       usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
@@ -65,6 +66,7 @@ exports.getTrackSet = function (req, res, next) {
     res.render('profile/profileTrackSet.html', {
       app: 'Anthem',
       title: trackSetName,
+			secondTitle: usersProfile.username,
       usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
