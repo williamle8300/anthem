@@ -4,25 +4,24 @@ list of patrons (ads), and passive rewards(??)
 
 # Schedule
 
+⚑ may 15th
 >	BASIC FEATURES (EVERYTHING UP TO 'SIGNALS' & 'TOP USERS LIST')
 	WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
->	Show HN!
+>	Show HN & Build listening graph
 	sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
+⚑ july 15th
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???)
 >	how to do advertising?
 	process stripe payments
+⚑ sept 15th!
 >	create reports-analytics for patrons
 
 ### Basic Features (Everything up to 'Signals')
 
-	sets/desets at trackSet ONLY
-	fade SC artist text
-
-	let user a upload profile photo
-	redesign the users trackSet page	
+	redesign the users trackSet page
 
 	create something to
-		- delete from TS
+		- cut/tape at TS
 		- re-order tracks
 			for "touch" events
 				- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
