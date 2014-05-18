@@ -19,6 +19,10 @@ list of patrons (ads), and passive rewards(??)
 ### Basic Features (Everything up to 'Signals')
 
 	redesign the users trackSet page
+	
+	play with ReactJS
+	read: https://speakerdeck.com/zcbenz/node-webkit-app-runtime-based-on-chromium-and-node-dot-js
+	
 	GET MOBILE READY: iOS app with complete using only...
 		...web tech: node, express, mongo
 		native feel!!!
@@ -35,7 +39,7 @@ list of patrons (ads), and passive rewards(??)
 		- shuffle play! w000! aw jea
 		- edit trackSet name
 
-	phantom SoundCloud should be better. Way better.
+	phantom SoundCloud should be better. Way better. http://karan.github.io/scInstant/
 
 	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
@@ -84,8 +88,7 @@ list of patrons (ads), and passive rewards(??)
 
 ######  Make it Live (on mobile)!
 
-	(make searching for tracks a lot faster: http://karan.github.io/scInstant/)
-	feature: proxy thUser's trackset
+	hardware acceleeration for iOS and Android via PhoneGap
 
 ######  Make it Live (on Linux, OSX, Windows)
 
