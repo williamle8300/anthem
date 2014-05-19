@@ -8,7 +8,7 @@ list of patrons (ads), and passive rewards(??)
 >	BASIC FEATURES
 	'SIGNALS' & 'TOP USERS LIST', WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
 >	Show hn & Listening Graph
-	sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
+	show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 ⚑ july 15th
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???)
 >	how to do advertising?
@@ -19,13 +19,6 @@ list of patrons (ads), and passive rewards(??)
 ### Basic Features (Everything up to 'Signals')
 
 	redesign the users trackSet page
-	
-	play with ReactJS
-	read: https://speakerdeck.com/zcbenz/node-webkit-app-runtime-based-on-chromium-and-node-dot-js
-	
-	GET MOBILE READY: iOS app with complete using only...
-		...web tech: node, express, mongo
-		native feel!!!
 
 	create something to
 		- cut/tape at TS
@@ -58,11 +51,11 @@ list of patrons (ads), and passive rewards(??)
 
 	create routing when trackset permIDs are used. should be identical
 	redo profile page
-	add numbering in .leftPanel	
-	list of 10 tracks, most-played tracks in profileIndex.html
-	total runtime of trackSet ("55mins runtime")
+		light-dark trackSets with signalCount
+		list of 10 tracks, most-played tracks in profileIndex.html
+	total runtime of trackSet ("55mins runtime")?
 
-	SIGNALS
+	SIGNALS!
 
 	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
 
