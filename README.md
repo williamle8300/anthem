@@ -47,11 +47,11 @@ list of patrons (ads), and passive rewards(??)
 
 	redesign the usersProfile page
 		more tracks, darker the color for trackSet
-		circular
+		circular?
 
-	new routing (share-friendly permalinks)
-		trackset permIDs
-		specific tracks in trackSets
+	new routing. share-friendly permalinks to...
+		...trackset permIDs
+		...specific tracks in trackSets
 	redo profile page
 		light-dark trackSets with signalCount
 		list of 10 tracks, most-played tracks in profileIndex.html
