@@ -5816,7 +5816,7 @@ li.track .sm2_paused:hover
   font: bold 1.5em Lato;
 }
 .playlist li.track a div.centerPanel .trackTitleNUsername .username {
-  margin: 0 0 10px 0;
+  margin: 2px 0 10px 0;
 }
 .playlist li.track a div.rightPanel .meta .playCount {
   font-family: Monaco;
@@ -6014,7 +6014,7 @@ li.track .sm2_paused:hover
 }
 /*needed for fixed nav*/
 body {
-  padding-top: 81px;
+  padding-top: 51px;
   background: #ffffff;
 }
 .navigation {
@@ -6031,7 +6031,7 @@ body {
   filter: alpha(opacity=97);
 }
 .navigation #secondTitle {
-  font-size: 18px;
+  font-size: 14px;
   text-align: right;
   overflow: hidden;
 }
@@ -6044,7 +6044,7 @@ body {
 }
 .navigation .jumbo-search .form-group input {
   height: 50px;
-  font-size: 24px;
+  font-size: 18px;
   border-radius: 0;
 }
 .main {

@@ -633,7 +633,7 @@ function PagePlayer() {
 	            if (thisSound.playState !== 1) {
 	              // not yet playing
 	              thisSound.play();
-								$('html, body').animate({scrollTop: $('#' +sID).offset().top -81 }, 'fast');
+								$('html, body').animate({scrollTop: $('#' +sID).offset().top -51 }, 'fast');
 	            } else {
 	              thisSound.togglePause();
 								//$('html, body').animate({scrollTop: $('#' +sID).offset().top -81 }, 'fast');
@@ -651,7 +651,7 @@ function PagePlayer() {
 	            thisSound._data.oTimingBox.appendChild(spectrumContainer);
 	          }
 	          thisSound.togglePause(); // start playing current
-						$('html, body').animate({scrollTop: $('#' +sID).offset().top -81 }, 'fast');
+						$('html, body').animate({scrollTop: $('#' +sID).offset().top -51 }, 'fast');
 
 	        }
 
@@ -718,7 +718,7 @@ function PagePlayer() {
 	        }
 	        self.resetGraph.apply(thisSound);
 	        thisSound.play();
-					$('html, body').animate({scrollTop: $('#' +sID).offset().top -81 }, 'fast');
+					$('html, body').animate({scrollTop: $('#' +sID).offset().top -51 }, 'fast');
 	      }
 
 	      self.lastSound = thisSound; // reference for next call
