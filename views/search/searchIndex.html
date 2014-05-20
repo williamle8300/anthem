@@ -13,15 +13,15 @@
 	{# {{track.seq}}, {{track.permachunk}}, {{track.permalink}}, {{track.trackTitle}}, {{track.albumArtURI}}, {{track.username}}, {{track.playCount}}, {{track.published}} #}
 	<li class="track" style="display:none">
 		<a id type="audio/mp3" href="http://soundcloud.com{{track.permachunk}}">
-			<div class="leftPanel"></div>
-			<div class="centerPanel">
-				<img src="{{track.albumArtURI}}" width="80" height="80" class="art img-thumbnail">
+			<div class="leftPanel col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+			<div class="centerPanel col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<img src="{{track.albumArtURI}}" class="art img-thumbnail">
 				<div class="trackTitleNUsername">
-					<p class="h3 trackTitle">{{track.trackTitle}}</p>
-					<p class="h4 username">{{track.username}}</p>
+					<p class="trackTitle">{{track.trackTitle}}</p>
+					<p class="username">{{track.username}}</p>
 				</div>
 			</div>
-			<div class="rightPanel">
+			<div class="rightPanel col-xs-2 col-sm-2 col-md-2 col-lg-2">
 				<form style="display:none">
 					<input id="" data-id="" data-encodedobjhtml="" type="checkbox" name="iCheck" class="exclude">
 				</form>

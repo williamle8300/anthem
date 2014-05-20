@@ -55,10 +55,11 @@ li.track .sm2_paused:hover
 					margin:25px 0 0 9px;
 					.trackTitle{
 						margin: 0;
-						font:bold 1.5em Lato;						
+						font:bold @font-size-h4 Lato;						
 					}
 					.username{
 						margin: 2px 0 10px 0;
+						font-size: @font-size-base;
 					}
 				}
 			}
@@ -74,6 +75,9 @@ li.track .sm2_paused:hover
 		}
 		&.sm2_playing{
 			background-color: @gray-lighter;
+			.trackTitleNUsername{
+				color:@link-hover-color; 
+			}
 		}
 		&.sm2_paused{
 			background-color: lighten(@gray-lighter, 4%);
@@ -94,7 +98,7 @@ li.track .sm2_paused:hover
 	margin: 0 auto;
 	div.controls {
 		display:none;//hidden until track's played
-		top:-44px;
+		top:-38px;
 		z-index:100;
 		margin: 0 0 0 119px;
 		padding: 0;

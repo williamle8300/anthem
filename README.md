@@ -56,6 +56,7 @@ list of patrons (ads), and passive rewards(??)
 	total runtime of trackSet ("55mins runtime")?
 
 	SIGNALS!
+	1.5ver??: new tracks on profile (when you CLONE at TS and the other user TAPES in new TRACKS to it)
 
 	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
 
