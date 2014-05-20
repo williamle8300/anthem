@@ -1,3 +1,5 @@
+//left, center, rightPanels are 120px height!
+
 @font-face{font-family:'Montserrat';src:url("../../fonts/Montserrat-Regular.ttf") format("truetype");font-weight:normal;}
 @font-face{font-family:'Montserrat';src:url("../../fonts/Montserrat-Bold.ttf") format("truetype");font-weight:bold;}
 @font-face{font-family:'Univers';src:url("../../fonts/Univers.ttf") format("truetype");font-weight:normal;}
@@ -52,23 +54,20 @@ body {padding-top: 81px;background:@body-bg;}
 	.leftPanel {
 		float:left;
 		display:block;
-		width:17%;
-		height:150px;
-		max-height:150px;
+		height:120px;
+		max-height:120px;
 	}
 	.centerPanel{
+		// remember track styles are at sm2.less -- not here.
 		float:left;
-		margin: 25px 0;
-		width:66%;
 		white-space: nowrap;
 		overflow: hidden;
 	}
 	.rightPanel{
 		float: right;
 		display:table;
-		width:17%;
-		height:150px;
-		max-height:150px;
+		height:120px;
+		max-height:120px;
 		form {
 			display: table-cell;
 			vertical-align: middle;

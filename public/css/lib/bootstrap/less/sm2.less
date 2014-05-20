@@ -31,7 +31,6 @@ li.track .sm2_paused:hover
 		padding: 0;
 		background-color: @body-bg;
 		border-bottom: 1px solid darken(@gray-lighter, 5%);
-		font-size:2em;
 		.transition(background-color 1s ease);
 		a{
 			display: block;
@@ -44,12 +43,19 @@ li.track .sm2_paused:hover
 			z-index: 2;
 			div.leftPanel{}
 			div.centerPanel{
-				img.art{display:inline-block;vertical-align:top;}
+				img.art{
+					display:inline-block;
+					vertical-align:top;
+					width:90px;
+					height:90px;
+					margin:15px 0;
+				}
 				.trackTitleNUsername{
 					display:inline-block;
-					margin:6px 0 0 9px;
+					margin:25px 0 0 9px;
 					.trackTitle{
-						margin: 0 0 10px 0;font-family:Lato;font-weight:bold;
+						margin: 0;
+						font:bold 1.5em Lato;						
 					}
 					.username{
 						margin: 0 0 10px 0;
@@ -90,7 +96,7 @@ li.track .sm2_paused:hover
 		display:none;//hidden until track's played
 		top:-44px;
 		z-index:100;
-		margin: 0 15px 0 125px;
+		margin: 0 0 0 119px;
 		padding: 0;
 	}
 }

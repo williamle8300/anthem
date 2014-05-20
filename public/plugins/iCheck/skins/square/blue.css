@@ -3,33 +3,30 @@
 .icheckbox_square-blue,
 .iradio_square-blue {
     display: inline-block;
-    *display: inline;
     vertical-align: middle;
     margin: 0;
     padding: 0;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     background: url(blue@2xMODIFIED.png) no-repeat;
     -webkit-background-size: 240px 24px;
     background-size: 240px 24px;
     border: none;
     cursor: pointer;
 		/*http://www.useragentman.com/IETransformsTranslator/ [zoom1.5; 22px by 22px]*/
-		 -moz-transform:    scale(1.5);
-		 -o-transform:      scale(1.5);
-		 -webkit-transform: scale(1.5);
-		 transform:         scale(1.5);
-		 /* IE8+ - must be on one line, unfortunately */ 
-	   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.5, M12=0, M21=0, M22=1.5, SizingMethod='auto expand')";
-	   /* IE6 and 7 */ 
-	   filter: progid:DXImageTransform.Microsoft.Matrix(
-	     M11=1.5,
-	     M12=0,
-	     M21=0,
-	     M22=1.5,
-	     SizingMethod='auto expand');
-	   margin-left: -9px; 
-	   margin-top: -9px;
+		 -moz-transform:    scale(1.2);                                                                                     
+		 -o-transform:      scale(1.2);                                                                                     
+		 -webkit-transform: scale(1.2);                                                                                     
+		 transform:         scale(1.2);                                                                                     
+  	 /* IE8+ - must be on one line, unfortunately */                                                                  
+	   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.2, M12=0, M21=0, M22=1.2, SizingMethod='auto expand')";
+	   /* IE6 and 7 */                                                                                                    
+	   filter: progid:DXImageTransform.Microsoft.Matrix(                                                                  
+	     M11=1.2,                                                                                                         
+	     M12=0,                                                                                                           
+	     M21=0,                                                                                                           
+	     M22=1.2,                                                                                                         
+	     SizingMethod='auto expand');                                                                                     
 }
 
 .iradio_square-blue {
@@ -56,7 +53,7 @@
         background-position: -144px 0;
     }
     .icheckbox_square-blue.checked {
-        background-position: -168px 0;
+        background-position: -167px 0;
     }
     .icheckbox_square-blue.disabled {
         background-position: -192px 0;

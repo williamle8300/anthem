@@ -5787,7 +5787,6 @@ li.track .sm2_paused:hover
   padding: 0;
   background-color: #ffffff;
   border-bottom: 1px solid #e2e2e2;
-  font-size: 2em;
   -webkit-transition: background-color 1s ease;
   transition: background-color 1s ease;
 }
@@ -5804,15 +5803,17 @@ li.track .sm2_paused:hover
 .playlist li.track a div.centerPanel img.art {
   display: inline-block;
   vertical-align: top;
+  width: 90px;
+  height: 90px;
+  margin: 15px 0;
 }
 .playlist li.track a div.centerPanel .trackTitleNUsername {
   display: inline-block;
-  margin: 6px 0 0 9px;
+  margin: 25px 0 0 9px;
 }
 .playlist li.track a div.centerPanel .trackTitleNUsername .trackTitle {
-  margin: 0 0 10px 0;
-  font-family: Lato;
-  font-weight: bold;
+  margin: 0;
+  font: bold 1.5em Lato;
 }
 .playlist li.track a div.centerPanel .trackTitleNUsername .username {
   margin: 0 0 10px 0;
@@ -5839,7 +5840,7 @@ li.track .sm2_paused:hover
   display: none;
   top: -44px;
   z-index: 100;
-  margin: 0 15px 0 125px;
+  margin: 0 0 0 119px;
   padding: 0;
 }
 .playlist li.track .peak,
@@ -6052,23 +6053,19 @@ body {
 .main .leftPanel {
   float: left;
   display: block;
-  width: 17%;
-  height: 150px;
-  max-height: 150px;
+  height: 120px;
+  max-height: 120px;
 }
 .main .centerPanel {
   float: left;
-  margin: 25px 0;
-  width: 66%;
   white-space: nowrap;
   overflow: hidden;
 }
 .main .rightPanel {
   float: right;
   display: table;
-  width: 17%;
-  height: 150px;
-  max-height: 150px;
+  height: 120px;
+  max-height: 120px;
 }
 .main .rightPanel form {
   display: table-cell;
