@@ -60,6 +60,8 @@ list of patrons (ads), and passive rewards(??)
 
 	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
 
+	use Apple media keys to play/pause/skip
+
 ######  Make it Live! web (1 tester)
 	make it live. buy domain, privatize Github repo, etcetera...
 	"Who are they??" ShowHN weapon Xs: Look for the 3 people that will help get from web-mobile-desktop-SHOWHN – propa'!
