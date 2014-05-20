@@ -5787,8 +5787,8 @@ li.track .sm2_paused:hover
   padding: 0;
   background-color: #ffffff;
   border-bottom: 1px solid #e2e2e2;
-  -webkit-transition: background-color 1s ease;
-  transition: background-color 1s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 .playlist li.track a {
   display: block;
@@ -5821,9 +5821,6 @@ li.track .sm2_paused:hover
 }
 .playlist li.track a div.rightPanel .meta .playCount {
   font-family: Monaco;
-}
-.playlist li.track:hover {
-  background-color: #f9f9f9;
 }
 .playlist li.track.sm2_playing {
   background-color: #eeeeee;
@@ -6021,7 +6018,7 @@ li.track .sm2_paused:hover
 }
 /*needed for fixed nav*/
 body {
-  padding-top: 51px;
+  padding-top: 50px;
   background: #ffffff;
 }
 .navigation {
@@ -6031,8 +6028,9 @@ body {
   z-index: 1030;
   top: 0;
   padding: 0 15px;
-  color: #eeeeee;
+  color: blue;
   background-color: #eeeeee;
+  border-bottom: 1px solid #e2e2e2;
   opacity: 0.97;
   filter: alpha(opacity=97);
 }
@@ -6054,8 +6052,12 @@ body {
 .navigation .jumbo-search .form-group input {
   height: 50px;
   font-size: 18px;
-  background: #eeeeee;
+  color: #357fbe;
   border-radius: 0;
+}
+.navigation .jumbo-search .form-group input#query,
+.navigation .jumbo-search .form-group input#trackSetName {
+  background: #eeeeee;
 }
 .main {
   padding: 0;

@@ -30,8 +30,8 @@ li.track .sm2_paused:hover
 		display: block;
 		padding: 0;
 		background-color: @body-bg;
-		border-bottom: 1px solid darken(@gray-lighter, 5%);
-		.transition(background-color 1s ease);
+		border-bottom: 1px solid darken(@hr-border, 5%);
+		.transition(background-color 0.3s ease);
 		a{
 			display: block;
 			overflow: hidden;
@@ -71,10 +71,10 @@ li.track .sm2_paused:hover
 			}
 		}
 		&:hover{
-			background-color: lighten(@gray-lighter, 4%);
+//			background-color: lighten(@gray-lighter, 4%);
 		}
 		&.sm2_playing{
-			background-color: @gray-lighter;
+			background-color: @nav-bg;
 			.trackTitleNUsername{
 				color:@link-hover-color; 
 			}

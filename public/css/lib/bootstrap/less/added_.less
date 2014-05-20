@@ -17,7 +17,7 @@
 }
 
 /*needed for fixed nav*/
-body {padding-top: 51px;background:@body-bg;} 
+body {padding-top: 50px;background:@body-bg;} 
 
 .navigation{
 	position: fixed;
@@ -26,8 +26,9 @@ body {padding-top: 51px;background:@body-bg;}
 	z-index: 1030;
 	top: 0;
 	padding:0 (@grid-gutter-width / 2);
-	color:@gray-lighter;
-	background-color: @gray-lighter;
+	color:blue;
+	background-color: @nav-bg;
+	border-bottom: 1px solid darken(@nav-bg, 5%);
 	.opacity(.97);
 	#secondTitle{
 		font-size:@font-size-base;
@@ -47,9 +48,12 @@ body {padding-top: 51px;background:@body-bg;}
 		  input {
 		    height: 50px;
 		    font-size:@font-size-h4;
-				background:@gray-lighter;
+				color:@link-hover-color;
 		    border-radius: 0;
 		    border-radius: 0;
+				&#query, &#trackSetName {
+					background:@gray-lighter;
+				}
 		  }
 		}
 	}

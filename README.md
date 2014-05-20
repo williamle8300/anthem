@@ -49,7 +49,9 @@ list of patrons (ads), and passive rewards(??)
 		more tracks, darker the color for trackSet
 		circular
 
-	create routing when trackset permIDs are used. should be identical
+	new routing (share-friendly permalinks)
+		trackset permIDs
+		specific tracks in trackSets
 	redo profile page
 		light-dark trackSets with signalCount
 		list of 10 tracks, most-played tracks in profileIndex.html
@@ -228,6 +230,9 @@ Stage: Future!
 
 	- closer, signed seal delivered
 	- black or white, back in black (ACDC), hold the line (TOTO), signed seal delivered
+
+# Refactor
+- search for '//!REFACTOR' or just '//!'
 
 # investigate memory leak
 $	POST /postSearch 302 4ms - 92b
