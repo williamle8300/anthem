@@ -27,6 +27,7 @@ body {padding-top: 50px;background:@body-bg;}
 	top: 0;
 	padding:0 (@grid-gutter-width / 2);
 	color:blue;
+	overflow:hidden;
 	background-color: @nav-bg;
 	border-bottom: 1px solid darken(@nav-bg, 5%);
 	.opacity(.97);
@@ -57,6 +58,24 @@ body {padding-top: 50px;background:@body-bg;}
 		  }
 		}
 	}
+	.logo{//!
+		font-size: 75px;
+		position: absolute;
+		color: @gray-lightly;
+		top: -27px;
+		left: -73px;
+		//position: absolute;
+		//top: -51px;
+		//font-size: 8em;
+		//color: #aaa;
+		//&#logoA{
+		//	-webkit-transform: skew(42deg,2.9deg) scaleX(-1);
+		//	left: -47px;
+		//}
+		//&#logoB{
+		//	-webkit-transform: skew(-40deg,-5.1deg);			
+		//}
+	}
 }
 
 
@@ -79,11 +98,6 @@ body {padding-top: 50px;background:@body-bg;}
 		display:table;
 		height:120px;
 		max-height:120px;
-		form {
-			display: table-cell;
-			vertical-align: middle;
-			text-align: center;
-		}
 	}
 	.seqNumber{
 		display:table-cell;

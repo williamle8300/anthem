@@ -5819,6 +5819,11 @@ li.track .sm2_paused:hover
   margin: 2px 0 10px 0;
   font-size: 14px;
 }
+.playlist li.track a div.rightPanel form {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 .playlist li.track a div.rightPanel .meta .playCount {
   font-family: Monaco;
 }
@@ -6029,6 +6034,7 @@ body {
   top: 0;
   padding: 0 15px;
   color: blue;
+  overflow: hidden;
   background-color: #eeeeee;
   border-bottom: 1px solid #e2e2e2;
   opacity: 0.97;
@@ -6059,6 +6065,13 @@ body {
 .navigation .jumbo-search .form-group input#trackSetName {
   background: #eeeeee;
 }
+.navigation .logo {
+  font-size: 75px;
+  position: absolute;
+  color: #e3e3e3;
+  top: -27px;
+  left: -73px;
+}
 .main {
   padding: 0;
 }
@@ -6078,11 +6091,6 @@ body {
   display: table;
   height: 120px;
   max-height: 120px;
-}
-.main .rightPanel form {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
 }
 .main .seqNumber {
   display: table-cell;
