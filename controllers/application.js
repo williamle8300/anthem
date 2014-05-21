@@ -9,7 +9,7 @@ var User = require('../models/User');
  * for routes: '/', '/search'
  */
 exports.search = function(req, res){
-	res.render('layouts/general.html', {app: 'Anthem', title: 'Search', view: 'Search'});
+	res.render('layouts/general.html', {app: 'Anthem', title: 'Search', secondTitle: 'Search', view: 'Search'});
 }
 
 /**
@@ -41,7 +41,7 @@ exports.getSearchResults = function(phantomSoundCloud) {//have to flip the funct
 			}
 			else{
 				console.log('\n Found [' +phantomResults.trackSet.length+ '] tracks\n');
-				res.render('search/searchIndex.html', {app: 'Anthem', title: 'Results for "' +query+ '"', query: query, trackSet: phantomResults.trackSet});
+				res.render('search/searchIndex.html', {app: 'Anthem', title: 'Results for "' +query+ '"', secondTitle: 'Search', query: query, trackSet: phantomResults.trackSet});
 			}
 		});
 	};
