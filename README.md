@@ -18,7 +18,7 @@ list of patrons (ads), and passive rewards(??)
 
 ### Basic Features (Everything up to 'Signals')
 
-	redesign the users trackSet page
+	just slap it all together. one day DOOD.
 
 	create something to
 		- cut/tape at TS
