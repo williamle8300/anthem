@@ -14,19 +14,19 @@
     border: none;
     cursor: pointer;
 		/*http://www.useragentman.com/IETransformsTranslator/ [zoom1.5; 22px by 22px]*/
-		 -moz-transform:    scale(1.2);                                                                                     
-		 -o-transform:      scale(1.2);                                                                                     
-		 -webkit-transform: scale(1.2);                                                                                     
-		 transform:         scale(1.2);                                                                                     
+		 /*-moz-transform:    scale(1.2);                                                                                     */
+		 /*-o-transform:      scale(1.2);                                                                                     */
+		 /*-webkit-transform: scale(1.2);                                                                                     */
+		 /*transform:         scale(1.2);                                                                                     	*/
   	 /* IE8+ - must be on one line, unfortunately */                                                                  
-	   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.2, M12=0, M21=0, M22=1.2, SizingMethod='auto expand')";
+	   /*-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=1.2, M12=0, M21=0, M22=1.2, SizingMethod='auto expand')";*/
 	   /* IE6 and 7 */                                                                                                    
-	   filter: progid:DXImageTransform.Microsoft.Matrix(                                                                  
-	     M11=1.2,                                                                                                         
-	     M12=0,                                                                                                           
-	     M21=0,                                                                                                           
-	     M22=1.2,                                                                                                         
-	     SizingMethod='auto expand');                                                                                     
+	   /*filter: progid:DXImageTransform.Microsoft.Matrix(                                                                  */
+	   /*  M11=1.2,                                                                                                         */
+	   /*  M12=0,                                                                                                           */
+	   /*  M21=0,                                                                                                           */
+	   /*  M22=1.2,                                                                                                         */
+	   /*  SizingMethod='auto expand');                                                                                     */
 }
 
 .iradio_square-blue {

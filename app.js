@@ -98,6 +98,8 @@ app.post('/set/:resourceID', passportConf.isAuthenticated, userController.setRes
 app.post('/deset/:resourceID', passportConf.isAuthenticated, userController.desetResource);
 ////app.post('/:username/cut/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
 ////app.post('/:username/tape/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
+////app.post('/:username/newTrackSet/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
+////app.post('/:username/addToTrackSet/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
 app.post('/:username/sort/:permID', passportConf.isAuthenticated, userController.postTrackSet);
 app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
 app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);

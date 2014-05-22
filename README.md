@@ -22,11 +22,11 @@ list of patrons (ads), and passive rewards(??)
 
 	create something to
 		- cut/tape at TS
+		- edit trackSet name
 		- quickly switch between trackSets,
 		- or findSongs and play it directly from within a trackSet,
-		- blend 2/MORE trackSets
 		- shuffle play! w000! aw jea
-		- edit trackSet name
+		- blend 2/MORE trackSets??????
 
 	phantom SoundCloud should be better. Way better. http://karan.github.io/scInstant/
 
