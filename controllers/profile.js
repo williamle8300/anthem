@@ -75,17 +75,3 @@ exports.getTrackSet = function (req, res, next) {
     });
 	});
 }
-
-/**
- * GET /:username/:trackSet
- * Profile page.
- */
-exports.postTrackSet = function (req, res, next) {
-
-	var username = req.params.username;
-	var permID = req.params.permID;
-	var trackSet = req.body.trackSet;
-	console.log(username, permID);	
-	console.log(trackSet);
-	res.end();
-}

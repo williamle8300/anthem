@@ -29,24 +29,24 @@ for (var i = 0; i < setList.length; i++) {
 
 var theTrackSet = [{{user.musicCollection.trackSets.list[0].setList}}];//create 'theTrackSet'
 var theTrackSetLen = theTrackSet.length;
-var trackSet = [];//ids on the page. Number type
-var trackSetDOMNodes = document.querySelectorAll('li.track');
-var trackSetLen = trackSetDOMNodes.length;
+var setList = [];//ids on the page. Number type
+var setListDOMNodes = document.querySelectorAll('li.track');
+var setListLen = setListDOMNodes.length;
 var inputs = document.querySelectorAll('li.track input');
 
-for (var i = 0; i < trackSetLen; i++) {//trackSetIDs
-	trackSet.push(parseInt(inputs[i].id));
+for (var i = 0; i < setListLen; i++) {//setList
+	setList.push(parseInt(inputs[i].id));
 }
-for (var i = 0; i < trackSetLen; i++) {//put encodedobjhtml into li.track input[i]
-	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(trackSetDOMNodes.item(i).outerHTML.toString());
+for (var i = 0; i < setListLen; i++) {//put encodedobjhtml into li.track input[i]
+	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(setListDOMNodes.item(i).outerHTML.toString());
 }
 $(inputs).iCheck({//instantiate iCheck
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%',
 	aria: false
 });
-for (var i = 0; i < trackSetLen; i++) {//compare and iCheck any that match theTrackSet
-	if(theTrackSet.indexOf(trackSet[i]) !== -1) {//match?
+for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTrackSet
+	if(theTrackSet.indexOf(setList[i]) !== -1) {//match?
 		var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
 		var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
 		$(tempDiv[i]).addClass('checked');                      //!REFACTOR
@@ -55,7 +55,7 @@ for (var i = 0; i < trackSetLen; i++) {//compare and iCheck any that match theTr
 };
 
 
-//if this is the user's TS let them sort...
+if ('{{usersProfile.username}}' == '{{user.username}}') {//if user's TS, let sort tracks
 	$('.playlist').sortable({//initialize
 		opacity: 0.97,
 		tolerance: "pointer",
@@ -66,27 +66,27 @@ for (var i = 0; i < trackSetLen; i++) {//compare and iCheck any that match theTr
 		update: function(event, ui) {
 			
 			var inputs = document.querySelectorAll('li.track input');
-			var trackSet = [];
-			var trackSetStringified;
+			var setList = [];
+			var setListStringified;
 			var username = '{{usersProfile.username}}';
 			var permID = $('#trackSetName').attr('data-permid');
 			for (var i = 0; i < inputs.length; i++) {
-				trackSet.push(parseInt(inputs[i].id));
+				setList.push(parseInt(inputs[i].id));
 			}
-			trackSetStringified = JSON.stringify({trackSet: trackSet});//gotta do this to pass in $.ajax
-			console.log(trackSetStringified);
-			console.log(trackSet);
+			setListStringified = JSON.stringify({setList: setList});//gotta do this to pass in $.ajax
+			console.log(setListStringified);
+			console.log(setList);
 			$.ajax({
 				async: false,
 				type: 'POST',
-				url: '/' +username+ '/' +permID,
-				data: trackSetStringified,
+				url: '/' +username+ '/sort/' +permID,
+				data: setListStringified,
 				contentType: 'application/json',
 				success: function(data) {
 				}
 			});
 	  }
 	});
-
+}
 
 </script>

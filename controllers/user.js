@@ -203,3 +203,30 @@ exports.desetResource = function(req, res, next) {
 //		});
 //	});
 //};
+
+
+/**
+ * GET /:username/sort/:permID
+ * req.body.setList!!!
+ * Profile page.
+ */
+exports.postTrackSet = function (req, res, next) {
+
+	var usersUsername = req.params.username;
+	var permID = parseInt(req.params.permID);
+	var newSetList = req.body.setList;
+  User.findById(req.user.id, function(err, userObj) {
+		if (usersUsername === userObj.username) {//actually same user?
+			
+			var userTrackSets = userObj.musicCollection.trackSets.list;
+			var thisTrackSet = {};
+			thisTrackSet = _.find(userTrackSets, {'permID': permID});//find TS by permID (LD)
+			thisTrackSet.setList = newSetList;//init new setList
+			userObj.markModified('musicCollection');//REQUIRED!
+			userObj.save(function(err) {
+			  if (err) return next(err);
+				res.send(200);//resource removed
+			});
+		}
+	});
+}

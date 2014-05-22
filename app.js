@@ -91,8 +91,14 @@ app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureR
 app.get('/auth/tumblr', passport.authorize('tumblr'));
 app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
 //User
+/* ---------
+order of routing is trés importanté
+--------- */
 app.post('/set/:resourceID', passportConf.isAuthenticated, userController.setResource);
 app.post('/deset/:resourceID', passportConf.isAuthenticated, userController.desetResource);
+////app.post('/:username/cut/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
+////app.post('/:username/tape/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
+app.post('/:username/sort/:permID', passportConf.isAuthenticated, userController.postTrackSet);
 app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
 app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
 app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
@@ -102,7 +108,6 @@ app.get('/logout', passportConf.isAuthenticated, userController.logout);
 //Profile (must list these last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
 app.get('/:username/:trackSetNameOrPermID', passportConf.isAuthenticated, profileController.getTrackSet);
-app.post('/:username/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
 
 //Start-up the app!
 app.listen(app.get('port'), function() {
