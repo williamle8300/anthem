@@ -41,9 +41,9 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 
 	$.getJSON(URI, function(track) {//serialize with id • serialize with stream_url • flash DOM node for EOH • (...ready for iCheck)
 		if (track.streamable){//if the track's streamable, we'll show it!
+
 			var resourceID = track.id;
 			var encodedObjHTML = '';
-			
 			tracks.item(i).style.display = 'block'; 	  //reveal to user (has to be done before storing into "data-encodedobjhtml"!)
 			trackHREFs.item(i).id = 'track' +resourceID;//serialize with id!
 			inputs.item(i).id = resourceID;             //serialize with id!
@@ -51,9 +51,9 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //serialize with stream_ur!
 			encodedObjHTML = inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//flash EOH into 'data-encodedobjhtml'... now it's ready to iCheck
 			$.ajax({//now cache the encodedObjHTML for rapid retrieval
+				async: false,
 				type: 'POST',
 				url: '/postCachedTrackObj/' +resourceID+ '/' +encodedObjHTML,
-				async: false,
 				success: function(data) {
 				  $('input#' +resourceID).iCheck({//manually init each iCheck ele
 				    checkboxClass: 'icheckbox_square-blue',

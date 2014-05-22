@@ -29,7 +29,7 @@ for (var i = 0; i < setList.length; i++) {
 
 var theTrackSet = [{{user.musicCollection.trackSets.list[0].setList}}];//create 'theTrackSet'
 var theTrackSetLen = theTrackSet.length;
-var trackSet = [];//onPage tracks
+var trackSet = [];//ids on the page. Number type
 var trackSetDOMNodes = document.querySelectorAll('li.track');
 var trackSetLen = trackSetDOMNodes.length;
 var inputs = document.querySelectorAll('li.track input');
@@ -53,4 +53,40 @@ for (var i = 0; i < trackSetLen; i++) {//compare and iCheck any that match theTr
 		$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
 	}
 };
+
+
+//if this is the user's TS let them sort...
+	$('.playlist').sortable({//initialize
+		opacity: 0.97,
+		tolerance: "pointer",
+		cursor: 'move',
+		start: function(event, ui) {
+			ui.placeholder.css({visibility: 'visible', background: '#eee'});
+		},
+		update: function(event, ui) {
+			
+			var inputs = document.querySelectorAll('li.track input');
+			var trackSet = [];
+			var trackSetStringified;
+			var username = '{{usersProfile.username}}';
+			var permID = $('#trackSetName').attr('data-permid');
+			for (var i = 0; i < inputs.length; i++) {
+				trackSet.push(parseInt(inputs[i].id));
+			}
+			trackSetStringified = JSON.stringify({trackSet: trackSet});//gotta do this to pass in $.ajax
+			console.log(trackSetStringified);
+			console.log(trackSet);
+			$.ajax({
+				async: false,
+				type: 'POST',
+				url: '/' +username+ '/' +permID,
+				data: trackSetStringified,
+				contentType: 'application/json',
+				success: function(data) {
+				}
+			});
+	  }
+	});
+
+
 </script>

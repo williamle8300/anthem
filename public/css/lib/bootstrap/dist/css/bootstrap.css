@@ -5784,6 +5784,7 @@ li.track .sm2_paused:hover
   clear: both;
   position: relative;
   display: block;
+  height: 120px;
   padding: 0;
   background-color: #ffffff;
   border-bottom: 1px solid #e2e2e2;

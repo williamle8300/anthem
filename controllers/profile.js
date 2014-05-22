@@ -40,20 +40,20 @@ exports.getProfile = function (req, res, next) {
  * Profile page.
  */
 exports.getTrackSet = function (req, res, next) {
+
 	var username = req.params.username;
-	var trackSetName = req.params.trackSet;
-	
+	var trackSetName = req.params.trackSetNameOrPermID;
 	trackSetName = trackSetName.replace(/_/g, ' ');//escape spec chars
 	User.findOne({username: username}, function(err, usersProfile){
     if (err | !usersProfile){
 			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
 			return next(err);
 		}
+
 		var userTrackSets = usersProfile.musicCollection.trackSets.list;
 		var usersProfile = usersProfile;
 		var thisTrackSet = {};
 		var setList = [];
- 
 		thisTrackSet = _.find(userTrackSets, {'name': trackSetName});
 		if (!thisTrackSet) {//trackSetName not found
 			console.log('> 404GET /:username/:trackSet. No "trackSet" at: ' +req.url);
@@ -61,15 +61,31 @@ exports.getTrackSet = function (req, res, next) {
 		};
     usersProfile = {//create the object
       username: usersProfile.username,
-			setList: thisTrackSet.setList//an array of resourceIDs
+			setList: thisTrackSet.setList,//an array of resourceIDs
+			permID: thisTrackSet.permID
     };
     res.render('profile/profileTrackSet.html', {
       app: 'Anthem',
       title: trackSetName,
+			permID: usersProfile.permID,
 			secondTitle: usersProfile.username,
       usersProfile: usersProfile,
       success: req.flash('success'),
       error: req.flash('error')
     });
 	});
+}
+
+/**
+ * GET /:username/:trackSet
+ * Profile page.
+ */
+exports.postTrackSet = function (req, res, next) {
+
+	var username = req.params.username;
+	var permID = req.params.permID;
+	var trackSet = req.body.trackSet;
+	console.log(username, permID);	
+	console.log(trackSet);
+	res.end();
 }

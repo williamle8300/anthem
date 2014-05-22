@@ -10,7 +10,7 @@ list of patrons (ads), and passive rewards(??)
 >	Show hn & Listening Graph
 	show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 ⚑ july 15th
->	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???)
+>	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???), top trackSet(???)
 >	how to do advertising?
 	process stripe payments
 ⚑ sept 15th!
@@ -22,10 +22,6 @@ list of patrons (ads), and passive rewards(??)
 
 	create something to
 		- cut/tape at TS
-		- re-order tracks
-				for "touch" events
-					- https://stackoverflow.com/questions/3026915/how-can-i-make-a-jquery-ui-draggable-div-draggable-for-touchscreen
-					- drag-drop for sorting: http://jqueryui.com/droppable/#photo-manager
 		- quickly switch between trackSets,
 		- or findSongs and play it directly from within a trackSet,
 		- blend 2/MORE trackSets

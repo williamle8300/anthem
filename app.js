@@ -101,7 +101,8 @@ app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userControll
 app.get('/logout', passportConf.isAuthenticated, userController.logout);
 //Profile (must list these last)
 app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
-app.get('/:username/:trackSet', passportConf.isAuthenticated, profileController.getTrackSet);
+app.get('/:username/:trackSetNameOrPermID', passportConf.isAuthenticated, profileController.getTrackSet);
+app.post('/:username/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
 
 //Start-up the app!
 app.listen(app.get('port'), function() {
