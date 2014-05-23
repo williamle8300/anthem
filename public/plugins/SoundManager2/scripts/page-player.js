@@ -563,14 +563,17 @@ function PagePlayer() {
 
     // a sound (or something) was clicked - determine what and handle appropriately
 		console.log(e);//debug
-    if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .exclude
-			//return true;//allowing elements with .exclude
-			console.log('hit an "excluded track"')
-			e = 
-			//jerry rig the next DOM node
-			this.handleClick({target:});
-			
+    if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .skipOver
+			console.log('hit a "skipOver track"')
+			//e = $('a.skipOver').nextAll('a:first');
+			console.log($(e.target));//jerry rig the next DOM node
+			//this.handleClick({target:nextE});//NEXTE IS A JQUERY OBJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//pagePlayer.handleClick({target:$('li a')[7]})
     }
+    if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
+			console.log('hit an "exclude" track')
+			return true;//allowing elements with .exclude
+		}
     if (e.button === 2) { //right-clicks?
       if (!pl.config.allowRightClick) {
         pl.stopEvent(e); //disallow
@@ -620,12 +623,9 @@ function PagePlayer() {
 			sURL = o.getAttribute('href');
 			sID = o.getAttribute('id');
 		
-//	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
-	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable'))) {
-
+	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
 	      // do nothing, don't return anything.
 	      return true;
-
 	    } else {
 
 	      // we have something we're interested in.

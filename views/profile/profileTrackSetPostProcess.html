@@ -79,8 +79,6 @@ if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let so
 				setList.push(parseInt(inputs[i].id));
 			}
 			setListStringified = JSON.stringify({setList: setList});//gotta do this to pass in $.ajax
-			console.log(setListStringified);
-			console.log(setList);
 			$.ajax({
 				async: false,
 				type: 'POST',
