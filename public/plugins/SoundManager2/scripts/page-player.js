@@ -564,11 +564,13 @@ function PagePlayer() {
     // a sound (or something) was clicked - determine what and handle appropriately
 		console.log(e);//debug
     if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .skipOver
-			console.log('hit a "skipOver track"')
-			//e = $('a.skipOver').nextAll('a:first');
-			console.log($(e.target));//jerry rig the next DOM node
-			//this.handleClick({target:nextE});//NEXTE IS A JQUERY OBJECT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			//pagePlayer.handleClick({target:$('li a')[7]})
+			$(e.target).addClass('Qd');//.skipOver is .Qd (queued)
+			var indexQd = $('.playlist li:has(a.Qd)').index();
+			var indexNext = indexQd + 1;//get the next from queued
+			
+			pagePlayer.handleClick({target:$('li a')[indexNext]});//simulate click
+			$('.Qd').removeClass('Qd');//remove all instances of .Qd
+			return true;
     }
     if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
 			console.log('hit an "exclude" track')

@@ -24,7 +24,7 @@ list of patrons (ads), and passive rewards(??)
 		- cut/tape at TS
 		- edit trackSet name
 		- quickly switch between trackSets,
-		- or findSongs and play it directly from within a trackSet,
+		- findSongs and play it directly from within a trackSet,
 		- shuffle play! w000! aw jea
 		- blend 2/MORE trackSets??????
 
