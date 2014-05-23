@@ -2,7 +2,8 @@
 	'soundManager'
 	'pagePlayer'
 	are the main objects
-$($('li a')[1]).addClass('exclude')
+$($('li a')[1]).addClass('exclude');
+pagePlayer.handleClick({target:$('li a')[4]});
 */
 
 /*
@@ -306,7 +307,7 @@ function PagePlayer() {
     if (o.nodeName.toLowerCase() !== 'li') {
       return null;
     } else {
-      return o.getElementsByTagName('a')[0];
+      return o.getElementsByTagName('a')[0];//the first anchor in the li
     }
   };
 
@@ -562,9 +563,13 @@ function PagePlayer() {
 
     // a sound (or something) was clicked - determine what and handle appropriately
 		console.log(e);//debug
-    if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
-			self.playNext();
-      //return true;//allowing elements with .exclude
+    if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .exclude
+			//return true;//allowing elements with .exclude
+			console.log('hit an "excluded track"')
+			e = 
+			//jerry rig the next DOM node
+			this.handleClick({target:});
+			
     }
     if (e.button === 2) { //right-clicks?
       if (!pl.config.allowRightClick) {
