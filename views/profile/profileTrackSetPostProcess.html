@@ -54,8 +54,13 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 	}
 };
 
+if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let cut & tape tracks
+	//var toggleDelete = true;
+	//get .selected
+	//
+}
 
-if ('{{usersProfile.username}}' == '{{user.username}}') {//if user's TS, let sort tracks
+if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let sort tracks
 	$('.playlist').sortable({//initialize
 		opacity: 0.97,
 		tolerance: "pointer",
@@ -88,5 +93,6 @@ if ('{{usersProfile.username}}' == '{{user.username}}') {//if user's TS, let sor
 	  }
 	});
 }
+
 
 </script>

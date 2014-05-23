@@ -64,6 +64,8 @@ list of patrons (ads), and passive rewards(??)
 	make it live. buy domain, privatize Github repo, etcetera...
 	"Who are they??" ShowHN weapon Xs: Look for the 3 people that will help get from web-mobile-desktop-SHOWHN – propa'!
 
+	implement more visual feedback ('loading...')
+
 	DOWNLOAD?? RADIO LINKS ONLY??
 
 	progress buttons: http://tympanus.net/Development/ProgressButtonStyles/

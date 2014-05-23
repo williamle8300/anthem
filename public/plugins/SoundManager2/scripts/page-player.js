@@ -1,6 +1,15 @@
-/**
+/*
+	'soundManager'
+	'pagePlayer'
+	are the main objects
+$($('li a')[1]).addClass('exclude')
+*/
+
+/*
 Modified at line 581
-**/
+	playNext
+	playTrack
+*/
 
 /**
  * SoundManager 2 Demo: "Page as playlist" UI
@@ -406,11 +415,11 @@ function PagePlayer() {
         var oTemp = this._data.oLI.getElementsByTagName('a')[0],
             oString = oTemp.innerHTML,
             oThis = this;
-        oTemp.innerHTML = oString+' <span style="font-size:0.5em"> | Load failed, d\'oh! '+(sm.sandbox.noRemote?' Possible cause: Flash sandbox is denying remote URL access.':(sm.sandbox.noLocal?'Flash denying local filesystem access':'404?'))+'</span>';
+        oTemp.innerHTML = oString+' <span style="font-size:0.5em"> Load failed '+(sm.sandbox.noRemote?' Possible cause: Flash sandbox is denying remote URL access.':(sm.sandbox.noLocal?'Flash denying local filesystem access':' 404'))+'</span>';
         setTimeout(function(){
           oTemp.innerHTML = oString;
           pl.events.finish.apply(oThis); // load next
-        },5000);
+        }, 0);
       } else {
         if (this._data.metadata) {
           this._data.metadata.refresh();
@@ -554,7 +563,8 @@ function PagePlayer() {
     // a sound (or something) was clicked - determine what and handle appropriately
 		console.log(e);//debug
     if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
-      return true;//allowing elements with .exclude
+			self.playNext();
+      //return true;//allowing elements with .exclude
     }
     if (e.button === 2) { //right-clicks?
       if (!pl.config.allowRightClick) {
@@ -605,7 +615,8 @@ function PagePlayer() {
 			sURL = o.getAttribute('href');
 			sID = o.getAttribute('id');
 		
-	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
+//	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
+	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable'))) {
 
 	      // do nothing, don't return anything.
 	      return true;
