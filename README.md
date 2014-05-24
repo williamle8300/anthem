@@ -20,32 +20,32 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 
 ### Basic Features (Everything up to 'Signals')
 
+
 	create a visual calender till July 15th!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	create something to
 		- cut/tape at TS
 		- edit trackSet name
+		- shuffle play! w000! aw jea (just... Math.floor(.Qd))
 		- BLEND 2/MORE TRACKSETS????
 		- QUICKLY SWITCH BETWEEN TRACKSETS,
 		- FINDSONGS AND PLAY IT DIRECTLY FROM WITHIN A TRACKSET, (SEARCH WITHIN TS, GLOBAL TS SEARCHING)
-		- shuffle play! w000! aw jea (just... Math.floor(.Qd))
 
 	take notes somehow? make a request for a missing track?
 
 	phantom SoundCloud should be better. Way better. http://karan.github.io/scInstant/
 
-	ATTACK THE OVERLAY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	• filtering-by-typing
 	• ordering by p/m OR no particular ordering for trackSets?
 	• highlight when 1-to-1 typed match, flip 'submit' button
 	• glowing/altering button
 	• last typed trackSet in inputbox
 	====
-	• add-to-trackset: allow multiselect
-	• new trackset/clone
-	• set/deset
+	• set/deset track
+	• new trackSet/clone trackSet
+	• add-to-trackSet: allow multiselect!
 
-	redesign the usersProfile page
+	redesign the usersProfileindex page
 		more tracks, darker the color for trackSet
 		circular?
 

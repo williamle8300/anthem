@@ -27,7 +27,7 @@ for (var i = 0; i < setList.length; i++) {
 	});
 }
 
-var theTrackSet = [{{user.musicCollection.trackSets.list[0].setList}}];//create 'theTrackSet'
+var theTrackSet = [{{user.musicCollection.trackSets.list[0].setList}}];//'theTrackSet' (used for comparison)
 var theTrackSetLen = theTrackSet.length;
 var setList = [];//ids on the page. Number type
 var setListDOMNodes = document.querySelectorAll('li.track');
@@ -37,9 +37,10 @@ var inputs = document.querySelectorAll('li.track input');
 for (var i = 0; i < setListLen; i++) {//setList
 	setList.push(parseInt(inputs[i].id));
 }
-for (var i = 0; i < setListLen; i++) {//put encodedobjhtml into li.track input[i]
+for (var i = 0; i < setListLen; i++) {//flash encodedobjhtml into li.track input[i]
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(setListDOMNodes.item(i).outerHTML.toString());
 }
+$('li.track a input').attr('data-permid', 0);//flash permID into track
 $(inputs).iCheck({//instantiate iCheck
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%',
@@ -53,31 +54,43 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 		$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
 	}
 };
-
-function cutAndTape() {
+function cutAndTape(e) {//e is the event
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
-		var toggleDelete = true;
-		//get .selected
-		//if (toggleDelete) {
-			//delete from trackSet
-				//success
-					//addClass('skipOver')
-					//toggleDelete = false
-		//}
-		//else {//toggleDelete is 'false'; add to TS
-			//get .selected, and their indexes
-			//API: postTrackSet
-				//success
-					//$('.selected.skipOver').removeClass('skipOver')
-					//toggleDelete = true;
-		//}
+		var toggle = true;
+		var selectedLength = $('.selected').length;
+		
+		if (selectedLength > 0) {
+			e.preventDefault();//prevent nav back in when a T in your own TS is selected
+			if (toggle) {
+				var selectedTracks = []
+				for each push id&permID into selectedTracks and call this on it indiviaully....
+					$.ajax({//delete from trackSet
+						async: false,
+						type: 'POST',
+						url: '/' +username+ '/sort/' +permID,
+						data: setListStringified,
+						contentType: 'application/json',
+						success: function(data) {
+							//addClass('skipOver')
+						}
+					});
+				toggle = false
+			}
+			//else {//toggle is 'false'; add to TS
+				//get .selected, and their indexes
+				//API: postTrackSet
+					//success
+						//$('.selected.skipOver').removeClass('skipOver')
+						//toggle = true;
+			//}
+		}
 	}
 }
 
 if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let SORT tracks
 	$('.playlist').sortable({//initialize
 		opacity: 0.97,
-		tolerance: "pointer",
+		tolerance: 'pointer',
 		cursor: 'move',
 		start: function(event, ui) {
 			ui.placeholder.css({visibility: 'visible', background: '#eee'});

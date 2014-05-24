@@ -48,9 +48,8 @@ $(window).bind('keydown', function(e) {
 		}
 		if (keyInfo.code === 8) {//DELETE button
 			if (cutAndTape) {
-				cutAndTape();
+				cutAndTape(e);
 			}
-			e.preventDefault();
 			return false;
 		}
 		if (keyInfo.code === 51 && keyInfo.shiftKey) {//'?' shows shortcuts
@@ -58,13 +57,4 @@ $(window).bind('keydown', function(e) {
 		}
 	}
 });
-//$(window).bind('keydown', function(e) {
-//	var keyInfo = keyCodeInfo(e);
-//	if (!keyInfo.shortcut && !keyInfo.textarea) {
-//		if (keyInfo.code === 32) {//prevents 'spacebar' scrolls
-//			e.preventDefault();
-//			return false;
-//		}
-//	}
-//});
 </script>
