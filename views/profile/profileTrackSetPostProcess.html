@@ -1,6 +1,5 @@
 
 <script type="text/javascript" charset="utf-8">
-
 /**
  * Accesses cachedTrackObj(DB) and appends results .playlist
  *
@@ -54,35 +53,32 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 		$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
 	}
 };
+var toggle = true;//DELETE button (global)
+
 function cutAndTape(e) {//e is the event
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
-		var toggle = true;
 		var selectedLength = $('.selected').length;
+		var hopper = {};
 		
-		if (selectedLength > 0) {
-			e.preventDefault();//prevent nav back in when a T in your own TS is selected
+		if (selectedLength > 0) {//toggle is 'true'; CUT from TS
+			e.preventDefault();//no back nav
 			if (toggle) {
-				var selectedTracks = []
-				for each push id&permID into selectedTracks and call this on it indiviaully....
-					$.ajax({//delete from trackSet
-						async: false,
-						type: 'POST',
-						url: '/' +username+ '/sort/' +permID,
-						data: setListStringified,
-						contentType: 'application/json',
-						success: function(data) {
-							//addClass('skipOver')
-						}
-					});
-				toggle = false
+				toggle = false;
 			}
-			//else {//toggle is 'false'; add to TS
-				//get .selected, and their indexes
-				//API: postTrackSet
-					//success
-						//$('.selected.skipOver').removeClass('skipOver')
-						//toggle = true;
-			//}
+			else {//toggle is 'false'; TAPE to TS
+				$('li a input').each(function(i){//all tracks
+					var thisPermID = $(this).attr('data-permid');
+					var thisTrack = $(this).attr('data-id');
+					
+					if(!hopper[thisPermID]){//!thisPermID gets coerced toString()
+						hopper[thisPermID] = [];
+					}
+					hopper[thisPermID].push(thisTrack);//push each track\s permID&id to
+				});
+				console.log(hopper);
+				console.log('taped!');
+				toggle = true;
+			}
 		}
 	}
 }
