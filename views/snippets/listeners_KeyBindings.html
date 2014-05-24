@@ -1,5 +1,5 @@
 <script type="text/javascript" charset="utf-8"> //keybindings to control SoundManager. deps: jQ
-var keyInfo;
+var keyInfo;//GLOBAL
 $(document).bind('keyup', 'alt', function(){//inverse .selected
 		var tracks = $('li.track a');
 		$.each(tracks, function (i, track) {
@@ -21,19 +21,19 @@ window.keyCodeInfo = function(e) {
 $(window).bind('keydown', function(e) {
 	keyInfo = keyCodeInfo(e);
 	if (!keyInfo.shortcut && !keyInfo.textarea) {
-		if (keyInfo.code == 191 && keyInfo.shiftKey) {
+		if (keyInfo.code === 191 && keyInfo.shiftKey) {
 			//toggleShowKeyboardShortcuts();
 			return false;
 		}
-		if (keyInfo.code == 39) {//'right arrow' ==/> next track
+		if (keyInfo.code === 39) {//RIGHT ARROW
 			pagePlayer.playNext();
 			return false;
 		}
-		if (keyInfo.code == 37) {//'left arrow' </== previous track
+		if (keyInfo.code === 37) {//LEFT ARROW
 			pagePlayer.playPrevious();
 			return false;
 		}
-		if (keyInfo.code == 32) {//'space bar' toggle play-pause
+		if (keyInfo.code === 32) {//SPACE BAR
 			var playingTrack = $('li.sm2_playing a, li.sm2_paused a').attr('id');
 			if(playingTrack){
 				soundManager.togglePause(playingTrack);
@@ -46,12 +46,14 @@ $(window).bind('keydown', function(e) {
 			}
 			return false;
 		}
-		if (keyInfo.code == 51 && keyInfo.shiftKey) {//'?' shows shortcuts
+		if (keyInfo.code === 8) {//DELETE button
+			if (cutAndTape) {
+				cutAndTape();
+			}
+			e.preventDefault();
 			return false;
 		}
-		if (keyInfo.code == 8) {
-			cutAndTape();
-			e.preventDefault();
+		if (keyInfo.code === 51 && keyInfo.shiftKey) {//'?' shows shortcuts
 			return false;
 		}
 	}
@@ -59,7 +61,7 @@ $(window).bind('keydown', function(e) {
 //$(window).bind('keydown', function(e) {
 //	var keyInfo = keyCodeInfo(e);
 //	if (!keyInfo.shortcut && !keyInfo.textarea) {
-//		if (keyInfo.code == 32) {//prevents 'spacebar' scrolls
+//		if (keyInfo.code === 32) {//prevents 'spacebar' scrolls
 //			e.preventDefault();
 //			return false;
 //		}
