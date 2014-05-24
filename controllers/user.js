@@ -206,9 +206,12 @@ exports.desetResource = function(req, res, next) {
 
 
 /**
- * GET /:username/sort/:permID
- * req.body.setList!!!
- * Profile page.
+ * POST /:username/sort/:permID
+	 * @param {array} setList
+ * POST /:username/newTrackSet/:permID
+	 * @param {array} setList
+ * POST /:username/addToTrackSet/:permID
+	 * @param {number} setList
  */
 exports.postTrackSet = function (req, res, next) {
 

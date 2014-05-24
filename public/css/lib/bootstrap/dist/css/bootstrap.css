@@ -5837,6 +5837,10 @@ li.track .sm2_paused:hover
 .playlist li.track.sm2_paused {
   background-color: #f9f9f9;
 }
+a.skipOver {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
 /*begin specific styles*/
 .sm2_link + div {
   width: 66.66666666666%;

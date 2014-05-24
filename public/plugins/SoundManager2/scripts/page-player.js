@@ -566,9 +566,17 @@ function PagePlayer() {
     if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .skipOver
 			$(e.target).addClass('Qd');//.skipOver is .Qd (queued)
 			var indexQd = $('.playlist li:has(a.Qd)').index();
-			var indexNext = indexQd + 1;//get the next from queued
+			var indexPrevious;
+			var indexNext;
 			
-			pagePlayer.handleClick({target:$('li a')[indexNext]});//simulate click
+			if (keyInfo.code === 37){//left arrow key; global var made at listeners_KeyBindings.html
+				indexPrevious = indexQd - 1;//get the previous from queued
+				pagePlayer.handleClick({target:$('li a')[indexPrevious]});//simulate click
+			}
+			if (keyInfo.code === 39) {//right arrow key
+				indexNext = indexQd + 1;//get the next from queued				
+				pagePlayer.handleClick({target:$('li a')[indexNext]});//simulate click
+			}
 			$('.Qd').removeClass('Qd');//remove all instances of .Qd
 			return true;
     }
@@ -626,8 +634,7 @@ function PagePlayer() {
 			sID = o.getAttribute('id');
 		
 	    if (!o.href || (!sm.canPlayLink(o) && !self.hasClass(o,'playable')) || self.hasClass(o,'exclude')) {
-	      // do nothing, don't return anything.
-	      return true;
+	      return true;// do nothing, don't return anything.
 	    } else {
 
 	      // we have something we're interested in.

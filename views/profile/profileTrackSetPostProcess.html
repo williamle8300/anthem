@@ -54,13 +54,27 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 	}
 };
 
-if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let cut & tape tracks
-	//var toggleDelete = true;
-	//get .selected
-	//
+function cutAndTape() {
+	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
+		var toggleDelete = true;
+		//get .selected
+		//if (toggleDelete) {
+			//delete from trackSet
+				//success
+					//addClass('skipOver')
+					//toggleDelete = false/
+		//}
+		//else {//toggleDelete is 'false'; add to TS
+			//get .selected, and their indexes
+			//API: postTrackSet
+				//success
+					//$('.selected.skipOver').removeClass('skipOver')
+					//toggleDelete = true;
+		//}
+	}
 }
 
-if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let sort tracks
+if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let SORT tracks
 	$('.playlist').sortable({//initialize
 		opacity: 0.97,
 		tolerance: "pointer",
@@ -91,6 +105,4 @@ if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let so
 	  }
 	});
 }
-
-
 </script>

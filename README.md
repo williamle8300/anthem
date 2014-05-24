@@ -2,6 +2,8 @@ I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EA
 "IF SOMEONE MADE THIS, I WOULD: *USE IT* AND SUPPORT WITH *ONLINE DONATIONS* IN EXCHANGE FOR *WHATEVER PASSIVE REWARDS*"
 list of patrons (ads), and passive rewards(??)
 
+awesome making ! - awesome enjoying of ! - awesome sharing of !
+
 # Schedule
 
 ⚑ may 15th
@@ -18,15 +20,17 @@ list of patrons (ads), and passive rewards(??)
 
 ### Basic Features (Everything up to 'Signals')
 
-	just slap it all together. one day DOOD.
+	create a visual calender till July 15th!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	create something to
 		- cut/tape at TS
 		- edit trackSet name
-		- quickly switch between trackSets,
-		- findSongs and play it directly from within a trackSet,
-		- shuffle play! w000! aw jea
-		- blend 2/MORE trackSets??????
+		- BLEND 2/MORE TRACKSETS????
+		- QUICKLY SWITCH BETWEEN TRACKSETS,
+		- FINDSONGS AND PLAY IT DIRECTLY FROM WITHIN A TRACKSET, (SEARCH WITHIN TS, GLOBAL TS SEARCHING)
+		- shuffle play! w000! aw jea (just... Math.floor(.Qd))
+
+	take notes somehow? make a request for a missing track?
 
 	phantom SoundCloud should be better. Way better. http://karan.github.io/scInstant/
 
