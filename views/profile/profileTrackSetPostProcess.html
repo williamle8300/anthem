@@ -12,7 +12,7 @@
  * then does the appropriate iChecks
 **/
 
-var setList = [{{usersProfile.setList}}]
+var setList = [{{setList}}]
 	
 for (var i = 0; i < setList.length; i++) {
 	var resourceID = setList[i].toString();
@@ -39,6 +39,7 @@ for (var i = 0; i < setListLen; i++) {//setList
 for (var i = 0; i < setListLen; i++) {//flash encodedobjhtml into li.track input[i]
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(setListDOMNodes.item(i).outerHTML.toString());
 }
+$('li.track a input').attr('data-permid', 0);//flash permID into track
 $(inputs).iCheck({//instantiate iCheck
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%',
@@ -52,48 +53,39 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 		$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
 	}
 };
-var toggle = true;//DELETE button (global)
-var permID = $('#trackSetName').attr('data-permid');
-
-$('li.track a').attr('data-permid', permID);//flash data-permid into track
-$('li.track a').each(function(i){//flash data-id into track
-	$(this).attr('data-id', ($(this).attr('id').replace('track', '')));
+$('li.track a').each(function(){//serialize each with 'data-id,' and 'data-permid'
+	$(this).attr('data-id', $(this).attr('id').replace('track', ''));
+	$(this).attr('data-permid', {{permID}});
 });
+var toggle = true;//DELETE button (global)
 
 function cutAndTape(e) {//e is the event
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
 		var selectedLength = $('.selected').length;
-		var hopper = {};
 		
-		if (selectedLength > 0) {
+		if (selectedLength > 0) {//at least one track's .selected
 			e.preventDefault();//no back nav
 			if (toggle) {//CUT from TS
+				$('li.track a').each(function(i){
+					console.clear();
+					console.log('CUT');
+					if($(this).is(":not(.skipOver)") || $(this).hasClass('selected')){
+						//push all to setList
+						//ajax
+						//done
+					}
+				});
 				toggle = false;
 			}
 			else {//TAPE to TS
-				$('li a input').each(function(i){//all tracks
-					var thisPermID = $(this).attr('data-permid');
-					var thisTrack = $(this).attr('data-id');
-					
-					if(!hopper[thisPermID]){//!thisPermID gets coerced toString()
-						hopper[thisPermID] = [];
+				$('li.track a').each(function(i){
+					console.clear();
+					console.log('TAPE');
+					if($(this).is(":not(.skipOver)") || $(this).hasClass('selected')){
+						//push
+						//done
 					}
-					hopper[thisPermID].push(thisTrack);//push each track\s permID&id to
 				});
-				console.log('Tape!: ', hopper);
-				for(var permID in hopper){
-					//get all 
-					//prune .skipOver
-					//save complete setList
-				}
-				
-				
-				//go over li.track a indiv
-				//	ajax call if UNDERCRITERIA
-				//	else {return true;}
-				
-										
-				hopper = null;
 				toggle = true;
 			}
 		}

@@ -61,15 +61,14 @@ exports.getTrackSet = function (req, res, next) {
 		};
     usersProfile = {//create the object
       username: usersProfile.username,
-			setList: thisTrackSet.setList,//an array of resourceIDs
-			permID: thisTrackSet.permID
     };
     res.render('profile/profileTrackSet.html', {
       app: 'Anthem',
       title: trackSetName,
-			permID: usersProfile.permID,
 			secondTitle: usersProfile.username,
       usersProfile: usersProfile,
+			permID: thisTrackSet.permID,
+			setList: thisTrackSet.setList,//an array of resourceIDs
       success: req.flash('success'),
       error: req.flash('error')
     });
