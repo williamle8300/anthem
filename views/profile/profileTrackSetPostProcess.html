@@ -53,9 +53,11 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 		$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
 	}
 };
-$('li.track a').each(function(){//serialize each with 'data-id,' and 'data-permid'
-	$(this).attr('data-id', $(this).attr('id').replace('track', ''));
-	$(this).attr('data-permid', {{permID}});
+$('li.track a').each(function(i){//serialize each with 'data-id,' and 'data-permid'
+	var track = $(this);
+
+	track.attr('data-id', track.attr('id').replace('track', ''));
+	track.attr('data-permid', {{permID}});
 });
 var toggle = true;//DELETE button (global)
 
@@ -66,28 +68,29 @@ function cutAndTape(e) {//e is the event
 		if (selectedLength > 0) {//at least one track's .selected
 			e.preventDefault();//no back nav
 			if (toggle) {//CUT from TS
+				console.clear();
+				console.log('CUT');
 				$('li.track a').each(function(i){
-					console.clear();
-					console.log('CUT');
-					if($(this).is(":not(.skipOver)") || $(this).hasClass('selected')){
-						//push all to setList
-						//ajax
-						//done
+					var track = $(this);
+					if(track.hasClass('selected') || track.hasClass('skipOver')){
+						return true;
+					}
+					else {
+						console.log(track.attr('data-permid'), track.attr('data-id'));
 					}
 				});
-				toggle = false;
 			}
 			else {//TAPE to TS
+				console.clear();
+				console.log('TAPE');
 				$('li.track a').each(function(i){
-					console.clear();
-					console.log('TAPE');
-					if($(this).is(":not(.skipOver)") || $(this).hasClass('selected')){
-						//push
-						//done
-					}
+					var track = $(this);
+					if(track.is(":not(.skipOver)") || track.hasClass('selected')){
+						console.log(track.attr('data-permid'), track.attr('data-id'));
+ 					}
 				});
-				toggle = true;
 			}
+			toggle = !toggle;//flip toggle
 		}
 	}
 }
