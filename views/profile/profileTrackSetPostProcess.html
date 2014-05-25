@@ -39,7 +39,6 @@ for (var i = 0; i < setListLen; i++) {//setList
 for (var i = 0; i < setListLen; i++) {//flash encodedobjhtml into li.track input[i]
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(setListDOMNodes.item(i).outerHTML.toString());
 }
-$('li.track a input').attr('data-permid', 0);//flash permID into track
 $(inputs).iCheck({//instantiate iCheck
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%',
@@ -54,18 +53,24 @@ for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTra
 	}
 };
 var toggle = true;//DELETE button (global)
+var permID = $('#trackSetName').attr('data-permid');
+
+$('li.track a').attr('data-permid', permID);//flash data-permid into track
+$('li.track a').each(function(i){//flash data-id into track
+	$(this).attr('data-id', ($(this).attr('id').replace('track', '')));
+});
 
 function cutAndTape(e) {//e is the event
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
 		var selectedLength = $('.selected').length;
 		var hopper = {};
 		
-		if (selectedLength > 0) {//toggle is 'true'; CUT from TS
+		if (selectedLength > 0) {
 			e.preventDefault();//no back nav
-			if (toggle) {
+			if (toggle) {//CUT from TS
 				toggle = false;
 			}
-			else {//toggle is 'false'; TAPE to TS
+			else {//TAPE to TS
 				$('li a input').each(function(i){//all tracks
 					var thisPermID = $(this).attr('data-permid');
 					var thisTrack = $(this).attr('data-id');
@@ -75,8 +80,20 @@ function cutAndTape(e) {//e is the event
 					}
 					hopper[thisPermID].push(thisTrack);//push each track\s permID&id to
 				});
-				console.log(hopper);
-				console.log('taped!');
+				console.log('Tape!: ', hopper);
+				for(var permID in hopper){
+					//get all 
+					//prune .skipOver
+					//save complete setList
+				}
+				
+				
+				//go over li.track a indiv
+				//	ajax call if UNDERCRITERIA
+				//	else {return true;}
+				
+										
+				hopper = null;
 				toggle = true;
 			}
 		}
