@@ -68,12 +68,11 @@ function cutAndTape(e) {//e is the event
 		if (selectedLength > 0) {//at least one track's .selected
 			e.preventDefault();//no back nav
 			if (toggle) {//CUT from TS
-				console.clear();
-				console.log('CUT');
+				console.clear(); console.log('CUT');
 				$('li.track a').each(function(i){
 					var track = $(this);
 					if(track.hasClass('selected') || track.hasClass('skipOver')){
-						return true;
+						return true;//equiv to for-loop's continue statement. don't push this track
 					}
 					else {
 						console.log(track.attr('data-permid'), track.attr('data-id'));
@@ -81,8 +80,7 @@ function cutAndTape(e) {//e is the event
 				});
 			}
 			else {//TAPE to TS
-				console.clear();
-				console.log('TAPE');
+				console.clear(); console.log('TAPE');
 				$('li.track a').each(function(i){
 					var track = $(this);
 					if(track.is(":not(.skipOver)") || track.hasClass('selected')){

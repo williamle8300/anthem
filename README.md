@@ -27,9 +27,9 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 		- cut/tape at TS
 		- edit trackSet name
 		- shuffle play! w000! aw jea (just... Math.floor(.Qd))
+		- FINDSONGS AND PLAY IT DIRECTLY FROM WITHIN A TRACKSET, (SEARCH WITHIN TS, GLOBAL TS SEARCHING)
 		- BLEND 2/MORE TRACKSETS????
 		- QUICKLY SWITCH BETWEEN TRACKSETS,
-		- FINDSONGS AND PLAY IT DIRECTLY FROM WITHIN A TRACKSET, (SEARCH WITHIN TS, GLOBAL TS SEARCHING)
 
 	take notes somehow? make a request for a missing track?
 
