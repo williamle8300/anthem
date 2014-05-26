@@ -1,121 +1,104 @@
-//'user' actions
+//'usersProfile' actions
 
 var mongoose = require('mongoose');
 var passport = require('passport');
-var _ = require('lodash');
 var User = require('../models/User');
+var _ = require('lodash');
 
 /**
- * GET /settings
- * User settings.
+ * GET /:username
+ * Profile page.
  */
+exports.getProfile = function (req, res, next) {
+  var username = req.params.username;
 
-exports.getSettings = function(req, res) {
-  res.render('user/settings.html', {
-    app: 'Anthem',
-    title: 'Settings',
-    success: req.flash('success'),
-    error: req.flash('error')
-  });
-};
-
-/**
- * POST /settings/profile
- * Update profile information.
- */
-exports.postUpdateProfile = function(req, res, next) {
-  User.findById(req.user.id, function(err, user) {
-    if (err) return next(err);
-
-    user.email = req.body.email || '';
-    user.username = req.body.username || '';
-    user.profile.name = req.body.name || '';
-    user.profile.gender = req.body.gender || '';
-    user.profile.website = req.body.website || '';
-
-    user.save(function(err) {
-      if (err) return next(err);
-      req.flash('success', 'Profile information updated.');
-      res.redirect('/settings');
+  User.findOne({username: username}, function(err, usersProfile) {
+    if (!usersProfile) return next(err);
+		var allTrackSets = usersProfile.musicCollection.trackSets.list;
+				
+		allTrackSets = _.forEach(allTrackSets, function(trackSet) {//!TEMP manually create 'nameChunk' property
+			trackSet.nameChunk = trackSet.name.replace(/ /g, '_');
+		});
+    var usersProfile = {
+      username: usersProfile.username,
+			allTrackSets: allTrackSets
+    };
+		
+    res.render('profile/profileIndex.html', {
+      app: 'Anthem',
+      title: 'musicCollection',
+			secondTitle: usersProfile.username,
+      usersProfile: usersProfile,
+      success: req.flash('success'),
+      error: req.flash('error')
     });
   });
 };
 
 /**
- * POST /settings/password
- * Update current password.
- * @param {string} password
+ * GET /:username/:trackSet
+ * Profile page.
  */
+exports.getTrackSet = function (req, res, next) {
 
-exports.postUpdatePassword = function(req, res, next) {
-  if (!req.body.password) {
-    req.flash('error', 'Password cannot be blank.');
-    return res.redirect('/settings');
-  }
+	var username = req.params.username;
+	var trackSetIdentifier = req.params.trackSetIdentifier;
+	trackSetIdentifier = trackSetIdentifier.replace(/_/g, ' ');//escape spec chars
+	User.findOne({username: username}, function(err, usersProfile){
+    if (err | !usersProfile){
+			console.log('> 404GET /:username/:trackSet. No "username" at: ' +req.url);
+			return next(err);
+		}
 
-  if (req.body.password !== req.body.confirmPassword) {
-    req.flash('error', 'Passwords do not match.');
-    return res.redirect('/settings');
-  }
-
-  User.findById(req.user.id, function(err, user) {
-    if (err) return next(err);
-
-    user.password = req.body.password;
-
-    user.save(function(err) {
-      if (err) return next(err);
-      req.flash('success', 'Password has been changed.');
-      res.redirect('/settings');
+		var userTrackSets = usersProfile.musicCollection.trackSets.list;
+		var usersProfile = usersProfile;
+		var thisTrackSet = {};
+		var setList = [];
+		thisTrackSet = _.find(userTrackSets, {'name': trackSetIdentifier});
+		if (!thisTrackSet) {//TS not found
+			console.log('> 404GET /:username/:trackSet. No "trackSet" at: ' +req.url);
+			return next(err);
+		};
+    usersProfile = {//create the object
+      username: usersProfile.username,
+    };
+    res.render('profile/profileTrackSet.html', {
+      app: 'Anthem',
+      title: trackSetIdentifier,
+			secondTitle: usersProfile.username,
+      usersProfile: usersProfile,
+			permID: thisTrackSet.permID,
+			setList: thisTrackSet.setList,//an array of resourceIDs
+      success: req.flash('success'),
+      error: req.flash('error')
     });
-  });
-};
+	});
+}
 
 /**
- * POST /settings/delete
- * Delete user account.
- * @param {string} id
+ * POST /postTrackSet/:username/:permID
+ * @param {array} setList
  */
+exports.postTrackSet = function (req, res, next) {
+	var usersUsername = req.params.username;
+	var permID = parseInt(req.params.permID);
+	var setList = req.body.setList;
 
-exports.postDeleteAccount = function(req, res, next) {
-  User.remove({ _id: req.user.id }, function(err) {
-    if (err) return next(err);
-    req.logout();
-    res.redirect('/');
-  });
-};
-
-/**
- * GET /settings/unlink/:provider
- * Unlink OAuth2 provider from the current user.
- * @param {string} provider
- * @param {string} id
- */
-
-exports.getOauthUnlink = function(req, res, next) {
-  var provider = req.params.provider;
-  User.findById(req.user.id, function(err, user) {
-    if (err) return next(err);
-
-    user[provider] = undefined;
-    user.tokens = _.reject(user.tokens, function(token) { return token.kind === provider; });
-
-    user.save(function(err) {
-      if (err) return next(err);
-      res.redirect('/settings');
-    });
-  });
-};
-
-/**
- * GET /logout
- * Log out.
- */
-
-exports.logout = function(req, res) {
-  req.logout();
-  res.redirect('/');
-};
+  User.findById(req.user.id, function(err, userObj) {
+		if (usersUsername === userObj.username) {//actually same user?
+			
+			var userTrackSets = userObj.musicCollection.trackSets.list;
+			var thisTrackSet = {};
+			thisTrackSet = _.find(userTrackSets, {'permID': permID});//find TS by permID (LD)
+			thisTrackSet.setList = setList;//init new setList
+			userObj.markModified('musicCollection');//REQUIRED!
+			userObj.save(function(err) {
+			  if (err) return next(err);
+				res.send(200);//resource removed
+			});
+		}
+	});
+}
 
 /**
  * POST /set/:resourceID
@@ -156,18 +139,18 @@ exports.desetResource = function(req, res, next) {
 };
 
 ///**
-// * POST /save/:resourceID/:trackSet
+// * POST /pushToTrackSet/:username/:permID/:resourceID
 // * save to a trackSet
 // */
 //exports.saveResource = function(req, res, next){
 //  User.findById(req.user.id, function(err, userObj) {
 //		var resourceID = parseInt(req.params.resourceID);
-//		var trackSet = req.params.trackSet;
+//		var permID = req.params.permID;
 //		var userTrackSets = userObj.musicCollection.trackSets.list;
 //		var thisTrackSet = {};
 //
 //    if (err) return next(err);
-//		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
+//		thisTrackSet = _.find(userTrackSets, {'name': permID});
 //		thisTrackSet.setList.unshift(resourceID);
 //		userObj.markModified('musicCollection');//REQUIRED
 //    userObj.save(function(err) {
@@ -178,20 +161,20 @@ exports.desetResource = function(req, res, next) {
 //};
 //
 ///**
-// * POST /remove/:resourceID/:trackSet
+// * POST /pullFromTrackSet/:username/:permID/:resourceID
 // * remove from a trackSet
 // */
 //exports.removeResource = function(req, res, next) {
 //  User.findById(req.user.id, function(err, userObj) {
 //		if(err) return next(err);
 //		var resourceID = parseInt(req.params.resourceID);
-//		var trackSet = req.params.trackSet;
+//		var permID = req.params.permID;
 //		var userTrackSets = userObj.musicCollection.trackSets.list;
 //		var thisTrackSet = {};
 //
-//		thisTrackSet = _.find(userTrackSets, {'name': trackSet});
+//		thisTrackSet = _.find(userTrackSets, {'name': permID});
 //		if (!thisTrackSet) {//trackSet not found
-//			console.log('> 404POST remove/:resourceID/:trackSet. No "trackSet" at: ' +req.url);
+//			console.log('> 404POST remove/:resourceID/:permID. No "trackSet" at: ' +req.url);
 //			return next(err);
 //		};
 //		
@@ -203,33 +186,3 @@ exports.desetResource = function(req, res, next) {
 //		});
 //	});
 //};
-
-
-/**
- * POST /:username/sort/:permID
-	 * @param {array} setList
- * POST /:username/newTrackSet/:permID
-	 * @param {array} setList
- * POST /:username/addToTrackSet/:permID
-	 * @param {number} setList
- */
-exports.postTrackSet = function (req, res, next) {
-
-	var usersUsername = req.params.username;
-	var permID = parseInt(req.params.permID);
-	var newSetList = req.body.setList;
-  User.findById(req.user.id, function(err, userObj) {
-		if (usersUsername === userObj.username) {//actually same user?
-			
-			var userTrackSets = userObj.musicCollection.trackSets.list;
-			var thisTrackSet = {};
-			thisTrackSet = _.find(userTrackSets, {'permID': permID});//find TS by permID (LD)
-			thisTrackSet.setList = newSetList;//init new setList
-			userObj.markModified('musicCollection');//REQUIRED!
-			userObj.save(function(err) {
-			  if (err) return next(err);
-				res.send(200);//resource removed
-			});
-		}
-	});
-}

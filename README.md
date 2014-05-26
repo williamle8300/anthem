@@ -22,6 +22,7 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 
 
 	create a visual calender till July 15th!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	decide on how to do spacing in code
 
 	create something to
 		- cut/tape at TS

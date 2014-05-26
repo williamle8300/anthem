@@ -1,24 +1,16 @@
 
 <script type="text/javascript" charset="utf-8">
 
-var tracks = document.querySelectorAll('li.track');                                          //
-var trackHREFs = document.querySelectorAll('li.track a');                                    //
-var inputs = document.querySelectorAll('li.track input[type="checkbox"]');                   //get info from DOM for processing; primarily hidden nodes
+var tracks = $('li.track');                                          //
+var trackAnchors = $('li.track a');                                    //
+var inputs = $('li.track input[type="checkbox"]');                   //get info from DOM for processing; primarily hidden nodes
 var trackSetLen = tracks.length;                                                             //
-var userTrackResourceIDs = [];                                                                    
+var theSetList = [{{user.musicCollection.trackSets.list[0].setList}}]
 var permalinks = [];                                                                         
 
-//push ALL of users's "saves" into a temporary Array (userTrackResourceIDs)
-{% if user %}//if logged in, we'll do this whole rigamaroll
-	{% for userTrack in user._track.list %}//use Nunjucks to push user 'saves'
-	userTrackResourceIDs.push({{userTrack.resourceID | safe}});//go thru results, and push 'saves' into this temp Array
-	{% endfor %}
-	$(".rightPanel form").css("display", "table-cell");
-{% endif %}
-                                                                                        //
 for(var i = 0; i<trackSetLen; i++){//call soundCloudResolveTrack on each track          //SC.initialize({
-	permalinks[i] = trackHREFs.item(i).getAttribute('href');                              //  client_id: '212b7a5080f5d7f8e831583446771a02'
-	soundCloudResolveTrack(permalinks, i, userTrackResourceIDs);                          //});
+	permalinks[i] = $(trackAnchors[i]).attr('href');                              //  client_id: '212b7a5080f5d7f8e831583446771a02'
+	soundCloudResolveTrack(permalinks, i, theSetList);                          					//});
 }                                                                                       //
                                                                                         //// permalink to a track
 /**                                                                                     //var track_url = 'https://soundcloud.com/platform/motor-city-drum-ensemble-55';
@@ -32,24 +24,25 @@ for(var i = 0; i<trackSetLen; i++){//call soundCloudResolveTrack on each track  
  *                                                                                      
  * @param {array} permalinks
  * @param {number} i
- * @param {array} userTrackResourceIDs
+ * @param {array} theSetList
 **/
-function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
+function soundCloudResolveTrack(permalinks, i, theSetList) {
 	var permalink = permalinks[i];//qed permalink
 	var CLIENT_ID = '212b7a5080f5d7f8e831583446771a02';//SoundCloud API ID
 	var URI = 'http://api.soundcloud.com/resolve.json?callback=?&url=' +permalink+ '&client_id=' +CLIENT_ID;//construct request url; 'callback' param specif. for Safari
 
 	$.getJSON(URI, function(track) {//serialize with id • serialize with stream_url • flash DOM node for EOH • (...ready for iCheck)
 		if (track.streamable){//if the track's streamable, we'll show it!
-
 			var resourceID = track.id;
 			var encodedObjHTML = '';
-			tracks.item(i).style.display = 'block'; 	  //reveal to user (has to be done before storing into "data-encodedobjhtml"!)
-			trackHREFs.item(i).id = 'track' +resourceID;//serialize with id!
-			inputs.item(i).id = resourceID;             //serialize with id!
-			inputs.item(i).dataset.id = resourceID;     //serialize with id!
-			trackHREFs.item(i).setAttribute('href', track.stream_url+ '?consumer_key=' +CLIENT_ID); //serialize with stream_ur!
-			encodedObjHTML = inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(tracks.item(i).outerHTML.toString());//flash EOH into 'data-encodedobjhtml'... now it's ready to iCheck
+
+			$(tracks[i]).css('display', 'block');
+			$(trackAnchors[i]).attr('id', 'track' +resourceID);															 								//serialize <A> with id!
+			$(trackAnchors[i]).attr('href', track.stream_url+ '?consumer_key=' +CLIENT_ID);  								//serialize <A> with stream_ur!
+			$(inputs[i]).attr('id', resourceID);    				 																 								//serialize INPUT with id!
+			$(inputs[i]).attr('data-id', resourceID); 		   																 								//serialize INPUT with data-id!
+			$(inputs[i]).attr('data-encodedobjhtml', encodeURIComponent($(tracks[i]).prop('outerHTML')));			//serialize INPUT with data-encodedobjhtml
+			encodedObjHTML = $($('li.track a input')[i]).attr('data-encodedobjhtml');//flash EOH into 'data-encodedobjhtml'... now it's ready to iCheck
 			$.ajax({//now cache the encodedObjHTML for rapid retrieval
 				async: false,
 				type: 'POST',
@@ -60,7 +53,7 @@ function soundCloudResolveTrack(permalinks, i, userTrackResourceIDs) {
 				    increaseArea: '300%', // optional
 						aria: false
 				  });
-					if (userTrackResourceIDs.indexOf(resourceID) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
+					if (theSetList.indexOf(resourceID) !== -1) {//if user has already 'saved' then add 'checked' class and attr appropriately
 						$('a#track' +resourceID+ ' div.icheckbox_square-blue').addClass('checked');
 						$('a#track' +resourceID+ ' div.icheckbox_square-blue input').prop('checked', true);
 					}

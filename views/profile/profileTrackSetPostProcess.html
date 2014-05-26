@@ -26,8 +26,8 @@ for (var i = 0; i < setList.length; i++) {
 	});
 }
 
-var theTrackSet = [{{user.musicCollection.trackSets.list[0].setList}}];//'theTrackSet' (used for comparison)
-var theTrackSetLen = theTrackSet.length;
+var theSetList = [{{user.musicCollection.trackSets.list[0].setList}}];//'theSetList' (used for comparison)
+var theSetListLen = theSetList.length;
 var setList = [];//ids on the page. Number type
 var setListDOMNodes = document.querySelectorAll('li.track');
 var setListLen = setListDOMNodes.length;
@@ -45,8 +45,8 @@ $(inputs).iCheck({//instantiate iCheck
   increaseArea: '300%',
 	aria: false
 });
-for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theTrackSet
-	if(theTrackSet.indexOf(setList[i]) !== -1) {//match?
+for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theSetList
+	if(theSetList.indexOf(setList[i]) !== -1) {//match?
 		var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
 		var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
 		$(tempDiv[i]).addClass('checked');                      //!REFACTOR
@@ -61,7 +61,7 @@ $('li.track a').each(function(i){//serialize each with 'data-id,' and 'data-perm
 });
 var toggle = true;//DELETE button (global)
 
-function cutAndTape(e) {//e is the event
+function cutAndTape(e) {//e is the event; this func actually just does diff versions of taping depending on CUT, or TAPE command
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
 		var selectedLength = $('.selected').length;
 		
@@ -69,24 +69,30 @@ function cutAndTape(e) {//e is the event
 			e.preventDefault();//no back nav
 			if (toggle) {//CUT from TS
 				console.clear(); console.log('CUT');
-				$('li.track a').each(function(i){
-					var track = $(this);
-					if(track.hasClass('selected') || track.hasClass('skipOver')){
-						return true;//equiv to for-loop's continue statement. don't push this track
-					}
-					else {
-						console.log(track.attr('data-permid'), track.attr('data-id'));
-					}
-				});
+				//empty setList
+					//success:...
+						$('li.track a').each(function(){
+							var track = $(this);
+							if(track.hasClass('selected') || track.hasClass('skipOver')){
+								return true;//equiv to for-loop's continue statement. don't push this track
+							}
+							else {//tracks to save
+								console.log(track.attr('data-permid'), track.attr('data-id'));
+								//push!!!!!
+							}
+						});
 			}
 			else {//TAPE to TS
 				console.clear(); console.log('TAPE');
-				$('li.track a').each(function(i){
-					var track = $(this);
-					if(track.is(":not(.skipOver)") || track.hasClass('selected')){
-						console.log(track.attr('data-permid'), track.attr('data-id'));
- 					}
-				});
+				//empty setList
+					//success:...
+						$('li.track a').each(function(){
+							var track = $(this);
+							if(track.is(":not(.skipOver)") || track.hasClass('selected')){
+								console.log(track.attr('data-permid'), track.attr('data-id'));
+								//push!!!!!
+		 					}
+						});
 			}
 			toggle = !toggle;//flip toggle
 		}
@@ -102,12 +108,12 @@ if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let SO
 			ui.placeholder.css({visibility: 'visible', background: '#eee'});
 		},
 		update: function(event, ui) {
-			
 			var inputs = document.querySelectorAll('li.track input');
 			var setList = [];
 			var setListStringified;
-			var username = '{{usersProfile.username}}';
+			var username = '{{user.username}}';
 			var permID = $('#trackSetName').attr('data-permid');
+
 			for (var i = 0; i < inputs.length; i++) {
 				setList.push(parseInt(inputs[i].id));
 			}
@@ -115,10 +121,11 @@ if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let SO
 			$.ajax({
 				async: false,
 				type: 'POST',
-				url: '/' +username+ '/sort/' +permID,
+				url: '/postTrackSet/' +username+ '/' +permID,
 				data: setListStringified,
 				contentType: 'application/json',
 				success: function(data) {
+					console.log('SORT');
 				}
 			});
 	  }

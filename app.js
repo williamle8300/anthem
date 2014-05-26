@@ -1,7 +1,5 @@
 
-/**
- * Module dependencies.
- */
+//Module dependencies
 var express = require('express');
 var flash = require('connect-flash');
 var less = require('less-middleware');
@@ -11,36 +9,23 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 var nunjucks = require('nunjucks');
 var phantomSoundCloud = require('./lib/phantomFunctions').phantomSoundCloud;
-//var phantomRedditRMusic = require('phantomFunctions').phantomRedditRMusic;
-//var phantomYouTube = require('phantomFunctions').phantomYouTube;
 
-/**
- * Load controllers.
- */
+//Load controllers
 var applicationController = require('./controllers/application');
 var accountsController = require('./controllers/accounts');
 var userController = require('./controllers/user');
-var profileController = require('./controllers/profile');
 
-/**
- * API keys & Passport configuration.
- */
+//API keys & Passport configuration
 var secrets = require('./config/secrets');
 var passportConf = require('./config/passport');
 
-/**
- * Mongoose configuration.
- */
+//Mongoose configuration
 mongoose.connect(secrets.db);
-mongoose.connection.on('error', function() {
-  console.log('-MongoDB Connection Error-');
-});
+mongoose.connection.on('error', function() {console.log('-MongoDB Connection Error-')});
 
-var app = express();
+var app = express();//app instance
 
-/**
- * Express configuration.
- */
+//Express configuration
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 nunjucks.configure('views', {autoescape: true, express: app});
@@ -63,55 +48,35 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(function(req, res) {res.status(404).render('404.html', { status: 404 }); });
 app.use(express.errorHandler());
 
-/**
- * Application routes.
- */
-//Home 
-app.get('/', passportConf.isAuthenticated, applicationController.search);//same
-app.get('/search', passportConf.isAuthenticated, applicationController.search);//same
+//Application
+app.get('/', passportConf.isAuthenticated, applicationController.search);
+app.get('/search', passportConf.isAuthenticated, applicationController.search);
 app.get('/search/:query', passportConf.isAuthenticated, applicationController.getSearchResults(phantomSoundCloud));
-app.post('/postSearch', passportConf.isAuthenticated, applicationController.postSearch); //handles 'query' in searchbox
+app.post('/postSearch', passportConf.isAuthenticated, applicationController.postSearch); //handles 'query' in #searchbox
 app.get('/getCachedTrackObj/:resourceID', applicationController.getCachedTrackObj);
 app.post('/postCachedTrackObj/:resourceID/:encodedObjHTML', applicationController.postCachedTrackObj);
+
+//Accounts
 app.get('/login', accountsController.getLogin);
 app.post('/login', accountsController.postLogin);
 app.get('/signup', accountsController.getSignup);
 app.post('/signup', accountsController.postSignup);
-//LoginViaOAuth2
-app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/profile', failureRedirect: '/login' }));
-app.get('/auth/github', passport.authenticate('github'));
-app.get('/auth/github/callback', passport.authenticate('github', { successRedirect: '/', failureRedirect: '/login' }));
-app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
-app.get('/auth/google/callback', passport.authenticate('google', { successRedirect: '/', failureRedirect: '/login' }));
-app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', passport.authenticate('twitter', { successRedirect: '/', failureRedirect: '/login' }));
-app.get('/auth/foursquare', passport.authorize('foursquare'));
-app.get('/auth/foursquare/callback', passport.authorize('foursquare', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/foursquare'); });
-app.get('/auth/tumblr', passport.authorize('tumblr'));
-app.get('/auth/tumblr/callback', passport.authorize('tumblr', { failureRedirect: '/api' }), function(req, res) { res.redirect('/api/tumblr'); });
-//User
-/* ---------
-order of routing is trés importanté
---------- */
+app.get('/settings', passportConf.isAuthenticated, accountsController.getSettings);
+app.post('/settings/profile', passportConf.isAuthenticated, accountsController.postUpdateProfile);
+app.post('/settings/password', passportConf.isAuthenticated, accountsController.postUpdatePassword);
+app.post('/settings/delete', passportConf.isAuthenticated, accountsController.postDeleteAccount);
+app.get('/settings/unlink/:provider', passportConf.isAuthenticated, accountsController.getOauthUnlink);
+app.get('/logout', passportConf.isAuthenticated, accountsController.logout);
+
+//User (POST) //The order of these routings aren't arbitrary. Important!
 app.post('/set/:resourceID', passportConf.isAuthenticated, userController.setResource);
 app.post('/deset/:resourceID', passportConf.isAuthenticated, userController.desetResource);
-////app.post('/:username/cut/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
-////app.post('/:username/tape/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
-////app.post('/:username/newTrackSet/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
-////app.post('/:username/addToTrackSet/:permID', passportConf.isAuthenticated, profileController.postTrackSet);
-app.post('/:username/sort/:permID', passportConf.isAuthenticated, userController.postTrackSet);
-app.get('/settings', passportConf.isAuthenticated, userController.getSettings);
-app.post('/settings/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
-app.post('/settings/password', passportConf.isAuthenticated, userController.postUpdatePassword);
-app.post('/settings/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
-app.get('/settings/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
-app.get('/logout', passportConf.isAuthenticated, userController.logout);
-//Profile (must list these last)
-app.get('/:username', passportConf.isAuthenticated, profileController.getProfile);
-app.get('/:username/:trackSetNameOrPermID', passportConf.isAuthenticated, profileController.getTrackSet);
+app.post('/postTrackSet/:username/:permID', passportConf.isAuthenticated, userController.postTrackSet);
+//User (GET)
+app.get('/:username', passportConf.isAuthenticated, userController.getProfile);
+app.get('/:username/:trackSetIdentifier', passportConf.isAuthenticated, userController.getTrackSet);
 
-//Start-up the app!
+//Start-up the app
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
