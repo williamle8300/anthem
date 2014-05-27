@@ -71,7 +71,7 @@ app.get('/logout', passportConf.isAuthenticated, accountsController.logout);
 //User (POST) //The order of these routings aren't arbitrary. Important!
 app.post('/set/:resourceID', passportConf.isAuthenticated, userController.setResource);
 app.post('/deset/:resourceID', passportConf.isAuthenticated, userController.desetResource);
-app.post('/postTrackSet/:username/:permID', passportConf.isAuthenticated, userController.postTrackSet);
+app.post('/postTrackSet/:permID', passportConf.isAuthenticated, userController.postTrackSet);
 
 //User (GET)
 app.get('/:username', passportConf.isAuthenticated, userController.getProfile);

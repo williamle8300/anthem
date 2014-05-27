@@ -3,19 +3,23 @@
 /**
  * Accesses cachedTrackObj(DB) and appends results .playlist
  *
- * Grabs all track nodes
- * and stores their markup into
- * input[data-encodedobjhtml], then
- * synchronously checks each iCheck
+ * 
+ * 
+ * asdf
+ * 
  *
- * Also goes through, sees if usersProfile == user
- * then does the appropriate iChecks
+ * 
+ * 
 **/
 
-var setList = [{{setList}}]
-	
+//the requested setList
+var setList = [{{setList}}];
+
+//Get the cachedTrackObjs
 for (var i = 0; i < setList.length; i++) {
+
 	var resourceID = setList[i].toString();
+
 	$.ajax({
 		type: 'GET',
 		url: '/getCachedTrackObj/' +resourceID,
@@ -26,81 +30,157 @@ for (var i = 0; i < setList.length; i++) {
 	});
 }
 
-var theSetList = [{{user.musicCollection.trackSets.list[0].setList}}];//'theSetList' (used for comparison)
-var theSetListLen = theSetList.length;
-var setList = [];//ids on the page. Number type
-var setListDOMNodes = document.querySelectorAll('li.track');
-var setListLen = setListDOMNodes.length;
-var inputs = document.querySelectorAll('li.track input');
+var
+ setListDOMNodes = document.querySelectorAll('li.track'),
+ setListLen = setListDOMNodes.length,
+ inputs = document.querySelectorAll('li.track input'),
+ theSetList = [{{user.musicCollection.trackSets.list[0].setList}}],//'theSetList' (used for comparison)
+ theSetListLen = theSetList.length;
 
-for (var i = 0; i < setListLen; i++) {//setList
-	setList.push(parseInt(inputs[i].id));
-}
-for (var i = 0; i < setListLen; i++) {//flash encodedobjhtml into li.track input[i]
+//flash encodedobjhtml into li.track input[i]
+for (var i = 0; i < setListLen; i++) {
 	inputs.item(i).dataset.encodedobjhtml = encodeURIComponent(setListDOMNodes.item(i).outerHTML.toString());
 }
-$('li.track a input').attr('data-permid', 0);//flash permID into track
-$(inputs).iCheck({//instantiate iCheck
+
+//flash permID into track
+$('li.track a input').attr('data-permid', {{permID}});
+
+//instantiate iCheck
+$(inputs).iCheck({
   checkboxClass: 'icheckbox_square-blue',
   increaseArea: '300%',
 	aria: false
 });
+
 for (var i = 0; i < setListLen; i++) {//compare and iCheck any that match theSetList
 	if(theSetList.indexOf(setList[i]) !== -1) {//match?
-		var tempDiv = $('div.icheckbox_square-blue');           //!REFACTOR
-		var tempDivInput = $('div.icheckbox_square-blue input');//!REFACTOR
+
+		var
+		 tempDiv = $('div.icheckbox_square-blue'),           	//!REFACTOR
+		 tempDivInput = $('div.icheckbox_square-blue input');	//!REFACTOR
+
 		$(tempDiv[i]).addClass('checked');                      //!REFACTOR
 		$(tempDivInput[i]).prop('checked', true);               //!REFACTOR
 	}
 };
-$('li.track a').each(function(i){//serialize each with 'data-id,' and 'data-permid'
+
+//serialize each with 'data-id,' and 'data-permid'
+$('li.track a').each(function(i){
+
 	var track = $(this);
 
 	track.attr('data-id', track.attr('id').replace('track', ''));
 	track.attr('data-permid', {{permID}});
+	
 });
-var toggle = true;//DELETE button (global)
 
-function cutAndTape(e) {//e is the event; this func actually just does diff versions of taping depending on CUT, or TAPE command
-	if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let CUT & TAPE tracks
-		var selectedLength = $('.selected').length;
-		
-		if (selectedLength > 0) {//at least one track's .selected
-			e.preventDefault();//no back nav
-			if (toggle) {//CUT from TS
+//DELETE button toggle (global)
+var toggle = true;
+
+//e is the event; this func actually just
+//does diff versions of TAPE depending on
+//CUT, or TAPE command
+//usually called from listeners_Keybindings.html
+function cutAndTape(e) {
+	if ('{{usersProfile.username}}' === '{{user.username}}') {//authd to CUT/TAPE?
+
+		var
+		 selectedLength = $('.selected').length,
+		 hopper = {};
+		  		
+		//at least one track's .selected
+		if (selectedLength > 0) {
+			e.preventDefault();//cool. dontcha nav back in browser now...
+
+			//CUT from TS
+			if (toggle) {
 				console.clear(); console.log('CUT');
-				//empty setList
-					//success:...
-						$('li.track a').each(function(){
-							var track = $(this);
-							if(track.hasClass('selected') || track.hasClass('skipOver')){
-								return true;//equiv to for-loop's continue statement. don't push this track
-							}
-							else {//tracks to save
-								console.log(track.attr('data-permid'), track.attr('data-id'));
-								//push!!!!!
-							}
-						});
+
+				$('li.track a').each(function(){
+
+					var track = $(this);
+
+					if(track.hasClass('selected') || track.hasClass('skipOver')){return true;}//jQuery's "continue"
+					else {//these are the tracks to PUSH
+						if(!hopper[track.attr('data-permid')]){//if permID don't exist in the hopper...
+							hopper[track.attr('data-permid')] = [];//INITit
+						}
+						hopper[track.attr('data-permid')].push(parseInt(track.attr('data-id')));//find key, and push
+					}
+				});
+				
+				for (var permID in hopper) {
+					clearAndPostSetList(permID, hopper);
+				}
 			}
-			else {//TAPE to TS
-				console.clear(); console.log('TAPE');
-				//empty setList
-					//success:...
-						$('li.track a').each(function(){
-							var track = $(this);
-							if(track.is(":not(.skipOver)") || track.hasClass('selected')){
-								console.log(track.attr('data-permid'), track.attr('data-id'));
-								//push!!!!!
-		 					}
-						});
+			
+			//TAPE to TS
+			else {
+
+				$('li.track a').each(function(){
+
+					var track = $(this);
+
+					//PUSH these tracks
+					if(track.is(":not(.skipOver)") || track.hasClass('selected')){
+						if(!hopper[track.attr('data-permid')]){//if permID don't exist in the hopper...
+							hopper[track.attr('data-permid')] = [];//INITit
+						}
+						hopper[track.attr('data-permid')].push(parseInt(track.attr('data-id')));//find permID, and push all resourceIDs to it
+					}
+				});
+				
+				for (var permID in hopper) {
+					clearAndPostSetList(permID, hopper);
+				}
 			}
-			toggle = !toggle;//flip toggle
+
+			//flip the toggle
+			toggle = !toggle;
 		}
 	}
 }
 
-if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let SORT tracks
-	$('.playlist').sortable({//initialize
+//this function
+//clears the specified permID
+//and POSTs the new setList to permMID
+function clearAndPostSetList(permID, hopper) {
+
+	var
+	 permID = permID,
+	 setList = hopper[permID],
+	 setListStringified = JSON.stringify({setList: setList});
+
+	//POSTtrackSet: clear the setList
+	$.ajax({
+		async: false,
+		type: 'POST',
+		url: '/postTrackSet/' +permID,
+		data: '[]',//clear setList
+		contentType: 'application/json',
+		success: function(data) {
+
+			//POSTtrackSet: new setList
+			$.ajax({
+				async: false,
+				type: 'POST',
+				url: '/postTrackSet/' +permID,
+				data: setListStringified,
+				contentType: 'application/json',
+				success: function(data) {
+					console.log('CLEARED; SAVED [200]');
+				}
+			});
+		
+		}
+	});
+}
+
+//authd to SORT this trackSet?
+if ('{{usersProfile.username}}' === '{{user.username}}') {
+
+	//good. initialize jQuery sortable
+	$('.playlist').sortable({
 		opacity: 0.97,
 		tolerance: 'pointer',
 		cursor: 'move',
@@ -108,20 +188,24 @@ if ('{{usersProfile.username}}' === '{{user.username}}') {//if user's TS, let SO
 			ui.placeholder.css({visibility: 'visible', background: '#eee'});
 		},
 		update: function(event, ui) {
-			var inputs = document.querySelectorAll('li.track input');
-			var setList = [];
-			var setListStringified;
-			var username = '{{user.username}}';
-			var permID = $('#trackSetName').attr('data-permid');
+			
+			var
+			 permID = $('#trackSetName').attr('data-permid'),
+			 setList = [],
+			 inputs = document.querySelectorAll('li.track input');
 
+			//INIT new setList	
 			for (var i = 0; i < inputs.length; i++) {
 				setList.push(parseInt(inputs[i].id));
 			}
-			setListStringified = JSON.stringify({setList: setList});//gotta do this to pass in $.ajax
+			
+			var setListStringified = JSON.stringify({setList: setList});//gotta do this to pass in $.ajax
+
+			//POST newly SORTed setList
 			$.ajax({
 				async: false,
 				type: 'POST',
-				url: '/postTrackSet/' +username+ '/' +permID,
+				url: '/postTrackSet/' +permID,
 				data: setListStringified,
 				contentType: 'application/json',
 				success: function(data) {

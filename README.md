@@ -21,17 +21,17 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 ### Basic Features (Everything up to 'Signals')
 
 	create a visual calender till July 15th!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	decide on how to do spacing in code
+	switch data-id => resourceID
+	refactor profileTrackSetPostProcess.html
 
-ready-made trackSets to enjoy
+	ready-made trackSets to enjoy: tap-and-bestmusiclisteningxpernceEVAR!!!11!!!1!!!
 
 	create something to
 		- cut/tape at TS
 		- edit trackSet name
 		- shuffle play! w000! aw jea (just... Math.floor(.Qd))
 		- FINDSONGS AND PLAY IT DIRECTLY FROM WITHIN A TRACKSET, (SEARCH WITHIN TS, GLOBAL TS SEARCHING)
-		- BLEND 2/MORE TRACKSETS????
-		- QUICKLY SWITCH BETWEEN TRACKSETS,
+		- BLEND 2/MORE TRACKSETS???? QUICKLY SWITCH BETWEEN TRACKSETS
 
 	take notes somehow? make a request for a missing track?
 

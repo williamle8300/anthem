@@ -564,20 +564,20 @@ function PagePlayer() {
     // a sound (or something) was clicked - determine what and handle appropriately
 		console.log(e);//debug
     if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .skipOver
-			$(e.target).addClass('Qd');//.skipOver is .Qd (queued)
-			var indexQd = $('.playlist li:has(a.Qd)').index();
+			$(e.target).addClass('_skippingOver');//.skipOver is ._skipping (queued)
+			var indexToSkip = $('.playlist li:has(a._skippingOver)').index();
 			var indexPrevious;
 			var indexNext;
 			
 			if (keyInfo.code === 37){//left arrow key; global var made at listeners_KeyBindings.html
-				indexPrevious = indexQd - 1;//get the previous from queued
+				indexPrevious = indexToSkip - 1;//get the previous from queued
 				pagePlayer.handleClick({target:$('li a')[indexPrevious]});//simulate click
 			}
 			if (keyInfo.code === 39) {//right arrow key
-				indexNext = indexQd + 1;//get the next from queued				
+				indexNext = indexToSkip + 1;//get the next from queued				
 				pagePlayer.handleClick({target:$('li a')[indexNext]});//simulate click
 			}
-			$('.Qd').removeClass('Qd');//remove all instances of .Qd
+			$('._skippingOver').removeClass('_skippingOver');//remove all instances of ._skippingOver
 			return true;
     }
     if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
