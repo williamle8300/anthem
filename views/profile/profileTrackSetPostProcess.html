@@ -81,7 +81,7 @@ var toggle = true;
 //does diff versions of TAPE depending on
 //CUT, or TAPE command
 //usually called from listeners_Keybindings.html
-function cutAndTape(e) {
+function cutOrTape(e) {
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//authd to CUT/TAPE?
 
 		var selectedLength = $('.selected').length;
@@ -163,7 +163,6 @@ function pullFromTrackSet(permID, resourceID, pushToTrackSet) {
 			}
 			//PULL is finito
 			else {
-				//ifdoesnthave skipover; addclassskipover
 				$('a[data-id="'+resourceID+'"][data-permid="'+permID+'"]').addClass('skipOver');
 				console.log(resourceID+ ' pulled from ' +permID);
 			}

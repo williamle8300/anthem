@@ -1,9 +1,15 @@
 /*
+	Main Objects:
 	'soundManager'
 	'pagePlayer'
-	are the main objects
-$($('li a')[1]).addClass('exclude');
-pagePlayer.handleClick({target:$('li a')[4]});
+
+	Pertinent methods:
+	$($('li a')[1]).addClass('skipOver');
+	pagePlayer.handleClick({target:$('li a')[4]});
+
+	the idea is that "next", and "previous" tracks get a
+	simulated click
+	and SM handles the click
 */
 
 /*
@@ -565,9 +571,11 @@ function PagePlayer() {
 		console.log(e);//debug
     if ($(e.target).hasClass('skipOver')) {//(USING JQUERY) .skipOver
 			$(e.target).addClass('_skippingOver');//.skipOver is ._skipping (queued)
-			var indexToSkip = $('.playlist li:has(a._skippingOver)').index();
-			var indexPrevious;
-			var indexNext;
+
+			var
+			 indexToSkip = $('.playlist li:has(a._skippingOver)').index(),
+			 indexPrevious,
+			 indexNext;
 			
 			if (keyInfo.code === 37){//left arrow key; global var made at listeners_KeyBindings.html
 				indexPrevious = indexToSkip - 1;//get the previous from queued
