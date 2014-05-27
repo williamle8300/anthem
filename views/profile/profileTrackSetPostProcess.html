@@ -92,36 +92,38 @@ function cutAndTape(e) {
 
 			//CUT from TS
 			if (toggle) {
-
+				
+				console.clear();
 				$('li.track a').each(function(){
 
 					var track = $(this);
 					
 					//PULL these tracks
 					if(track.hasClass('selected') || track.hasClass('skipOver')){
-						pushToTrackSet(track.attr('data-permid'), track.attr('data-id'), pullFromTrackSet)
+						pushToTrackSet(track.attr('data-permid'), track.attr('data-id'), pullFromTrackSet);
 					}
 					//PUSH these tracks
 					else {
-						pullFromTrackSet(track.attr('data-permid'), track.attr('data-id'), pushToTrackSet)
+						pullFromTrackSet(track.attr('data-permid'), track.attr('data-id'), pushToTrackSet);
 					}
 				});
 			}
 			
 			//TAPE to TS (toggle === false)
 			else {
-
+				
+				console.clear();
 				$('li.track a').each(function(){
 
 					var track = $(this);
 
 					//PUSH these tracks
 					if(track.is(":not(.skipOver)") || track.hasClass('selected')){
-						pullFromTrackSet(track.attr('data-permid'), track.attr('data-id'), pushToTrackSet)
+						pullFromTrackSet(track.attr('data-permid'), track.attr('data-id'), pushToTrackSet);
 					}
 					//PULL these tracks
 					else {
-						pushToTrackSet(track.attr('data-permid'), track.attr('data-id'), pullFromTrackSet)
+						pushToTrackSet(track.attr('data-permid'), track.attr('data-id'), pullFromTrackSet);
 					}
 				});
 			}
@@ -138,10 +140,12 @@ function pushToTrackSet(permID, resourceID, pullFromTrackSet) {
 		type: 'POST',
 		url: '/pushToTrackSet/' +permID+ '/' +resourceID,
 		success: function () {
-			if (pullFromTrackSet) {
+			if (pullFromTrackSet) {//allow for 1 callback: pullFromTrackSet
 				pullFromTrackSet(permID, resourceID);
 			}
+			//PUSH is finito
 			else {
+				$('a[data-id="'+resourceID+'"][data-permid="'+permID+'"]').removeClass('skipOver');
 				console.log(resourceID+ ' pushed to ' +permID);
 			}
 		}
@@ -153,11 +157,14 @@ function pullFromTrackSet(permID, resourceID, pushToTrackSet) {
 		async: false,
 		type: 'POST',
 		url: '/pullFromTrackSet/' +permID+ '/' +resourceID,
-		success: function () {
+		success: function () {//allow for 1 callback: pushToTrackSet
 			if (pushToTrackSet) {
 				pushToTrackSet(permID, resourceID);
 			}
+			//PULL is finito
 			else {
+				//ifdoesnthave skipover; addclassskipover
+				$('a[data-id="'+resourceID+'"][data-permid="'+permID+'"]').addClass('skipOver');
 				console.log(resourceID+ ' pulled from ' +permID);
 			}
 		}
@@ -187,14 +194,12 @@ if ('{{usersProfile.username}}' === '{{user.username}}') {
 				setList.push(parseInt(inputs[i].id));
 			}
 			
-			var setListStringified = JSON.stringify({setList: setList});//gotta do this to pass in $.ajax
-
 			//POST newly SORTed setList
 			$.ajax({
 				async: false,
 				type: 'POST',
 				url: '/postTrackSet/' +permID,
-				data: setListStringified,
+				data: JSON.stringify({setList: setList}),
 				contentType: 'application/json',
 				success: function(data) {
 					console.log('SORT');
