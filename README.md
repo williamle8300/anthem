@@ -21,7 +21,6 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 ### Basic Features (Everything up to 'Signals')
 
 	create a visual calender till July 15th!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	refine code
 	decide on how to do spacing in code
 
 ready-made trackSets to enjoy
