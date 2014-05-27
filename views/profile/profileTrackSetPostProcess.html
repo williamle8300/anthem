@@ -94,7 +94,6 @@ function cutAndTape(e) {
 
 			//CUT from TS
 			if (toggle) {
-				console.clear(); console.log('CUT');
 
 				$('li.track a').each(function(){
 
@@ -108,9 +107,16 @@ function cutAndTape(e) {
 						hopper[track.attr('data-permid')].push(parseInt(track.attr('data-id')));//find key, and push
 					}
 				});
+
+				console.log(hopper);
 				
-				for (var permID in hopper) {
-					clearAndPostSetList(permID, hopper);
+				if ($.isEmptyObject(hopper)){
+					console.log('nothing in hopper');
+				}
+				else {
+					for (var permID in hopper) {
+						postSetLists(hopper, permID);
+					}
 				}
 			}
 			
@@ -129,9 +135,11 @@ function cutAndTape(e) {
 						hopper[track.attr('data-permid')].push(parseInt(track.attr('data-id')));//find permID, and push all resourceIDs to it
 					}
 				});
-				
+
+				console.log(hopper);
+
 				for (var permID in hopper) {
-					clearAndPostSetList(permID, hopper);
+					postSetLists(hopper, permID);
 				}
 			}
 
@@ -144,36 +152,45 @@ function cutAndTape(e) {
 //this function
 //clears the specified permID
 //and POSTs the new setList to permMID
-function clearAndPostSetList(permID, hopper) {
+function postSetLists(hopper, permID) {
 
-	var
-	 permID = permID,
-	 setList = hopper[permID],
-	 setListStringified = JSON.stringify({setList: setList});
-
-	//POSTtrackSet: clear the setList
-	$.ajax({
-		async: false,
-		type: 'POST',
-		url: '/postTrackSet/' +permID,
-		data: '[]',//clear setList
-		contentType: 'application/json',
-		success: function(data) {
-
-			//POSTtrackSet: new setList
-			$.ajax({
-				async: false,
-				type: 'POST',
-				url: '/postTrackSet/' +permID,
-				data: setListStringified,
-				contentType: 'application/json',
-				success: function(data) {
-					console.log('CLEARED; SAVED [200]');
-				}
-			});
+	if ($.isEmptyObject(hopper)){
+		console.log('nothing in hopper');
+		//create inverted hopper
+		//clear each permIDs setList
+	}
+	
+	else {
 		
-		}
-	});
+		var
+		 permID = permID,
+		 setList = hopper[permID],
+		 setListStringified = JSON.stringify({setList: setList});
+
+		//POSTtrackSet: clear the setList
+		$.ajax({
+			async: false,
+			type: 'POST',
+			url: '/postTrackSet/' +permID,
+			data: '[]',//clear setList
+			contentType: 'application/json',
+			success: function(data) {
+
+				//POSTtrackSet: new setList
+				$.ajax({
+					async: false,
+					type: 'POST',
+					url: '/postTrackSet/' +permID,
+					data: setListStringified,
+					contentType: 'application/json',
+					success: function(data) {
+						console.log('CLEARED; SAVED [200]');
+					}
+				});
+		
+			}
+		});
+	}
 }
 
 //authd to SORT this trackSet?
