@@ -84,9 +84,7 @@ var toggle = true;
 function cutAndTape(e) {
 	if ('{{usersProfile.username}}' === '{{user.username}}') {//authd to CUT/TAPE?
 
-		var
-		 selectedLength = $('.selected').length,
-		 hopper = {};
+		var selectedLength = $('.selected').length;
 		  		
 		//at least one track's .selected
 		if (selectedLength > 0) {
@@ -98,29 +96,19 @@ function cutAndTape(e) {
 				$('li.track a').each(function(){
 
 					var track = $(this);
-
-					if(track.hasClass('selected') || track.hasClass('skipOver')){return true;}//jQuery's "continue"
-					else {//these are the tracks to PUSH
-						if(!hopper[track.attr('data-permid')]){//if permID don't exist in the hopper...
-							hopper[track.attr('data-permid')] = [];//INITit
-						}
-						hopper[track.attr('data-permid')].push(parseInt(track.attr('data-id')));//find key, and push
+					
+					//PULL these tracks
+					if(track.hasClass('selected') || track.hasClass('skipOver')){
+						pushToTrackSet(track.attr('data-permid'), track.attr('data-id'), pullFromTrackSet)
+					}
+					//PUSH these tracks
+					else {
+						pullFromTrackSet(track.attr('data-permid'), track.attr('data-id'), pushToTrackSet)
 					}
 				});
-
-				console.log(hopper);
-				
-				if ($.isEmptyObject(hopper)){
-					console.log('nothing in hopper');
-				}
-				else {
-					for (var permID in hopper) {
-						postSetLists(hopper, permID);
-					}
-				}
 			}
 			
-			//TAPE to TS
+			//TAPE to TS (toggle === false)
 			else {
 
 				$('li.track a').each(function(){
@@ -129,18 +117,13 @@ function cutAndTape(e) {
 
 					//PUSH these tracks
 					if(track.is(":not(.skipOver)") || track.hasClass('selected')){
-						if(!hopper[track.attr('data-permid')]){//if permID don't exist in the hopper...
-							hopper[track.attr('data-permid')] = [];//INITit
-						}
-						hopper[track.attr('data-permid')].push(parseInt(track.attr('data-id')));//find permID, and push all resourceIDs to it
+						pullFromTrackSet(track.attr('data-permid'), track.attr('data-id'), pushToTrackSet)
+					}
+					//PULL these tracks
+					else {
+						pushToTrackSet(track.attr('data-permid'), track.attr('data-id'), pullFromTrackSet)
 					}
 				});
-
-				console.log(hopper);
-
-				for (var permID in hopper) {
-					postSetLists(hopper, permID);
-				}
 			}
 
 			//flip the toggle
@@ -149,48 +132,36 @@ function cutAndTape(e) {
 	}
 }
 
-//this function
-//clears the specified permID
-//and POSTs the new setList to permMID
-function postSetLists(hopper, permID) {
-
-	if ($.isEmptyObject(hopper)){
-		console.log('nothing in hopper');
-		//create inverted hopper
-		//clear each permIDs setList
-	}
-	
-	else {
-		
-		var
-		 permID = permID,
-		 setList = hopper[permID],
-		 setListStringified = JSON.stringify({setList: setList});
-
-		//POSTtrackSet: clear the setList
-		$.ajax({
-			async: false,
-			type: 'POST',
-			url: '/postTrackSet/' +permID,
-			data: '[]',//clear setList
-			contentType: 'application/json',
-			success: function(data) {
-
-				//POSTtrackSet: new setList
-				$.ajax({
-					async: false,
-					type: 'POST',
-					url: '/postTrackSet/' +permID,
-					data: setListStringified,
-					contentType: 'application/json',
-					success: function(data) {
-						console.log('CLEARED; SAVED [200]');
-					}
-				});
-		
+function pushToTrackSet(permID, resourceID, pullFromTrackSet) {
+	$.ajax({
+		async: false,
+		type: 'POST',
+		url: '/pushToTrackSet/' +permID+ '/' +resourceID,
+		success: function () {
+			if (pullFromTrackSet) {
+				pullFromTrackSet(permID, resourceID);
 			}
-		});
-	}
+			else {
+				console.log(resourceID+ ' pushed to ' +permID);
+			}
+		}
+	});
+}
+
+function pullFromTrackSet(permID, resourceID, pushToTrackSet) {
+	$.ajax({
+		async: false,
+		type: 'POST',
+		url: '/pullFromTrackSet/' +permID+ '/' +resourceID,
+		success: function () {
+			if (pushToTrackSet) {
+				pushToTrackSet(permID, resourceID);
+			}
+			else {
+				console.log(resourceID+ ' pulled from ' +permID);
+			}
+		}
+	});
 }
 
 //authd to SORT this trackSet?

@@ -150,51 +150,60 @@ exports.desetResource = function(req, res, next) {
 	});
 };
 
-///**
-// * POST /pushToTrackSet/:username/:permID/:resourceID
-// * save to a trackSet
-// */
-//exports.saveResource = function(req, res, next){
-//  User.findById(req.user.id, function(err, userObj) {
-//		var resourceID = parseInt(req.params.resourceID);
-//		var permID = req.params.permID;
-//		var userTrackSets = userObj.musicCollection.trackSets.list;
-//		var thisTrackSet = {};
-//
-//    if (err) return next(err);
-//		thisTrackSet = _.find(userTrackSets, {'name': permID});
-//		thisTrackSet.setList.unshift(resourceID);
-//		userObj.markModified('musicCollection');//REQUIRED
-//    userObj.save(function(err) {
-//      if (err) return next(err);
-//			res.send(200);//saved.
-//    });
-//	});
-//};
-//
-///**
-// * POST /pullFromTrackSet/:username/:permID/:resourceID
-// * remove from a trackSet
-// */
-//exports.removeResource = function(req, res, next) {
-//  User.findById(req.user.id, function(err, userObj) {
-//		if(err) return next(err);
-//		var resourceID = parseInt(req.params.resourceID);
-//		var permID = req.params.permID;
-//		var userTrackSets = userObj.musicCollection.trackSets.list;
-//		var thisTrackSet = {};
-//
-//		thisTrackSet = _.find(userTrackSets, {'name': permID});
-//		if (!thisTrackSet) {//trackSet not found
-//			console.log('> 404POST remove/:resourceID/:permID. No "trackSet" at: ' +req.url);
-//			return next(err);
-//		};
-//		
-//		thisTrackSet.setList = _.pull(thisTrackSet.setList, resourceID);
-//		userObj.markModified('musicCollection');//REQUIRED!
-//		userObj.save(function(err) {
-//		  if (err) return next(err);
-//			res.send(200);//resource removed
-//		});
-//	});
-//};
+/**
+ * POST /pushToTrackSet/:permID/:resourceID
+ * save to a trackSet
+ */
+exports.pushToTrackSet = function(req, res, next){
+  User.findById(req.user.id, function(err, userObj) {
+    if (err) return next(err);
+
+		var
+		 resourceID = parseInt(req.params.resourceID),
+		 permID = parseInt(req.params.permID),
+		 userTrackSets = userObj.musicCollection.trackSets.list,
+		 thisTrackSet = {};
+
+		thisTrackSet = _.find(userTrackSets, {'permID': permID});
+		thisTrackSet.setList.push(resourceID);
+
+		userObj.markModified('musicCollection');//REQUIRED
+
+    userObj.save(function(err) {
+      if (err) return next(err);
+			res.send(200);
+    });
+	});
+};
+
+/**
+ * POST /pullFromTrackSet/:permID/:resourceID
+ * remove from a trackSet
+ */
+exports.pullFromTrackSet = function(req, res, next) {
+  User.findById(req.user.id, function(err, userObj) {
+		if(err) return next(err);
+		
+		var
+		 resourceID = parseInt(req.params.resourceID),
+		 permID = parseInt(req.params.permID),
+		 userTrackSets = userObj.musicCollection.trackSets.list,
+		 thisTrackSet = {};
+
+		thisTrackSet = _.find(userTrackSets, {'permID': permID});
+
+		if (!thisTrackSet) {//trackSet not found
+			console.log('404POST remove/:resourceID/:permID. No "trackSet" at: ' +req.url);
+			return next(err);
+		};
+		
+		thisTrackSet.setList = _.pull(thisTrackSet.setList, resourceID);
+
+		userObj.markModified('musicCollection');//REQUIRED!
+
+		userObj.save(function(err) {
+		  if (err) return next(err);
+			res.send(200);
+		});
+	});
+};

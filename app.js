@@ -72,6 +72,8 @@ app.get('/logout', passportConf.isAuthenticated, accountsController.logout);
 app.post('/set/:resourceID', passportConf.isAuthenticated, userController.setResource);
 app.post('/deset/:resourceID', passportConf.isAuthenticated, userController.desetResource);
 app.post('/postTrackSet/:permID', passportConf.isAuthenticated, userController.postTrackSet);
+app.post('/pushToTrackSet/:permID/:resourceID', passportConf.isAuthenticated, userController.pushToTrackSet);
+app.post('/pullFromTrackSet/:permID/:resourceID', passportConf.isAuthenticated, userController.pullFromTrackSet);
 
 //User (GET)
 app.get('/:username', passportConf.isAuthenticated, userController.getProfile);
