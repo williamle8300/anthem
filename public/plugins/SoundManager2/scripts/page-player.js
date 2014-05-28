@@ -419,9 +419,12 @@ function PagePlayer() {
 
     onload: function() {
       if (!this.loaded) {
-        var oTemp = this._data.oLI.getElementsByTagName('a')[0],
-            oString = oTemp.innerHTML,
-            oThis = this;
+
+        var
+				 oTemp = this._data.oLI.getElementsByTagName('a')[0],
+         oString = oTemp.innerHTML,
+         oThis = this;
+
         oTemp.innerHTML = oString+' <span style="font-size:0.5em"> Load failed '+(sm.sandbox.noRemote?' Possible cause: Flash sandbox is denying remote URL access.':(sm.sandbox.noLocal?'Flash denying local filesystem access':' 404'))+'</span>';
         setTimeout(function(){
           oTemp.innerHTML = oString;
@@ -574,18 +577,17 @@ function PagePlayer() {
 
 			var
 			 indexToSkip = $('.playlist li:has(a._skippingOver)').index(),
-			 indexPrevious,
-			 indexNext;
+			 indexPrevious = indexToSkip - 1,//get the previous from queued
+			 indexNext = indexToSkip + 1;//get the next from queued				
+			
+			$('._skippingOver').removeClass('_skippingOver');//remove all instances of ._skippingOver
 			
 			if (keyInfo.code === 37){//left arrow key; global var made at listeners_KeyBindings.html
-				indexPrevious = indexToSkip - 1;//get the previous from queued
 				pagePlayer.handleClick({target:$('li a')[indexPrevious]});//simulate click
 			}
-			if (keyInfo.code === 39) {//right arrow key
-				indexNext = indexToSkip + 1;//get the next from queued				
+			if (keyInfo.code === 39 || keyInfo.code === 32) {//right arrow key
 				pagePlayer.handleClick({target:$('li a')[indexNext]});//simulate click
 			}
-			$('._skippingOver').removeClass('_skippingOver');//remove all instances of ._skippingOver
 			return true;
     }
     if ($(e.target).hasClass('exclude')) {//(USING JQUERY) .exclude
@@ -1127,7 +1129,8 @@ function PagePlayer() {
 
     if (self.config.autoStart) {
       // grab the first ul.playlist link
-      pl.handleClick({target:pl.getByClassName('playlist', 'ul')[0].getElementsByTagName('a')[0]});
+      //pl.handleClick({target:pl.getByClassName('playlist', 'ul')[0].getElementsByTagName('a')[0]});
+			pl.handleClick({target:$('li a:not(.skipOver):first')});
     }
 
   };
