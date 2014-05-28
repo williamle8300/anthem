@@ -21,9 +21,8 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 ### Basic Features (Everything up to 'Signals')
 
 	create a visual calender till July 15th!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	switch data-id => data-resourceID
-	refactor profileTrackSetPostProcess.html
 
+	/qwer whattup wid it
 	http://wicky.nillia.ms/headroom.js/
 	ready-made trackSets to enjoy: tap-and-bestmusiclisteningxpernceEVAR!!!11!!!1!!!
 
