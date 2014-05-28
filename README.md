@@ -26,6 +26,8 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 	http://wicky.nillia.ms/headroom.js/
 	ready-made trackSets to enjoy: tap-and-bestmusiclisteningxpernceEVAR!!!11!!!1!!!
 
+	profile page: updates from clone TS, your own trackSets (with color gradation, and signalCount)
+
 	create something to
 		- cut/tape at TS
 		- edit trackSet name
