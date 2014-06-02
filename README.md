@@ -1,3 +1,14 @@
+type to find
+	weighted by "recently played tracks"
+	weighted by "recently played trackSets"
+	recently... modified? (clone TS)
+discovery
+	recently played
+	new songs added to a cloned TS
+	new tracks added by user of one of any of your cloned TS. every user has "GILDED" tracks. when that changes it pushes to you in the context of a "suggested tracks"
+	similar tracks (in v2.0)
+
+
 I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EASE
 "IF SOMEONE MADE THIS, I WOULD: *USE IT* AND SUPPORT WITH *ONLINE DONATIONS* IN EXCHANGE FOR *WHATEVER PASSIVE REWARDS*"
 list of patrons (ads), and passive rewards(??)
