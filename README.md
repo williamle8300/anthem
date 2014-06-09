@@ -1,18 +1,3 @@
-A MODEL OF SUPER LEAN, SUCCESFUL LAUNCH: https://zzzz.io/
-
-profile should have
-	"recently played tracks" and...
-  "recently played trackSets"
-type to find
-	weighted by "recently played tracks" or...
-	weighted by "recently played trackSets"
-	recently... modified? (clone TS)
-discovery
-	recently played
-	new songs added to a cloned TS
-	new tracks added by user of one of any of your cloned TS. every user has "GILDED" tracks. when that changes it pushes to you in the context of a "suggested tracks"
-	similar tracks (in v2.0)
-
 I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EASE
 "IF SOMEONE MADE THIS, I WOULD: *USE IT* AND SUPPORT WITH *ONLINE DONATIONS* IN EXCHANGE FOR *WHATEVER PASSIVE REWARDS*"
 list of patrons (ads), and passive rewards(??)
@@ -25,13 +10,13 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 >	BASIC FEATURES
 	'SIGNALS' & 'TOP USERS LIST', WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
 >	Show hn & Listening Graph
-	show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
+	invite system (1 invite), show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 ⚑ july 15th
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???), top trackSet(???)
 >	how to do advertising?
 	process stripe payments
 ⚑ sept 15th!
->	create reports-analytics for patrons
+>	create reports-analytics for patrons: https://github.com/dc-js/dc.js
 
 ### Basic Features (Everything up to 'Signals')
 
@@ -108,7 +93,8 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 ######  Make it Live (on mobile)!
 
 	hardware acceleeration for iOS and Android via PhoneGap
-
+	http://eightmedia.github.io/hammer.js/
+	
 ######  Make it Live (on Linux, OSX, Windows)
 
 ######  Contact page
