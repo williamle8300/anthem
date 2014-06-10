@@ -1,3 +1,18 @@
+A MODEL OF SUPER LEAN, SUCCESFUL LAUNCH: https://zzzz.io/
+
+profile should have
+	"recently played tracks" and...
+  "recently played trackSets"
+type to find
+	weighted by "recently played tracks" or...
+	weighted by "recently played trackSets"
+	recently... modified? (clone TS)
+discovery
+	recently played
+	new songs added to a cloned TS
+	new tracks added by user of one of any of your cloned TS. every user has "GILDED" tracks. when that changes it pushes to you in the context of a "suggested tracks"
+	similar tracks (in v2.0)
+
 I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EASE
 "IF SOMEONE MADE THIS, I WOULD: *USE IT* AND SUPPORT WITH *ONLINE DONATIONS* IN EXCHANGE FOR *WHATEVER PASSIVE REWARDS*"
 list of patrons (ads), and passive rewards(??)
@@ -10,13 +25,13 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 >	BASIC FEATURES
 	'SIGNALS' & 'TOP USERS LIST', WEB (1 TESTER), MOBILE (3 TESTERS), AND LINUX/OSX/WINDOWS VERSION (NODE-WEBKIT)
 >	Show hn & Listening Graph
-	invite system (1 invite), show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
+	show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 ⚑ july 15th
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???), top trackSet(???)
 >	how to do advertising?
 	process stripe payments
 ⚑ sept 15th!
->	create reports-analytics for patrons: https://github.com/dc-js/dc.js
+>	create reports-analytics for patrons
 
 ### Basic Features (Everything up to 'Signals')
 
@@ -93,13 +108,14 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 ######  Make it Live (on mobile)!
 
 	hardware acceleeration for iOS and Android via PhoneGap
-	http://eightmedia.github.io/hammer.js/
-	
+
 ######  Make it Live (on Linux, OSX, Windows)
 
 ######  Contact page
 
 ### Show HN!
+
+	interactive card: http://jessepollak.github.io/card/
 
 	make paid & free iOS app (see "Noon Pacific" as paid example: https://itunes.apple.com/us/app/noon-pacific/id803563983?mt=8)
 	offer something awesome-hilarious-very-unnecessary
@@ -285,11 +301,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-# Ø and "∅" (U+2205)
-OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-# Ø and "∅" (U+2205)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
