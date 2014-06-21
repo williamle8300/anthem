@@ -1,18 +1,5 @@
 A MODEL OF SUPER LEAN, SUCCESFUL LAUNCH: https://zzzz.io/
 
-profile should have
-	"recently played tracks" and...
-  "recently played trackSets"
-type to find
-	weighted by "recently played tracks" or...
-	weighted by "recently played trackSets"
-	recently... modified? (clone TS)
-discovery
-	recently played
-	new songs added to a cloned TS
-	new tracks added by user of one of any of your cloned TS. every user has "GILDED" tracks. when that changes it pushes to you in the context of a "suggested tracks"
-	similar tracks (in v2.0)
-
 I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EASE
 "IF SOMEONE MADE THIS, I WOULD: *USE IT* AND SUPPORT WITH *ONLINE DONATIONS* IN EXCHANGE FOR *WHATEVER PASSIVE REWARDS*"
 list of patrons (ads), and passive rewards(??)
@@ -27,9 +14,11 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 >	Show hn & Listening Graph
 	show HN, sharing tracks??/tracksets??; messaging??; architect, execute, and gather listening metrics
 ⚑ july 15th
+>	take notes somehow? make a request for a missing track?
+>	buy physical CDs, post URIs to mp3 assets
 >	suggested tracks [featured donors or highest donors(?)] (), top tracks [highest donors] (today, week, month), top artists/users(?) [recent donors] (today, week, month), top users(???), top trackSet(???)
 >	how to do advertising?
-	process stripe payments
+>	process stripe payments
 ⚑ sept 15th!
 >	create reports-analytics for patrons
 
@@ -41,47 +30,54 @@ awesome making ! - awesome enjoying of ! - awesome sharing of !
 	http://wicky.nillia.ms/headroom.js/
 	ready-made trackSets to enjoy: tap-and-bestmusiclisteningxpernceEVAR!!!11!!!1!!!
 
-	profile page: updates from clone TS, your own trackSets (with color gradation, and signalCount)
-
-	create something to
+	Find, Enjoy, and Modify CURRENT trackSets
 		- cut/tape at TS
 		- edit trackSet name
 		- shuffle play! w000! aw jea (just... Math.floor(.Qd))
+		- use Apple media keys to play/pause/skip
 		- FINDSONGS AND PLAY IT DIRECTLY FROM WITHIN A TRACKSET, (SEARCH WITHIN TS, GLOBAL TS SEARCHING)
+			• filtering-by-typing
+			• ordering by p/m OR no particular ordering for trackSets?
+			• highlight when 1-to-1 typed match, flip 'submit' button
+			• glowing/altering button
+			• last typed trackSet in inputbox
 		- BLEND 2/MORE TRACKSETS???? QUICKLY SWITCH BETWEEN TRACKSETS
 
-	take notes somehow? make a request for a missing track?
+	Allow users to take notes somehow? make a request for a missing track?
 
 	phantom SoundCloud should be better. Way better. http://karan.github.io/scInstant/
 
-	• filtering-by-typing
-	• ordering by p/m OR no particular ordering for trackSets?
-	• highlight when 1-to-1 typed match, flip 'submit' button
-	• glowing/altering button
-	• last typed trackSet in inputbox
-	====
-	• set/deset track
-	• new trackSet/clone trackSet
-	• add-to-trackSet: allow multiselect!
+	new trackSet/clone trackSet
+	add-to-trackSet: allow multiselect!
 
+	PROFILE PAGE: UPDATES FROM CLONE TS, YOUR OWN TRACKSETS (WITH COLOR GRADATION, AND SIGNALCOUNT)
 	redesign the usersProfileindex page
 		more tracks, darker the color for trackSet
 		circular?
+		list of 10 tracks, most-played tracks in profileIndex.html
+	profile should have
+		"recently played tracks" and...
+	  "recently played trackSets"
+	type to find
+		weighted by "recently played tracks" or...
+		weighted by "recently played trackSets"
+		recently... modified? (clone TS)
+	discovery
+		recently played
+		new songs added to a cloned TS
+		new tracks added by user of one of any of your cloned TS. every user has "GILDED" tracks. when that changes it pushes to you in the form of a "suggested track"
+		similar tracks (in v2.0)
 
-	new routing. share-friendly permalinks to...
+	share-friendly permalinks for...
 		...trackset permIDs
 		...specific tracks in trackSets
-	redo profile page
-		light-dark trackSets with signalCount
-		list of 10 tracks, most-played tracks in profileIndex.html
+
 	total runtime of trackSet ("55mins runtime")?
 
 	SIGNALS!
 	1.5ver??: new tracks on profile (when you CLONE at TS and the other user TAPES in new TRACKS to it)
 
 	Reset password: https://github.com/sahat/hackathon-starter/blob/master/app.js; http://sahatyalkabov.com/2014/02/26/how-to-implement-password-reset-in-nodejs/
-
-	use Apple media keys to play/pause/skip
 
 ######  Make it Live! web (1 tester)
 	make it live. buy domain, privatize Github repo, etcetera...
