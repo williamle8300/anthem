@@ -186,6 +186,7 @@ Stage: Future!
 # Visual Identity; tint everything (https://dribbble.com/shots/1524101-Cafe/attachments/230585)
 ## brand color, brand click button, text highlight color, subtext highlight color, clicky highlight color
 	MOODBOARD: http://stp.so/JxhU | http://dribbble.com/shots/1509811-Dashboard-Activity | http://dribbble.com/shots/1512819-Antigo/attachments/228110 | https://dribbble.com/shots/1537985-Web-Animation/attachments/233838
+	BUTTONS: http://www.polymer-project.org/components/paper-elements/demo.html#paper-tabs
 	NAV: https://hivewallet.com/
 	TYPE: https://gist.github.com/williamle8300/bd09384a7812fe59afbf#file-typeforanthem-css
 	colors/proportions: http://dribbble.com/shots/1487542-Survey-Results-Dashboard?list=users&offset=0
