@@ -1,3 +1,7 @@
+transfer everything to the new Hackathon Starter
+refactor
+
+
 A MODEL OF SUPER LEAN, SUCCESFUL LAUNCH: https://zzzz.io/
 
 I CAN'T CREATE SETS OF MUSIC TO LISTEN TO WHENEVER, WHEREVER I AM... AND WITH EASE
