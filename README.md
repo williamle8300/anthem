@@ -208,6 +208,8 @@ Stage: Future!
 	http://getbootstrap.com
 
 
+  LOGIN using sound: http://benzguo.com/bayan/
+
 # running the app
 
 ## Setting up environment (Codeship.io, Modulus.io, Heroku)
