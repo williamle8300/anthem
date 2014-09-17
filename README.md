@@ -1,6 +1,7 @@
 transfer everything to the new Hackathon Starter
 refactor
 
+Gibbon... but for "mixtapes" rather than "educational subjects": https://gibbon.co
 
 A MODEL OF SUPER LEAN, SUCCESFUL LAUNCH: https://zzzz.io/
 
